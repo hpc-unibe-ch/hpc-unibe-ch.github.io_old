@@ -36,7 +36,7 @@
     
     
       
-        <title>Contributing - HPC Documentation</title>
+        <title>Overview - HPC Documentation</title>
       
     
     
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#contributing" tabindex="1" class="md-skip">
+      <a href="#ubelix-overview" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Contributing
+                Overview
               
             </span>
           
@@ -226,18 +226,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="overview.html" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -249,11 +237,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Contributing
+        Overview
       </label>
     
-    <a href="contributing.html" title="Contributing" class="md-nav__link md-nav__link--active">
-      Contributing
+    <a href="overview.html" title="Overview" class="md-nav__link md-nav__link--active">
+      Overview
     </a>
     
       
@@ -267,16 +255,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#investments" class="md-nav__link">
-    Investments
+  <a href="#description" class="md-nav__link">
+    Description
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-improvements" class="md-nav__link">
-    Documentation Improvements
+  <a href="#high-level-system-overview" class="md-nav__link">
+    High-level system overview
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-server-aka-submit-server" class="md-nav__link">
+    Login Server AKA Submit Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-queueing-system" class="md-nav__link">
+    Batch-Queueing System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-partitions-queues-and-their-compute-nodes" class="md-nav__link">
+    Cluster Partitions (Queues) and their Compute Nodes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-infrastructure" class="md-nav__link">
+    Storage Infrastructure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -288,6 +310,18 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="contributing.html" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
   </li>
 
     
@@ -312,16 +346,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#investments" class="md-nav__link">
-    Investments
+  <a href="#description" class="md-nav__link">
+    Description
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-improvements" class="md-nav__link">
-    Documentation Improvements
+  <a href="#high-level-system-overview" class="md-nav__link">
+    High-level system overview
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-server-aka-submit-server" class="md-nav__link">
+    Login Server AKA Submit Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-queueing-system" class="md-nav__link">
+    Batch-Queueing System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-partitions-queues-and-their-compute-nodes" class="md-nav__link">
+    Cluster Partitions (Queues) and their Compute Nodes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-infrastructure" class="md-nav__link">
+    Storage Infrastructure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -342,16 +410,164 @@
               
                 
                 
-                <h1 id="contributing">Contributing</h1>
-<p>You can support the UBELIX cluster in different ways:</p>
-<ul>
-<li>Investments</li>
-<li>Documentation Improvements</li>
-</ul>
-<h2 id="investments">Investments</h2>
-<p>Some text about money&hellip;</p>
-<h2 id="documentation-improvements">Documentation Improvements</h2>
-<p>Some text aboutn contirbuting to the user guide.</p>
+                <h1 id="ubelix-overview">UBELIX - Overview</h1>
+<h2 id="description">Description</h2>
+<p>This page provides a high-level system overview of UBELIX. It describes the different hardware components that constitute the cluster and gives a quantitative list of the different generations of compute nodes in UBELIX.</p>
+<p>UBELIX (University of Bern Linux Cluster) is a HPC cluster that currently consists of about 330 compute nodes featuring almost 6&lsquo;300 CPU cores and 300&lsquo;000 GPU cores and a software-defined storage infrastructure providing ~580 TB of disk storage net. UBELIX is a heterogeneous cluster, meaning UBELIX consists of different generations of compute nodes with different instruction sets. Compute nodes, front-end servers and the storage are interconnected through a high speed Infiniband network. The front-end servers also provide a link to the outside world. UBELIX is used by various institutes and research groups within chemistry, biology, physics, astronomy, computer science, geography, medical radiology and others for scientific research and by students working on their thesis.</p>
+<h2 id="high-level-system-overview">High-level system overview</h2>
+<p><img alt="Sysstem Overview Diagram" src="images/system_overview.jpg" title="System Overview Diagram" /></p>
+<h3 id="login-server-aka-submit-server">Login Server AKA Submit Server</h3>
+<p>A user connects to the cluster by logging into the submit host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile programs. Resource-demanding/high-performance tasks must be submitted to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks could fit as a job on a compute instead of running it on the submit host</p>
+<h3 id="batch-queueing-system">Batch-Queueing System</h3>
+<p>On UBELIX we use the open-source batch-queueing system <a href="https://slurm.schedmd.com/documentation.html">Slurm</a> for executing jobs on a pool of cooperating compute nodes. Slurm manages the distributed resources provided by the compute nodes and is responsible for accepting, scheduling, dispatching, and managing the remote and distributed execution of sequential, parallel or interactive user jobs.</p>
+<h3 id="cluster-partitions-queues-and-their-compute-nodes">Cluster Partitions (Queues) and their Compute Nodes</h3>
+<p>Partitions group nodes into logical sets. Nodes in a partition share the same limits. You can choose a partition depending on your jobs requirements (CPUs, memory, runtime). UBELIX provides several different partitions as shown in the following table including the corresponding hardware details of the compute nodes each partition is comprised of:</p>
+<table>
+<thead>
+<tr>
+<th>Partition name</th>
+<th>max runtime (wall clock time) in h</th>
+<th>max memory per node</th>
+<th>max cores/node</th>
+<th>GPU</th>
+<th>Node Group</th>
+<th>CPU Generation</th>
+<th>#Nodes</th>
+<th>#Cores</th>
+<th>RAM</th>
+<th>Local Scratch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all</td>
+<td>96h</td>
+<td>243GB</td>
+<td>20 cores</td>
+<td>-</td>
+<td>hnodes[23-42]<br />jnodes<br />knodes<br />anodes[145-216]</td>
+<td>sandybridge<br />sandybridge<br />ivybridge<br />broadwell</td>
+<td>20<br />21<br />36<br />72</td>
+<td>16<br />16<br />16<br />20</td>
+<td>70GB<br />243GB<br />117GB<br />117GB</td>
+<td>250GB<br />500GB<br />850GB<br />850GB</td>
+</tr>
+<tr>
+<td>empi</td>
+<td>24h</td>
+<td>117GB</td>
+<td>20 cores</td>
+<td>-</td>
+<td>anodes[003-144]</td>
+<td>broadwell</td>
+<td>142</td>
+<td>20</td>
+<td>117GB</td>
+<td>850GB</td>
+</tr>
+<tr>
+<td>long<sup id="fnref:long"><a class="footnote-ref" href="#fn:long">1</a></sup></td>
+<td>360h</td>
+<td>86GB</td>
+<td>24</td>
+<td>-</td>
+<td>hnode[43-49]</td>
+<td>ivybridge</td>
+<td>7</td>
+<td>24</td>
+<td>86GB</td>
+<td>500Gb</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>10m</td>
+<td>117GB</td>
+<td>20 cores</td>
+<td>-</td>
+<td>anodes[001-002]</td>
+<td>broadwell</td>
+<td>2</td>
+<td>20</td>
+<td>117GB</td>
+<td>850</td>
+</tr>
+<tr>
+<td>gpu<sup id="fnref:gpu"><a class="footnote-ref" href="#fn:gpu">2</a></sup></td>
+<td>24h</td>
+<td>243GB</td>
+<td>24</td>
+<td>GTX 1080Ti<br />Tesla P100<br />RTX 2080Ti</td>
+<td>gnode[01-06]<br />gnode[07-08]<br />gnode[09-10]</td>
+<td>broadwell</td>
+<td>6<br />2<br />2</td>
+<td>24</td>
+<td>243 GB</td>
+<td>850GB</td>
+</tr>
+<tr>
+<td>gpu-debug</td>
+<td>10m</td>
+<td>243GB</td>
+<td>24</td>
+<td>GTX 1080Ti</td>
+<td>gnode[11-12]</td>
+<td>broadwell</td>
+<td>12</td>
+<td>24</td>
+<td>243 GB</td>
+<td>850GB</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p><strong>The all partition is the default partition if you do not specify one explicitly.</strong></p>
+</div>
+<h3 id="storage-infrastructure">Storage Infrastructure</h3>
+<p>A modular, software-defined storage system (IBM Spectrum Scale) provides a shared, parallel file system that is mounted on all frontend servers and compute nodes. Ubelix also provides a limited amount of storage space on the Campus Storage. The different storage locations are summarized in the table below. For more information about the storage infrastructure see here.</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Connection</th>
+<th>Availability</th>
+<th>Backup</th>
+<th>Quota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/home/ubelix/<group>/<user></td>
+<td>Network</td>
+<td>global</td>
+<td>no</td>
+<td>yes<sup id="fnref:home"><a class="footnote-ref" href="#fn:home">3</a></sup></td>
+</tr>
+<tr>
+<td>/home/storage/<group>/<user></td>
+<td>Network</td>
+<td>submit host</td>
+<td>yes</td>
+<td>yes<sup id="fnref:storage"><a class="footnote-ref" href="#fn:storage">4</a></sup></td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:long">
+<p>Due to the limited resources and the potentially long job runtime, access to the long partition must be requested explicitly once.&#160;<a class="footnote-backref" href="#fnref:long" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:gpu">
+<p>The gpu partition is closed by definition. If you need GPU resources, you have request access to this partition. Write an email to <a href="mailto::hpc@id.unibe.ch">hpc@id.unibe.ch</a> to do so.&#160;<a class="footnote-backref" href="#fnref:gpu" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:home">
+<p>Default: 3TB/user, 15TB/group&#160;<a class="footnote-backref" href="#fnref:home" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:storage">
+<p>Default: 50GB/user&#160;<a class="footnote-backref" href="#fnref:storage" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
@@ -372,7 +588,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="overview.html" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="index.html" title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -381,11 +597,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Home
               </span>
             </div>
           </a>
         
+        
+          <a href="contributing.html" title="Contributing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Contributing
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
