@@ -240,6 +240,114 @@
 
 
   <li class="md-nav__item">
+    <a href="code-of-conduct.html" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/getting-started.html" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/file-transfer.html" title="File Transfer" class="md-nav__link">
+      File Transfer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Job Management with Slurm
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Job Management with Slurm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/job-management/job-submission.html" title="Job Submission" class="md-nav__link">
+      Job Submission
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/file-system-quota.html" title="File System Quota" class="md-nav__link">
+      File System Quota
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="contributing.html" title="Contributing" class="md-nav__link">
       Contributing
     </a>
@@ -577,7 +685,6 @@
 ###### The 6th level &lt;small&gt;with secondary text&lt;/small&gt;
 </pre></div>
 
-
 <h3 id="the-3rd-level">The 3rd level</h3>
 <h4 id="the-4th-level">The 4th level</h4>
 <h5 id="the-5th-level">The 5th level</h5>
@@ -596,7 +703,6 @@ Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 </pre></div>
-
 
 <p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
 <p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
@@ -628,7 +734,6 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 - Or minuses
 + Or pluses
 </pre></div>
-
 
 <ol>
 <li>First ordered list item</li>
@@ -687,7 +792,6 @@ Some text to show that the reference links can follow later.
 [link text itself]: http://www.reddit.com
 </pre></div>
 
-
 <p><a href="https://www.google.com">I&rsquo;m an inline-style link</a></p>
 <p><a href="https://www.google.com" title="Google's Homepage">I&rsquo;m an inline-style link with title</a></p>
 <p><a href="https://www.mozilla.org">I&rsquo;m a reference-style link</a></p>
@@ -710,7 +814,6 @@ Reference-style:
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &quot;Logo Title Text 2&quot;
 </pre></div>
 
-
 <p>Here&rsquo;s our logo (hover to see the title text):</p>
 <p>Inline-style: 
 <img alt="alt text" src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" title="Logo Title Text 1" /></p>
@@ -721,24 +824,56 @@ Reference-style:
 <div class="codehilite"><pre><span></span>Inline `code` has `back-ticks around` it.
 </pre></div>
 
-
 <p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
 <p>Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks &ndash; they&rsquo;re easier and only they support syntax highlighting.</p>
 <div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;JavaScript syntax highlighting&quot;</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
 </pre></div>
 
-
 <div class="codehilite"><pre><span></span><span class="hll"><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Python syntax highlighting&quot;</span>
 </span><span class="k">print</span> <span class="n">s</span>
 </pre></div>
-
 
 <div class="codehilite"><pre><span></span>No language indicated, so no syntax highlighting in Markdown Here (varies on Github). 
 But let&#39;s throw in a &lt;b&gt;tag&lt;/b&gt;.
 </pre></div>
 
+<p>Even tabbed code example for different language are possible:</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">Bash</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">STR</span><span class="o">=</span><span class="s2">&quot;Hello World!&quot;</span>
+<span class="nb">echo</span> <span class="nv">$STR</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span>
 
+<span class="cpf">int main(void) {</span><span class="cp"></span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">C++</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello, world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_3" />
+<label for="__tab_1_3">C#</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
 <h2 id="tables">Tables</h2>
 <p>Tables aren&rsquo;t part of the core Markdown spec, but they are part of GFM and <em>Markdown Here</em> supports them. They are an easy way of adding tables to your email &ndash; a task that would otherwise require copy-pasting from another application.</p>
 <div class="codehilite"><pre><span></span>Colons can be used to align columns.
@@ -758,7 +893,6 @@ Markdown | Less | Pretty
 *Still* | `renders` | **nicely**
 1 | 2 | 3
 </pre></div>
-
 
 <p>Colons can be used to align columns.</p>
 <table>
@@ -818,7 +952,6 @@ Quote break.
 &gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let&#39;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
 </pre></div>
 
-
 <blockquote>
 <p>Blockquotes are very handy in email to emulate reply text.
 This line is part of the same quote.</p>
@@ -842,7 +975,6 @@ This line is part of the same quote.</p>
       bibendum, sodales mauris ut, tincidunt massa.
 </pre></div>
 
-
 <blockquote>
 <p><strong>Sed aliquet</strong>, neque at rutrum mollis, neque nisi tincidunt nibh, vitae
   faucibus lacus nunc at lacus. Nunc scelerisque, quam id cursus sodales, lorem
@@ -864,16 +996,16 @@ This line is part of the same quote.</p>
 <p>Vestibulum vitae orci quis ante viverra ultricies ut eget turpis. Sed eu
   lectus dapibus, eleifend nulla varius, lobortis turpis. In ac hendrerit nisl,
   sit amet laoreet nibh.
-  <code>js hl_lines="8"
-  var _extends = function(target) {
-    for (var i = 1; i &lt; arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        target[key] = source[key];
-      }
-    }
-    return target;
-  };</code></p>
+  <div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">_extends</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">source</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">source</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="hll">  <span class="k">return</span> <span class="nx">target</span><span class="p">;</span>
+</span><span class="p">};</span>
+</pre></div></p>
 <blockquote>
 <p>Praesent at <code>:::js return target</code>, sodales nibh vel, tempor felis. Fusce
       vel lacinia lacus. Suspendisse rhoncus nunc non nisi iaculis ultrices.
@@ -898,7 +1030,6 @@ ___
 Underscores
 </pre></div>
 
-
 <p>Three or more&hellip;</p>
 <hr />
 <p>Hyphens</p>
@@ -917,7 +1048,6 @@ This line is also a separate paragraph, but...
 This line is only separated by a single newline, so it&#39;s a separate line in the *same paragraph*.
 </pre></div>
 
-
 <p>Here&rsquo;s a line for us to start with.</p>
 <p>This line is separated from the one above by two newlines, so it will be a <em>separate paragraph</em>.</p>
 <p>This line is also begins a separate paragraph, but&hellip;<br />
@@ -929,11 +1059,9 @@ This line is only separated by a single newline, so it&rsquo;s a separate line i
 alt=&quot;IMAGE ALT TEXT HERE&quot; width=&quot;240&quot; height=&quot;180&quot; border=&quot;10&quot; /&gt;&lt;/a&gt;
 </pre></div>
 
-
 <p>Or, in pure Markdown, but losing the image sizing and border:</p>
 <div class="codehilite"><pre><span></span>[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
 </pre></div>
-
 
 <p>Referencing a bug by #bugID in your git commit links it to the slip. For example #1. </p>
 <h2 id="admonition">Admonition</h2>
@@ -942,7 +1070,6 @@ alt=&quot;IMAGE ALT TEXT HERE&quot; width=&quot;240&quot; height=&quot;180&quot;
 
     This is the second paragraph.
 </pre></div>
-
 
 <div class="admonition note">
 <p class="admonition-title">Some title</p>
@@ -999,7 +1126,6 @@ is maintained by the W3C.
 *[W3C]:  World Wide Web Consortium
 </pre></div>
 
-
 <p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification
 is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
 <h2 id="definition-lists">Definition Lists</h2>
@@ -1010,7 +1136,6 @@ is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
 Orange
 :   The fruit of an evergreen tree of the genus Citrus.
 </pre></div>
-
 
 <dl>
 <dt>Apple</dt>
