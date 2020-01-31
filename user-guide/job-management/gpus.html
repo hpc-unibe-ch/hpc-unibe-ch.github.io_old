@@ -273,8 +273,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../account-activation-login.html" title="Account Activation and Login" class="md-nav__link">
-      Account Activation and Login
+    <a href="../getting-started.html" title="Getting Started" class="md-nav__link">
+      Getting Started
     </a>
   </li>
 
@@ -285,8 +285,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../getting-started.html" title="Getting Started" class="md-nav__link">
-      Getting Started
+    <a href="../account-activation-login.html" title="Account Activation and Login" class="md-nav__link">
+      Account Activation and Login
     </a>
   </li>
 
@@ -800,16 +800,16 @@
 <td>Nvidia Geforce GTX 1080 Ti</td>
 </tr>
 <tr>
-<td>16</td>
+<td>24</td>
 <td>Nvidia Geforce RTX 2080 Ti</td>
 </tr>
 <tr>
 <td>16</td>
-<td>16   Nvidia Tesla P100</td>
+<td>Nvidia Tesla P100</td>
 </tr>
 </tbody>
 </table>
-<p>You must request a GPU using the <em>&ndash;gres</em> option:</p>
+<p>You must request a GPU using the <code>--gres</code> option:</p>
 <div class="admonition types warning">
 <p>Currently you can specify only two GRES types when requesting GPU resources: gtx1080ti and teslaP100. Requesting type gtx1080ti will allocate GTX or RTX cards to your job. To request a specific Geforce card you must use the &ndash;constraint option (see below).</p>
 </div>
@@ -818,7 +818,7 @@ or
 --gres<span class="o">=</span>gpu:teslaP100:&lt;number_of_gpus&gt;
 </pre></div>
 
-<p>Use the &ndash;constraint option to differentiate between Geforce GTX and RTX cards:</p>
+<p>Use the <code>--constraint</code> option to differentiate between Geforce GTX and RTX cards:</p>
 <div class="codehilite"><pre><span></span>To request Geforce GTX cards:
 --gres<span class="o">=</span>gpu:gtx1080ti:&lt;number_of_gpus&gt;
 --constraint<span class="o">=</span>gtx1080
@@ -829,7 +829,7 @@ To request Geforce RTX cards:
 </pre></div>
 
 <h2 id="job-submission">Job Submission</h2>
-<p>Use the following options to submit a job to the &lsquo;gpu&rsquo; partition using the default job QoS:</p>
+<p>Use the following options to submit a job to the gpu partition using the default job QoS:</p>
 <p><div class="codehilite"><pre><span></span><span class="c1">#SBATCH --partition=gpu</span>
 <span class="c1">#SBATCH --gres=gpu:&lt;type&gt;:&lt;number_of_gpus&gt;</span>
 </pre></div>
