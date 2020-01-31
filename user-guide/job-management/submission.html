@@ -342,7 +342,7 @@
         Job Submission
       </label>
     
-    <a href="job-submission.html" title="Job Submission" class="md-nav__link md-nav__link--active">
+    <a href="submission.html" title="Job Submission" class="md-nav__link md-nav__link--active">
       Job Submission
     </a>
     
@@ -788,8 +788,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../contributing.html" title="Contributing" class="md-nav__link">
-      Contributing
+    <a href="../../halloffame.html" title="Hall of Fame" class="md-nav__link">
+      Hall of Fame
     </a>
   </li>
 
@@ -1498,12 +1498,6 @@ Requesting too little memory will result in job abortion. Requesting too much me
 <h3 id="job-performanceruntime">Job Performance/Runtime</h3>
 <p><strong>It is crucial to request the correct amount of cores for your job.</strong><br />
 For parallel jobs (shared memory, MPI, hybrid) requesting less cores than processes/threads are spawned by the job will lead to potentially overbooked compute nodes. This is because your job will nevertheless spawn the required number of processes/threads (use a certain number of cores) while to the scheduler it appears that some of the utilized resources are still available, and thus the scheduler will allocate those resources to other jobs. Although under certain circumstances it might make sense to share cores among multiple processes/threads, the above reasoning should be considered as a general guideline, especially for unexperienced user.</p>
-<dl>
-<dt>Related pages:</dt>
-<dd><a href="deleting-jobs.html">Deleting Jobs</a></dd>
-<dd><a href="job-submission.html">Job Submission</a></dd>
-<dd><a href="monitoring-jobs.html">Monitoring Jobs</a></dd>
-</dl>
                 
                   
                 
