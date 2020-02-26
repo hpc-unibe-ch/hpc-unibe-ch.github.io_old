@@ -697,6 +697,11 @@
                 <h1 id="jupyter-lab">Jupyter Lab</h1>
 <h2 id="description">Description</h2>
 <p>Some useful information on using Jupyter Lab on UBELIX compute nodes.  </p>
+<blockquote>
+<p><strong>IMPORTANT:</strong> in the following we show how to start the server on a compute node. 
+Please keep in mind that these resources will be dedicated for you, thus and idle session will waste resources. 
+<strong>Please quit your session as soon as you don&rsquo;t use it anymore</strong>, even for a lunch break. Your notebook will maintain all you input/output.</p>
+</blockquote>
 <h2 id="overview">Overview</h2>
 <p>On UBELIX we provide Jupyter Lab for working with Jupyter Notebooks. 
 JupyterLab is a single-user web-based Notebook server, running in the user space. 
@@ -770,6 +775,7 @@ print(socket.gethostname())
 </code></pre></div>
 
 <blockquote>
+<p>IMPORTANT: Please remember to stop your Jupyter Lab server and therewith your slurm job, when you do not need it anymore. Thus, the resource get available to other users again. </p>
 <p>Note: After stopping the JupyterLab server some sessions may get corrupted and do not take input correctly anymore. In this case just quit and re-establish your ssh session.</p>
 </blockquote>
 <h1 id="kernels">Kernels</h1>
