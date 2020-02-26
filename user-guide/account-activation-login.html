@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
@@ -40,12 +40,12 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#account-activation-and-login" tabindex="1" class="md-skip">
+      <a href="#account-activation-and-login" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="HPC Documentation" class="md-header-nav__button md-logo">
+        <a href=".." title="HPC Documentation" aria-label="HPC Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -180,7 +180,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="HPC Documentation" class="md-nav__button md-logo">
+    <a href=".." title="HPC Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -879,18 +879,18 @@
 </div>
 <h3 id="maclinuxunix">Mac/Linux/Unix</h3>
 <p>Run the following commands in a terminal. Open an SSH connection to the submit host:</p>
-<p><div class="codehilite"><pre><span></span>$ ssh &lt;username&gt;@submit.unibe.ch
-</pre></div>
+<p><div class="codehilite"><pre><span></span><code>$ ssh &lt;username&gt;@submit.unibe.ch
+</code></pre></div>
 At the password prompt enter your Campus Account password:</p>
-<div class="codehilite"><pre><span></span>$ ssh &lt;username&gt;@submit.unibe.ch
+<div class="codehilite"><pre><span></span><code>$ ssh &lt;username&gt;@submit.unibe.ch
 Password:
-</pre></div>
+</code></pre></div>
 
 <div class="admonition types note">
 <p>Usually there is no indication of typing when entering your password (not even asterisks or bullets). That&rsquo;s intended. Just enter your password and press &lsquo;enter&rsquo;.</p>
 </div>
 <p>After log in successfully you will see the welcome message and the command prompt:</p>
-<div class="codehilite"><pre><span></span>Last login: Tue Dec  <span class="m">8</span> <span class="m">14</span>:28:58 <span class="m">2015</span> from foo.unibe.ch
+<div class="codehilite"><pre><span></span><code>Last login: Tue Dec  <span class="m">8</span> <span class="m">14</span>:28:58 <span class="m">2015</span> from foo.unibe.ch
 <span class="c1">###################################################################</span>
 <span class="c1">#                      Welcome on UBELIX!                         #</span>
 <span class="c1">#               Manual: http://www.ubelix.unibe.ch/               #</span>
@@ -910,7 +910,7 @@ Processor: 24x Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span 
 Kernel:    <span class="m">2</span>.6.32-573.8.1.el6.x86_64
 Memory:    <span class="m">62</span>.89 GB
 -bash-4.1$
-</pre></div>
+</code></pre></div>
 
 <p>Congratulations, you just logged in to the cluster! You can immediately start using UBELIX.</p>
 <h3 id="microsoft-windows">Microsoft Windows</h3>
@@ -944,28 +944,28 @@ Auto-login username: <username> (Enter your username here)</p>
 <p><strong>Mac/Linux/Unix</strong></p>
 <p>To simplify the login procedure you can define an alias for the user-/hostname combination. Add a host declaration to ~/.ssh/config (substitute your own alias and username):</p>
 <p><strong>~/.ssh/config</strong>
-<div class="codehilite"><pre><span></span>Host &lt;alias&gt;
+<div class="codehilite"><pre><span></span><code>Host &lt;alias&gt;
     Hostname submit.unibe.ch
     User &lt;username&gt;
-</pre></div></p>
+</code></pre></div></p>
 <p>From now on you can log in to the cluster by using the specified alias:</p>
-<div class="codehilite"><pre><span></span>$ ssh &lt;alias&gt;
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ ssh &lt;alias&gt;
+</code></pre></div>
 
 <p>You still have to provide your password!</p>
 <h3 id="ssh-session-timeout">SSH session timeout</h3>
 <p><strong>Mac/Linux/Unix</strong><br />
 If a SSH connection goes idle for a specific amount of time (default 10 minutes), you may be confronted with a &ldquo;Write failed: Broken pipe&rdquo; error message or the connection is simply frozen, and you are forced to log in again. To prevent this from happening, configure the client to periodically (e.g. every 60 seconds) send a message to trigger a response from the remote server. To do so, add the following line to the SSH configuration file:</p>
-<div class="codehilite"><pre><span></span>ServerAliveInterval <span class="m">60</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code>ServerAliveInterval <span class="m">60</span>
+</code></pre></div>
 
 <p>The host declaration may now look like this:</p>
 <p><strong>~/.ssh/config</strong>
-<div class="codehilite"><pre><span></span>Host &lt;alias&gt;
+<div class="codehilite"><pre><span></span><code>Host &lt;alias&gt;
     Hostname submit.unibe.ch
     User &lt;username&gt;
     ServerAliveInterval <span class="m">60</span>
-</pre></div></p>
+</code></pre></div></p>
 <h3 id="ssh-key-pairs">SSH key pairs</h3>
 <p><strong>Mac/Linux/Unix</strong><br />
 SSH keys serve as a means of identifying a user to a SSH server. When using SSH keys your password will never be send over the network.</p>
@@ -974,38 +974,38 @@ SSH keys serve as a means of identifying a user to a SSH server. When using SSH 
 </div>
 <p>If you already have a valid private/public key pair that you also want to use for UBELIX, you can omit the rest of this section and continue with &ldquo;Adding a public key to your UBELIX account&rdquo;.</p>
 <p>First, generate a private/public key pair. You can substitute your own comment (-C).  To accept the default name/location simply press Enter, otherwise specify a different name/location:</p>
-<div class="codehilite"><pre><span></span>$ ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;ubelix&quot;</span>
+<div class="codehilite"><pre><span></span><code>$ ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;ubelix&quot;</span>
 Generating public/private rsa key pair.
 Enter file in which to save the key <span class="o">(</span>/Users/faerber/.ssh/id_rsa<span class="o">)</span>:
-</pre></div>
+</code></pre></div>
 
 <p>Enter and confirm a secure passphrase:</p>
 <div class="admonition types caution">
 <p>If you do not specify a passphrase and someone else gets a copy of your private key, then he will be able to login with your identity on any account that uses the corresponding public key!</p>
 </div>
-<div class="codehilite"><pre><span></span>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+<div class="codehilite"><pre><span></span><code>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
 Enter same passphrase again:
-</pre></div>
+</code></pre></div>
 
 <p><strong>Adding a public key to your UBELIX account</strong><br />
 If you have specified a custom name/location for your SSH keys, you can tell your SSH client to use this key for connecting to UBELIX by specifying the private key on the command line:</p>
-<div class="codehilite"><pre><span></span>$ ssh -i ~/.ssh/id_rsa_ubelix &lt;alias&gt;
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ ssh -i ~/.ssh/id_rsa_ubelix &lt;alias&gt;
+</code></pre></div>
 
 <p>or even better, add the key to your host declaration in your ssh configuration:</p>
 <p><strong>~/.ssh/config</strong>
-<div class="codehilite"><pre><span></span>Host &lt;alias&gt;
+<div class="codehilite"><pre><span></span><code>Host &lt;alias&gt;
     Hostname submit.unibe.ch
     User &lt;username&gt;
     ServerAliveInterval <span class="m">60</span>
     IdentityFile ~/.ssh/id_rsa_ubelix
-</pre></div></p>
+</code></pre></div></p>
 <p>Now, login to UBELIX and append your public key (content of id_rsa.pub) to the file ~/.ssh/authorized_keys. This step can also be done by simply issuing ssh-copy-id -i ~/.ssh/id_rsa_ubelix.pub <alias>. If everything was correct, you will now be able to login without providing you Campus Account password upon your next login attempt. However, if you have secured your key with a passphrase, you will get prompted for your passphrase instead. You can use ssh-agent to securely save your passphrase, so you do not have to re-enter it all the time.</p>
 <p><strong>Adding your Key to SSH-Agent</strong><br />
 The behavior of ssh-agent depends on the flavor and version of your operating system. On OS X Leopard or later your keys can be saved in the system&rsquo;s keychain. Most Linux installations will automatically start ssh-agent when you log in.</p>
 <p>Add the key to ssh-agent:</p>
-<div class="codehilite"><pre><span></span>$ ssh-add ~/.ssh/id_rsa_ubelix
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ ssh-add ~/.ssh/id_rsa_ubelix
+</code></pre></div>
                 
                   
                 
@@ -1068,16 +1068,16 @@ The behavior of ssh-agent depends on the flavor and version of your operating sy
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/ubelix" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/ubelix" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
@@ -1087,9 +1087,9 @@ The behavior of ssh-agent depends on the flavor and version of your operating sy
       
     </div>
     
-      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
       
     
   </body>

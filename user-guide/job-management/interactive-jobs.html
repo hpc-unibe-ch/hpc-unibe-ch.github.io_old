@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
@@ -40,12 +40,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#interactive-jobs" tabindex="1" class="md-skip">
+      <a href="#interactive-jobs" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="HPC Documentation" class="md-header-nav__button md-logo">
+        <a href="../.." title="HPC Documentation" aria-label="HPC Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -180,7 +180,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="HPC Documentation" class="md-nav__button md-logo">
+    <a href="../.." title="HPC Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -720,28 +720,28 @@
 <div class="admonition types caution">
 <p>After the resources have been successfully allocated to your job your are still located on the submit host. Applications started now will not run within the allocation!</p>
 </div>
-<div class="codehilite"><pre><span></span>bash-4.2$ salloc --nodes<span class="o">=</span><span class="m">1</span> --ntasks-per-node<span class="o">=</span><span class="m">4</span> --mem-per-cpu<span class="o">=</span>2G --time<span class="o">=</span><span class="m">01</span>:00:00
+<div class="codehilite"><pre><span></span><code>bash-4.2$ salloc --nodes<span class="o">=</span><span class="m">1</span> --ntasks-per-node<span class="o">=</span><span class="m">4</span> --mem-per-cpu<span class="o">=</span>2G --time<span class="o">=</span><span class="m">01</span>:00:00
 salloc: Pending job allocation <span class="m">63752579</span>
 salloc: job <span class="m">63752579</span> queued and waiting <span class="k">for</span> resources
 salloc: job <span class="m">63752579</span> has been allocated resources
 salloc: Granted job allocation <span class="m">63752579</span>
 bash-4.2$ hostname
 submit01.ubelix.unibe.ch
-</pre></div>
+</code></pre></div>
 
 <h2 id="use-an-allocation">Use an allocation</h2>
 <div class="admonition types note">
 <p>Use srun [options] &ndash;jobid=<id_of_job/allocation> <command> to start a job step under an existing job/allocation.</p>
 </div>
-<div class="codehilite"><pre><span></span>bash-4.2$ srun -n1 --jobid<span class="o">=</span><span class="m">63752579</span> hostname
+<div class="codehilite"><pre><span></span><code>bash-4.2$ srun -n1 --jobid<span class="o">=</span><span class="m">63752579</span> hostname
 knode02
-</pre></div>
+</code></pre></div>
 
 <p>To work interactively on an allocated compute node:</p>
-<div class="codehilite"><pre><span></span>bash-4.2$ srun -n1 --jobid<span class="o">=</span><span class="m">63752579</span> --pty bash
+<div class="codehilite"><pre><span></span><code>bash-4.2$ srun -n1 --jobid<span class="o">=</span><span class="m">63752579</span> --pty bash
 bash-4.2$ hostname
 knode02
-</pre></div>
+</code></pre></div>
 
 <h2 id="x11-forwarding">X11 Forwarding</h2>
 <div class="admonition types notes">
@@ -762,12 +762,12 @@ knode02
 <p>DO NOT reuse an existing SSH key for this purpose, i.e. do not copy an existing private key from your local machine to UBELIX.</p>
 </div>
 <p>With all the requirements in place you can now submit a job and export an X11 display on the allocated compute node, e.g:</p>
-<div class="codehilite"><pre><span></span>srun -n1 --pty --x11 xterm
-</pre></div>
+<div class="codehilite"><pre><span></span><code>srun -n1 --pty --x11 xterm
+</code></pre></div>
 
 <p>With all the requirements in place you can now submit a job and export an X11 display on the allocated compute node, e.g:</p>
-<div class="codehilite"><pre><span></span>srun -n1 --pty --x11 xterm
-</pre></div>
+<div class="codehilite"><pre><span></span><code>srun -n1 --pty --x11 xterm
+</code></pre></div>
                 
                   
                 
@@ -830,16 +830,16 @@ knode02
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/ubelix" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/ubelix" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
@@ -849,9 +849,9 @@ knode02
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
     
   </body>

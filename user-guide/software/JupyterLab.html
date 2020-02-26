@@ -36,7 +36,7 @@
     
     
       
-        <title>Terminal Multiplexer (tmux) - HPC Documentation</title>
+        <title>Jupyter Lab - HPC Documentation</title>
       
     
     
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#terminal-multiplexer-tmux" tabindex="0" class="md-skip">
+      <a href="#jupyter-lab" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Terminal Multiplexer (tmux)
+                Jupyter Lab
               
             </span>
           
@@ -250,12 +250,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       User Guide
@@ -427,12 +425,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
     
     <label class="md-nav__link" for="nav-4-5">
       Software
@@ -472,69 +468,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Terminal Multiplexer (tmux)
-      </label>
-    
-    <a href="terminal-multiplexer-tmux.html" title="Terminal Multiplexer (tmux)" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="terminal-multiplexer-tmux.html" title="Terminal Multiplexer (tmux)" class="md-nav__link">
       Terminal Multiplexer (tmux)
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-example" class="md-nav__link">
-    Working Example
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#further-information" class="md-nav__link">
-    Further Information
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -672,22 +610,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#working-example" class="md-nav__link">
-    Working Example
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#further-information" class="md-nav__link">
-    Further Information
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -708,34 +633,90 @@
               
                 
                 
-                <h1 id="terminal-multiplexer-tmux">Terminal Multiplexer (tmux)</h1>
+                <h1 id="jupyter-lab">Jupyter Lab</h1>
 <h2 id="description">Description</h2>
-<p>Frequently, people want to run programs on the submit host independently from an SSH session. Besides allowing a user to access multiple terminal sessions inside a single terminal window, tmux also lets you separate a program from the Unix shell that started the program. Tmux allows you detach from your running tmux session (the session will keep running in the background) and attach to the same session later on. Because the tmux session is running on the remote server, your session persists even on logout.</p>
-<h2 id="working-example">Working Example</h2>
-<p>Start a new tmux session on the submit host:</p>
-<div class="codehilite"><pre><span></span><code>$ tmux new -s first_session
+<p>Some useful information on using Jupyter Lab on UBELIX compute nodes.  </p>
+<h2 id="overview">Overview</h2>
+<p>On UBELIX we provide Jupyter Lab for working with Jupyter Notebooks. 
+JupyterLab is a single-user web-based Notebook server, running in the user space. 
+JupyterLab servers should be started preferably on a compute node, especially for compute intensive or memory intensive workloads. 
+After starting the Jupyter Lab server your local browser can be connected using port forwarding. Therefore port forwarding needs to be enabled properly. 
+On this page we describe:</p>
+<ul>
+<li>Launch JupyterLab<ul>
+<li>Connect to UBELIX and establishing SSH port forwarding </li>
+<li>SSH with port forwarding</li>
+<li>Launch the JupyterLab server</li>
+<li>Launch JupyterLab in your local browser</li>
+</ul>
+</li>
+<li>Kernels</li>
+<li>Packages</li>
+</ul>
+<h1 id="launch-jupyterlab">Launch JupyterLab</h1>
+<p>Since JupyterLab is a web based application, a port needs to be forwarded to your local machine, where your browser can connect to. 
+This port numbers need to be between 2000 and 65000 and need to be unique on the present machine. 
+The default port for JupyterLab is 8888, but only one user can use this at a time.</p>
+<p>To avoid the need for modifying the following procedure again and again, we suggest to (once) select a unique number (between 2000 and 65000). And then following commands can be hopefully reused without modification.<br />
+The port needs to be specified while establishing the connection to UBELIX and while launching JupyterLab. In the following we use the port number 15051 (<strong>please select another number</strong>).</p>
+<h2 id="setup-ssh-with-port-forwarding">Setup SSH with port forwarding</h2>
+<p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal or using the MobaXterm GUI.</p>
+<h2 id="ssh-with-port-forwarding">SSH with port forwarding</h2>
+<p>The <code>ssh</code> command need to be called with following arguments:</p>
+<p><div class="codehilite"><pre><span></span><code>ssh -L 15051:localhost:15051 submit.unibe.ch
+</code></pre></div>
+If configured in your <code>.ssh/config</code>, you can also use the alias instead of the full name for UBELIX.</p>
+<h2 id="launch-the-jupyterlab-server">Launch the JupyterLab server</h2>
+<p>On UBELIX, the required <em>Anaconda3</em> module needs to be loaded. If you want to use additional kernels (R) you need to load additional modules, e.g. IRkernel (for R kernels):</p>
+<div class="codehilite"><pre><span></span><code>module load Anaconda3
 </code></pre></div>
 
-<p>This will automatically attach you to a tmux session named first_session.</p>
-<p>Do your work within your tmux session.</p>
-<p>Detach from the session:</p>
-<div class="codehilite"><pre><span></span><code>Ctrl-b d
+<p>A script is provided, taking care of enabling the port forwarding to the compute node and launching JupyterLab. 
+As an example a session with 60 min on 1 core can be launched using:</p>
+<div class="codehilite"><pre><span></span><code>srun --ntasks 1 -t 60  jupyter-compute 15051  # please change port number
 </code></pre></div>
 
-<p>Now you cloud disconnect from the server and reconnect later on.</p>
-<p>List all your existing tmux session:</p>
-<div class="codehilite"><pre><span></span><code>$ tmux ls
-first_session: <span class="m">1</span> windows <span class="o">(</span>created Wed Jan <span class="m">14</span> <span class="m">15</span>:23:11 <span class="m">2016</span><span class="o">)</span> <span class="o">[</span>80x85<span class="o">]</span>
-<span class="sb">```</span>Bash
+<p>After general output, JupyterLab prints a URL with a unique key and the network port number where the web-server is listening, this should look similar to:</p>
+<div class="codehilite"><pre><span></span><code>...
+[C 21:43:35.291 LabApp]
 
-Reattach to an existing tmux session:
-
-<span class="sb">```</span>Bash
-$ tumb attach -t first_session
+    To access the notebook, open this file in a browser:
+        file:///gpfs/homefs/id/ms20e149/.local/share/jupyter/runtime/nbserver-30194-open.html
+    Or copy and paste one of these URLs:
+        http://anode001:15051/?token=69ba5d24acab5915f2520c008a57df51f3cc38b7050ea073
+     or http://127.0.0.1:15051/?token=69ba5d24acab5915f2520c008a57df51f3cc38b7050ea073
 </code></pre></div>
 
-<h3 id="further-information">Further Information</h3>
-<p>A tmux primer: <a href="https://danielmiessler.com/study/tmux/">https://danielmiessler.com/study/tmux</a></p>
+<p>The last line needs to be copied in your local browser.</p>
+<p>More resources can be requested, e.g. by using:</p>
+<p><div class="codehilite"><pre><span></span><code>srun --ntasks 1 -t 60 --cpus-per-task 5 --mem 512MB jupyter-compute 15051 
+</code></pre></div>
+Where 5 cores are requested for threading and a total memory of 3GB. 
+Please do not use multiprocessing.cpu_count() since this is returning the total amount of cores on the node. 
+Furthermore, if you use libraries, which implement threading: align the numbers of threads (often called jobs) to the selected number of cores (otherwise the performance will be affected).</p>
+<p>OR requesting GPU resources on a node with a TeslaP100
+<div class="codehilite"><pre><span></span><code>srun --ntasks 1 -t 60 --partition=gpu --gres=gpu:teslaP100:1 jupyter-compute 15051
+</code></pre></div></p>
+<h2 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h2>
+<p>Finally, you need to open your local web browser and copy and paste the URL specified by the JupyterLab server into the address bar. After initializing Jupyter Lab you should see a page similar to:</p>
+<p><img alt="jupyterLab-example" src="../../images/jupyterLab-example.png" title="JupyterLab Example" /></p>
+<p>Therewith the Notebook and its containing tasks are performed on a compute node, which can double check e.g. using using the following in Python:</p>
+<div class="codehilite"><pre><span></span><code>import socket
+print(socket.gethostname())
+</code></pre></div>
+
+<h1 id="kernels">Kernels</h1>
+<p>The following JupyterLab kernel are installed:
+* Python3
+* R</p>
+<h2 id="r">R</h2>
+<p>verify that the module <em>IRkernel</em> is loaded</p>
+<div class="codehilite"><pre><span></span><code>module load IRkernel
+</code></pre></div>
+
+<h2 id="packages">Packages</h2>
+<p>There are a long list of default packages provided by Anaconda3 (list all using <code>!pip list</code>) and R (list using <code>installed.packages(.Library)</code>, note the list is shortened). </p>
+<p>Furthermore, you can install additional packages in Python using <code>pip install --user</code> or in R using <code>install.packages("sampling")</code>. </p>
                 
                   
                 
@@ -753,41 +734,6 @@ $ tumb attach -t first_session
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="installing-custom-software.html" title="Installing Custom Software" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Installing Custom Software
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="matlab.html" title="Matlab" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Matlab
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

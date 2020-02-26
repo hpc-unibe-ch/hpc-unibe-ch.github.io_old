@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
@@ -40,12 +40,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#r" tabindex="1" class="md-skip">
+      <a href="#r" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="HPC Documentation" class="md-header-nav__button md-logo">
+        <a href="../.." title="HPC Documentation" aria-label="HPC Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -180,7 +180,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="HPC Documentation" class="md-nav__button md-logo">
+    <a href="../.." title="HPC Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -793,7 +793,7 @@
                 <h1 id="r">R</h1>
 <h2 id="description">Description</h2>
 <p>UBELIX no longer features the R version from EPEL as this version gets automatically updated and therefore things are not reproducible. R isn now provided by an environment module and must be loaded explicitly:</p>
-<div class="codehilite"><pre><span></span>module load R/3.4.4-foss-2018a-X11-20180131
+<div class="codehilite"><pre><span></span><code>module load R/3.4.4-foss-2018a-X11-20180131
 
 -bash-4.1$ R --version
 R version <span class="m">3</span>.4.4 <span class="o">(</span><span class="m">2018</span>-03-15<span class="o">)</span> -- <span class="s2">&quot;Someone to Lean On&quot;</span>
@@ -805,19 +805,19 @@ You are welcome to redistribute it under the terms of the
 GNU General Public License versions <span class="m">2</span> or <span class="m">3</span>.
 For more information about these matters see
 http://www.gnu.org/licenses/.
-</pre></div>
+</code></pre></div>
 
 <p>The <strong>Vital-IT project</strong> is also providing some versions. The following commands will list the available versions:</p>
-<div class="codehilite"><pre><span></span>module load vital-it
+<div class="codehilite"><pre><span></span><code>module load vital-it
 module avail <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> grep <span class="s2">&quot; R\/&quot;</span>
   R/3.4.2
   R/latest
-</pre></div>
+</code></pre></div>
 
 <p>To use one of these version, you have to load the respective module, which then masks the system&rsquo;s version, i.e.</p>
-<div class="codehilite"><pre><span></span>module load vital-it
+<div class="codehilite"><pre><span></span><code>module load vital-it
 module load R/3.4.2
-</pre></div>
+</code></pre></div>
 
 <div class="admonition types danger">
 <p>Do not forget to put those two lines into your job script as well in order to use the same version from within the job later on a compute node!</p>
@@ -826,7 +826,7 @@ module load R/3.4.2
 <h3 id="customizing-the-workspace">Customizing the Workspace</h3>
 <p>At startup, unless &ndash;no-init-file, or &ndash;vanilla was given, R searches for a user profile in the current directory (from where R was started), or in the user&rsquo;s home directory (in that order). A different path of the user profile file can be specified by the R_PROFILE_USER environment variable. The found user profile is then sourced into the workspace. You can use this file to customize your workspace, i.e., to set specific options, define functions, load libraries, and so on. Consider the following example:</p>
 <p><strong>.Rprofile</strong>
-<div class="codehilite"><pre><span></span><span class="c1"># Set some options</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Set some options</span>
 options<span class="o">(</span><span class="nv">stringsAsFactors</span><span class="o">=</span>FALSE<span class="o">)</span>
 options<span class="o">(</span>max.print<span class="o">=</span><span class="m">100</span><span class="o">)</span>
 options<span class="o">(</span><span class="nv">scipen</span><span class="o">=</span><span class="m">10</span><span class="o">)</span>
@@ -853,25 +853,25 @@ myDistance &lt;- <span class="k">function</span><span class="o">(</span>x, y, <s
   <span class="o">}</span>
   <span class="k">return</span><span class="o">(</span>d<span class="o">)</span>
 <span class="o">}</span>
-</pre></div></p>
+</code></pre></div></p>
 <h3 id="installing-packages">Installing Packages</h3>
 <p>Run R interactively. To install additional R packages call the install.packages() function with the name of the package as argument. Upon installing the first package, you will receive a warning that you do not have sufficient permissions to write to &ldquo;/usr/lib64/R/library&rdquo;. Type &ldquo;y&rdquo; to use a personal library instead:</p>
-<div class="codehilite"><pre><span></span>&gt; install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
+<div class="codehilite"><pre><span></span><code>&gt; install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
 Installing package into ‘/usr/lib64/R/library’
 <span class="o">(</span>as ‘lib’ is unspecified<span class="o">)</span>
 Warnung in install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
   <span class="err">&#39;</span><span class="nv">lib</span> <span class="o">=</span> <span class="s2">&quot;/usr/lib64/R/library&quot;</span> ist nicht schreibbar
 Would you like to use a personal library instead?  <span class="o">(</span>y/n<span class="o">)</span>
-</pre></div>
+</code></pre></div>
 
 <p>Next, type &ldquo;y&rdquo; to create your personal library at the default location within your HOME directory:</p>
-<div class="codehilite"><pre><span></span>Would you like to create a personal library
+<div class="codehilite"><pre><span></span><code>Would you like to create a personal library
 ~/R/x86_64-redhat-linux-gnu-library/3.4
-</pre></div>
+</code></pre></div>
 
 <p>Next, select a CRAN mirror to download from. The mirrorlist will be not the same as below. The mirrolist is constantly changing, but will look like it.</p>
 <p>Pick any country nearby, i.e. Switzerland. If https makes problems, pick &ldquo;(HTTP mirrors)&rdquo; and then select something nearby as shown below</p>
-<div class="codehilite"><pre><span></span>--- Bitte einen CRAN Spiegel für diese Sitzung auswählen ---
+<div class="codehilite"><pre><span></span><code>--- Bitte einen CRAN Spiegel für diese Sitzung auswählen ---
 Error in download.file<span class="o">(</span>url, <span class="nv">destfile</span> <span class="o">=</span> f, <span class="nv">quiet</span> <span class="o">=</span> TRUE<span class="o">)</span> :
   nicht unterstütztes URL Schema
 HTTPS CRAN mirror
@@ -906,21 +906,21 @@ HTTP CRAN mirror
 <span class="m">97</span>: USA <span class="o">(</span>TX<span class="o">)</span>                     <span class="m">98</span>: USA <span class="o">(</span>WA<span class="o">)</span>
 <span class="m">99</span>: Venezuela
 Selection: <span class="m">71</span>
-</pre></div>
+</code></pre></div>
 
 <p>Finally, the package gets installed. After installing the package you can close the interactive session by typing q().</p>
 <p>Do not forget to load the corresponding library (for each R session) before using functions provided by the package:</p>
-<div class="codehilite"><pre><span></span>&gt; library<span class="o">(</span>doParallel<span class="o">)</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code>&gt; library<span class="o">(</span>doParallel<span class="o">)</span>
+</code></pre></div>
 
 <h3 id="batch-execution-of-r">Batch Execution of R</h3>
 <p>The syntax for running R non-interactively with input read from <em>infile</em> and output send to <em>outfile</em> is:</p>
-<div class="codehilite"><pre><span></span>R CMD BATCH <span class="o">[</span>options<span class="o">]</span> infile <span class="o">[</span>outfile<span class="o">]</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code>R CMD BATCH <span class="o">[</span>options<span class="o">]</span> infile <span class="o">[</span>outfile<span class="o">]</span>
+</code></pre></div>
 
 <p>Suppose you placed your R code in a file called foo.R:</p>
 <p><strong>foo.R</strong></p>
-<div class="codehilite"><pre><span></span>set.seed<span class="o">(</span><span class="m">3000</span><span class="o">)</span>
+<div class="codehilite"><pre><span></span><code>set.seed<span class="o">(</span><span class="m">3000</span><span class="o">)</span>
 valx&lt;-seq<span class="o">(</span>-2,2,0.01<span class="o">)</span>
 valy&lt;-2*valx+rnorm<span class="o">(</span>length<span class="o">(</span>valx<span class="o">)</span>,0,4<span class="o">)</span>
 <span class="c1"># Save plot to pdf</span>
@@ -928,11 +928,11 @@ pdf<span class="o">(</span><span class="s1">&#39;histplot.pdf&#39;</span><span c
 hist<span class="o">(</span>valy,prob<span class="o">=</span>TRUE,breaks<span class="o">=</span><span class="m">20</span>, <span class="nv">main</span><span class="o">=</span><span class="s2">&quot;Histogram and PDF&quot;</span>,xlab<span class="o">=</span><span class="s2">&quot;y&quot;</span>, <span class="nv">ylim</span><span class="o">=</span>c<span class="o">(</span><span class="m">0</span>,0.15<span class="o">))</span>
 curve<span class="o">(</span>dnorm<span class="o">(</span>x,mean<span class="o">(</span>valy<span class="o">)</span>,sd<span class="o">(</span>valy<span class="o">))</span>,add<span class="o">=</span>T,col<span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="o">)</span>
 dev.off<span class="o">()</span>
-</pre></div>
+</code></pre></div>
 
 <p>To execute foo.R on the cluster, add the R call to your job script&hellip;</p>
 <p><strong>Rbatch.sh</strong></p>
-<div class="codehilite"><pre><span></span><span class="ch">#! /bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#! /bin/bash</span>
 <span class="c1">#SBATCH --mail-user=&lt;put your valid email address here!&gt;</span>
 <span class="c1">#SBATCH --mail-type=end,fail</span>
 <span class="c1">#SBATCH --time=01:00:00</span>
@@ -942,26 +942,26 @@ dev.off<span class="o">()</span>
 module load vital-it
 module load R/3.4.2
 R CMD BATCH --no-save --no-restore foo.R
-</pre></div>
+</code></pre></div>
 
 <p>&hellip;and submit your job script to the cluster:</p>
-<div class="codehilite"><pre><span></span>sbatch Rbatch.sh
-</pre></div>
+<div class="codehilite"><pre><span></span><code>sbatch Rbatch.sh
+</code></pre></div>
 
 <h2 id="advanced-topics">Advanced Topics</h2>
 <h3 id="parallel-r">Parallel R</h3>
 <p>By default, R will not make use of multiple cores available on compute nodes to parallelize computations. Parallel processing functionality is provided by add-on packages. Consider the following contrived example to get you started. To follow the example, you need the following packages installed, and the corresponding libraries loaded:</p>
-<div class="codehilite"><pre><span></span>&gt; library<span class="o">(</span>doParallel<span class="o">)</span>
+<div class="codehilite"><pre><span></span><code>&gt; library<span class="o">(</span>doParallel<span class="o">)</span>
 &gt; library<span class="o">(</span>foreach<span class="o">)</span>
-</pre></div>
+</code></pre></div>
 
 <p>The foreach package provides a looping construct for executing R statements repeatedly, either sequentially (similar to a for loop) or in parallel. While the binary operator %do% is used for executing the statements sequentially, the %dopar% operator is used to execute code in parallel using the currently registered backend. The getDoParWorkers() function returns the number of execution workers (cores) available in the currently registered doPar backend, by default this corresponds to one worker:</p>
-<div class="codehilite"><pre><span></span>&gt; getDoParWorkers<span class="o">()</span>
+<div class="codehilite"><pre><span></span><code>&gt; getDoParWorkers<span class="o">()</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">1</span>
-</pre></div>
+</code></pre></div>
 
 <p>Hence, the following R code will execute on a single core (even with the %dopar% operator):</p>
-<div class="codehilite"><pre><span></span>&gt; start.time &lt;- Sys.time<span class="o">()</span>
+<div class="codehilite"><pre><span></span><code>&gt; start.time &lt;- Sys.time<span class="o">()</span>
 &gt; foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>FALSE<span class="o">)</span> %dopar% <span class="o">{</span>
 + Sys.sleep<span class="o">(</span><span class="m">3</span>*i<span class="o">)</span>
 + i
@@ -969,30 +969,30 @@ R CMD BATCH --no-save --no-restore foo.R
 end.time &lt;- Sys.time<span class="o">()</span>
 exec.time &lt;- end.time - start.time
 <span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span> <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
-</pre></div>
+</code></pre></div>
 
 <p>Let&rsquo;s measure the runtime of the sequentiall execution:</p>
-<div class="codehilite"><pre><span></span>&gt; start.time &lt;- Sys.time<span class="o">()</span><span class="p">;</span> foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>TRUE<span class="o">)</span> %dopar% <span class="o">{</span> Sys.sleep<span class="o">(</span><span class="m">3</span>*i<span class="o">)</span><span class="p">;</span> i <span class="o">}</span><span class="p">;</span> end.time &lt;- Sys.time<span class="o">()</span><span class="p">;</span> exec.time &lt;- end.time - start.time<span class="p">;</span> exec.time
+<div class="codehilite"><pre><span></span><code>&gt; start.time &lt;- Sys.time<span class="o">()</span><span class="p">;</span> foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>TRUE<span class="o">)</span> %dopar% <span class="o">{</span> Sys.sleep<span class="o">(</span><span class="m">3</span>*i<span class="o">)</span><span class="p">;</span> i <span class="o">}</span><span class="p">;</span> end.time &lt;- Sys.time<span class="o">()</span><span class="p">;</span> exec.time &lt;- end.time - start.time<span class="p">;</span> exec.time
 <span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span> <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
 Time difference of <span class="m">30</span>.04088 secs
-</pre></div>
+</code></pre></div>
 
 <p>Now, we will register a parallel backend to allow the %dopar% operator to execute in parallel. The doParallel package provides a parallel backend for the %dopar% operator. Let&rsquo;s find out the number of cores available on the current node</p>
-<div class="codehilite"><pre><span></span>&gt; detectCores<span class="o">()</span>
+<div class="codehilite"><pre><span></span><code>&gt; detectCores<span class="o">()</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">24</span>
-</pre></div>
+</code></pre></div>
 
 <p>To register the doPar backend call the function registerDoParallel(). With no arguments provided, the number of cores assigned to the backend matches the value of <em>options(&ldquo;cores&rdquo;)</em>, or if not set, to half of the cores detected by the parallel package. </p>
-<div class="codehilite"><pre><span></span> registerDoParallel<span class="o">()</span>
+<div class="codehilite"><pre><span></span><code> registerDoParallel<span class="o">()</span>
 &gt; getDoParWorkers<span class="o">()</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">12</span>
-</pre></div>
+</code></pre></div>
 
 <p>To assign 4 cores to the parallel backend:</p>
-<div class="codehilite"><pre><span></span>&gt; registerDoParallel<span class="o">(</span><span class="nv">cores</span><span class="o">=</span><span class="m">4</span><span class="o">)</span>
+<div class="codehilite"><pre><span></span><code>&gt; registerDoParallel<span class="o">(</span><span class="nv">cores</span><span class="o">=</span><span class="m">4</span><span class="o">)</span>
 &gt; getDoParWorkers<span class="o">()</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span>
-</pre></div>
+</code></pre></div>
 
 <div class="admonition types caution">
 <p class="admonition-title">Request the correct number of slots</p>
@@ -1000,12 +1000,12 @@ Time difference of <span class="m">30</span>.04088 secs
 <code>registerDoParallel(cores=Sys.getenv("SLURM_CPUS_PER_TASK"))</code></p>
 </div>
 <p>Now, run the example again:</p>
-<div class="codehilite"><pre><span></span>&gt; foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>FALSE<span class="o">)</span> %dopar% <span class="o">{</span>
+<div class="codehilite"><pre><span></span><code>&gt; foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>FALSE<span class="o">)</span> %dopar% <span class="o">{</span>
 + Sys.sleep<span class="o">(</span><span class="m">3</span>*i<span class="o">)</span>
 + i
 + <span class="o">}</span>
 <span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span> <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
-</pre></div>
+</code></pre></div>
 
 <p>Well, the output is basically the same (the results are combined in the same order!). Let&rsquo;s again measure the runtime of the parallel execution on 4 cores:</p>
 <div class="admonition types caution">
@@ -1093,16 +1093,16 @@ Time difference of <span class="m">30</span>.04088 secs
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/ubelix" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/ubelix" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
@@ -1112,9 +1112,9 @@ Time difference of <span class="m">30</span>.04088 secs
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
     
   </body>

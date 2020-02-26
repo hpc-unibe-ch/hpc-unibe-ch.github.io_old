@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
@@ -40,12 +40,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#job-submission" tabindex="1" class="md-skip">
+      <a href="#job-submission" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="HPC Documentation" class="md-header-nav__button md-logo">
+        <a href="../.." title="HPC Documentation" aria-label="HPC Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -180,7 +180,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="HPC Documentation" class="md-nav__button md-logo">
+    <a href="../.." title="HPC Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -1040,8 +1040,8 @@
 <h3 id="sbatch">sbatch</h3>
 <p>The <em>sbatch</em> command is used to submit a job script for later execution. It is the most common way to submit a job to the cluster due to its reusability. Slurm options are usually embedded in a job script prefixed by &lsquo;#SBATCH&rsquo; directives. Slurm options specified as command line options overwrite corresponding options embedded in the job script</p>
 <p>Syntax</p>
-<div class="codehilite"><pre><span></span>sbatch <span class="o">[</span>options<span class="o">]</span> script <span class="o">[</span>args...<span class="o">]</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code>sbatch <span class="o">[</span>options<span class="o">]</span> script <span class="o">[</span>args...<span class="o">]</span>
+</code></pre></div>
 
 <h3 id="job-script"><small><strong>Job Script</strong></small></h3>
 <p>Usually a job script consists of two parts. The first part is optional but highly recommended:</p>
@@ -1209,7 +1209,7 @@
 </table>
 <h3 id="example"><small><strong>Example</strong></small></h3>
 <p>jobs.sh
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-type=none</span>
 <span class="c1">#SBATCH --job-name=&quot;Serial example&quot;</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
@@ -1217,11 +1217,11 @@
 
 <span class="c1"># Your code below this line</span>
 ./calc_mat.sh
-</pre></div></p>
+</code></pre></div></p>
 <p>Submit the job script:</p>
-<div class="codehilite"><pre><span></span>sbatch job.sh
+<div class="codehilite"><pre><span></span><code>sbatch job.sh
 Submitted batch job 30215045
-</pre></div>
+</code></pre></div>
 
 <div class="admonition types note">
 <p>See below for more examples</p>
@@ -1229,10 +1229,10 @@ Submitted batch job 30215045
 <h3 id="salloc"><small><strong>salloc</strong></small></h3>
 <p>The <em>salloc</em> command is used to allocate resources (e.g. nodes), possibly with a set of constraints (e.g. number of processor per node) for later utilization. It is typically used to allocate resources and spawn a shell, in which the <em>srun</em> command is used to launch parallel tasks.</p>
 <p>Syntax
-<div class="codehilite"><pre><span></span>salloc <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>&lt;command&gt; <span class="o">[</span>args...<span class="o">]]</span>
-</pre></div></p>
+<div class="codehilite"><pre><span></span><code>salloc <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>&lt;command&gt; <span class="o">[</span>args...<span class="o">]]</span>
+</code></pre></div></p>
 <p>Example
-<div class="codehilite"><pre><span></span>bash$ salloc -N <span class="m">2</span> sh
+<div class="codehilite"><pre><span></span><code>bash$ salloc -N <span class="m">2</span> sh
 salloc: Granted job allocation <span class="m">247</span>
 sh$ module load openmpi/1.10.2-gcc
 sh$ srun --mpi<span class="o">=</span>pmi2 mpi_hello_world
@@ -1240,15 +1240,15 @@ Hello, World.  I am <span class="m">1</span> of <span class="m">2</span> running
 Hello, World.  I am <span class="m">0</span> of <span class="m">2</span> running on knlnode02.ubelix.unibe.ch
 sh$ <span class="nb">exit</span>
 salloc: Relinquishing job allocation <span class="m">247</span>
-</pre></div></p>
+</code></pre></div></p>
 <h3 id="srun"><small><strong>srun</strong></small></h3>
 <p>The <em>srun</em> command creates job steps. One or multiple <em>srun</em> invocations are usually used from within an existing resource allocation. Thereby, a job step can utilize all resources allocated to the job, or utilize only a subset of the resource allocation. Multiple job steps can run sequentially in the order defined in the batch script or run in parallel, but can together never utilize more resources than provided by the allocation.</p>
 <div class="admonition types danger">
 <p>Do not submit a job script using <em>srun</em>. Embedded Slurm options (#SBATCH) are not parsed by <em>srun</em>.</p>
 </div>
 <p>Syntax
-<div class="codehilite"><pre><span></span>srun [options] executable [args...]
-</pre></div></p>
+<div class="codehilite"><pre><span></span><code>srun [options] executable [args...]
+</code></pre></div></p>
 <h3 id="when-do-i-use-srun-in-my-job-script"><small><strong>When do I use srun in my job script?</strong></small></h3>
 <p>Use <em>srun</em> in your job script to</p>
 <ul>
@@ -1257,7 +1257,7 @@ salloc: Relinquishing job allocation <span class="m">247</span>
 </ul>
 <p><strong>Example</strong>
 Run MPI task:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-type=none</span>
 <span class="c1">#SBATCH --job-name=&quot;Open MPI example&quot;</span>
 <span class="c1">#SBATCH --nodes=2</span>
@@ -1268,10 +1268,10 @@ Run MPI task:</p>
 <span class="c1"># Your code below this line</span>
 module load openmpi/1.10.2-gcc
 srun --mpi<span class="o">=</span>pmi2 mpi_bin
-</pre></div>
+</code></pre></div>
 
 <p>Run two jobs simultaneously:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-type=none</span>
 <span class="c1">#SBATCH --job-name=&quot;Open MPI example&quot;</span>
 <span class="c1">#SBATCH --nodes=2</span>
@@ -1285,41 +1285,41 @@ srun --nodes<span class="o">=</span><span class="m">1</span> --ntasks<span class
 srun --nodes<span class="o">=</span><span class="m">1</span> --ntasks<span class="o">=</span><span class="m">2</span> job02.sh <span class="p">&amp;</span>
 <span class="c1"># Wait for both commands to finish. This is important when running bash commands in the background (using &amp;)!</span>
 <span class="nb">wait</span>
-</pre></div>
+</code></pre></div>
 
 <h2 id="requesting-a-partition-queue">Requesting a Partition (Queue)</h2>
 <p>The default partition is the &lsquo;all&rsquo; partition. If you do not explicitly request a partition, your job will run in the default partition. To request a different partition, you must use the &ndash;partition option:</p>
-<div class="codehilite"><pre><span></span><span class="c1">#SBATCH --partition=long</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH --partition=long</span>
+</code></pre></div>
 
 <p>See <a href="../../overview.html#cluster-partitions-queues-and-their-compute-nodes">here</a>  for a list of availalble partitions.</p>
 <h2 id="requesting-an-account">Requesting an Account</h2>
 <p>Accounts are used for accounting purposes. Every user has a default account that is used unless a different account is specified using the &ndash;account option. Regular users only have a single account and can thus not request a different account. The default account for regular user is named after their group (e.g. dcb):</p>
-<div class="codehilite"><pre><span></span>$ sacctmgr show user foo
+<div class="codehilite"><pre><span></span><code>$ sacctmgr show user foo
       User   Def Acct     Admin
 ---------- ---------- ---------
        foo        bar      None
-</pre></div>
+</code></pre></div>
 
 <div class="admonition type note">
 <p>The remaining information provided in this section applies only to users with enhanced privileges on the <em>empi</em> partition.</p>
 </div>
 <p>Users with enhanced privileges have an additional account for the <em>empi</em> partition. This additional account is set as their default account, which means they don&rsquo;t have to specify an account when submitting to the <em>empi</em> partition (&ndash;partition=<em>empi</em>), but must specify their &ldquo;group account&rdquo; (&ndash;account=<group>) for submitting to any other partition (e.g <em>all</em>). If a wrong account/partition combination is requested, you will experience the following error message:</p>
-<div class="codehilite"><pre><span></span>sbatch: error: Batch job submission failed: Invalid account or account/partition combination specified
-</pre></div>
+<div class="codehilite"><pre><span></span><code>sbatch: error: Batch job submission failed: Invalid account or account/partition combination specified
+</code></pre></div>
 
 <h3 id="example_1"><small><strong>Example</strong></small></h3>
 <p>Here are some examples on the usage of the &ndash;account and &ndash;partition options.</p>
 <p>Regular users:</p>
-<div class="codehilite"><pre><span></span>Submit to the <span class="s2">&quot;all&quot;</span> partition:
+<div class="codehilite"><pre><span></span><code>Submit to the <span class="s2">&quot;all&quot;</span> partition:
 No options required!
 
 Submit to any other partition:
 --partition<span class="o">=</span>&lt;partname&gt; e.g. --partition<span class="o">=</span>empi
-</pre></div>
+</code></pre></div>
 
 <p>Users with enhanced privileges on the <em>empi</em> partition:</p>
-<div class="codehilite"><pre><span></span>Submit to the <span class="s2">&quot;all&quot;</span> partition:
+<div class="codehilite"><pre><span></span><code>Submit to the <span class="s2">&quot;all&quot;</span> partition:
 --account<span class="o">=</span>&lt;grpname&gt; e.g. --account<span class="o">=</span>dcb
 
 Submit to the <span class="s2">&quot;empi&quot;</span> partition:
@@ -1328,24 +1328,24 @@ Submit to the <span class="s2">&quot;empi&quot;</span> partition:
 Submit to any other partition:
 --account<span class="o">=</span>&lt;grpname&gt; e.g. --account<span class="o">=</span>dcb
 --partition<span class="o">=</span>&lt;partname&gt; e.g. --partition<span class="o">=</span>long
-</pre></div>
+</code></pre></div>
 
 <h2 id="parallel-jobs">Parallel Jobs</h2>
 <p>A parallel job either runs on multiple CPU cores on a single compute node, or on multiple CPU cores distributed over multiple compute nodes. With Slurm you can request tasks, and CPUs per task. A task corresponds to a process that may be made up of multiple threads (CPUs per task). Different tasks of a job allocation may run on different compute nodes, while all threads that belong to a certain process execute on the same node. <strong>For shared memory jobs (SMP, parallel jobs that run on a single compute node) one would request a single task and a certain number of CPUs for that task:</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1">#SBATCH --cpus-per-task=16</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH --cpus-per-task=16</span>
+</code></pre></div>
 
 <p><strong>For MPI jobs (parallel jobs that may be distributed over multiple compute nodes) one would request a certain number of tasks and certain number of nodes:</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1">#SBATCH --nodes=2</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH --nodes=2</span>
 <span class="c1">#SBATCH --ntasks-per-node=16</span>
-</pre></div>
+</code></pre></div>
 
 <div class="admonition type danger">
 <p>The requested node,task, and CPU resources must match! For example, you cannot request one node (&ndash;nodes=1) and more tasks (&ndash;ntasks-per-node) than CPU cores are available on a single node in the partition. In such a case you will experience an error message: <strong>sbatch: error: Batch job submission failed: Requested node configuration is not available.</strong></p>
 </div>
 <h3 id="open-mpi"><small><strong>Open MPI</strong></small></h3>
 <p>Open MPI was compiled with Slurm support, which means that you do not have to specify the number of processes and the execution hosts using the -np and the -hostfile options. Slurm will automatically provide this information to mpirun based on the allocated tasks:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
 <span class="o">(</span>...<span class="o">)</span>
 <span class="c1">#SBATCH --nodes=4</span>
@@ -1353,7 +1353,7 @@ Submit to any other partition:
 
 module load openmpi/1.10.2-gcc
 mpirun &lt;options&gt; &lt;binary&gt;
-</pre></div>
+</code></pre></div>
 
 <h2 id="environment-variables">Environment Variables</h2>
 <p>Slurm sets various environment variables available in the context of the job script. Some are set based on the requested resources for the job.</p>
@@ -1421,7 +1421,7 @@ mpirun &lt;options&gt; &lt;binary&gt;
 <h2 id="job-examples">Job Examples</h2>
 <h3 id="sequential-job">Sequential Job</h3>
 <p>Running a Single Job Step</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
 <span class="c1">#SBATCH --mail-type=end,fail</span>
 <span class="c1">#SBATCH --job-name=&quot;Serial Job&quot;</span>
@@ -1432,12 +1432,12 @@ mpirun &lt;options&gt; &lt;binary&gt;
 hostname
 <span class="nb">echo</span> <span class="s2">&quot;Environment variables:&quot;</span>
 env
-</pre></div>
+</code></pre></div>
 
 <h3 id="parallel-jobs_1"><small><strong>Parallel Jobs</strong></small></h3>
 <p><strong>Shared Memory Jobs (e.g. OpenMP)</strong></p>
 <p>SMP parallelization is based upon dynamically created threads (fork and join) that share memory on a single node. The key request is &ldquo;&ndash;cpus-per-task&rdquo;. To run N threads in parallel, we request N CPUs on the node (&ndash;cpus-per-task=N). OpenMP is not slurm-aware, you need to specify &ldquo;export OMP_NUM_THREADS=&hellip;&rdquo; in your submission script! Thereby OMP_NUM_THREADS (max number of thread spawned by your program) must correspond the number of cores requested. As an example, consider the following job script:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
 <span class="c1">#SBATCH --mail-type=end,fail</span>
 <span class="c1">#SBATCH --job-name=&quot;SMP Job&quot;</span>
@@ -1449,7 +1449,7 @@ env
 <span class="c1"># set OMP_NUM_THREADS to the number of --cpus-per-task that we requested</span>
 <span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
 ./my_binary
-</pre></div>
+</code></pre></div>
 
 <div class="admonition type danger">
 <p>For optimal resource management, notably to prevent oversubscribing the compute node, setting the correct number of threads is crucial. The assignment OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK will ensure that your program does not spawn more threads than requested.</p>
@@ -1457,7 +1457,7 @@ env
 <p><strong>MPI Jobs (e.g. Open MPI)</strong></p>
 <p>MPI parallelization is based upon processes (local or distributed) that communicate by passing messages. Since they don&rsquo;t rely on shared memory those processes can be distributed among several compute nodes.
 Use the option &ndash;ntasks to request a certain number of tasks (processes) that can be distributed over multiple nodes:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
 <span class="c1">#SBATCH --mail-type=end</span>
 <span class="c1">#SBATCH --job-name=&quot;MPI Job&quot;</span>
@@ -1469,10 +1469,10 @@ Use the option &ndash;ntasks to request a certain number of tasks (processes) th
 <span class="c1"># First set the environment for using Open MPI</span>
 module load openmpi/1.10.2-gcc
 srun --mpi<span class="o">=</span>pmi2 ./my_binary <span class="c1"># or, mpirun ./my_binary</span>
-</pre></div>
+</code></pre></div>
 
 <p>On the &lsquo;empi&rsquo; partition you must use all CPUs provided by a node (20 CPUs). For example to run an OMPI job on 80 CPUs, do:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
 <span class="c1">#SBATCH --mail-type=end,fail</span>
 <span class="c1">#SBATCH --job-name=&quot;MPI Job&quot;</span>
@@ -1485,7 +1485,7 @@ srun --mpi<span class="o">=</span>pmi2 ./my_binary <span class="c1"># or, mpirun
 <span class="c1"># First set the environment for using Open MPI</span>
 module load openmpi/1.10.2-gcc
 srun --mpi<span class="o">=</span>pmi2 ./my_binary <span class="c1"># or, mpirun ./my_binary</span>
-</pre></div>
+</code></pre></div>
 
 <h2 id="performance-considerations">Performance considerations</h2>
 <h3 id="job-throughput">Job Throughput</h3>
@@ -1560,16 +1560,16 @@ For parallel jobs (shared memory, MPI, hybrid) requesting less cores than proces
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/ubelix" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/ubelix" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
@@ -1579,9 +1579,9 @@ For parallel jobs (shared memory, MPI, hybrid) requesting less cores than proces
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
     
   </body>

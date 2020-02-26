@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
@@ -40,12 +40,12 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#file-transfer-fromto-ubelix" tabindex="1" class="md-skip">
+      <a href="#file-transfer-fromto-ubelix" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="HPC Documentation" class="md-header-nav__button md-logo">
+        <a href=".." title="HPC Documentation" aria-label="HPC Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -180,7 +180,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="HPC Documentation" class="md-nav__button md-logo">
+    <a href=".." title="HPC Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -858,45 +858,45 @@ SCP performs a plain linear copy of the specified files, while replacing already
 </div>
 <h3 id="copying-files-from-your-local-workstation-to-ubelix">Copying Files from Your Local Workstation to UBELIX</h3>
 <p>Copy the file <code>~/dir/file01</code> to your remote home directory:</p>
-<div class="codehilite"><pre><span></span>$ scp ~/dir/file01 &lt;username&gt;@submit.unibe.ch:
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ scp ~/dir/file01 &lt;username&gt;@submit.unibe.ch:
+</code></pre></div>
 
 <p>Copy multiple files to the remote directory <code>~/bar</code>:</p>
 <div class="admonition types note">
 <p>The destination directory must already exist. You can create a directory from remote with: ssh <username>@submit.unibe.ch &lsquo;mkdir -p ~/bar&rsquo;</p>
 </div>
-<div class="codehilite"><pre><span></span>$ scp ~/dir/file01 ~/dir/file02 ~/dir/file03 &lt;username&gt;@submit.unibe.ch:bar
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ scp ~/dir/file01 ~/dir/file02 ~/dir/file03 &lt;username&gt;@submit.unibe.ch:bar
+</code></pre></div>
 
 <p>Copy all files within directory <code>~/dir</code> to the remote directory <code>~/bar</code>:</p>
 <div class="admonition types note">
 <p>Add the -r option (recursive) to also copy all subdirectories of ~/dir</p>
 </div>
-<div class="codehilite"><pre><span></span>$ scp -r ~/dir/* &lt;username&gt;@submit.unibe.ch:bar
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ scp -r ~/dir/* &lt;username&gt;@submit.unibe.ch:bar
+</code></pre></div>
 
 <p>Copy the directory <code>~/dir</code> to your remote home directory:</p>
 <div class="admonition types note">
 <p>This will create a new directory ~/dir on the remote host. If the directory ~/dir already exists, the following command adds the content of the source directory to the destination directory</p>
 </div>
-<div class="codehilite"><pre><span></span>$ scp -r ~/dir &lt;username&gt;@submit.unibe.ch:
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ scp -r ~/dir &lt;username&gt;@submit.unibe.ch:
+</code></pre></div>
 
 <h3 id="copying-files-from-ubelix-to-your-local-workstation">Copying Files from UBELIX to Your Local Workstation</h3>
 <p>Copy the remote file <code>~/bar/file01</code> to the current working directory on your local workstation:</p>
-<div class="codehilite"><pre><span></span>$ scp &lt;username&gt;@submit.unibe.ch:bar/file01 .
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ scp &lt;username&gt;@submit.unibe.ch:bar/file01 .
+</code></pre></div>
 
 <p>Copy multiple remote files to the local directory <code>~/dir</code>:</p>
 <div class="admonition types note">
 <p>The local directory ~/dir will be automatically created if it does not already exist</p>
 </div>
-<div class="codehilite"><pre><span></span>$ scp &lt;username&gt;@submit.unibe.ch:bar/<span class="se">\{</span>file02,file03,file04<span class="se">\}</span> ~/dir
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ scp &lt;username&gt;@submit.unibe.ch:bar/<span class="se">\{</span>file02,file03,file04<span class="se">\}</span> ~/dir
+</code></pre></div>
 
 <p>Copy the remote directory <code>~/bar</code> to the current working directory on your local workstation:</p>
-<div class="codehilite"><pre><span></span>$ scp -r &lt;username&gt;@submit.unibe.ch:bar .
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ scp -r &lt;username&gt;@submit.unibe.ch:bar .
+</code></pre></div>
 
 <h2 id="remote-sync-rsync-maclinux">Remote Sync (Rsync) - Mac/Linux</h2>
 <p>Rsync implements a sophisticated algorithm that allows to transfer only missing/non-matching parts of a source file to update a target file. With this the process of transferring data may be significantly faster than simply replacing all data.
@@ -918,35 +918,35 @@ Among other things, Rsync also allows you to specify complex filter rules to exc
 </div>
 <h3 id="copying-files-from-your-local-workstation-to-ubelix_1">Copying Files from Your Local Workstation to UBELIX</h3>
 <p>Copy the file <code>~/dir/file01</code> to your remote home directory:</p>
-<div class="codehilite"><pre><span></span>$ rsync ~/dir/file01 &lt;username&gt;@submit.unibe.ch:
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync ~/dir/file01 &lt;username&gt;@submit.unibe.ch:
+</code></pre></div>
 
 <p>Copy multiple files to your remote home directory:</p>
-<div class="codehilite"><pre><span></span>$ rsync file01 file02 file03 &lt;username&gt;@submit.unibe.ch:
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync file01 file02 file03 &lt;username&gt;@submit.unibe.ch:
+</code></pre></div>
 
 <p>Copy the local directory ~/dir to the remote directory ~/bar:</p>
 <div class="admonition types note">
 <p>With a trailing slash (/) after the source directory only the content of the source directory is copied to the destination directory. Without a trailing slash both the source directory and the content of the directory are copied to the destination directory</p>
 </div>
-<div class="codehilite"><pre><span></span>$ rsync -az ~/dir/ &lt;username&gt;@submit.unibe.ch:bar
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync -az ~/dir/ &lt;username&gt;@submit.unibe.ch:bar
+</code></pre></div>
 
 <h3 id="copying-files-from-ubelix-to-your-local-workstation_1">Copying Files from UBELIX to Your Local Workstation</h3>
 <p>Copy the remote file <code>~/foo/file01</code> to your current working directory:</p>
-<div class="codehilite"><pre><span></span>$ rsync &lt;username&gt;@submit.unibe.ch:foo/file01 .
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync &lt;username&gt;@submit.unibe.ch:foo/file01 .
+</code></pre></div>
 
 <p>Copy the remote files <code>~/foo/file01</code> and <code>~/bar/file02</code> to your the local directory <code>~/dir</code>:</p>
-<div class="codehilite"><pre><span></span>$ rsync &lt;username&gt;@submit.unibe.ch:<span class="se">\{</span>foo/file01,bar/file02<span class="se">\}</span> ~/dir
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync &lt;username&gt;@submit.unibe.ch:<span class="se">\{</span>foo/file01,bar/file02<span class="se">\}</span> ~/dir
+</code></pre></div>
 
 <p>Copy the remote directory <code>~/foo</code> to the local directory <code>~/dir</code>:</p>
 <div class="admonition types note">
 <p>With a trailing slash (/) after the source directory only the content of the source directory is copied to the destination directory. Without a trailing slash both the source directory and the content of the directory are copied to the destination directory.</p>
 </div>
-<div class="codehilite"><pre><span></span>$ rsync -az &lt;username&gt;@submit.unibe.ch:foo/ ~/dir
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync -az &lt;username&gt;@submit.unibe.ch:foo/ ~/dir
+</code></pre></div>
 
 <h3 id="includingexcluding-files">Including/Excluding Files</h3>
 <p>With the <code>--include</code>/<code>--exclude</code> options you can specify patterns, that describe which files are not excluded/excluded from the copy process.</p>
@@ -954,19 +954,19 @@ Among other things, Rsync also allows you to specify complex filter rules to exc
 <p>Use the <code>-n</code> option with the <code>-v</code> option to perform a dry-run while listing the files that would be copied</p>
 </div>
 <p>Exclude a specific directory:</p>
-<div class="codehilite"><pre><span></span>rsync -av --exclude <span class="s2">&quot;subdir1&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:
-</pre></div>
+<div class="codehilite"><pre><span></span><code>rsync -av --exclude <span class="s2">&quot;subdir1&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:
+</code></pre></div>
 
 <p>Copy only files with suffix <code>.txt</code> and <code>.m</code>:</p>
-<div class="codehilite"><pre><span></span>rsync -av --include <span class="s2">&quot;*.txt&quot;</span> --include <span class="s2">&quot;*.m&quot;</span> --exclude <span class="s2">&quot;*&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:
-</pre></div>
+<div class="codehilite"><pre><span></span><code>rsync -av --include <span class="s2">&quot;*.txt&quot;</span> --include <span class="s2">&quot;*.m&quot;</span> --exclude <span class="s2">&quot;*&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:
+</code></pre></div>
 
 <p>Copy all files with suffix <code>.m</code> within the source directory <code>~/dir</code> (including matching files within subdirectories) to the remote destination directory <code>~/foo</code>:</p>
 <div class="admonition type note">
 <p>Use the <code>--prune-empty-dirs</code> option to omit copying empty directories</p>
 </div>
-<div class="codehilite"><pre><span></span>$ rsync -av --prune-empty-dirs --include <span class="s2">&quot;*/&quot;</span> --include <span class="s2">&quot;*.m&quot;</span> --exclude <span class="s2">&quot;*&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:foo
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync -av --prune-empty-dirs --include <span class="s2">&quot;*/&quot;</span> --include <span class="s2">&quot;*.m&quot;</span> --exclude <span class="s2">&quot;*&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:foo
+</code></pre></div>
 
 <h3 id="deleting-files">Deleting Files</h3>
 <div class="admonition type note">
@@ -976,12 +976,12 @@ Among other things, Rsync also allows you to specify complex filter rules to exc
 <p>This delete options can be dangerous if used incorrectly! Perform a dry-run (<code>-n</code> option) first and verify that important files are not listed (<code>-v</code> option) for deletion</p>
 </div>
 <p>Use the <code>--delete</code> option to delete files/directories from the destination directory that are not/no more present in the source directory:</p>
-<div class="codehilite"><pre><span></span>$ rsync -av --delete ~/dir/ &lt;username&gt;@submit.unibe.ch:mfiles
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync -av --delete ~/dir/ &lt;username&gt;@submit.unibe.ch:mfiles
+</code></pre></div>
 
 <p>With the <code>--delete-excluded</code> option you can additionally delete files from the destination directory that are excluded from transferring/syncing (not in the generated file list):</p>
-<div class="codehilite"><pre><span></span>$ rsync -av --prune-empty-dirs --delete-excluded --include <span class="s2">&quot;*/&quot;</span> --include <span class="s2">&quot;*.m&quot;</span> --exclude <span class="s2">&quot;*&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:foo
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ rsync -av --prune-empty-dirs --delete-excluded --include <span class="s2">&quot;*/&quot;</span> --include <span class="s2">&quot;*.m&quot;</span> --exclude <span class="s2">&quot;*&quot;</span> ~/dir/ &lt;username&gt;@submit.unibe.ch:foo
+</code></pre></div>
 
 <h2 id="winscp-windows">WinSCP - Windows</h2>
 <p>We use WinSCP to illustrate file transfers from Windows. There are of course other tools that serve the same purpose.</p>
@@ -1066,16 +1066,16 @@ Site name: <alias> (Choose your own alias, e.g. ubelix)  </p>
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/ubelix" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/ubelix" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
@@ -1085,9 +1085,9 @@ Site name: <alias> (Choose your own alias, e.g. ubelix)  </p>
       
     </div>
     
-      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
       
     
   </body>
