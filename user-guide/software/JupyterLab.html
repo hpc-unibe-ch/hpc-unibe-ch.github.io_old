@@ -721,7 +721,10 @@ The default port for JupyterLab is 8888, but only one user can use this at a tim
 <p>To avoid the need for modifying the following procedure again and again, we suggest to (once) select a unique number (between 2000 and 65000). And then following commands can be hopefully reused without modification.<br />
 The port needs to be specified while establishing the connection to UBELIX and while launching JupyterLab. In the following we use the port number 15051 (<strong>please select another number</strong>).</p>
 <h2 id="setup-ssh-with-port-forwarding">Setup SSH with port forwarding</h2>
-<p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal or using the MobaXterm GUI.</p>
+<p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal.</p>
+<blockquote>
+<p>Note: MobaXterm has an internal terminal which acts like a linux terminal and can be configured as described in the Standard Terminal Setup. Therewith, the SSH command line approach above can be used.</p>
+</blockquote>
 <h2 id="ssh-with-port-forwarding">SSH with port forwarding</h2>
 <p>The <code>ssh</code> command need to be called with following arguments:</p>
 <p><div class="codehilite"><pre><span></span><code>ssh -L 15051:localhost:15051 submit.unibe.ch
@@ -755,8 +758,8 @@ As an example a session with 60 min on 1 core can be launched using:</p>
 Where 5 cores are requested for threading and a total memory of 3GB. 
 Please do not use multiprocessing.cpu_count() since this is returning the total amount of cores on the node. 
 Furthermore, if you use libraries, which implement threading: align the numbers of threads (often called jobs) to the selected number of cores (otherwise the performance will be affected).</p>
-<p>OR requesting GPU resources on a node with a TeslaP100
-<div class="codehilite"><pre><span></span><code>srun --ntasks 1 -t 60 --partition=gpu --gres=gpu:teslaP100:1 jupyter-compute 15051
+<p>OR requesting GPU resources on a node with a NVIDIA graphics card:
+<div class="codehilite"><pre><span></span><code>srun --ntasks 1 -t 60 --partition=gpu --gres=gpu:gtx1080ti:1 jupyter-compute 15051
 </code></pre></div></p>
 <h2 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h2>
 <p>Finally, you need to open your local web browser and copy and paste the URL specified by the JupyterLab server into the address bar. After initializing Jupyter Lab you should see a page similar to:</p>
@@ -766,6 +769,9 @@ Furthermore, if you use libraries, which implement threading: align the numbers 
 print(socket.gethostname())
 </code></pre></div>
 
+<blockquote>
+<p>Note: After stopping the JupyterLab server some sessions may get corrupted and do not take input correctly anymore. In this case just quit and re-establish your ssh session.</p>
+</blockquote>
 <h1 id="kernels">Kernels</h1>
 <p>The following JupyterLab kernel are installed:</p>
 <ul>
