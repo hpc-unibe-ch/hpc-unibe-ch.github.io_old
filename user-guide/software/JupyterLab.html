@@ -550,6 +550,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#launch-jupyterlab" class="md-nav__link">
+    Launch JupyterLab
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-ssh-with-port-forwarding" class="md-nav__link">
+    Setup SSH with port forwarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-with-port-forwarding" class="md-nav__link">
+    SSH with port forwarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-the-jupyterlab-server" class="md-nav__link">
+    Launch the JupyterLab server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jupyterlab-in-your-local-browser" class="md-nav__link">
+    JupyterLab in your local browser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernels" class="md-nav__link">
+    Kernels
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    R
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    Packages
+  </a>
+  
+</li>
+      
       
       
       
@@ -677,6 +745,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#launch-jupyterlab" class="md-nav__link">
+    Launch JupyterLab
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-ssh-with-port-forwarding" class="md-nav__link">
+    Setup SSH with port forwarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-with-port-forwarding" class="md-nav__link">
+    SSH with port forwarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-the-jupyterlab-server" class="md-nav__link">
+    Launch the JupyterLab server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jupyterlab-in-your-local-browser" class="md-nav__link">
+    JupyterLab in your local browser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernels" class="md-nav__link">
+    Kernels
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    R
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    Packages
+  </a>
+  
+</li>
+      
       
       
       
@@ -719,23 +855,23 @@ On this page we describe:</p>
 <li>Kernels</li>
 <li>Packages</li>
 </ul>
-<h1 id="launch-jupyterlab">Launch JupyterLab</h1>
+<h2 id="launch-jupyterlab">Launch JupyterLab</h2>
 <p>Since JupyterLab is a web based application, a port needs to be forwarded to your local machine, where your browser can connect to. 
 This port numbers need to be between 2000 and 65000 and need to be unique on the present machine. 
 The default port for JupyterLab is 8888, but only one user can use this at a time.</p>
 <p>To avoid the need for modifying the following procedure again and again, we suggest to (once) select a unique number (between 2000 and 65000). And then following commands can be hopefully reused without modification.<br />
 The port needs to be specified while establishing the connection to UBELIX and while launching JupyterLab. In the following we use the port number 15051 (<strong>please select another number</strong>).</p>
-<h2 id="setup-ssh-with-port-forwarding">Setup SSH with port forwarding</h2>
+<h3 id="setup-ssh-with-port-forwarding">Setup SSH with port forwarding</h3>
 <p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal.</p>
 <blockquote>
 <p>Note: MobaXterm has an internal terminal which acts like a linux terminal and can be configured as described in the Standard Terminal Setup. Therewith, the SSH command line approach above can be used.</p>
 </blockquote>
-<h2 id="ssh-with-port-forwarding">SSH with port forwarding</h2>
+<h3 id="ssh-with-port-forwarding">SSH with port forwarding</h3>
 <p>The <code>ssh</code> command need to be called with following arguments:</p>
 <p><div class="codehilite"><pre><span></span><code>ssh -L 15051:localhost:15051 submit.unibe.ch
 </code></pre></div>
 If configured in your <code>.ssh/config</code>, you can also use the alias instead of the full name for UBELIX.</p>
-<h2 id="launch-the-jupyterlab-server">Launch the JupyterLab server</h2>
+<h3 id="launch-the-jupyterlab-server">Launch the JupyterLab server</h3>
 <p>On UBELIX, the required <em>Anaconda3</em> module needs to be loaded. If you want to use additional kernels (R) you need to load additional modules, e.g. IRkernel (for R kernels):</p>
 <div class="codehilite"><pre><span></span><code>module load Anaconda3
 </code></pre></div>
@@ -766,7 +902,7 @@ Furthermore, if you use libraries, which implement threading: align the numbers 
 <p>OR requesting GPU resources on a node with a NVIDIA graphics card:
 <div class="codehilite"><pre><span></span><code>srun --ntasks 1 -t 60 --partition=gpu --gres=gpu:gtx1080ti:1 jupyter-compute 15051
 </code></pre></div></p>
-<h2 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h2>
+<h3 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h3>
 <p>Finally, you need to open your local web browser and copy and paste the URL specified by the JupyterLab server into the address bar. After initializing Jupyter Lab you should see a page similar to:</p>
 <p><img alt="jupyterLab-example" src="../../images/jupyterLab-example.png" title="JupyterLab Example" /></p>
 <p>Therewith the Notebook and its containing tasks are performed on a compute node, which can double check e.g. using using the following in Python:</p>
@@ -778,13 +914,13 @@ print(socket.gethostname())
 <p>IMPORTANT: Please remember to stop your Jupyter Lab server and therewith your slurm job, when you do not need it anymore. Thus, the resource get available to other users again. </p>
 <p>Note: After stopping the JupyterLab server some sessions may get corrupted and do not take input correctly anymore. In this case just quit and re-establish your ssh session.</p>
 </blockquote>
-<h1 id="kernels">Kernels</h1>
+<h2 id="kernels">Kernels</h2>
 <p>The following JupyterLab kernel are installed:</p>
 <ul>
 <li>Python3</li>
 <li>R</li>
 </ul>
-<h2 id="r">R</h2>
+<h3 id="r">R</h3>
 <p>verify that the module <em>IRkernel</em> is loaded</p>
 <div class="codehilite"><pre><span></span><code>module load IRkernel
 </code></pre></div>
