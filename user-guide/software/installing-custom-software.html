@@ -493,19 +493,52 @@
     Description
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    Modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild" class="md-nav__link">
+    EasyBuild
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#compile-and-install-custom-software" class="md-nav__link">
-    Compile and Install Custom Software
+  <a href="#using-easybuild" class="md-nav__link">
+    Using EasyBuild
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-information" class="md-nav__link">
-    Further Information
+  <a href="#manually-compiling" class="md-nav__link">
+    Manually compiling
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#providing-packages" class="md-nav__link">
+    Providing packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -675,19 +708,52 @@
     Description
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    Modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild" class="md-nav__link">
+    EasyBuild
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#compile-and-install-custom-software" class="md-nav__link">
-    Compile and Install Custom Software
+  <a href="#using-easybuild" class="md-nav__link">
+    Using EasyBuild
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-information" class="md-nav__link">
-    Further Information
+  <a href="#manually-compiling" class="md-nav__link">
+    Manually compiling
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#providing-packages" class="md-nav__link">
+    Providing packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -710,20 +776,101 @@
                 
                 <h1 id="installing-custom-software">Installing Custom Software</h1>
 <h2 id="description">Description</h2>
-<p>UBELIX comes with a plethora of software pre-installed. You can find a list of already available software <a href="pre-installed-software.html">here</a>. If needed, every user can install custom software within his home directory. You cannot use the packet management utility yum for this, since this command requires root privileges to install software system wide. Instead you have to compile and install the software yourself. If you think that some missing software could be of general interest for the UBELIX community, you can ask us to install the software system wide. Since maintaining software is a lot of work, we will select carefully which software we will install globally.</p>
-<h2 id="compile-and-install-custom-software">Compile and Install Custom Software</h2>
-<p>With Linux, you typically compile, link, and install a program like this:</p>
-<div class="codehilite"><pre><span></span><code>$ tar xzvf some-software-0.1.tar.gz
-$ <span class="nb">cd</span> some-software-0.1
-$ ./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/my_custom_software/some-software
-$ make
-$ make install
-$ make clean
+<p>UBELIX comes with a plethora of software pre-installed. 
+You can find a list of already available software using the command <code>module avail</code> or see the list <a href="pre-installed-software.html">here</a>. 
+If needed, every user can install custom software within his space, which is described in the following using Easybuild or the manual approach..</p>
+<blockquote>
+<p>Note: You cannot use the packet management utility yum for this, since this command requires root privileges to install software system wide. 
+Instead you have to compile and install the software yourself. </p>
+</blockquote>
+<p>If you think that some missing software could be of general interest for the UBELIX community, you can ask us to install the software system wide. 
+Since maintaining software is a lot of work, we will select carefully which software we will install globally.</p>
+<h3 id="modules">Modules</h3>
+<p>On UBELIX we use the Lmod module system which allows users to enable software package by package. 
+The module system allows us to have multiple versions of the same software product installed as well as preventing unwanted influences between software packages.</p>
+<h3 id="easybuild">EasyBuild</h3>
+<p>When possible we use <a href="https://easybuild.readthedocs.io/en/latest/">EasyBuild</a> to provision software packages. 
+Easyconfigs are used to describe the whole build process, including the location of the sources, dependencies and its versions, the used environment, compile arguments, etc. 
+These Easyconfigs are publicly available <a href="https://github.com/easybuilders/easybuild-easyconfigs">here</a>. </p>
+<p>Users mainly have two options, building the software package by performing all the steps manually (see example down below) or using the EasyBuild.</p>
+<h2 id="using-easybuild">Using EasyBuild</h2>
+<p>For EasyBuild we provide a setup which lets you create an own software stack in private or group shared space. 
+By loading the following module you can build and software packages in the following spaces:</p>
+<table>
+<thead>
+<tr>
+<th>module</th>
+<th>software location</th>
+<th>accessiblity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CustomRepo/user</code></td>
+<td><code>$HOME</code></td>
+<td>private to you</td>
+</tr>
+<tr>
+<td><code>CustomRepo/project</code></td>
+<td><code>/storage/research/&lt;projectID&gt;/share</code></td>
+<td>project based, with collaborators</td>
+</tr>
+<tr>
+<td><code>CustomRepo/institute</code></td>
+<td><code>/home/ubelix/&lt;instituteID&gt;/share</code></td>
+<td>all institute members</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: The project module requires an environment variable <code>PROJECT_ID</code> to be set to the project ID.</p>
+</blockquote>
+<p>The prepared setup will handle installation directories for EasyBuild (for software package and module file), and provides easy access later on, for you and you collaborators.</p>
+<p>Furthermore, we provide an easybuils wrapper (called <code>eb-install-all</code>) to build for all available CPU architectures. Therewith you have always the correct version available. The <code>CustomRepo</code> module also takes care to use the correct version when launching on the compute node later on. 
+Additionally, we provide another wrapper (<code>eb-install-generic</code>) which installs architecture independent packages like python scripts into a separate location. This location is also available using the <code>CustomRepo</code> module.</p>
+<p>As an example the package Relion can be build in group space <code>/storage/research/id_test/share</code> using:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># setup the environment</span>
+<span class="nb">export</span> <span class="nv">PROJECT_ID</span><span class="o">=</span>id_test    <span class="c1"># only necessary for CustomRepo/project</span>
+module load EasyBuild
+module load CustomRepo/project
+
+<span class="c1"># get the easyconfig; can aslo be downloaded differntly; can be addapted e.g. for a different version number</span>
+wget https://raw.githubusercontent.com/easybuilders/easybuild-easyconfigs/4.1.x/easybuild/easyconfigs/r/RELION/RELION-3.0_beta.2018.08.02-intel-2018a.eb
+<span class="c1"># installation for all different CPU architectures</span>
+eb-install-all --robot RELION-3.0_beta.2018.08.02-intel-2018a.eb
 </code></pre></div>
 
-<p><strong>configure</strong> is usually a complex shell script that gathers information about your system and makes sure that everything needed for compiling the program is available. It may also create a Makefile that is used by the <strong>make</strong> command. With the &ndash;prefix option you can specify a base directory, relative to which <strong>make install</strong> will install the files. The make utility is what does the actual compiling and linking. If for example some additional library is missing on the system or not found in the expected location, the command will normally exit immediately. make install puts the compiled files in the proper directories (e.g. $HOME/my_custom_software/some-software/bin, $HOME/my_custom_software/some-software/lib, &hellip;). <strong>make clean</strong> cleans up temporary files that were generated during the compiling and linking stage.</p>
-<h2 id="further-information">Further Information</h2>
-<p>GNU make documentation (advanced): <a href="http://www.gnu.org/software/make/manual/make.html">http://www.gnu.org/software/make/manual/make.html</a></p>
+<blockquote>
+<p>Note: The <code>--robot</code> option advice EasyBuild to additionally install all required depencencies, if related easyconfigs can be found on the system.</p>
+</blockquote>
+<p>To use these package any user who has access to the space (e.g. project collaborators) can use in their batch scripts:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH </span>
+module load CustomRepo/project
+module load RELION/3.0_beta.2018.08.02
+<span class="c1">#srun &lt;executable&gt;</span>
+</code></pre></div>
+
+<h2 id="manually-compiling">Manually compiling</h2>
+<p>With Linux, you typically compile, link, and install a program like this:</p>
+<div class="codehilite"><pre><span></span><code>tar xzvf some-software-0.1.tar.gz
+<span class="nb">cd</span> some-software-0.1
+./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/my_custom_software/some-software
+make
+make install
+make clean
+</code></pre></div>
+
+<p><code>configure</code> is usually a complex shell script that gathers information about your system and makes sure that everything needed for compiling the program is available. 
+It may also create a Makefile that is used by the <code>make</code> command. 
+With the <code>--prefix</code> option you can specify a base directory, relative to which <code>make install</code> will install the files. 
+The make utility is what does the actual compiling and linking. 
+If for example some additional library is missing on the system or not found in the expected location, the command will normally exit immediately. 
+<code>make install</code> puts the compiled files in the proper directories (e.g. <code>$HOME/my_custom_software/some-software/bin</code>, <code>$HOME/my_custom_software/some-software/lib</code>, &hellip;). 
+<code>make clean</code> cleans up temporary files that were generated during the compiling and linking stage.
+GNU make documentation (advanced): <a href="http://www.gnu.org/software/make/manual/make.html">http://www.gnu.org/software/make/manual/make.html</a></p>
+<h3 id="providing-packages">Providing packages</h3>
+<p>You can use the <code>CustomRepo</code> setup to easily provide access to the packages to you and you collaborators.
+After loading one of the <code>CustomRepo</code> module (see above) you can install your package under <code>$EASYBUILD_PREFIX</code> for specific architectures or <code>$EASYBUILD_PREFIX/../generic</code> and place your modulefiles e.g. at <code>$EASYBUILD_PREFIX/../generic/modulefiles/all</code>. Therewith you just need to load the <code>CustomRepo</code> module to access your software products. </p>
                 
                   
                 
