@@ -845,11 +845,15 @@ eb-install-all --robot RELION-3.0_beta.2018.08.02-intel-2018a.eb
 </blockquote>
 <p>To use these package any user who has access to the space (e.g. project collaborators) can use in their batch scripts:</p>
 <div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH </span>
+<span class="nb">export</span> <span class="nv">CUSTOM_REPO_PROJECT_ID</span><span class="o">=</span>id_test    <span class="c1"># only necessary for CustomRepo/project</span>
 module load CustomRepo/project
 module load RELION/3.0_beta.2018.08.02
 <span class="c1">#srun &lt;executable&gt;</span>
 </code></pre></div>
 
+<blockquote>
+<p>Note: If you only have one project you can define the <code>$CUSTOM_REPO_PROJECT_ID</code> in your <code>~/.bashrc</code> to have it permanently defined.</p>
+</blockquote>
 <h2 id="manually-compiling">Manually compiling</h2>
 <p>With Linux, you typically compile, link, and install a program like this:</p>
 <div class="codehilite"><pre><span></span><code>tar xzvf some-software-0.1.tar.gz
