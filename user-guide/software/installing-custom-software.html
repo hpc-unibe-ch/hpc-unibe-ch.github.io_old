@@ -777,7 +777,7 @@
                 <h1 id="installing-custom-software">Installing Custom Software</h1>
 <h2 id="description">Description</h2>
 <p>UBELIX comes with a plethora of software pre-installed. 
-You can find a list of already available software using the command <code>module avail</code> or see the list <a href="pre-installed-software.html">here</a>. 
+You can find a list of already available software using the command <code>module avail</code>. The module environment is described <a href="pre-installed-software.html">here</a>. 
 If needed, every user can install custom software within his space, which is described in the following using Easybuild or the manual approach..</p>
 <blockquote>
 <p>Note: You cannot use the packet management utility yum for this, since this command requires root privileges to install software system wide. 
@@ -827,8 +827,10 @@ By loading the following module you can build and software packages in the follo
 </blockquote>
 <p>The prepared setup will handle installation directories for EasyBuild (for software package and module file), and provides easy access later on, for you and you collaborators.</p>
 <p>Furthermore, we provide an easybuils wrapper (called <code>eb-install-all</code>) to build for all available CPU architectures. Therewith you have always the correct version available. The <code>CustomRepo</code> module also takes care to use the correct version when launching on the compute node later on. 
-Additionally, we provide another wrapper (<code>eb-install-generic</code>) which installs architecture independent packages like python scripts into a separate location. This location is also available using the <code>CustomRepo</code> module.</p>
-<p>As an example the package Relion can be build in group space <code>/storage/research/id_test/share</code> using:</p>
+Additionally, we provide another wrapper (<code>eb-install-generic</code>) which installs architecture independent packages like python scripts into a separate location. This location is also available using the <code>CustomRepo</code> module.
+The synatax is: <code>eb_install_{all,generic} [options] [easybuild options] &lt;easyconfig&gt;.eb</code>
+You can provide additional slurm arguments to both wrappers, e.g. <code>--slurm_args='--account=xyz --time=00:10:00'</code> and if necessary, you can specify specific architectures to build on, e.g. <code>--arch='broadwell' if you only need the broadwell version. After this options, easybuild arguments can be provided like</code>&ndash;robot` (please use slurm arguments first). </p>
+<p>As an <strong>example</strong> the package Relion can be <strong>build in group space</strong> <code>/storage/research/id_test/share</code> using:</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># setup the environment</span>
 <span class="nb">export</span> <span class="nv">CUSTOM_REPO_PROJECT_ID</span><span class="o">=</span>id_test    <span class="c1"># only necessary for CustomRepo/project</span>
 module load EasyBuild
@@ -837,13 +839,13 @@ module load CustomRepo/project
 <span class="c1"># get the easyconfig; can aslo be downloaded differntly; can be addapted e.g. for a different version number</span>
 wget https://raw.githubusercontent.com/easybuilders/easybuild-easyconfigs/4.1.x/easybuild/easyconfigs/r/RELION/RELION-3.0_beta.2018.08.02-intel-2018a.eb
 <span class="c1"># installation for all different CPU architectures</span>
-eb-install-all --robot RELION-3.0_beta.2018.08.02-intel-2018a.eb
+eb-install-all --slurm_args<span class="o">=</span><span class="s1">&#39;--time=00:10:00 --account=id_test&#39;</span> --robot RELION-3.0_beta.2018.08.02-intel-2018a.eb
 </code></pre></div>
 
 <blockquote>
 <p>Note: The <code>--robot</code> option advice EasyBuild to additionally install all required depencencies, if related easyconfigs can be found on the system.</p>
 </blockquote>
-<p>To use these package any user who has access to the space (e.g. project collaborators) can use in their batch scripts:</p>
+<p>To <strong>use</strong> these package <strong>any user</strong> who has access to the space (e.g. project collaborators) can use in their batch scripts:</p>
 <div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH </span>
 <span class="nb">export</span> <span class="nv">CUSTOM_REPO_PROJECT_ID</span><span class="o">=</span>id_test    <span class="c1"># only necessary for CustomRepo/project</span>
 module load CustomRepo/project
