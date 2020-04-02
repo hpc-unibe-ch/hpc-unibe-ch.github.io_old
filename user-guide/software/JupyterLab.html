@@ -902,6 +902,9 @@ Furthermore, if you use libraries, which implement threading: align the numbers 
 <p>OR requesting GPU resources on a node with a NVIDIA graphics card:
 <div class="codehilite"><pre><span></span><code>jupyter-compute 15051 --ntasks 1 -t 60 --partition=gpu --gres=gpu:gtx1080ti:1
 </code></pre></div></p>
+<blockquote>
+<p><strong>Note:</strong> This tool can only be used in the <em>all</em> and <em>gpu</em> partition. </p>
+</blockquote>
 <h3 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h3>
 <p>Finally, you need to open your local web browser and copy and paste the URL specified by the JupyterLab server into the address bar. After initializing Jupyter Lab you should see a page similar to:</p>
 <p><img alt="jupyterLab-example" src="../../images/jupyterLab-example.png" title="JupyterLab Example" /></p>
