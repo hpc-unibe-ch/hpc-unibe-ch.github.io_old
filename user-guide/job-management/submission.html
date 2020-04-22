@@ -1031,9 +1031,6 @@
 <div class="admonition types caution">
 <p>For backfilling performance and hence to maximize job throughput it is crucial to submit array jobs (collection of similar jobs) instead of submitting the same job repeatedly.</p>
 </div>
-<div class="admonition types note">
-<p>We provide a partition containing EL6 nodes called <em>el6legacy</em> until December 2018. This partition should only be used as a last resort. You should migrate your code to EL7 as quickly as possible. If you submit jobs to the <em>el6legacy</em> partition use the SLURM option <strong>&ndash;export=NONE</strong> (#SBATCH &ndash;export=NONE) to not propagate any environment variables to the launched application.</p>
-</div>
 <h2 id="resource-allocation">Resource Allocation</h2>
 <p>Every job submission starts with a resources allocation (nodes, cores, memory). An allocation is valid for a specific amount of time, and can be created using the salloc, sbatch or srun commands. Whereas salloc and sbatch only create resource allocations, srun launches parallel tasks within such a resource allocation, or implicitly creates an allocation if not started within one. <strong>The usual procedure is to combine resource requests and task execution (job steps) in a single batch script (job script) and then submit the script using the sbatch command.</strong></p>
 <div class="admonition types note">
@@ -1172,7 +1169,7 @@
 <tr>
 <td>&ndash;partition</td>
 <td><strong>The &ldquo;all&rdquo; partition is the default partition. A different partition must be requested with the &ndash;partition option!</strong></td>
-<td>&ndash;partition=long <br> &ndash;partition=el6legacy</td>
+<td>&ndash;partition=long <br> &ndash;partition=debug</td>
 <td>Default partition: all</td>
 </tr>
 <tr>
