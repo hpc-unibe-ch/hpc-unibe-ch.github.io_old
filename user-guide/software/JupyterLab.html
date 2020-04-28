@@ -868,7 +868,7 @@ The port needs to be specified while establishing the connection to UBELIX and w
 </blockquote>
 <h3 id="ssh-with-port-forwarding">SSH with port forwarding</h3>
 <p>The <code>ssh</code> command need to be called with following arguments:</p>
-<p><div class="codehilite"><pre><span></span><code>ssh -L 15051:localhost:15051 submit.unibe.ch
+<p><div class="codehilite"><pre><span></span><code>ssh -Y -L 15051:localhost:15051 submit.unibe.ch
 </code></pre></div>
 If configured in your <code>.ssh/config</code>, you can also use the alias instead of the full name for UBELIX.</p>
 <h3 id="launch-the-jupyterlab-server">Launch the JupyterLab server</h3>
