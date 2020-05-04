@@ -773,13 +773,14 @@ knode02
 <div class="admonition types danger">
 <p>DO NOT reuse an existing SSH key for this purpose, i.e. do not copy an existing private key from your local machine to UBELIX.</p>
 </div>
-<p>With all the requirements in place you can now submit a job and export an X11 display on the allocated compute node, e.g:</p>
-<div class="codehilite"><pre><span></span><code>srun -n1 --pty --x11 xterm
+<p>With all the requirements in place you can now submit an interactive job and export an X11 display on the allocated compute node, e.g:</p>
+<div class="codehilite"><pre><span></span><code>srun -n <span class="m">1</span> --pty --x11 xterm
 </code></pre></div>
 
-<p>With all the requirements in place you can now submit a job and export an X11 display on the allocated compute node, e.g:</p>
-<div class="codehilite"><pre><span></span><code>srun -n1 --pty --x11 xterm
+<p>You can also use X11 forwarding with non interactive jobs adding the option 
+<div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH --x11</span>
 </code></pre></div>
+in your job script and using again <code>srun --x11</code> to launch your application. </p>
                 
                   
                 
