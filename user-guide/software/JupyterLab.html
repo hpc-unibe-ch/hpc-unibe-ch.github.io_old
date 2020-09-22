@@ -571,6 +571,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#passwordless-ssh-within-the-hpcs" class="md-nav__link">
+    Passwordless SSH within the HPCs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#setup-ssh-with-port-forwarding" class="md-nav__link">
     Setup SSH with port forwarding
   </a>
@@ -766,6 +773,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#passwordless-ssh-within-the-hpcs" class="md-nav__link">
+    Passwordless SSH within the HPCs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#setup-ssh-with-port-forwarding" class="md-nav__link">
     Setup SSH with port forwarding
   </a>
@@ -873,6 +887,15 @@ This port numbers need to be between 2000 and 65000 and need to be unique on the
 The default port for JupyterLab is 8888, but only one user can use this at a time.</p>
 <p>To avoid the need for modifying the following procedure again and again, we suggest to (once) select a unique number (between 2000 and 65000). And then following commands can be hopefully reused without modification.<br />
 The port needs to be specified while establishing the connection to UBELIX and while launching JupyterLab. In the following we use the port number 15051 (<strong>please select another number</strong>).</p>
+<h3 id="passwordless-ssh-within-the-hpcs">Passwordless SSH within the HPCs</h3>
+<p>Please verify that you created and registered a SSH key within UBLEIX. If you can perform the following command without entering your password your are ready to go:
+<div class="codehilite"><pre><span></span><code>ssh localhost
+</code></pre></div>
+otherwise create and register a new key on a login node.
+<div class="codehilite"><pre><span></span><code>ssh-keygen -t rsa -b <span class="m">4096</span>
+cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod <span class="m">640</span> .ssh/authorized_keys
+</code></pre></div></p>
 <h3 id="setup-ssh-with-port-forwarding">Setup SSH with port forwarding</h3>
 <p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal.</p>
 <blockquote>
