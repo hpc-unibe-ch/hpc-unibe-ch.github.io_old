@@ -599,15 +599,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jupyterlab-with-multiple-cpu-cores" class="md-nav__link">
-    JupyterLab with multiple CPU cores
+  <a href="#jupyterlab-in-your-local-browser" class="md-nav__link">
+    JupyterLab in your local browser
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jupyterlab-in-your-local-browser" class="md-nav__link">
-    JupyterLab in your local browser
+  <a href="#jupyterlab-with-multiple-cpu-cores" class="md-nav__link">
+    JupyterLab with multiple CPU cores
   </a>
   
 </li>
@@ -808,15 +808,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jupyterlab-with-multiple-cpu-cores" class="md-nav__link">
-    JupyterLab with multiple CPU cores
+  <a href="#jupyterlab-in-your-local-browser" class="md-nav__link">
+    JupyterLab in your local browser
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jupyterlab-in-your-local-browser" class="md-nav__link">
-    JupyterLab in your local browser
+  <a href="#jupyterlab-with-multiple-cpu-cores" class="md-nav__link">
+    JupyterLab with multiple CPU cores
   </a>
   
 </li>
@@ -940,7 +940,19 @@ After general output, JupyterLab prints a URL with a unique key and the network 
      or http://127.0.0.1:15051/?token=69ba5d24acab5915f2520c008a57df51f3cc38b7050ea073
 </code></pre></div>
 
-<p>The last line (with the 127.0.0.0 adress and the token) needs to be copied in your local browser (see below). </p>
+<h3 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h3>
+<p>The full address on the last line (starting with the 127.0.0.1) including the token needs to be copied into your browser on your local machine. 
+After initializing Jupyter Lab you should see a page similar to:</p>
+<p><img alt="jupyterLab-example" src="../../images/jupyterLab-example.png" title="JupyterLab Example" /></p>
+<p>Therewith the Notebook and its containing tasks are performed on a compute node, which can double check e.g. using using the following in Python:</p>
+<div class="codehilite"><pre><span></span><code>import socket
+print(socket.gethostname())
+</code></pre></div>
+
+<blockquote>
+<p>IMPORTANT: Please remember to stop your Jupyter Lab server and therewith your slurm job, when you do not need it anymore. Thus, the resource get available to other users again. </p>
+<p>Note: After stopping the JupyterLab server some sessions may get corrupted and do not take input correctly anymore. In this case just quit and re-establish your ssh session.</p>
+</blockquote>
 <h3 id="jupyterlab-with-multiple-cpu-cores">JupyterLab with multiple CPU cores</h3>
 <p>More resources can be requested, e.g. by using:</p>
 <p><div class="codehilite"><pre><span></span><code>jupyter-compute 15051 --ntasks 1 -t 60 --cpus-per-task 5 --mem 512MB
@@ -953,18 +965,6 @@ Furthermore, if you use libraries, which implement threading: align the numbers 
 </code></pre></div></p>
 <blockquote>
 <p><strong>Note:</strong> This tool can only be used in the <em>all</em> and <em>gpu</em> partition. </p>
-</blockquote>
-<h3 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h3>
-<p>Finally, you need to open your local web browser and copy and paste the URL specified by the JupyterLab server into the address bar. After initializing Jupyter Lab you should see a page similar to:</p>
-<p><img alt="jupyterLab-example" src="../../images/jupyterLab-example.png" title="JupyterLab Example" /></p>
-<p>Therewith the Notebook and its containing tasks are performed on a compute node, which can double check e.g. using using the following in Python:</p>
-<div class="codehilite"><pre><span></span><code>import socket
-print(socket.gethostname())
-</code></pre></div>
-
-<blockquote>
-<p>IMPORTANT: Please remember to stop your Jupyter Lab server and therewith your slurm job, when you do not need it anymore. Thus, the resource get available to other users again. </p>
-<p>Note: After stopping the JupyterLab server some sessions may get corrupted and do not take input correctly anymore. In this case just quit and re-establish your ssh session.</p>
 </blockquote>
 <h2 id="kernels">Kernels</h2>
 <p>The following JupyterLab kernel are installed:</p>
