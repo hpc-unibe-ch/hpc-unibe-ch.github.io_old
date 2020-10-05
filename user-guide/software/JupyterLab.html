@@ -585,13 +585,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssh-with-port-forwarding" class="md-nav__link">
-    SSH with port forwarding
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#launch-the-jupyterlab-server" class="md-nav__link">
     Launch the JupyterLab server
   </a>
@@ -794,13 +787,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssh-with-port-forwarding" class="md-nav__link">
-    SSH with port forwarding
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#launch-the-jupyterlab-server" class="md-nav__link">
     Launch the JupyterLab server
   </a>
@@ -911,15 +897,14 @@ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 chmod <span class="m">640</span> .ssh/authorized_keys
 </code></pre></div></p>
 <h3 id="setup-ssh-with-port-forwarding">Setup SSH with port forwarding</h3>
-<p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal.</p>
-<blockquote>
-<p>Note: MobaXterm has an internal terminal which acts like a linux terminal and can be configured as described in the Standard Terminal Setup. Therewith, the SSH command line approach above can be used.</p>
-</blockquote>
-<h3 id="ssh-with-port-forwarding">SSH with port forwarding</h3>
+<p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. This ports are numbers between 2000 and 65000, which needs to be unique on the both sides. The default port for JupyterLab is 8888, but only one user can use this at a time. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal.</p>
 <p>The <code>ssh</code> command from your <strong>local machine</strong> to the ubelix login node  needs to be called with following arguments:</p>
 <p><div class="codehilite"><pre><span></span><code>ssh -Y -L 15051:localhost:15051 &lt;username&gt;@submit.unibe.ch
 </code></pre></div>
 If configured in your <code>.ssh/config</code>, you can also use the alias instead of the full name for UBELIX. Where <code>&lt;username&gt;</code> is you campus account name.</p>
+<blockquote>
+<p>Note: MobaXterm has an internal terminal which acts like a linux terminal and can be configured as described in the Standard Terminal Setup. Therewith, the SSH command line approach above can be used.</p>
+</blockquote>
 <h3 id="launch-the-jupyterlab-server">Launch the JupyterLab server</h3>
 <p>On UBELIX, the required <em>Anaconda3</em> module needs to be loaded. If you want to use additional kernels (R) you need to load additional modules, e.g. IRkernel (for R kernels):</p>
 <div class="codehilite"><pre><span></span><code>module load Anaconda3
