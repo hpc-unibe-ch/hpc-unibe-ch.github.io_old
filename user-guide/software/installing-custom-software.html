@@ -848,14 +848,23 @@ You can provide additional slurm arguments to both wrappers, e.g. <code>--slurm_
 module load EasyBuild
 module load CustomRepo/project
 
-<span class="c1"># get the easyconfig; can aslo be downloaded differntly; can be addapted e.g. for a different version number</span>
-wget https://raw.githubusercontent.com/easybuilders/easybuild-easyconfigs/4.1.x/easybuild/easyconfigs/r/RELION/RELION-3.0_beta.2018.08.02-intel-2018a.eb
+<span class="c1"># check for existing Easyconfigs:</span>
+eb -D -S <span class="nv">petsc</span>
+<span class="o">==</span> found valid index <span class="k">for</span> /storage/software/generic.el7/software/EasyBuild/4.3.2/easybuild/easyconfigs, so using it...
+<span class="nv">CFGS1</span><span class="o">=</span>/storage/software/generic.el7/software/EasyBuild/4.3.2/easybuild/easyconfigs
+...
+ * <span class="nv">$CFGS1</span>/p/PETSc/PETSc-3.12.4-foss-2020a-Python-3.8.2.eb
+...
+ * <span class="nv">$CFGS1</span>/p/PETSc/PETSc-3.12.4-intel-2020a-Python-3.8.2.eb
+...
+<span class="c1"># then you can choose the version you prefer, e.g. foss toolchain with GNU compiler</span>
 <span class="c1"># installation for all different CPU architectures</span>
-eb-install-all --slurm_args<span class="o">=</span><span class="s1">&#39;--time=00:10:00 --account=id_test&#39;</span> --robot RELION-3.0_beta.2018.08.02-intel-2018a.eb
+eb-install-all --slurm_args<span class="o">=</span><span class="s1">&#39;--time=00:10:00&#39;</span> --robot PETSc-3.12.4-foss-2020a-Python-3.8.2.eb
 </code></pre></div>
 
 <blockquote>
 <p>Note: The <code>--robot</code> option advice EasyBuild to additionally install all required depencencies, if related easyconfigs can be found on the system.</p>
+<p>If you need, you can download the easyconfigs from specified location or the internet and modify them to your needs. </p>
 </blockquote>
 <p>To <strong>use</strong> these package <strong>any user</strong> who has access to the space (e.g. project collaborators) can use in their batch scripts:</p>
 <div class="codehilite"><pre><span></span><code><span class="c1">#SBATCH </span>
