@@ -1,0 +1,1276 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Accessing the HPCs - HPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../stylesheets/unibe.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#login" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="HPC Documentation" aria-label="HPC Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../HPC_UniBE_logo.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              HPC Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Accessing the HPCs
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/hpc-unibe-ch/hpc-docs" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    hpc-unibe-ch/hpc-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="HPC Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../HPC_UniBE_logo.png" width="48" height="48">
+      
+    </a>
+    HPC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/hpc-unibe-ch/hpc-docs" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    hpc-unibe-ch/hpc-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../HOME_migration.html" title="IMPORTANT..Home Migration" class="md-nav__link">
+      IMPORTANT..Home Migration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../overview_workspaces.html" title="PLAN..Workspaces" class="md-nav__link">
+      PLAN..Workspaces
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../quick-start.html" title="Quick Start" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../code-of-conduct.html" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ubelix-overview.html" title="UniBE HPC system "UBELIX"" class="md-nav__link">
+      UniBE HPC system "UBELIX"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="account.html" title="Accounts and Activation" class="md-nav__link">
+      Accounts and Activation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Accessing the HPCs
+      </label>
+    
+    <a href="login-ssh.html" title="Accessing the HPCs" class="md-nav__link md-nav__link--active">
+      Accessing the HPCs
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-in-to-ubelix" class="md-nav__link">
+    Log in to UBELIX
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maclinuxunix" class="md-nav__link">
+    Mac/Linux/Unix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-windows" class="md-nav__link">
+    Microsoft Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customize-your-ssh-session" class="md-nav__link">
+    Customize your SSH session
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-ssh-alias" class="md-nav__link">
+    Create a SSH alias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-session-timeout" class="md-nav__link">
+    SSH session timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-key-pairs" class="md-nav__link">
+    SSH key pairs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="workspaces.html" title="Workspaces" class="md-nav__link">
+      Workspaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ssh-customization.html" title="SSH customization" class="md-nav__link">
+      SSH customization
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Workspaces
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Workspaces
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/workspaces.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/management.html" title="Workspace management" class="md-nav__link">
+      Workspace management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/environment.html" title="Software environment" class="md-nav__link">
+      Software environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/monitoring.html" title="Monitoring" class="md-nav__link">
+      Monitoring
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Job handling
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Job handling
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/submission.html" title="Submitting jobs" class="md-nav__link">
+      Submitting jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/monitoring-jobs.html" title="Monitoring Jobs" class="md-nav__link">
+      Monitoring Jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/deleting-jobs.html" title="Deleting Jobs" class="md-nav__link">
+      Deleting Jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/array-jobs.html" title="Array Jobs with Slurm" class="md-nav__link">
+      Array Jobs with Slurm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/gpus.html" title="GPUs" class="md-nav__link">
+      GPUs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/interactive-jobs.html" title="Interactive Jobs" class="md-nav__link">
+      Interactive Jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/investigating-job-failure.html" title="Investigating a Job Failure" class="md-nav__link">
+      Investigating a Job Failure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/checkpointing.html" title="Checkpointing" class="md-nav__link">
+      Checkpointing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/fair-share.html" title="Fair Share" class="md-nav__link">
+      Fair Share
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Software
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/hpc-modules.html" title="HPC software environment" class="md-nav__link">
+      HPC software environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/pre-installed-software.html" title="Pre-Installed Software" class="md-nav__link">
+      Pre-Installed Software
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/installing-custom-software.html" title="Installing Custom Software" class="md-nav__link">
+      Installing Custom Software
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/EasyBuild.html" title="EasyBuild" class="md-nav__link">
+      EasyBuild
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5">
+      Supported Applications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-5">
+        Supported Applications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/terminal-multiplexer-tmux.html" title="Terminal Multiplexer (tmux)" class="md-nav__link">
+      Terminal Multiplexer (tmux)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/CUDA.html" title="CUDA" class="md-nav__link">
+      CUDA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/matlab.html" title="Matlab" class="md-nav__link">
+      Matlab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/python.html" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/JupyterLab.html" title="JupyterLab" class="md-nav__link">
+      JupyterLab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/r.html" title="R" class="md-nav__link">
+      R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/relion.html" title="Relion" class="md-nav__link">
+      Relion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/singularity.html" title="Singularity" class="md-nav__link">
+      Singularity
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Storage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Storage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-system/filesystem-overview.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-system/quota.html" title="File System Quota" class="md-nav__link">
+      File System Quota
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-system/file-transfer.html" title="Moving files to and from the HPCs" class="md-nav__link">
+      Moving files to and from the HPCs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../code-of-conduct.html" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../general/faq.html" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../halloffame.html" title="Hall of Fame" class="md-nav__link">
+      Hall of Fame
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-in-to-ubelix" class="md-nav__link">
+    Log in to UBELIX
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maclinuxunix" class="md-nav__link">
+    Mac/Linux/Unix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-windows" class="md-nav__link">
+    Microsoft Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customize-your-ssh-session" class="md-nav__link">
+    Customize your SSH session
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-ssh-alias" class="md-nav__link">
+    Create a SSH alias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-session-timeout" class="md-nav__link">
+    SSH session timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-key-pairs" class="md-nav__link">
+    SSH key pairs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="login">Login</h1>
+<h2 id="description">Description</h2>
+<p>UBELIX is available to everybody with a valid Campus Account (CA) of the University of Bern. The cluster is meant to be used for research related to the University of Bern. 
+<strong>Before you can use this service we have to activate your CA for UBELIX</strong>, see <a href="account.html">Accounts and Activation</a>. 
+This page contains information on how to configure your SSH environment for a simplified login procedure and information regarding the application of a CA for external researchers.</p>
+<h2 id="log-in-to-ubelix">Log in to UBELIX</h2>
+<div class="admonition types note">
+<p class="admonition-title">Before proceeding make sure that:</p>
+<ul>
+<li>you have your Campus Account activated for UBELIX (see above)</li>
+<li>you have a working SSH client<ul>
+<li>you are operating on a Linux/Mac environment. If you are running Microsoft Windows you can use PuTTY MobaXterm or in Win10 the Subsystem Linux (WSL). </li>
+</ul>
+</li>
+<li>please familiarize with a Unix-based command line, e.g. by installing a flavor of Linux using virtualization software (e.g VirtualBox)</li>
+</ul>
+</div>
+<div class="admonition types caution">
+<p class="admonition-title">Requirement</p>
+<p>Login to UBELIX is only possible from within the UniBE network. If you want to connect from outside, you must first establish a VPN connection. For VPN profiles and instructions see <a href="http://www.unibe.ch/university/campus_and_infrastructure/rund_um_computer/internetzugang/access_to_internal_resources_via_vpn/index_eng.html">the official tutorial</a>.</p>
+</div>
+<h3 id="maclinuxunix">Mac/Linux/Unix</h3>
+<p>Run the following commands in a terminal. Open an SSH connection to the submit host:</p>
+<p><div class="codehilite"><pre><span></span><code>$ ssh &lt;username&gt;@submit.unibe.ch
+</code></pre></div>
+At the password prompt enter your Campus Account password:</p>
+<div class="codehilite"><pre><span></span><code>$ ssh &lt;username&gt;@submit.unibe.ch
+Password:
+</code></pre></div>
+
+<div class="admonition types note">
+<p>Usually there is no indication of typing when entering your password (not even asterisks or bullets). That&rsquo;s intended. Just enter your password and press &lsquo;enter&rsquo;.</p>
+</div>
+<p>After log in successfully you will see the welcome message and the command prompt:</p>
+<div class="codehilite"><pre><span></span><code>Last login: Tue Apr <span class="m">21</span> <span class="m">16</span>:17:26 <span class="m">2020</span>
+
+CentOS <span class="m">7</span>.7.1908.x86_64
+
+FQDN:      submit01.ubelix.unibe.ch <span class="o">(</span><span class="m">10</span>.1.129.21<span class="o">)</span>
+Processor: 24x Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2630 v2 @ <span class="m">2</span>.60GHz
+Kernel:    <span class="m">3</span>.10.0-1062.9.1.el7.x86_64
+Memory:    <span class="m">62</span>.73 GiB
+</code></pre></div>
+
+<p>Congratulations, you just logged in to the cluster! You can immediately start using UBELIX.</p>
+<h3 id="microsoft-windows">Microsoft Windows</h3>
+<p>We use PuTTY to illustrate how to establish a SSH connection from a Windows client to UBELIX. There are of course other SSH clients for Windows available that serve the same purpose.</p>
+<div class="admonition types note">
+<p class="admonition-title">Download</p>
+<p>You can download PuTTY from <a href="http://www.putty.org/">http://www.putty.org</a></p>
+</div>
+<p>In category &ldquo;Session&rdquo; specify:<br />
+Connection type: SSH<br />
+Host name (or IP address): submit.unibe.ch<br />
+Port: 22</p>
+<p><img alt="login-putty" src="../images/putty-session.png" title="Open connection" /></p>
+<p>In category &ldquo;Connection&rdquo;/&rdquo;Data&rdquo; specify:
+Auto-login username: <username> (Enter your username here)</p>
+<p><img alt="autologin-putty" src="../images/putty-auto-login.png" title="Auto Login" /></p>
+<p>To save your session, in category &ldquo;Session&rdquo; specify:  </p>
+<p>Saved Session: ubelix (you can choose your own session name) and click the &ldquo;Save&rdquo; button</p>
+<p><img alt="login-putty" src="../images/putty-save_session.png" title="Save Session" /></p>
+<p>Click &ldquo;Open&rdquo; to establish a new connection.</p>
+<p>At the password prompt enter your password:</p>
+<p><img alt="login-putty" src="../images/putty-password_prompt.png" title="Password Prompt" /></p>
+<div class="admonition types note">
+<p>Usually there is no indication of typing when entering your password (not even asterisks or bullets). That&rsquo;s intended. Just enter your password and press &lsquo;enter&rsquo;.</p>
+</div>
+<p>After log in successfully you will see the welcome message and the command prompt:</p>
+<p><img alt="login-putty" src="../images/putty-welcome.png" title="Welcome Putty" /></p>
+<p>Congratulations, you just logged in to the cluster! You can immediately start using UBELIX.</p>
+<h2 id="customize-your-ssh-session">Customize your SSH session</h2>
+<p>Useful feartures like SSH alias, X and port forwarding are described on our page <a href="ssh-customization.html">SSH customization</a>.</p>
+<h3 id="create-a-ssh-alias">Create a SSH alias</h3>
+<p><strong>Mac/Linux/Unix</strong></p>
+<p>To simplify the login procedure you can define an alias for the user-/hostname combination. Add a host declaration to ~/.ssh/config (substitute your own alias and username):</p>
+<p><strong>~/.ssh/config</strong>
+<div class="codehilite"><pre><span></span><code>Host &lt;alias&gt;
+    Hostname submit.unibe.ch
+    User &lt;username&gt;
+</code></pre></div></p>
+<p>From now on you can log in to the cluster by using the specified alias:</p>
+<div class="codehilite"><pre><span></span><code>$ ssh &lt;alias&gt;
+</code></pre></div>
+
+<p>You still have to provide your password!</p>
+<h3 id="ssh-session-timeout">SSH session timeout</h3>
+<p><strong>Mac/Linux/Unix</strong><br />
+If a SSH connection goes idle for a specific amount of time (default 10 minutes), you may be confronted with a &ldquo;Write failed: Broken pipe&rdquo; error message or the connection is simply frozen, and you are forced to log in again. To prevent this from happening, configure the client to periodically (e.g. every 60 seconds) send a message to trigger a response from the remote server. To do so, add the following line to the SSH configuration file:</p>
+<div class="codehilite"><pre><span></span><code>ServerAliveInterval <span class="m">60</span>
+</code></pre></div>
+
+<p>The host declaration may now look like this:</p>
+<p><strong>~/.ssh/config</strong>
+<div class="codehilite"><pre><span></span><code>Host &lt;alias&gt;
+    Hostname submit.unibe.ch
+    User &lt;username&gt;
+    ServerAliveInterval <span class="m">60</span>
+</code></pre></div></p>
+<h3 id="ssh-key-pairs">SSH key pairs</h3>
+<p><strong>Mac/Linux/Unix</strong><br />
+SSH keys serve as a means of identifying a user to a SSH server. When using SSH keys your password will never be send over the network.</p>
+<div class="admonition types caution">
+<p>Remember to always keep your private key private! Only share your public key, never share your private key.</p>
+</div>
+<p>If you already have a valid private/public key pair that you also want to use for UBELIX, you can omit the rest of this section and continue with &ldquo;Adding a public key to your UBELIX account&rdquo;.</p>
+<p>First, generate a private/public key pair. You can substitute your own comment (-C).  To accept the default name/location simply press Enter, otherwise specify a different name/location:</p>
+<div class="codehilite"><pre><span></span><code>$ ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;ubelix&quot;</span>
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>/Users/faerber/.ssh/id_rsa<span class="o">)</span>:
+</code></pre></div>
+
+<p>Enter and confirm a secure passphrase:</p>
+<div class="admonition types caution">
+<p>If you do not specify a passphrase and someone else gets a copy of your private key, then he will be able to login with your identity on any account that uses the corresponding public key!</p>
+</div>
+<div class="codehilite"><pre><span></span><code>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+Enter same passphrase again:
+</code></pre></div>
+
+<p><strong>Adding a public key to your UBELIX account</strong><br />
+If you have specified a custom name/location for your SSH keys, you can tell your SSH client to use this key for connecting to UBELIX by specifying the private key on the command line:</p>
+<div class="codehilite"><pre><span></span><code>$ ssh -i ~/.ssh/id_rsa_ubelix &lt;alias&gt;
+</code></pre></div>
+
+<p>or even better, add the key to your host declaration in your ssh configuration:</p>
+<p><strong>~/.ssh/config</strong>
+<div class="codehilite"><pre><span></span><code>Host &lt;alias&gt;
+    Hostname submit.unibe.ch
+    User &lt;username&gt;
+    ServerAliveInterval <span class="m">60</span>
+    IdentityFile ~/.ssh/id_rsa_ubelix
+</code></pre></div></p>
+<p>Now, login to UBELIX and append your public key (content of id_rsa.pub) to the file ~/.ssh/authorized_keys. This step can also be done by simply issuing ssh-copy-id -i ~/.ssh/id_rsa_ubelix.pub <alias>. If everything was correct, you will now be able to login without providing you Campus Account password upon your next login attempt. However, if you have secured your key with a passphrase, you will get prompted for your passphrase instead. You can use ssh-agent to securely save your passphrase, so you do not have to re-enter it all the time.</p>
+<p><strong>Adding your Key to SSH-Agent</strong><br />
+The behavior of ssh-agent depends on the flavor and version of your operating system. On OS X Leopard or later your keys can be saved in the system&rsquo;s keychain. Most Linux installations will automatically start ssh-agent when you log in.</p>
+<p>Add the key to ssh-agent:</p>
+<div class="codehilite"><pre><span></span><code>$ ssh-add ~/.ssh/id_rsa_ubelix
+</code></pre></div>
+
+<p><strong>Passwordless ssh within the HPCs</strong>
+if you want to ssh passwordless to other nodes within the HPCs or want to use services like JupyterLab, you need to generate and register a new key within the HPC. Thus run the following commands on e.g. the submit node:
+<div class="codehilite"><pre><span></span><code>ssh-keygen -t rsa -b <span class="m">4096</span>
+cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod <span class="m">640</span> .ssh/authorized_keys
+</code></pre></div></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="account.html" title="Accounts and Activation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Accounts and Activation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="workspaces.html" title="Workspaces" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Workspaces
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; University of Bern, IT Service Office
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/ubelix" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

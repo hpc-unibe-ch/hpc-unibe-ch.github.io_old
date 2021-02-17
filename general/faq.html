@@ -1,0 +1,1340 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>FAQ - HPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../stylesheets/unibe.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#faq" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="HPC Documentation" aria-label="HPC Documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../HPC_UniBE_logo.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              HPC Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                FAQ
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/hpc-unibe-ch/hpc-docs" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    hpc-unibe-ch/hpc-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="HPC Documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../HPC_UniBE_logo.png" width="48" height="48">
+      
+    </a>
+    HPC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/hpc-unibe-ch/hpc-docs" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    hpc-unibe-ch/hpc-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../HOME_migration.html" title="IMPORTANT..Home Migration" class="md-nav__link">
+      IMPORTANT..Home Migration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../overview_workspaces.html" title="PLAN..Workspaces" class="md-nav__link">
+      PLAN..Workspaces
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../quick-start.html" title="Quick Start" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../code-of-conduct.html" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-Started/ubelix-overview.html" title="UniBE HPC system "UBELIX"" class="md-nav__link">
+      UniBE HPC system "UBELIX"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-Started/account.html" title="Accounts and Activation" class="md-nav__link">
+      Accounts and Activation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-Started/login-ssh.html" title="Accessing the HPCs" class="md-nav__link">
+      Accessing the HPCs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-Started/workspaces.html" title="Workspaces" class="md-nav__link">
+      Workspaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-Started/ssh-customization.html" title="SSH customization" class="md-nav__link">
+      SSH customization
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Workspaces
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Workspaces
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/workspaces.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/management.html" title="Workspace management" class="md-nav__link">
+      Workspace management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/environment.html" title="Software environment" class="md-nav__link">
+      Software environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hpc-workspaces/monitoring.html" title="Monitoring" class="md-nav__link">
+      Monitoring
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Job handling
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Job handling
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/submission.html" title="Submitting jobs" class="md-nav__link">
+      Submitting jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/monitoring-jobs.html" title="Monitoring Jobs" class="md-nav__link">
+      Monitoring Jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/deleting-jobs.html" title="Deleting Jobs" class="md-nav__link">
+      Deleting Jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/array-jobs.html" title="Array Jobs with Slurm" class="md-nav__link">
+      Array Jobs with Slurm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/gpus.html" title="GPUs" class="md-nav__link">
+      GPUs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/interactive-jobs.html" title="Interactive Jobs" class="md-nav__link">
+      Interactive Jobs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/investigating-job-failure.html" title="Investigating a Job Failure" class="md-nav__link">
+      Investigating a Job Failure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/checkpointing.html" title="Checkpointing" class="md-nav__link">
+      Checkpointing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/fair-share.html" title="Fair Share" class="md-nav__link">
+      Fair Share
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Software
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/hpc-modules.html" title="HPC software environment" class="md-nav__link">
+      HPC software environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/pre-installed-software.html" title="Pre-Installed Software" class="md-nav__link">
+      Pre-Installed Software
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/installing-custom-software.html" title="Installing Custom Software" class="md-nav__link">
+      Installing Custom Software
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/EasyBuild.html" title="EasyBuild" class="md-nav__link">
+      EasyBuild
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5">
+      Supported Applications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-5">
+        Supported Applications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/terminal-multiplexer-tmux.html" title="Terminal Multiplexer (tmux)" class="md-nav__link">
+      Terminal Multiplexer (tmux)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/CUDA.html" title="CUDA" class="md-nav__link">
+      CUDA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/matlab.html" title="Matlab" class="md-nav__link">
+      Matlab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/python.html" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/JupyterLab.html" title="JupyterLab" class="md-nav__link">
+      JupyterLab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/r.html" title="R" class="md-nav__link">
+      R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/relion.html" title="Relion" class="md-nav__link">
+      Relion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software/singularity.html" title="Singularity" class="md-nav__link">
+      Singularity
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Storage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Storage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-system/filesystem-overview.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-system/quota.html" title="File System Quota" class="md-nav__link">
+      File System Quota
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-system/file-transfer.html" title="Moving files to and from the HPCs" class="md-nav__link">
+      Moving files to and from the HPCs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../code-of-conduct.html" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        FAQ
+      </label>
+    
+    <a href="faq.html" title="FAQ" class="md-nav__link md-nav__link--active">
+      FAQ
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-my-home-already-migrated" class="md-nav__link">
+    Is my HOME already migrated?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-can-i-do-during-migration-of-my-home" class="md-nav__link">
+    What can I do, during migration of my HOME?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-need-to-share-data-with-my-colleges-what-can-i-do" class="md-nav__link">
+    I need to share data with my colleges. What can I do?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-read-home-quota-will-be-1tb-what-now" class="md-nav__link">
+    I read: HOME quota will be 1TB, what now?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-if-my-home-is-full" class="md-nav__link">
+    What if my HOME is full?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-can-i-get-a-workspace" class="md-nav__link">
+    Where can I get a Workspace?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-much-will-a-workspace-cost" class="md-nav__link">
+    How much will a Workspace cost?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-if-our-10tb-free-of-charge-research-group-quota-is-full" class="md-nav__link">
+    What if our 10TB free of charge research group quota is full?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-issues" class="md-nav__link">
+    Job issues
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-is-my-job-still-pending" class="md-nav__link">
+    Why is my job still pending?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cant-i-submit-further-jobs" class="md-nav__link">
+    Why can't I submit further jobs?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-in-state-failed-although-job-completed-successfully" class="md-nav__link">
+    Job in state FAILED although job completed successfully
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../halloffame.html" title="Hall of Fame" class="md-nav__link">
+      Hall of Fame
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-my-home-already-migrated" class="md-nav__link">
+    Is my HOME already migrated?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-can-i-do-during-migration-of-my-home" class="md-nav__link">
+    What can I do, during migration of my HOME?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-need-to-share-data-with-my-colleges-what-can-i-do" class="md-nav__link">
+    I need to share data with my colleges. What can I do?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-read-home-quota-will-be-1tb-what-now" class="md-nav__link">
+    I read: HOME quota will be 1TB, what now?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-if-my-home-is-full" class="md-nav__link">
+    What if my HOME is full?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-can-i-get-a-workspace" class="md-nav__link">
+    Where can I get a Workspace?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-much-will-a-workspace-cost" class="md-nav__link">
+    How much will a Workspace cost?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-if-our-10tb-free-of-charge-research-group-quota-is-full" class="md-nav__link">
+    What if our 10TB free of charge research group quota is full?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-issues" class="md-nav__link">
+    Job issues
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-is-my-job-still-pending" class="md-nav__link">
+    Why is my job still pending?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cant-i-submit-further-jobs" class="md-nav__link">
+    Why can't I submit further jobs?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-in-state-failed-although-job-completed-successfully" class="md-nav__link">
+    Job in state FAILED although job completed successfully
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="faq">FAQ</h1>
+<h2 id="description">Description</h2>
+<p>This page provides a collection of frequently asked questions.</p>
+<h3 id="is-my-home-already-migrated">Is my HOME already migrated?</h3>
+<p>You can check using the command <code>pwd</code>. 
+The location in the new file system is: <code>/storage/homefs/$USER</code>, where <code>$USER</code> is your user name. </p>
+<h2 id="what-can-i-do-during-migration-of-my-home">What can I do, during migration of my HOME?</h2>
+<p>You can still <strong>read</strong> your data in your HOME, but please <strong>prevent writing</strong> new data. There will be a rsync process running to migrate your and other users HOME accounts to the new location. At the end, the new HOMEs will be activated and you get notified. 
+If your <code>$HOME</code> already points to <code>/storage/homefs/$USER</code>, the migration of <strong>your</strong> HOME is finished. And you can continue working. </p>
+<h2 id="i-need-to-share-data-with-my-colleges-what-can-i-do">I need to share data with my colleges. What can I do?</h2>
+<p>Starting from May we officially introduce Workspaces. A group shared space. In the meantime you can:</p>
+<ul>
+<li>Use the still existing institute shared directories <code>/home/ubelix/&lt;instituteID&gt;/shared</code></li>
+<li>Ask for becoming a Workspace Beta user (see <a href="../overview_workspaces.html#beta-testing-phase">Workspaces Beta</a>)</li>
+</ul>
+<!-- ## Where should I put my data?
+A coarse classification may be:
+
+| data type | suggested target |
+| :--- | :--- |
+| private configuration data, e.g. SSH keys | HOME |
+| temporary (weeks to month) application input/output data | SCRATCH |
+| persistent application input/results, meant to be shared (some-when) | Workspace |
+| applications, meant to be shared (some-when) | Workspace | -->
+
+<h2 id="i-read-home-quota-will-be-1tb-what-now">I read: HOME quota will be 1TB, what now?</h2>
+<p>Previously, HOME quota was mostly 3TB. Now we will shift to group shared spaces, where each research group has 10TB in Workspaces free of charge and personal HOME 1TB. </p>
+<p>The HOME quota in the new location will be increased <strong>temporarily</strong> until the Workspaces are established in production (end of May). After the introduction of Workspaces there will be a transition period of one month, where you/your research group manager can create a Workspace and you can migrate the data. Afterwards, the quota will be fixed to 1TB in HOMEs. </p>
+<h2 id="what-if-my-home-is-full">What if my HOME is full?</h2>
+<p>If you reached your quota, you will get strange warning about not being able to write temporary files etc. You can check your quota using the 
+1. Decluttering: Check for unnecessary data. This could be:</p>
+<ul>
+<li>unused application packages, e.g. Python(2) packages in <code>$HOME/.local/lib/python*/site-packages/*</code></li>
+<li>temporary computational data, like already post processed output files</li>
+<li>duplicated data</li>
+<li>&hellip;</li>
+</ul>
+<ol start="2">
+<li>Pack and archive: The HPC storage is a high performance parallel storage and not meant to be an archive. Data not used in the short to midterm should be packed and moved to an archive storage. </li>
+</ol>
+<p>In general, we consider data on our HPC systems as research data. Further we consider research data to be shared sooner or later. And we aim to support and enhance collaborations. Therefore, we introduce group shared spaces, called HPC Workspaces.
+Ask your research group manager to add you to an existing Workspace or create a new one. 
+There will be no quota increase for HOME directories. </p>
+<h2 id="where-can-i-get-a-workspace">Where can I get a Workspace?</h2>
+<p>Workspaces are still in <strong>Alpha testing</strong> phase. We will soon switch to Beta testing with users. If you are interested, get in touch with us using a <a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=1d137767db54141078ed3e48229619a7">Service Portal request</a> or drop an <a href="mailto:hpc@id.unibe.ch">email</a>.</p>
+<p>A research group manager need to <strong>create</strong> the Workspace, since there are possibilities for charged extensions. </p>
+<p>If you want to <strong>join an existing</strong> Workspace. Ask the Workspace manager or its deputy to add you. </p>
+<h2 id="how-much-will-a-workspace-cost">How much will a Workspace cost?</h2>
+<p>Workspaces itself are free of charge. Every research group has 10TB disk space free of charge, which can be used in multiple Workspaces. 
+If necessary, additional storage can be purchased per Workspace, where only the actual usage will be charged. </p>
+<h2 id="what-if-our-10tb-free-of-charge-research-group-quota-is-full">What if our 10TB free of charge research group quota is full?</h2>
+<p>Your Research group manager or a registered deputy can apply for an additional quota. Actual used quota will be charged. </p>
+<h2 id="job-issues">Job issues</h2>
+<h3 id="why-is-my-job-still-pending">Why is my job still pending?</h3>
+<div class="admonition types note">
+<p>The REASON column of the <em>squeue</em> output gives you a hint why your job is not running.</p>
+</div>
+<p><strong>(Resources)</strong><br />
+The job is waiting for resources to become available so that the jobs resource request can be fulfilled.</p>
+<p><strong>(Priority)</strong><br />
+The job is not allowed to run because at least one higher prioritized job is waiting for resources.</p>
+<p><strong>(Dependency)</strong><br />
+The job is waiting for another job to finish first (&ndash;dependency=&hellip; option).</p>
+<p><strong>(DependencyNeverSatisfied)</strong><br />
+The job is waiting for a dependency that can never be satisfied. Such a job will remain pending forever. Please cancel such jobs.</p>
+<p><strong>(QOSMaxCpuPerUserLimit)</strong><br />
+The job is not allowed to start because your currently running jobs consume all allowed CPU resources for your user in a specific partition. Wait for jobs to finish.</p>
+<p><strong>(AssocGrpCpuLimit)</strong><br />
+dito.</p>
+<p><strong>(AssocGrpJobsLimit)</strong><br />
+The job is not allowed to start because you have reached the maximum of allowed running jobs for your user in a specific partition. Wait for jobs to finish.</p>
+<p><strong>(ReqNodeNotAvail, UnavailableNodes:&hellip;)</strong><br />
+Some node required by the job is currently not available. The node may currently be in use, reserved for another job, in an advanced reservation, <code>DOWN</code>, <code>DRAINED</code>, or not responding.<strong>Most probably there is an active reservation for all nodes due to an upcoming maintenance downtime (see output of</strong> <code>scontrol show reservation</code>) <strong>and your job is not able to finish before the start of the downtime. Another reason why you should specify the duration of a job (&ndash;time) as accurately as possible. Your job will start after the downtime has finished.</strong> You can list all active reservations using <code>scontrol show reservation</code>.</p>
+<h3 id="why-cant-i-submit-further-jobs">Why can&rsquo;t I submit further jobs?</h3>
+<div class="admonition types note">
+<p><em>sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user&rsquo;s size and/or time limits)</em></p>
+</div>
+<p>&hellip; means that you have reached the maximum of allowed jobs to be submitted to a specific partition.</p>
+<h3 id="job-in-state-failed-although-job-completed-successfully">Job in state FAILED although job completed successfully</h3>
+<p>Slurm captures the return value of the batch script/last command and reports this value as the completion status of the job/job step. Slurm indicates status FAILED if the value captured is non-zero.</p>
+<p>The following simplified example illustrates the issue:</p>
+<p><strong>simple.c</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+int main <span class="o">(</span>int argc, char *argv<span class="o">[])</span> <span class="o">{</span>
+  char hostname<span class="o">[</span><span class="m">128</span><span class="o">]</span><span class="p">;</span>
+  gethostname<span class="o">(</span>hostname, sizeof<span class="o">(</span>hostname<span class="o">))</span><span class="p">;</span>
+  printf<span class="o">(</span><span class="s2">&quot;%s says: Hello World.\n&quot;</span>, hostname<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p><strong>job.sh</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Slurm options</span>
+<span class="c1">#SBATCH --mail-user=foo@bar.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=END</span>
+<span class="c1">#SBATCH --job-name=&quot;Simple Hello World&quot;</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1"># Put your code below this line</span>
+./simple
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>bash$ sbatch job.sh
+Submitted batch job <span class="m">104</span>
+</code></pre></div>
+
+<p>Although the job finished successfully&hellip;</p>
+<p><strong>slurm-104.out</strong></p>
+<div class="codehilite"><pre><span></span><code>knlnode02.ubelix.unibe.ch says: Hello World.
+</code></pre></div>
+
+<p>&hellip;Slurm reports job FAILED:</p>
+<div class="codehilite"><pre><span></span><code>bash$ sacct -j <span class="m">104</span>
+       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- --------
+<span class="m">104</span>          Simple He+        all                     <span class="m">1</span>     FAILED     <span class="m">45</span>:0
+<span class="m">104</span>.batch         batch                                <span class="m">1</span>     FAILED     <span class="m">45</span>:0
+</code></pre></div>
+
+<p>Problem: The exit code of the job is the exit status of batch script (job.sh) which in turn returns the exit status of the last command executed (simple) which in turn returns the return value of the last statement (printf()). Since printf() returns the number of characters printed (45), the exit code of the batch script is non-zero and consequently Slurm reports job FAILED although the job produces the desired output.</p>
+<p>Solution: Explicitly return a value:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+int main <span class="o">(</span>int argc, char *argv<span class="o">[])</span> <span class="o">{</span>
+  char hostname<span class="o">[</span><span class="m">128</span><span class="o">]</span><span class="p">;</span>
+  int n<span class="p">;</span>
+  gethostname<span class="o">(</span>hostname, sizeof<span class="o">(</span>hostname<span class="o">))</span><span class="p">;</span>
+  // If successful, the total number of characters written is returned. On failure, a negative number is returned.
+  <span class="nv">n</span> <span class="o">=</span> printf<span class="o">(</span><span class="s2">&quot;%s says: Hello World.\n&quot;</span>, hostname<span class="o">)</span><span class="p">;</span>
+  <span class="k">if</span> <span class="o">(</span>n &lt; <span class="m">0</span><span class="o">)</span>
+    <span class="k">return</span> <span class="m">1</span><span class="p">;</span>
+  <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>bash$ sacct -j <span class="m">105</span>
+       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- --------
+<span class="m">105</span>          Simple He+        all                     <span class="m">1</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">105</span>.batch         batch                                <span class="m">1</span>  COMPLETED      <span class="m">0</span>:0
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../code-of-conduct.html" title="Code of Conduct" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Code of Conduct
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../halloffame.html" title="Hall of Fame" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Hall of Fame
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; University of Bern, IT Service Office
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/ubelix" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
