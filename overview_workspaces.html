@@ -287,6 +287,19 @@
     Beta Testing Phase
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beta-testing-with-investor-privileges" class="md-nav__link">
+    Beta Testing with Investor privileges
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -953,6 +966,19 @@
     Beta Testing Phase
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beta-testing-with-investor-privileges" class="md-nav__link">
+    Beta Testing with Investor privileges
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1021,6 +1047,20 @@ Furthermore, HPC data is usually processed with a set of custom software tools, 
 <p>Detailed information will follow soon.</p>
 <h2 id="beta-testing-phase">Beta Testing Phase</h2>
 <p>If you are interested and want to get early access as Workspace Beta user, please get in touch with us using the <a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=1d137767db54141078ed3e48229619a7">Service Portal</a> or write an <a href="mailto:hpc@id.unibe.ch">Email</a></p>
+<h3 id="beta-testing-with-investor-privileges">Beta Testing with Investor privileges</h3>
+<p>With the Workspaces we are additionally restructure the SLURM accounting. During the Beta testing phase the previous institute accounts and the investor accounts and QOS still exists. 
+Additionally for each Workspace there will be a Workspace account which is hierarchical below a newly research group account. With the <code>Workspace</code> module this account will be used. If you want to use your investor privileges during the Beta Testing phase you can after loading the <code>Workspace</code> module:</p>
+<ul>
+<li>GPU investors: <ul>
+<li>use your institute account for submitting (e.g. <code>sbatch --account &lt;instituteID&gt;</code> or <code>export SBATCH_ACCOUNT=&lt;instituteID&gt;</code>). But this will not not account on your Workspace account. </li>
+<li>ask us to add your investor QOS to your Workspace(s), this may not persistent and may need to be re done after final reconfiguration</li>
+</ul>
+</li>
+<li>CPU investors (empi partition):<ul>
+<li>use your investor account (e.g. <code>sbatch --account grp_&lt;investor&gt;</code> or <code>export SBATCH_ACCOUNT=grp_&lt;investor&gt;</code>)</li>
+</ul>
+</li>
+</ul>
                 
                   
                 
