@@ -1061,35 +1061,40 @@
 This page is an summary, a hands-on introduction, which targets primarily users without prior knowledge in high-performance computing. However, basic Linux knowledge is a prerequisite. If you are not familiar with basic Linux commands, there are many beginner tutorials available online. 
 After reading this page you will have composed and submitted your first job successfully to the cluster. Links are provided throughout the text to point you to more in-depth information on the topic.</p>
 <h2 id="cluster-rules">Cluster Rules</h2>
-<p>Before we start: as everywhere where people come together, a common sense is needed to allow for a good cooperation and to enable a positive HPC experience. Be always aware that you are working on a shared system where your behaviour could have a negative impact on the workflow of other users. Please find the list of the most important guidelines in our <a href="code-of-conduct.html">code of conduct</a>.</p>
+<p>Before we start: as everywhere where people come together, a <strong>common sense</strong> is needed to allow for a good cooperation and to enable a positive HPC experience. Be always aware that you are working on a <strong>shared system</strong> where your behaviour could have a negative impact on the workflow of other users. Please find the list of the most important guidelines in our <a href="code-of-conduct.html"><strong>code of conduct</strong></a>.</p>
 <h2 id="request-an-account">Request an Account</h2>
-<p>Before you can start working on the HPCs, staff and students of the University of Bern must have their Campus Account (CA) unlocked for the HPCs. External researchers that collaborate with an institute of the University of Bern must apply for a CA through that institute. See <a href="getting-Started/account.html">Accounts and Activation</a> for more information getting access to UBELIX.</p>
+<p>Before you can start working on the HPCs, staff and students of the University of Bern must have their <strong>Campus Account (CA)</strong> registered for the HPCs. External researchers that collaborate with an institute of the University of Bern must apply for a CA through that institute. See <a href="getting-Started/account.html">Accounts and Activation</a> for more information getting access to UBELIX.</p>
 <h2 id="hpc-workspace">HPC Workspace</h2>
 <p>Workspaces provide are a collaborative environment, including group based access to permanent and temporary storage, as well as group based compute resource accounting. 
 Research group leaders need to apply for an workspace, see <a href="hpc-workspaces/management.html">Workspace Management</a>. 
 For an introduction to HPC Workspaces see <a href="hpc-workspaces/workspaces.html">Workspace Overview</a></p>
 <h2 id="login">Login</h2>
-<p>To connect to the cluster, you must log in to the submit host from inside the university network (e.g. from a workstation on the campus). If you want to connect from a remote location (e.g. from your computer at home) you must first establish a VPN connection to get access to the university network. To connect from a UNIX-like system (Linux, Mac OS X, MobaXterm on Windows) simply use a secure shell (SSH) to log in to the submit host:</p>
+<p>To connect to the cluster, you must log in to the <strong>submit host</strong> from <strong>inside the university network</strong> (e.g. from a workstation on the campus). If you want to connect from a remote location (e.g. from your computer at home) you must first establish a <strong>VPN</strong> connection to get access to the university network. To connect from a UNIX-like system (Linux, Mac OS X, MobaXterm on Windows) simply use a secure shell (SSH) to log in to the submit host:</p>
 <div class="codehilite"><pre><span></span><code>ssh &lt;username&gt;@submit.unibe.ch
 <span class="c1"># the following is equivalent</span>
 ssh -l &lt;username&gt; submit.unibe.ch
 </code></pre></div>
 
 <h2 id="welcome-home">Welcome <code>$HOME</code></h2>
-<p>After successful login to the cluster, your will find yourself in the directory <code>/storage/homefs/$USER</code>, where <code>$USER</code> is your Campus Account ID.
+<p>After successful login to the cluster, your will find yourself in the directory <code>/storage/homefs/$USER</code>, where <code>$USER</code> is your Campus Account username.
 This is your home directory and serves as the repository for your personal files, and configurations. 
 You can reference your home directory by <code>~</code> or <code>$HOME</code>. </p>
-<div class="admonition note">
+<p>Your home directory is located on a shared file system. Therefore, all files and directories are always available on all cluster nodes and must hence not be copied between those nodes. HOME directories have a daily snapshot and backup procedures.
+Disk space is managed by <a href="file-system/quota.html">quotas</a>. By default, each user has 1TB of disk space available. Keep your home directory clean by regularly deleting old data or by moving data to a private storage.</p>
+<div class="admonition type info">
 <p class="admonition-title">migration change</p>
+<ul>
+<li><strong>No backup</strong> service for data in your home directory will be provided until the migration and Workspace introduction phase is finished. It is your own responsibility to backup important data to a private location. </li>
+<li>Home directories created before 2021, may still be located at <code>/home/ubelix/&lt;your_institute&gt;/&lt;your_campus_account&gt;/</code>. </li>
+<li>Previous extended HOME quota will be kept until the Workspace introduction phase is finished. </li>
+</ul>
 </div>
-<p>Home directories created before 2021, may still be located at <code>/home/ubelix/&lt;your_institute&gt;/&lt;your_campus_account&gt;/</code>. </p>
-<p>Your home directory is located on a shared file system. Therefore, all files and directories are always available on all cluster nodes and must hence not be copied between those nodes. We provide no backup service for data in your home directory. It is your own responsibility to backup important data to a private location. Disk space is managed by <a href="file-system/quota.html">quotas</a>. By default, each user has 3TB of disk space available. Keep your home directory clean by regularly deleting old data or by moving data to a private storage.</p>
 <p>You can always print the current working directory using the <code>pwd</code> (present working directory) command:
 <div class="codehilite"><pre><span></span><code><span class="nb">pwd</span>
-/storage/homefs/testuser
+/storage/homefs/&lt;username&gt;
 </code></pre></div></p>
 <h2 id="copy-data">Copy Data</h2>
-<p>At some point, you will probably need to copy files between your local computer and the cluster. There are different ways to achieve this, depending on your local operating system (OS). To copy a file from your local computer running a UNIX-like OS use the secure copy command <code>scp</code> on your local workstation:</p>
+<p>At some point, you will probably need to copy files between your local computer and the cluster. There are different ways to achieve this, depending on your local operating system (OS). To copy a file <strong>from your local computer</strong> running a UNIX-like OS use the secure copy command <code>scp</code> on your local workstation:</p>
 <div class="codehilite"><pre><span></span><code>scp /path/to/file &lt;username&gt;@submit.unibe.ch:/path/to/target_dir/
 </code></pre></div>
 
@@ -1099,25 +1104,36 @@ You can reference your home directory by <code>~</code> or <code>$HOME</code>. <
 
 <p>More information about file transfer can be found on the page <a href="file-system/file-transfer.html">File Transfer to/from UBELIX</a>.</p>
 <h2 id="use-software">Use Software</h2>
-<p>On our HPCs you can make use of already pre-installed software or you can compile and install your own software. We use a module system to manage software packages, even different versions of the same software. This allows you to focus on getting your work done instead of compiling software. E.g. to get a list of all provided versions of the GNU Compiler Collection (GCC), use:</p>
+<p>On our HPCs you can make use of already pre-installed software or you can compile and install your own software. We use a module system to manage software packages, even different versions of the same software. This allows you to focus on getting your work done instead of compiling software. E.g. to get a list of all provided packages:</p>
 <div class="codehilite"><pre><span></span><code>module avail
 </code></pre></div>
 
-<p>To load GCC version 4.9, use:</p>
-<div class="codehilite"><pre><span></span><code>module load gcc/4.9
+<p>A package name can be added to list all packages containing that string. </p>
+<p>The <code>module spider</code> command encountering also results from the VitalIT software stack. </p>
+<div class="admonition type info">
+<p class="admonition-title">Workspace software stacks</p>
+<p><code>module spider</code> or <code>module avail</code> will only find packages in a Workspace software stack if the <code>Workspace</code> module for that workspace is loaded</p>
+</div>
+<p>Furthermore, we are suggesting to work with so called toolchains. These are collections of modules build on top of each other. 
+E.g. setting the environment for compiling an scientific application with math. libraries, OpenMPI and GCC, load:</p>
+<div class="codehilite"><pre><span></span><code>$ module load foss
+$ module list 
+module list
+
+Currently Loaded Modules:
+  <span class="m">1</span><span class="o">)</span> GCCcore/9.3.0                      <span class="m">4</span><span class="o">)</span> GCC/9.3.0                          <span class="m">7</span><span class="o">)</span> libxml2/.2.9.10-GCCcore-9.3.0    <span class="o">(</span>H<span class="o">)</span>  <span class="m">10</span><span class="o">)</span> UCX/1.8.0-GCCcore-9.3.0   <span class="m">13</span><span class="o">)</span> gompi/2020a                  <span class="m">16</span><span class="o">)</span> foss/2020a
+  <span class="m">2</span><span class="o">)</span> zlib/.1.2.11-GCCcore-9.3.0   <span class="o">(</span>H<span class="o">)</span>   <span class="m">5</span><span class="o">)</span> numactl/2.0.13-GCCcore-9.3.0       <span class="m">8</span><span class="o">)</span> libpciaccess/.0.16-GCCcore-9.3.0 <span class="o">(</span>H<span class="o">)</span>  <span class="m">11</span><span class="o">)</span> OpenMPI/4.0.3-GCC-9.3.0   <span class="m">14</span><span class="o">)</span> FFTW/3.3.8-gompi-2020a
+  <span class="m">3</span><span class="o">)</span> binutils/.2.34-GCCcore-9.3.0 <span class="o">(</span>H<span class="o">)</span>   <span class="m">6</span><span class="o">)</span> XZ/.5.2.5-GCCcore-9.3.0      <span class="o">(</span>H<span class="o">)</span>   <span class="m">9</span><span class="o">)</span> hwloc/2.2.0-GCCcore-9.3.0             <span class="m">12</span><span class="o">)</span> OpenBLAS/0.3.9-GCC-9.3.0  <span class="m">15</span><span class="o">)</span> ScaLAPACK/2.1.0-gompi-2020a
+
+  Where:
+   H:  Hidden Module
 </code></pre></div>
 
-<p>Now, you are using this specific version of GCC:</p>
-<div class="codehilite"><pre><span></span><code>gcc --version
-gcc <span class="o">(</span>GCC<span class="o">)</span> <span class="m">4</span>.9.3
-Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2015</span> Free Software Foundation, Inc.
-This is free software<span class="p">;</span> see the <span class="nb">source</span> <span class="k">for</span> copying conditions.  There is NO
-warranty<span class="p">;</span> not even <span class="k">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-</code></pre></div>
-
+<p>You can also specify version numbers there. </p>
 <div class="admonition attention">
 <p class="admonition-title">Scope</p>
 <p>The loaded version of a software is only active in your current session. If you open a new shell you are again using the default version of the software. Therefore, it is crucial to load the required modules from within your job script.</p>
+<p>But also keep in mind that the current environment will get forwarded into a job submitted from it. This may lead to conflicting versions of loaded modules and modules loaded in the script. </p>
 </div>
 <p>With the module environment you can also easily install, maintain and provide software packages in your workspaces and share with your collaborators. </p>
 <p>The <a href="software/hpc-modules.html">Software</a> section is dedicated to this topic. More information can be found there.</p>

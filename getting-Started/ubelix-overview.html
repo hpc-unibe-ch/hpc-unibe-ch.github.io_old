@@ -327,8 +327,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#login-server-aka-submit-server" class="md-nav__link">
-    Login Server aka. Submit Server
+  <a href="#login-node-aka-submit-node" class="md-nav__link">
+    Login node aka. Submit node
   </a>
   
 </li>
@@ -951,8 +951,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#login-server-aka-submit-server" class="md-nav__link">
-    Login Server aka. Submit Server
+  <a href="#login-node-aka-submit-node" class="md-nav__link">
+    Login node aka. Submit node
   </a>
   
 </li>
@@ -1003,13 +1003,23 @@
                 <h1 id="ubelix-overview">UBELIX - Overview</h1>
 <h2 id="description">Description</h2>
 <p>This page provides a high-level system overview of a HPC cluster such as UBELIX. It describes the different hardware components that constitute the cluster and gives a quantitative list of the different generations of compute nodes in UBELIX.</p>
-<p>UBELIX (University of Bern Linux Cluster) is a HPC cluster that currently consists of about 330 compute nodes featuring almost 6&lsquo;300 CPU cores and 300&lsquo;000 GPU cores and a software-defined storage infrastructure providing ~580 TB of disk storage net. UBELIX is a heterogeneous cluster, meaning UBELIX consists of different generations of compute nodes with different instruction sets. Compute nodes, front-end servers and the storage are interconnected through a high speed Infiniband network. The front-end servers also provide a link to the outside world. UBELIX is used by various institutes and research groups within chemistry, biology, physics, astronomy, computer science, geography, medical radiology and others for scientific research and by students working on their thesis.</p>
+<p><strong>UBELIX</strong> (University of Bern Linux Cluster) is a HPC cluster that currently consists of about 330 compute nodes featuring almost 10&lsquo;000 CPU cores and ~333&lsquo;000 GPU cores and a software-defined storage infrastructure providing ~3 PB of disk storage net. UBELIX is a heterogeneous cluster, meaning UBELIX consists of different generations of compute nodes with different instruction sets. Compute nodes, front-end servers and the storage are interconnected through a high speed Infiniband network. The front-end servers also provide a link to the outside world. UBELIX is used by various institutes and research groups within chemistry, biology, physics, astronomy, computer science, geography, medical radiology and others for scientific research and by students working on their thesis.</p>
 <h2 id="high-level-system-overview">High-level system overview</h2>
-<p><img alt="System Overview Diagram" src="../images/system_overview.jpg" title="System Overview Diagram" /></p>
-<h3 id="login-server-aka-submit-server">Login Server aka. Submit Server</h3>
-<p>A user connects to the cluster by logging into the submit host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile programs. Resource-demanding/high-performance tasks must be submitted to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks could fit as a job on a compute instead of running it on the submit host</p>
+<p><img alt="System Overview Diagram" src="../images/system_overview.jpg" title="System Overview Diagram" />
+The HPCs can only be reached within the UniBE network. User landing point are the login nodes, where jobs can be prepared and submitted. </p>
+<h3 id="login-node-aka-submit-node">Login node aka. Submit node</h3>
+<p>A user connects to the cluster by logging into the <strong>submit</strong> host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile programs. Resource-demanding/high-performance tasks must be submitted to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks should be submitted as a job on a compute node instead of running it on the submit host. </p>
 <h3 id="batch-queueing-system">Batch-Queueing System</h3>
-<p>On UBELIX we use the open-source batch-queueing system <a href="https://slurm.schedmd.com/documentation.html">Slurm</a> for executing jobs on a pool of cooperating compute nodes. Slurm manages the distributed resources provided by the compute nodes and is responsible for accepting, scheduling, dispatching, and managing the remote and distributed execution of sequential, parallel or interactive user jobs.</p>
+<p>On UBELIX we use the open-source batch-queueing system <a href="https://slurm.schedmd.com/documentation.html">Slurm</a>, managing all jobs on the compute nodes. The job submission is described in detail in the Job handling section, starting with <a href="../slurm/submission.html">Submitting jobs</a>. </p>
+<p>The procedure look like:</p>
+<ul>
+<li>defining resources: you as a user define the resources your job requires, including numbers of CPU cores, time limit, memory, etc. Not specified parameters are chosen with default values. These resources can be defines in the batch script or as command line arguments</li>
+<li>submitting: you submit your job by calling <code>sbatch</code>, <code>srun</code>, or <code>salloc</code>. Therewith a job gets registered in Slurm, if it is within the specification and limits.</li>
+<li>scheduling: Slurm is finding the optimal spots for the registered jobs on the resources and time. This also includes priority handling and optimizing for best coverage. </li>
+<li>launch: Slurm prepares the environment on the selected compute resources. This also includes setting up the MPI environment, if requested interactive sessions, etc., and launching your batch script. </li>
+<li>serial/parallel tasks: per default all the tasks defined in your batch script are run on the first core of your allocation. Compute tasks should be started with &lsquo;srun&rsquo;. Parallel task are launched on all (or as defined) job related resources. </li>
+<li>cancelling/completing: When tasks finished, wall time limit or memory limit is reached the job ant its environment gets removed from the resources. All output is written into file(s) (except of interactive sessions)</li>
+</ul>
 <h3 id="cluster-partitions-queues-and-their-compute-nodes">Cluster Partitions (Queues) and their Compute Nodes</h3>
 <p>Partitions group nodes into logical sets. Nodes in a partition share the same limits. You can choose a partition depending on your jobs requirements (CPUs, memory, runtime). UBELIX provides several different partitions as shown in the following table including the corresponding hardware details of the compute nodes each partition is comprised of:</p>
 <table>
@@ -1043,6 +1053,19 @@
 <td>250GB<br />500GB<br />850GB<br />850GB</td>
 </tr>
 <tr>
+<td>amd</td>
+<td>96h</td>
+<td>1TB</td>
+<td>192 cores</td>
+<td>-</td>
+<td>bnode[001-026]</td>
+<td>AMD EPYC 2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td>empi</td>
 <td>24h</td>
 <td>117GB</td>
@@ -1059,7 +1082,7 @@
 <td>long<sup id="fnref:long"><a class="footnote-ref" href="#fn:long">1</a></sup></td>
 <td>360h</td>
 <td>86GB</td>
-<td>24</td>
+<td>24 cores</td>
 <td>-</td>
 <td>hnode[43-49]</td>
 <td>ivybridge</td>
@@ -1109,6 +1132,7 @@
 </tr>
 </tbody>
 </table>
+<p>To access a specific nodes you may need to specify the partition or with <code>--constrain</code> option a specific architecture within a partition. </p>
 <div class="admonition note">
 <p><strong>The all partition is the default partition if you do not specify one explicitly.</strong></p>
 </div>
@@ -1129,22 +1153,22 @@
 <td><code>/storage/homefs/$USER</code></td>
 <td>Network</td>
 <td>global</td>
-<td>yes</td>
-<td>3TB/user, 15TB/group</td>
+<td>yes<sup id="fnref:afterMig"><a class="footnote-ref" href="#fn:afterMig">3</a></sup></td>
+<td>1TB</td>
 </tr>
 <tr>
-<td><code>/scratch/</code></td>
+<td><code>/storage/workspaces/</code></td>
+<td>Network</td>
+<td>global</td>
+<td>yes</td>
+<td>10TB per research group, plus additional purchased storage</td>
+</tr>
+<tr>
+<td><code>/scratch/network/</code></td>
 <td>Network</td>
 <td>global</td>
 <td>no</td>
 <td>50TB per space</td>
-</tr>
-<tr>
-<td><code>/workspace/</code></td>
-<td>Network</td>
-<td>global</td>
-<td>yes</td>
-<td>1TB single user, 5TB group</td>
 </tr>
 </tbody>
 </table>
@@ -1156,6 +1180,9 @@
 </li>
 <li id="fn:gpu">
 <p>The gpu partition is closed by definition. If you need GPU resources, you have request access to this partition. Write an email to <a href="mailto::hpc@id.unibe.ch">hpc@id.unibe.ch</a> to do so.&#160;<a class="footnote-backref" href="#fnref:gpu" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:afterMig">
+<p>Home Backup and snapshots will only be activated after the migration a Workspace introduction phase is finished&#160;<a class="footnote-backref" href="#fnref:afterMig" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

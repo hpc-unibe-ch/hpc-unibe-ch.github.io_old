@@ -1051,10 +1051,10 @@ This page contains information on how to configure your SSH environment for a si
 <ul>
 <li>you have your Campus Account activated for UBELIX (see above)</li>
 <li>you have a working SSH client<ul>
-<li>you are operating on a Linux/Mac environment. If you are running Microsoft Windows you can use PuTTY MobaXterm or in Win10 the Subsystem Linux (WSL). </li>
+<li>Linux/Mac: e.g ssh command in a terminal </li>
+<li>Microsoft Windows: you can use PuTTY, MobaXterm, or the Linux subsystem. Alternatively, a flavor of Linux can be installed on Microsoft Windows using virtualization software (e.g VirtualBox). We strongly encourage you to familiarize with a Unix-based operating system. </li>
 </ul>
 </li>
-<li>please familiarize with a Unix-based command line, e.g. by installing a flavor of Linux using virtualization software (e.g VirtualBox)</li>
 </ul>
 </div>
 <div class="admonition types caution">
@@ -1064,6 +1064,8 @@ This page contains information on how to configure your SSH environment for a si
 <h3 id="maclinuxunix">Mac/Linux/Unix</h3>
 <p>Run the following commands in a terminal. Open an SSH connection to the submit host:</p>
 <p><div class="codehilite"><pre><span></span><code>$ ssh &lt;username&gt;@submit.unibe.ch
+OR
+$ ssh -l &lt;username&gt; submit.unibe.ch
 </code></pre></div>
 At the password prompt enter your Campus Account password:</p>
 <div class="codehilite"><pre><span></span><code>$ ssh &lt;username&gt;@submit.unibe.ch

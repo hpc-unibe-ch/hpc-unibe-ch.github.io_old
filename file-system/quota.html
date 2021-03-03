@@ -811,15 +811,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-quota" class="md-nav__link">
-    User Quota
+  <a href="#display-quota-information" class="md-nav__link">
+    Display quota information
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#group-quota" class="md-nav__link">
-    Group Quota
+  <a href="#home-quota" class="md-nav__link">
+    HOME Quota
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-quota-method" class="md-nav__link">
+    advanced quota method
   </a>
   
 </li>
@@ -923,15 +930,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-quota" class="md-nav__link">
-    User Quota
+  <a href="#display-quota-information" class="md-nav__link">
+    Display quota information
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#group-quota" class="md-nav__link">
-    Group Quota
+  <a href="#home-quota" class="md-nav__link">
+    HOME Quota
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-quota-method" class="md-nav__link">
+    advanced quota method
   </a>
   
 </li>
@@ -962,84 +976,122 @@
                 
                 <h1 id="file-system-quota">File System Quota</h1>
 <h2 id="description">Description</h2>
-<p>This page contains information about quota limits on the GPFS. Quotas are enabled to control the file system usage.</p>
-<div class="admonition types note">
-<p class="admonition-title">Default Quota Limits</p>
-<p>For each user, the default block quota limit is 3 TB, and the default file quota limit is 2 million files</p>
+<p>This page contains information about quota limits on the parallel file system. Quotas are enabled to control the file system usage.</p>
+<div class="admonition types info">
+<p class="admonition-title">migration change</p>
+<p>Previously HOME directories had limits of 3 TB per user, file quota limits of 2 million files. In some cases this was extended. The previous HOME quota will kept active until the Workspace introduction phase is finished. </p>
 </div>
-<h2 id="user-quota">User Quota</h2>
 <div class="admonition types warning">
 <p class="admonition-title"> Job abortion</p>
 <p>Jobs will fail if no more disk space can be allocated, or if no more files can be created because the respective quota hard limit is exceeded </p>
 </div>
-<div class="admonition attention">
-<p class="admonition-title">under Construction</p>
-<p>detailed information will follow soon</p>
+<h2 id="display-quota-information">Display quota information</h2>
+<p>A quota tool is delivered with the Workspace module:</p>
+<p><div class="codehilite"><pre><span></span><code>$ quota
+UniBE Workspace Quota <span class="nv">report</span>
+<span class="o">============================</span>
+                    :  used <span class="o">(</span>GB<span class="o">)(</span>   %<span class="o">)</span>, quota <span class="o">(</span>GB<span class="o">)</span> <span class="p">|</span>  files used<span class="o">(</span>   %<span class="o">)</span>,      <span class="nv">quota</span>
+<span class="o">==================================================================================</span>
+HOME                :        <span class="m">420</span><span class="o">(</span> <span class="m">41</span>%<span class="o">)</span>,       <span class="m">1024</span> <span class="p">|</span>      <span class="m">773425</span><span class="o">(</span> <span class="m">77</span>%<span class="o">)</span>,    <span class="m">1000000</span>
+Workspace1          :        <span class="m">101</span><span class="o">(</span>  <span class="m">1</span>%<span class="o">)</span>,      <span class="m">10240</span> <span class="p">|</span>           <span class="m">3</span><span class="o">(</span>  <span class="m">0</span>%<span class="o">)</span>,   <span class="m">10000000</span>
+</code></pre></div>
+Furthermore, there is a more detailed version using the <code>-l</code> or <code>--long</code> option
+<div class="codehilite"><pre><span></span><code>$ quota -l
+UniBE Workspace Quota <span class="nv">report</span>
+<span class="o">============================</span>
+                    : free quota,  used <span class="o">(</span>GB<span class="o">)(</span>   %<span class="o">)</span>, quota <span class="o">(</span>GB<span class="o">)</span> <span class="p">|</span>  files used<span class="o">(</span>   %<span class="o">)</span>,      quota <span class="p">|</span> start date<span class="o">(</span><span class="m">1</span><span class="o">)</span>, average quota<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+<span class="o">================================================================================================================================</span>
+HOME                :        all,        <span class="m">421</span><span class="o">(</span> <span class="m">41</span>%<span class="o">)</span>,       <span class="m">1024</span> <span class="p">|</span>      <span class="m">796058</span><span class="o">(</span> <span class="m">79</span>%<span class="o">)</span>,    <span class="m">1000000</span> <span class="p">|</span>              ,
+Workspace1          :          <span class="m">5</span>,        <span class="m">101</span><span class="o">(</span>  <span class="m">1</span>%<span class="o">)</span>,      <span class="m">10240</span> <span class="p">|</span>           <span class="m">4</span><span class="o">(</span>  <span class="m">0</span>%<span class="o">)</span>,   <span class="m">10000000</span> <span class="p">|</span>    <span class="m">2021</span>-02-25,           <span class="m">7</span>.5833
+
+<span class="o">(</span><span class="m">1</span><span class="o">)</span> accounting period start date, The date from which the average usage is computed.
+<span class="o">(</span><span class="m">2</span><span class="o">)</span> file space average quota <span class="o">(</span>not files<span class="o">)</span>, calculated by the average of messured values in the actual accounting period.
+</code></pre></div></p>
+<p>In the last example the workspace <code>Workspace1</code> has <code>5TB</code> of free quota, and a total of <code>10TB</code> of quota (<code>5TB</code> additional storage requested). The <code>start date</code> defines the start of the accounting period and the average quota is computed as average over all datapoints starting from <code>start date</code>. </p>
+<div class="admonition types note">
+<p class="admonition-title">data gathering</p>
+<ul>
+<li>Workspaces: Workspace quota information is gathered twice a day. Thus the presented data may not completely represent the current state.</li>
+<li>HOME: values presented are actual values directly from the file system</li>
+</ul>
 </div>
+<p>Note: the coloring of the relative values is green (&lt;70%), yellow (70% &lt; x &lt; 90%), red (&gt;90%).</p>
+<h2 id="home-quota">HOME Quota</h2>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>/home</th>
-<th>/storage/workspace</th>
-<th>/storage/scratch</th>
+<th>space</th>
+<th>quota</th>
+<th>file quota</th>
+<th>backup</th>
+<th>expiration</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>quota</td>
-<td>max 10TB per research group</td>
-<td></td>
-<td></td>
+<td>HOME</td>
+<td>1TB<sup id="fnref:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
+<td>1M<sup id="fnref2:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
+<td>yes<sup id="fnref3:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
+<td>-</td>
 </tr>
 <tr>
-<td>file quota</td>
-<td></td>
-<td></td>
-<td></td>
+<td>WORKSPACE</td>
+<td>10TB per research group<sup id="fnref:QpRG"><a class="footnote-ref" href="#fn:QpRG">2</a></sup></td>
+<td>by default 1M per TB</td>
+<td>yes</td>
+<td>1 year<sup id="fnref:WSdur"><a class="footnote-ref" href="#fn:WSdur">3</a></sup></td>
 </tr>
 <tr>
-<td>Expiration</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Data Backup</td>
-<td></td>
-<td></td>
-<td></td>
+<td>SCRATCH</td>
+<td>50TB</td>
+<td>50M</td>
+<td>no</td>
+<td>1 month</td>
 </tr>
 </tbody>
 </table>
-<p>You can display the user quota information with the mmlsquota command. It will inform you about quota limits (block quota and file quota) and the current usage on the filesystem:  </p>
-<div class="codehilite"><pre><span></span><code>$ mmlsquota
-                         Block Limits                                    <span class="p">|</span>     File Limits
-Filesystem <span class="nb">type</span>             KB      quota      limit   in_doubt    grace <span class="p">|</span>    files   quota    limit in_doubt    grace  Remarks
-gpfs       USR        <span class="m">28292096</span> <span class="m">3221225472</span> <span class="m">4294967296</span>          <span class="m">0</span>     none <span class="p">|</span>   <span class="m">136704</span> <span class="m">2000000</span>  <span class="m">3000000</span>        <span class="m">0</span>     none
+<h2 id="advanced-quota-method">advanced quota method</h2>
+<p>The following <code>mmlsquota</code> command present you actual values from the file system. 
+For <code>$HOME</code>:</p>
+<div class="codehilite"><pre><span></span><code>$ mmlsquota --block-size<span class="o">=</span>G -u <span class="nv">$USER</span> rs_gpfs:svc_homefs
+                         Block Limits                                               <span class="p">|</span>     File Limits
+Filesystem Fileset    <span class="nb">type</span>             KB      quota      limit   in_doubt    grace <span class="p">|</span>    files   quota    limit in_doubt    grace  Remarks
+rs_gpfs    svc_homefs USR       <span class="m">444181792</span> <span class="m">1073741824</span> <span class="m">1073741824</span>    <span class="m">6072144</span>     none <span class="p">|</span>   <span class="m">815985</span> <span class="m">1000000</span>  <span class="m">1000000</span>     <span class="m">2462</span>     none
 </code></pre></div>
 
-<p>Add the &ndash;block-size option to specify the unit (K , M, G, T) in which the number of blocks is displayed:</p>
-<div class="codehilite"><pre><span></span><code>$ mmlsquota --block-size<span class="o">=</span>G
+<div class="admonition types attention">
+<p class="admonition-title">migration change</p>
+<p>If your HOME is not yet migrated, you can check your quota on the old file system using: <code>$mmlsquota  gpfs</code>. The quota limits for the institute directories can be gathered using: <code>mmlsquota -g id --block-size T</code>, for the institute <code>id</code>.</p>
+</div>
+<p>The <code>--block-size</code> option specify the unit {K , M, G, T} in which the numbers of blocks are displayed:</p>
+<div class="codehilite"><pre><span></span><code>mmlsquota --block-size<span class="o">=</span>G -j workspace1 rs_gpfs
                          Block Limits                                    <span class="p">|</span>     File Limits
 Filesystem <span class="nb">type</span>             GB      quota      limit   in_doubt    grace <span class="p">|</span>    files   quota    limit in_doubt    grace  Remarks
-gpfs       USR              <span class="m">27</span>       <span class="m">3072</span>       <span class="m">4096</span>          <span class="m">0</span>     none <span class="p">|</span>   <span class="m">136704</span> <span class="m">2000000</span>  <span class="m">3000000</span>        <span class="m">0</span>     none
+rs_gpfs    FILESET          <span class="m">57</span>      <span class="m">10240</span>      <span class="m">11264</span>          <span class="m">0</span>     none <span class="p">|</span>        <span class="m">5</span> <span class="m">10000000</span> <span class="m">11000000</span>        <span class="m">0</span>     none
 </code></pre></div>
 
-<p>The output shows the quotas in the file system GPFS for the user who issued the command. The quotas are set to a soft limit of 3072 GB, and a hard limit of 4096 GB. 27 GB is currently allocated to the user. An in_doubt value greater than zero means that the quota system has not yet been updated as to whether the space that is in doubt is still available or not. If the user exceeds the soft limit, the grace period will be set to one week.</p>
-<p>If usage is not reduced to a level below the soft limit during that time, the quota system interprets the soft limit as the hard limit and no further allocation is allowed. The user can reset this condition by reducing usage enough to fall below the soft limit. The maximum amount of disk space the user can accumulate during the grace period is defined by the hard limit. The same information is also displayed for the file limits (number of files).</p>
-<h2 id="group-quota">Group Quota</h2>
-<p>You can display the the group quota of your own group using the -g option:</p>
-<div class="codehilite"><pre><span></span><code>$ mmlsquota -g id --block-size T
-Disk quotas <span class="k">for</span> group id <span class="o">(</span>gid <span class="m">1001</span><span class="o">)</span>:
-                         Block Limits                                    <span class="p">|</span>     File Limits
-Filesystem <span class="nb">type</span>             TB      quota      limit   in_doubt    grace <span class="p">|</span>    files   quota    limit in_doubt    grace  Remarks
-gpfs       GRP               <span class="m">1</span>         <span class="m">15</span>         <span class="m">16</span>          <span class="m">0</span>     none <span class="p">|</span>  <span class="m">2232666</span> <span class="m">10000000</span> <span class="m">12000000</span>        <span class="m">0</span>     none
-</code></pre></div>
-
+<p>The output shows the quotas for a worspace called <code>Workspace1</code>. The quotas are set to a soft limit of 10240 GB, and a hard limit of 11264 GB. 57 GB is currently allocated to the workspace. An in_doubt value greater than zero means that the quota system has not yet been updated as to whether the space that is in doubt is still available or not. </p>
+<p>If the user/workspace exceeds the soft limit, the grace period will be set to one week. If usage is not reduced to a level below the soft limit during that time, the quota system interprets the soft limit as the hard limit and no further allocation is allowed. The user(s) can reset this condition by reducing usage enough to fall below the soft limit. The maximum amount of disk space the workspace/user can accumulate during the grace period is defined by the hard limit. The same information is also displayed for the file limits (number of files).</p>
 <h2 id="request-higher-quota-limits">Request Higher Quota Limits</h2>
 <div class="admonition types info">
-<p>Make sure to clean up your home directory before requesting additional storage space</p>
+<p class="admonition-title">clean before ask</p>
+<p>Make sure to clean up your directories before requesting additional storage space. </p>
+</div>
+<p>There will be no quota increase for HOME directories. Additional storage for workspaces can be requested by the workspace owner or the deputy, see <a href="../hpc-workspaces/management.html#additional-storage">Workspace Management</a></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:mig">
+<p>ATTENTION: there is no Backup or snapshot on HOME directories until the Workspace introduction phase is finished. Previous extended quota keep active until then.&#160;<a class="footnote-backref" href="#fnref:mig" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:mig" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:mig" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:QpRG">
+<p>Each research group can use up to 10TB of free disk storage in multiple Workspaces.&#160;<a class="footnote-backref" href="#fnref:QpRG" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:WSdur">
+<p>Workspaces are meant to be active directories and no archive. Workspace are active by default for one year. The duration can every time be extended to &ldquo;current date plus one year&rdquo;.&#160;<a class="footnote-backref" href="#fnref:WSdur" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
                 
                   
