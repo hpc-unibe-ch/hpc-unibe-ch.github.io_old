@@ -982,17 +982,28 @@ Detailed information will follow soon.</p>
 <h2 id="description">Description</h2>
 <p>The Workspace module provide support for userfriendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. </p>
 <h2 id="workspace-module">Workspace module</h2>
-<p>The Workspace modules automatically detects available Workspaces. If you have access to just one, this one gets loaded. If you have access to multiple workspaces the following presents you the list of available Workspaces:
+<p>The Workspace module adjust the environment to work in a spacific Workspace. 
 <div class="codehilite"><pre><span></span><code>module load workspace
-</code></pre></div></p>
-<p>If you are member of more than one workspace, you can directly select and load a workspace using</p>
-<div class="codehilite"><pre><span></span><code>export HPC_WORKSPACE=WorkspaceName; module load Workspace
 </code></pre></div>
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have <strong>multiple Workspaces</strong> and <strong>prevent exporting</strong> the environment to the compute node (<code>export SBATCH_EXPORT=NONE</code>), you need to <strong>set <code>HPC_WORKSPACE</code></strong> also in you batch script together with the module load statement.</p>
-</div>
+sets the following environment variables (<a href="#shortcuts">Shortcuts</a>) and <a href="#software-stacks">Software stacks</a></p>
+<p>There are the following possibilites:</p>
+<ul>
+<li>you belong to <strong>no</strong> Workspace: load <code>module load Workspace/home</code> to use your software stack in your HOME directory</li>
+<li>you belong to <strong>one</strong> Workspace: this one gets loaded when <code>module load Workspace</code></li>
+<li>you belong to multiple Workspaces: you need to specify one. The module presents you the options, e.g.
+    <div class="codehilite"><pre><span></span><code>$ module load Workspace
+Workspaces are available:
+    HPC_SW_test, hpc_training, 
+Please select and load ONE of the following:
+    export HPC_WORKSPACE=HPC_SW_test; module load Workspace
+    export HPC_WORKSPACE=hpc_training; module load Workspace
+</code></pre></div><ul>
+<li>Thus you load a specific Workspace using:
+<div class="codehilite"><pre><span></span><code>export HPC_WORKSPACE=&lt;WorkspaceName&gt;; module load Workspace
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
 <h3 id="shortcuts">Shortcuts</h3>
 <p>The workspace module provides the following variables:</p>
 <table>
@@ -1004,15 +1015,15 @@ Detailed information will follow soon.</p>
 </thead>
 <tbody>
 <tr>
-<td>WORKSPACE</td>
+<td><code>$WORKSPACE</code></td>
 <td>full path to the Workspace. Thus, you can access the workspace using: <code>cd $WORKSPACE</code></td>
 </tr>
 <tr>
-<td>SCRATCH</td>
+<td><code>$SCRATCH</code></td>
 <td>full path to the Workspace SCRATCH diretory. Thus you can access it using: <code>cd $SCRATCH</code></td>
 </tr>
 <tr>
-<td>SBATCH_ACCOUNT</td>
+<td><code>$SBATCH_ACCOUNT</code></td>
 <td>sets the SLURM account to the Workspace account. Thus all submitted jobs with that module are accounted to the Workspace account automatically. No need to set it in the sbatch script</td>
 </tr>
 </tbody>
