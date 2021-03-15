@@ -1025,7 +1025,7 @@ Detailed information will follow soon.</p>
 </div>
 <h2 id="description">Description</h2>
 <p>This article introduces HPC workspaces with the main aspects.</p>
-<p>A guidline for Workspace managers including <strong>application</strong> and modification can be found at <a href="management.html">Workspace Managment</a>. </p>
+<p>A guideline for Workspace managers including <strong>application</strong> and modification can be found at <a href="management.html">Workspace Management</a>. </p>
 <p>If you want to <strong>join an existing Workspace</strong>, please ask the Workspace owner or manager to add your account.</p>
 <p>A HPC workspace consists of:</p>
 <ul>
@@ -1034,6 +1034,11 @@ Detailed information will follow soon.</p>
 <li>Slurm accounting</li>
 <li>fair share on research group level</li>
 </ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Please always load the <code>Workspace</code> module, even if only just copying files into it. The module corrects the <code>umask</code> and therewith the created file and directory permissions. </p>
+<p>Furthermore, it is good practice to use <code>$WORKSPACE/file1</code> instead of absolute path <code>/path/to/Workspace/file1</code></p>
+</div>
 <h2 id="motivation">Motivation</h2>
 <p>HPC data typically is shared data. This could be between students and supervisors, between researchers of a research group, or even between researchers of different institutes. These data needs to be accessible even if people leave the team. 
 Furthermore, these data is usually processed with a set of custom software tools, which need to be easy accessible, share, between the collaborators. </p>

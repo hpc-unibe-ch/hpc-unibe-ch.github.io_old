@@ -448,6 +448,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#umask" class="md-nav__link">
+    UMASK
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -950,6 +957,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#umask" class="md-nav__link">
+    UMASK
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1034,6 +1048,10 @@ Especially with easybuild shortcuts are provided to install and use custom softw
 <p>For installing packages with EasyBuild, see <a href="../software/EasyBuild.html">Easybuild description</a>. 
 Manual package can also be installed in the similar manner. Adding a Modulefile provides the users to load packages as used to. Please see <a href="../software/installing-custom-software.html">Installing Custom Software</a>. </p>
 <p>As a result all users of the Workspace can use the software packages by loading the Workspace module and the software product module. </p>
+<h3 id="umask">UMASK</h3>
+<p>The Workspace module sets the umask to 002. Thus files and directories get group-writeable, e.g.:
+<div class="codehilite"><pre><span></span><code>-rw-rw-r-- <span class="m">1</span> user group <span class="m">0</span> Mar <span class="m">15</span> <span class="m">15</span>:15 /path/to/file
+</code></pre></div></p>
                 
                   
                 
