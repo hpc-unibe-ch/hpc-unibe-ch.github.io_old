@@ -1040,6 +1040,10 @@ Please select and load ONE of the following:
 <td><code>$SBATCH_ACCOUNT</code></td>
 <td>sets the SLURM account to the Workspace account. Thus all submitted jobs with that module are accounted to the Workspace account automatically. No need to set it in the sbatch script</td>
 </tr>
+<tr>
+<td><code>SINGULARITY_BINDPATH</code></td>
+<td>using singularity, the Workspace directory will be bind into the container without manual specification. The WORKSPACE variable will also be ported into the container. Thus, you can specify locations with $WORKSPACE within the container.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="software-stacks">Software stacks</h3>

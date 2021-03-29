@@ -912,6 +912,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#software-issues" class="md-nav__link">
+    Software issues
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-is-my-private-conda-installation-broken-after-migration" class="md-nav__link">
+    Why is my private conda installation broken after migration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#job-issues" class="md-nav__link">
     Job issues
   </a>
@@ -1058,6 +1078,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#software-issues" class="md-nav__link">
+    Software issues
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-is-my-private-conda-installation-broken-after-migration" class="md-nav__link">
+    Why is my private conda installation broken after migration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#job-issues" class="md-nav__link">
     Job issues
   </a>
@@ -1160,6 +1200,22 @@ There will be no quota increase for HOME directories. </p>
 If necessary, additional storage can be purchased per Workspace, where only the actual usage will be charged, see <a href="../hpc-workspaces/management.html#additional-storage">Workspace Management</a></p>
 <h2 id="what-if-our-10tb-free-of-charge-research-group-quota-is-full">What if our 10TB free of charge research group quota is full?</h2>
 <p>Your Research group manager or a registered deputy can apply for an additional quota. Actual used quota will be charged. </p>
+<h2 id="software-issues">Software issues</h2>
+<h3 id="why-is-my-private-conda-installation-broken-after-migration">Why is my private conda installation broken after migration</h3>
+<p>Unfortunately, Anaconda hard wires absolute paths into almost all files (including scripts and binary files). 
+A proper migration process may have included <code>conda pack</code>. 
+There is a way you may access your old environments and create new ones with the same specification:
+<div class="codehilite"><pre><span></span><code>export CONDA_ENVS_PATH=${HOME}/anaconda3/envs ## or where you had your old envs
+module load Anaconda3
+eval &quot;$(conda shell.bash hook)&quot;
+conda info --envs
+conda activate oldEnvName     ## choose your old environment name
+conda list --explicit &gt; spec-list.txt
+unset CONDA_ENVS_PATH
+conda create --name myEnvName --file spec-list.txt  # select a name
+</code></pre></div>
+Please, also note that there is a system wide Anaconda installation, so no need for your own separate one. 
+Finally, after recreating your environments please delete all old Anaconda installations and environments. These are not only big but also a ton of files. </p>
 <h2 id="job-issues">Job issues</h2>
 <h3 id="why-is-my-job-still-pending">Why is my job still pending?</h3>
 <div class="admonition types note">

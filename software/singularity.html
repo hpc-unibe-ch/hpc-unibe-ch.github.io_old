@@ -788,6 +788,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bind-directories" class="md-nav__link">
+    Bind directories
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -973,6 +980,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bind-directories" class="md-nav__link">
+    Bind directories
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1025,6 +1039,14 @@ singularity run &lt;image&gt;   <span class="c1">#or ./&lt;image&gt;</span>
 
 e.g:
 singularity <span class="nb">exec</span> container.img cat /etc/os-release
+</code></pre></div>
+
+<h3 id="bind-directories">Bind directories</h3>
+<p>Per default the started application (e.g. <code>cat</code> in the last example) runs withing the container. The container works like a seperate machine with own operation system etc. Thus, per default you have no access to files and directories outside the container. This can be changed using binding paths. </p>
+<p>If files are needed outside the container, e.g. in your HOME you can add the a path to <code>SINGULARITY_BINDPATH="src1[:dest1],src2[:dest2]</code>. All subdirectories and files will be accessible. Thus you could bind your HOME directory as:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">export</span> <span class="nv">SINGULARITY_BINDPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/:</span><span class="nv">$HOME</span><span class="s2">/&quot;</span>   
+<span class="c1"># or simply </span>
+<span class="nb">export</span> <span class="nv">SINGULARITY_BINDPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">&quot;</span>
 </code></pre></div>
 
 <h2 id="further-information">Further Information</h2>

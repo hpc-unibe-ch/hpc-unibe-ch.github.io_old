@@ -1068,7 +1068,7 @@ If you need more information see <a href="https://easybuild.readthedocs.io/en/la
 With the following commands, SLURM job files will be created, and submitted to the desired compute nodes. There the packages are build and module files created. The general syntax is: 
 <div class="codehilite"><pre><span></span><code>eb_install_<span class="o">{</span>all,generic<span class="o">}</span> <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>easybuild options<span class="o">]</span> &lt;easyconfig&gt;.eb
 </code></pre></div>
-Additional SLURM arguments can be selected using the <code>--slurm_args</code> option, e.g. <code>--slurm_args='--account=xyz --time=00:10:00 --cpus-per-task'</code>. If specific architectures should be selected use e.g. <code>--arch='broadwell ivy'</code>. After this options, EasyBuild arguments can be provided without prefix, e.g. <code>--robot</code>. </p>
+Additional SLURM arguments can be selected using the <code>--slurm-args</code> option, e.g. <code>--slurm-args='--account=xyz --time=00:10:00 --cpus-per-task'</code>. If specific architectures should be selected use e.g. <code>--arch='broadwell ivy'</code>. After this options, EasyBuild arguments can be provided without prefix, e.g. <code>--robot</code>. </p>
 <p>Few examples:</p>
 <ul>
 <li>for <strong>FFTW</strong> in <strong>all architectural</strong> software stacks:
