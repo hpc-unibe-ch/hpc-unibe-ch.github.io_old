@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.1.0">
     
     
       
@@ -740,35 +740,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-topics" class="md-nav__link">
-    Advanced Topics
+  <a href="#additional-packages" class="md-nav__link">
+    Additional Packages
   </a>
-  
-    <nav class="md-nav" aria-label="Advanced Topics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#managing-virtual-environments-versions-with-anaconda" class="md-nav__link">
-    Managing Virtual Environments, Versions with Anaconda
-  </a>
-  
-    <nav class="md-nav" aria-label="Managing Virtual Environments, Versions with Anaconda">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-anaconda" class="md-nav__link">
-    Installing Anaconda
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -983,35 +957,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-topics" class="md-nav__link">
-    Advanced Topics
+  <a href="#additional-packages" class="md-nav__link">
+    Additional Packages
   </a>
-  
-    <nav class="md-nav" aria-label="Advanced Topics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#managing-virtual-environments-versions-with-anaconda" class="md-nav__link">
-    Managing Virtual Environments, Versions with Anaconda
-  </a>
-  
-    <nav class="md-nav" aria-label="Managing Virtual Environments, Versions with Anaconda">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-anaconda" class="md-nav__link">
-    Installing Anaconda
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1030,41 +978,27 @@
                 
                 <h1 id="python">Python</h1>
 <h2 id="description">Description</h2>
-<p>Some useful information on using Python.</p>
-<h2 id="advanced-topics">Advanced Topics</h2>
-<h3 id="managing-virtual-environments-versions-with-anaconda">Managing Virtual Environments, Versions with Anaconda</h3>
-<p>Anaconda is a high performance distribution of Python that includes the most popular packages for data science (numpy, scipy,&hellip;). It also features conda, a package, dependency and environment manager. With Anaconda you can run multiple versions of Python in isolated environments.</p>
-<h4 id="installing-anaconda">Installing Anaconda</h4>
-<ol>
-<li>Download the appropriate installer for the default Python environment. You can install other Python versions later by creating additional environments (see below):</li>
-</ol>
-<p><strong>Python 2.7</strong></p>
-<div class="highlight"><pre><span></span><code>$ wget http://repo.continuum.io/archive/Anaconda2-5.3.1-Linux-x86_64.sh
+<p>there are multiple versions of Pyhton available on our HPCs. 
+On the one hand there are <code>Python</code> modules for Python 2 and 3. Which already has a longer list of additional packages installed, including <code>pip</code>. 
+On the other hand there is Anaconda installed, which brings an even longer list of packages with it. </p>
+<p>For Anaconda see <a href="Anaconda.html">Anaconda page</a></p>
+<h2 id="additional-packages">Additional Packages</h2>
+<p>If you need additional packages we suggest to install them using <code>pip</code> and the Workspace module, e.g. for installing a package <code>matplotlib</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## load Python first, this can also be `module load Anaconda3`</span>
+module load Python
+<span class="c1">## maybe you need to specify the Workspace name first OR use `Workspace/home`</span>
+module load Workspace  
+<span class="c1">## pip install in the Workspace or HOME location</span>
+<span class="c1">##   the variable PYTHONPACKAGEPATH is set in the Workspace module</span>
+pip install --prefix <span class="nv">$PYTHONPACKAGEPATH</span> matplotlib
 </code></pre></div>
 
-<p>or</p>
-<p><strong>Python 3.7</strong></p>
-<div class="highlight"><pre><span></span><code>$ wget http://repo.continuum.io/archive/Anaconda3-5.3.1-Linux-x86_64.sh
+<p>Therewith the Python packages are automatically available when 
+<div class="highlight"><pre><span></span><code>module load Python     <span class="c1">## OR module load Anaconda3</span>
+module load Workspace  <span class="c1">## maybe you need to specify the Workspace name first</span>
+python -c <span class="s2">&quot;import matplotlib&quot;</span>
 </code></pre></div>
-
-<ol start="2">
-<li>Run the installer and follow the instructions:</li>
-</ol>
-<p><strong>Python 2.7</strong></p>
-<div class="highlight"><pre><span></span><code>$ bash Anaconda2-5.3.1-Linux-x86_64.sh
-</code></pre></div>
-
-<p>or</p>
-<p><strong>Python 3.7</strong></p>
-<div class="highlight"><pre><span></span><code>$ bash Anaconda3-5.3.1-Linux-x86_64.sh
-</code></pre></div>
-
-<p>This will create a default environment with the selected version of Python and adds numerous packages to the environment. After prepending the Anaconda bin directory to the path open a new terminal for the change to become active.</p>
-<ol start="3">
-<li>Test the installation by listing all installed packages:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>$ conda list
-</code></pre></div>
+since <code>$PYTHONPATH</code> and <code>$PATH</code> are set to the above specified loaction. </p>
                 
               
               

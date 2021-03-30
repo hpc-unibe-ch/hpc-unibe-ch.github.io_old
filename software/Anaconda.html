@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.1.0">
     
     
       
@@ -707,14 +707,7 @@
       
         <li class="md-nav__item">
   <a href="#additional-packages" class="md-nav__link">
-    additional Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conda" class="md-nav__link">
-    conda
+    Additional Packages
   </a>
   
 </li>
@@ -722,6 +715,33 @@
         <li class="md-nav__item">
   <a href="#jupyter" class="md-nav__link">
     Jupyter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-virtual-environments-versions-with-anaconda" class="md-nav__link">
+    Managing Virtual Environments, Versions with Anaconda
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Virtual Environments, Versions with Anaconda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    conda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move-migration-of-conda-environments" class="md-nav__link">
+    Move / Migration of conda environments
   </a>
   
 </li>
@@ -1000,14 +1020,7 @@
       
         <li class="md-nav__item">
   <a href="#additional-packages" class="md-nav__link">
-    additional Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conda" class="md-nav__link">
-    conda
+    Additional Packages
   </a>
   
 </li>
@@ -1015,6 +1028,33 @@
         <li class="md-nav__item">
   <a href="#jupyter" class="md-nav__link">
     Jupyter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-virtual-environments-versions-with-anaconda" class="md-nav__link">
+    Managing Virtual Environments, Versions with Anaconda
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Virtual Environments, Versions with Anaconda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    conda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move-migration-of-conda-environments" class="md-nav__link">
+    Move / Migration of conda environments
   </a>
   
 </li>
@@ -1035,17 +1075,22 @@
                 <h1 id="anaconda">Anaconda</h1>
 <h2 id="description">Description</h2>
 <p>Anaconda provides Python and a long list of packages as well as Jupyter and environment and package manager conda and pip.</p>
+<p>Anaconda brings a long list of Python packages. You can list them using 
+<div class="highlight"><pre><span></span><code>conda list
+</code></pre></div></p>
 <h2 id="availability">Availability</h2>
 <p>On our systems we provide Anaconda3, which gets update regularly. </p>
 <h2 id="usage">Usage</h2>
 <div class="highlight"><pre><span></span><code>module load Anaconda3
 </code></pre></div>
 
-<h2 id="additional-packages">additional Packages</h2>
-<p>we suggest to install additional packages, e.g. <code>packXYZ</code> using
-<div class="highlight"><pre><span></span><code>pip install --user packYXZ
-</code></pre></div></p>
-<h2 id="conda">conda</h2>
+<h2 id="additional-packages">Additional Packages</h2>
+<p>to install additional packages please see <a href="python.html#additional-packages">Additional Packages</a></p>
+<h2 id="jupyter">Jupyter</h2>
+<p>For Jupyter information please see <a href="JupyterLab.html">JupyterLab</a></p>
+<h2 id="managing-virtual-environments-versions-with-anaconda">Managing Virtual Environments, Versions with Anaconda</h2>
+<p>Anaconda is a high performance distribution of Python that includes the most popular packages for data science (numpy, scipy,&hellip;). It also features conda, a package, dependency and environment manager. With Anaconda you can run multiple versions of Python in isolated environments.</p>
+<h3 id="conda">conda</h3>
 <p>when using conda the system may complain about:
 <div class="highlight"><pre><span></span><code>CommandNotFoundError: Your shell has not been properly configured to use <span class="s1">&#39;conda activate&#39;</span>.
 To initialize your shell, run
@@ -1060,14 +1105,24 @@ Currently supported shells are:
 See <span class="s1">&#39;conda init --help&#39;</span> <span class="k">for</span> more information and options.
 IMPORTANT: You may need to close and restart your shell after running <span class="s1">&#39;conda init&#39;</span>.
 </code></pre></div></p>
-<p>Please do <strong>not</strong> run conda init. This would add hard coded environment changes in your <code>$HOME/.bashrc</code>. 
+<p>Please do <strong>not</strong> run <code>conda init</code>. This would add hard coded environment changes in your <code>$HOME/.bashrc</code>. 
 Instead initialise the conda environment using:
 <div class="highlight"><pre><span></span><code>module load Anaconda3
 <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>conda shell.bash hook<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 This should also be used in your batch submission scripts when working with conda environments.</p>
-<h2 id="jupyter">Jupyter</h2>
-<p>For Jupyter information please see <a href="JupyterLab.html">JupyterLab</a></p>
+<h2 id="move-migration-of-conda-environments">Move / Migration of conda environments</h2>
+<p>If conda environments need to be transfered on the system, e.g. from <code>$HOME</code> to <code>$WORKSPACE</code> you can use the <code>conda pack</code> (see official <a href="https://conda.github.io/conda-pack/">conda pack documentation</a>. </p>
+<p>If your environment is already moved you can recreate the environment with the old specification using:
+<div class="highlight"><pre><span></span><code>export CONDA_ENVS_PATH=${HOME}/anaconda3/envs ## or where you had your old envs
+module load Anaconda3
+eval &quot;$(conda shell.bash hook)&quot;
+conda info --envs
+conda activate oldEnvName     ## choose your old environment name
+conda list --explicit &gt; spec-list.txt
+unset CONDA_ENVS_PATH
+conda create --name myEnvName --file spec-list.txt  # select a name
+</code></pre></div></p>
                 
               
               

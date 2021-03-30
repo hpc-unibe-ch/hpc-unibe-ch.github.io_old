@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.1.0">
     
     
       
@@ -444,8 +444,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#additional-settings" class="md-nav__link">
+    Additional Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#software-stacks" class="md-nav__link">
     Software stacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python packages
   </a>
   
 </li>
@@ -997,8 +1011,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#additional-settings" class="md-nav__link">
+    Additional Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#software-stacks" class="md-nav__link">
     Software stacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python packages
   </a>
   
 </li>
@@ -1065,7 +1093,7 @@ Please select and load ONE of the following:
 <table>
 <thead>
 <tr>
-<th>Variable</th>
+<th><div style="width:180px">Variable</div></th>
 <th>Function</th>
 </tr>
 </thead>
@@ -1078,13 +1106,33 @@ Please select and load ONE of the following:
 <td><code>$SCRATCH</code></td>
 <td>full path to the Workspace SCRATCH diretory. Thus you can access it using: <code>cd $SCRATCH</code></td>
 </tr>
+</tbody>
+</table>
+<h3 id="additional-settings">Additional Settings</h3>
+<p>the module provides the following settings for a more user-friendly usage of applications. You may not need to use them directly, but tools like SLURM, Singularity and Python will use them. </p>
+<table>
+<thead>
+<tr>
+<th><div style="width:180px">Variable</div></th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>$SBATCH_ACCOUNT</code></td>
 <td>sets the SLURM account to the Workspace account. Thus all submitted jobs with that module are accounted to the Workspace account automatically. No need to set it in the sbatch script</td>
 </tr>
 <tr>
-<td><code>SINGULARITY_BINDPATH</code></td>
+<td><code>$SINGULARITY_BINDPATH</code></td>
 <td>using singularity, the Workspace directory will be bind into the container without manual specification. The WORKSPACE variable will also be ported into the container. Thus, you can specify locations with $WORKSPACE within the container.</td>
+</tr>
+<tr>
+<td><code>$PYTHONPATH</code></td>
+<td>if <code>Python</code> or <code>Anaconda</code> is loaded beforehand, it is set to: <code>$WORKSPACE/PyPackages/lib/pythonXXX/site-packages</code> where <code>XXX</code> is the Python major and minor version. And also add the <code>bin</code> dorectory to <code>$PATH</code>.</td>
+</tr>
+<tr>
+<td><code>$PYTHONPACKAGEPATH</code></td>
+<td>if <code>Python</code> or <code>Anaconda</code> is loaded beforehand, it is set to: <code>$WORKSPACE/PyPackages</code>. This can be used for e.g. <code>pip install --prefix $PYTHONPACKAGEPATH</code></td>
 </tr>
 </tbody>
 </table>
@@ -1094,6 +1142,9 @@ Especially with easybuild shortcuts are provided to install and use custom softw
 <p>For installing packages with EasyBuild, see <a href="../software/EasyBuild.html">Easybuild description</a>. 
 Manual package can also be installed in the similar manner. Adding a Modulefile provides the users to load packages as used to. Please see <a href="../software/installing-custom-software.html">Installing Custom Software</a>. </p>
 <p>As a result all users of the Workspace can use the software packages by loading the Workspace module and the software product module. </p>
+<h3 id="python-packages">Python packages</h3>
+<p>The Workspace module also provides support to install and use Python packages in a shared manner, by installing them into the Workspace. 
+Please see <a href="../software/python.html#additional-packages">Additional Packages</a></p>
 <h3 id="umask">UMASK</h3>
 <p>The Workspace module sets the umask to 002. Thus files and directories get group-writeable, e.g.:
 <div class="highlight"><pre><span></span><code>-rw-rw-r-- <span class="m">1</span> user group <span class="m">0</span> Mar <span class="m">15</span> <span class="m">15</span>:15 /path/to/file
