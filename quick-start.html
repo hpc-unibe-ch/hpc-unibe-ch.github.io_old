@@ -1180,7 +1180,18 @@ Currently Loaded Modules:
 <p>With the module environment you can also easily install, maintain and provide software packages in your workspaces and share with your collaborators. </p>
 <p>The <a href="software/hpc-modules.html">Software</a> section is dedicated to this topic. More information can be found there.</p>
 <h2 id="hello-world">Hello World</h2>
-<p>Finally, it&rsquo;s time for your first job. To do some work on the cluster, you require certain resources (e.g. CPUs and memory) and a description of the computations to be done. A job consists of instructions to the scheduler in the form of option flags, and statements that describe the actual tasks. Let&rsquo;s start with the instructions to the scheduler:</p>
+<p>Doing useful computations consists of running commands that work on data and generate a result. These computations are resource-intensive. That is what
+the compute nodes are there for. These over 300 servers do the heavy lifting as soon as resources are free for you. Currently you are on a submit server
+also known as login server. This server is for preparing the computations, i.e. downloading data, writing a job script, prepare some data etc. But
+<strong>you mustn&rsquo;t run computations on submit nodes</strong> as the server is quite a weak machines that you are sharing with others. So, you have to bring the
+computations to the compute nodes - by generating a job script and sending it to the cluster.</p>
+<div class="admonition hint">
+<p class="admonition-title">Working interactively on a compute node</p>
+<p>When developing stuff it&rsquo;s often useful to have short iterations of try-error. Therefore it&rsquo;s also possible to work
+interactively on a compute node for a certain amount of time without having to send jobs to the cluster and wait until
+they finish just to see it didn&rsquo;t work. See <a href="slurm/interactive-jobs.html">Interactive Jobs</a> for more information about this topic.</p>
+</div>
+<p>It&rsquo;s now time for your first job script. To do some work on the cluster, you require certain resources (e.g. CPUs and memory) and a description of the computations to be done. A job consists of instructions to the scheduler in the form of option flags, and statements that describe the actual tasks. Let&rsquo;s start with the instructions to the scheduler:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
