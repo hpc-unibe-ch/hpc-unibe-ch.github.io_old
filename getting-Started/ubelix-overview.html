@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.1.0">
     
     
       
@@ -1050,17 +1050,17 @@
 <p><img alt="System Overview Diagram" src="../images/system_overview.jpg" title="System Overview Diagram" />
 The HPCs can only be reached within the UniBE network. User landing point are the login nodes, where jobs can be prepared and submitted. Computational tasks are scheduled and managed on the compute nodes using SLURM. All compute nodes as well as the login nodes have access to the parallel file system.</p>
 <h3 id="login-node-aka-submit-node">Login node aka. Submit node</h3>
-<p>A user connects to the cluster by logging into the <strong>submit</strong> host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile programs. Resource-demanding/high-performance tasks must be submitted to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks should be submitted as a job on a compute node instead of running it on the submit host. </p>
+<p>A user connects to the cluster by logging into the <strong>submit</strong> host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile smaller programs. Resource-demanding/high-performance tasks must be submitted to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks should be submitted as a job on a compute node instead of running it on the submit host. </p>
 <h3 id="batch-queueing-system">Batch-Queueing System</h3>
 <p>On UBELIX we use the open-source batch-queueing system <a href="https://slurm.schedmd.com/documentation.html">Slurm</a>, managing all jobs on the compute nodes. The job submission is described in detail in the Job handling section, starting with <a href="../slurm/submission.html">Submitting jobs</a>. </p>
 <p>The procedure look like:</p>
 <ul>
-<li>defining resources: you as a user define the resources your job requires, including numbers of CPU cores, time limit, memory, etc. Not specified parameters are chosen with default values. These resources can be defines in the batch script or as command line arguments</li>
-<li>submitting: you submit your job by calling <code>sbatch</code>, <code>srun</code>, or <code>salloc</code>. Therewith a job gets registered in Slurm, if it is within the specification and limits.</li>
-<li>scheduling: Slurm is finding the optimal spots for the registered jobs on the resources and time. This also includes priority handling and optimizing for best coverage. </li>
-<li>launch: Slurm prepares the environment on the selected compute resources. This also includes setting up the MPI environment, if requested interactive sessions, etc., and launching your batch script. </li>
-<li>serial/parallel tasks: per default all the tasks defined in your batch script are run on the first core of your allocation. Compute tasks should be started with &lsquo;srun&rsquo;. Parallel task are launched on all (or as defined) job related resources. </li>
-<li>cancelling/completing: When tasks finished, wall time limit or memory limit is reached the job ant its environment gets removed from the resources. All output is written into file(s) (except of interactive sessions)</li>
+<li><strong>resource definition</strong>: as a user, <strong>you</strong> define the resources requirements of your job including <strong>numbers of CPU cores</strong>, <strong>time</strong> limit, <strong>memory</strong>, etc. Not specified parameters are chosen with <strong>default values</strong>. These resources can be defined in the batch script or as command line arguments</li>
+<li><strong>submitting</strong>: job can be submitted using <code>sbatch</code> (using a batch script), <code>srun</code> (directly running the executable), or <code>salloc</code> (interactive submission). The submission is checked from SLURM if it is within the specification and limits. </li>
+<li><strong>scheduling</strong>: Slurm is finding the optimal spots for the registered jobs on the resources and time. This also includes priority handling and optimizing for best coverage. </li>
+<li><strong>launch</strong>: Slurm prepares the environment on the selected compute resources. This also includes setting up the MPI environment, if requested interactive sessions, etc., and launching your batch script. </li>
+<li><strong>serial/parallel tasks</strong>: per default all the tasks defined in your batch script are run on the first core of your allocation. Compute tasks should be started with &lsquo;srun&rsquo;. Parallel task are launched on all (or as defined) job related resources. </li>
+<li><strong>cancelling/completing</strong>: When tasks finished, wall time limit or memory limit is reached the job ant its environment gets removed from the resources. All output is written into file(s) (except of interactive sessions)</li>
 </ul>
 <h3 id="cluster-partitions-queues-and-their-compute-nodes">Cluster Partitions (Queues) and their Compute Nodes</h3>
 <p>Partitions group nodes into logical sets. Nodes in a partition share the same limits. You can choose a partition depending on your jobs requirements (CPUs, memory, runtime). UBELIX provides several different partitions as shown in the following table including the corresponding hardware details of the compute nodes each partition is comprised of:</p>

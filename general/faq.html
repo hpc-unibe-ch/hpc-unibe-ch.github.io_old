@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.1.0">
     
     
       
@@ -889,7 +889,14 @@
     Description
   </a>
   
-    <nav class="md-nav" aria-label="Description">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-system" class="md-nav__link">
+    File system
+  </a>
+  
+    <nav class="md-nav" aria-label="File system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -899,22 +906,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#how-does-the-homes-migration-work-what-can-i-do-during-the-migration" class="md-nav__link">
     How does the HOMEs migration work? What can I do during the migration?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#i-need-to-share-data-with-my-colleges-what-can-i-do" class="md-nav__link">
-    I need to share data with my colleges. What can I do?
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -929,6 +929,26 @@
   <a href="#what-if-my-home-is-full" class="md-nav__link">
     What if my HOME is full?
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspaces" class="md-nav__link">
+    Workspaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Workspaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-need-to-share-data-with-my-colleges-what-can-i-do" class="md-nav__link">
+    I need to share data with my colleges. What can I do?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1059,7 +1079,14 @@
     Description
   </a>
   
-    <nav class="md-nav" aria-label="Description">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-system" class="md-nav__link">
+    File system
+  </a>
+  
+    <nav class="md-nav" aria-label="File system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1069,22 +1096,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#how-does-the-homes-migration-work-what-can-i-do-during-the-migration" class="md-nav__link">
     How does the HOMEs migration work? What can I do during the migration?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#i-need-to-share-data-with-my-colleges-what-can-i-do" class="md-nav__link">
-    I need to share data with my colleges. What can I do?
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1099,6 +1119,26 @@
   <a href="#what-if-my-home-is-full" class="md-nav__link">
     What if my HOME is full?
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspaces" class="md-nav__link">
+    Workspaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Workspaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-need-to-share-data-with-my-colleges-what-can-i-do" class="md-nav__link">
+    I need to share data with my colleges. What can I do?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1193,10 +1233,11 @@
                 <h1 id="faq">FAQ</h1>
 <h2 id="description">Description</h2>
 <p>This page provides a collection of frequently asked questions.</p>
+<h2 id="file-system">File system</h2>
 <h3 id="is-my-home-already-migrated">Is my HOME already migrated?</h3>
 <p>You can check using the command <code>pwd</code>. 
 The location in the new file system is: <code>/storage/homefs/$USER</code>, where <code>$USER</code> is your user name. </p>
-<h2 id="how-does-the-homes-migration-work-what-can-i-do-during-the-migration">How does the HOMEs migration work? What can I do during the migration?</h2>
+<h3 id="how-does-the-homes-migration-work-what-can-i-do-during-the-migration">How does the HOMEs migration work? What can I do during the migration?</h3>
 <p>When the migration of your institute starts (T=0), you receive an email. You can still use your home directory then. Ideally, you already cleaned
 your home directory before that, if not, last chance to cleanup. <strong>Anaconda installations need special treatment</strong> see <a href="https://www.anaconda.com/blog/moving-conda-environments">this blog entry</a>
 for a starting point.<br />
@@ -1206,22 +1247,6 @@ amount of date you have in your home directory. All running jobs and processes t
 Therefore please try to only start jobs that may finish before that time.<br />
 When we finished your home directory, you receive another email and you can log in again and check your home directroy and start to use UBELIX again.<br />
 Finally a last mail we reach you when the migration for your whole institute has been finished.</p>
-<h2 id="i-need-to-share-data-with-my-colleges-what-can-i-do">I need to share data with my colleges. What can I do?</h2>
-<p>Starting from May we officially introduce Workspaces. A group shared space. In the meantime you can:</p>
-<ul>
-<li>Use the still existing institute shared directories <code>/home/ubelix/&lt;instituteID&gt;/shared</code></li>
-<li>Ask for becoming a Workspace Beta user (see <a href="../overview_workspaces.html#beta-testing-phase">Workspaces Beta</a>)</li>
-</ul>
-<!-- ## Where should I put my data?
-A coarse classification may be:
-
-| data type | suggested target |
-| :--- | :--- |
-| private configuration data, e.g. SSH keys | HOME |
-| temporary (weeks to month) application input/output data | SCRATCH |
-| persistent application input/results, meant to be shared (some-when) | Workspace |
-| applications, meant to be shared (some-when) | Workspace | -->
-
 <h2 id="i-read-home-quota-will-be-1tb-what-now">I read: HOME quota will be 1TB, what now?</h2>
 <p>Previously, HOME quota was mostly 3TB. Now we will shift to group shared spaces, where each research group has 10TB in Workspaces free of charge and personal HOME 1TB. </p>
 <p>The HOME quota in the new location will be increased <strong>temporarily</strong> until the Workspaces are established in production (end of May). After the introduction of Workspaces there will be a transition period of one month, where you/your research group manager can create a Workspace and you can migrate the data. Afterwards, the quota will be fixed to 1TB in HOMEs. </p>
@@ -1240,6 +1265,23 @@ A coarse classification may be:
 <p>In general, we consider data on our HPC systems as research data. Further we consider research data to be shared sooner or later. And we aim to support and enhance collaborations. Therefore, we introduce group shared spaces, called HPC Workspaces.
 Ask your research group manager to add you to an existing Workspace or create a new one. 
 There will be no quota increase for HOME directories. </p>
+<h2 id="workspaces">Workspaces</h2>
+<h3 id="i-need-to-share-data-with-my-colleges-what-can-i-do">I need to share data with my colleges. What can I do?</h3>
+<p>Starting from May we officially introduce Workspaces. A group shared space. In the meantime you can:</p>
+<ul>
+<li>Use the still existing institute shared directories <code>/home/ubelix/&lt;instituteID&gt;/shared</code></li>
+<li>Ask for becoming a Workspace Beta user (see <a href="../overview_workspaces.html#beta-testing-phase">Workspaces Beta</a>)</li>
+</ul>
+<!-- ## Where should I put my data?
+A coarse classification may be:
+
+| data type | suggested target |
+| :--- | :--- |
+| private configuration data, e.g. SSH keys | HOME |
+| temporary (weeks to month) application input/output data | SCRATCH |
+| persistent application input/results, meant to be shared (some-when) | Workspace |
+| applications, meant to be shared (some-when) | Workspace | -->
+
 <h2 id="where-can-i-get-a-workspace">Where can I get a Workspace?</h2>
 <p>Workspaces are still in <strong>Alpha testing</strong> phase. We will soon switch to Beta testing with users. If you are interested, get in touch with us using a <a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=1d137767db54141078ed3e48229619a7">Service Portal request</a> or drop an <a href="mailto:hpc@id.unibe.ch">email</a>.</p>
 <p>A research group manager need to <strong>create</strong> the Workspace, since there are possibilities for charged extensions. </p>

@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.1.0">
     
     
       
@@ -1112,8 +1112,8 @@ Instead initialise the conda environment using:
 </code></pre></div>
 This should also be used in your batch submission scripts when working with conda environments.</p>
 <h2 id="move-migration-of-conda-environments">Move / Migration of conda environments</h2>
-<p>If conda environments need to be transfered on the system, e.g. from <code>$HOME</code> to <code>$WORKSPACE</code> you can use the <code>conda pack</code> (see official <a href="https://conda.github.io/conda-pack/">conda pack documentation</a>. </p>
-<p>If your environment is already moved you can recreate the environment with the old specification using:
+<p>If conda environments need to be transfered on the system, e.g. from <code>$HOME</code> to <code>$WORKSPACE</code> you can use the <code>conda pack</code> (see official <a href="https://conda.github.io/conda-pack/">conda pack documentation</a>). </p>
+<p>If your environment is already moved file system locations, you can recreate a new environment with the specification of the old environment. Therefore, we specify the location of the old environment, load the Anaconda module, initialize conda, and get the specification of the old environment. Then <strong>importantly</strong> unset the CONDA_ENVS_PATH to install the new conda environment in the default location and create it. </p>
 <div class="highlight"><pre><span></span><code>export CONDA_ENVS_PATH=${HOME}/anaconda3/envs ## or where you had your old envs
 module load Anaconda3
 eval &quot;$(conda shell.bash hook)&quot;
@@ -1122,7 +1122,7 @@ conda activate oldEnvName     ## choose your old environment name
 conda list --explicit &gt; spec-list.txt
 unset CONDA_ENVS_PATH
 conda create --name myEnvName --file spec-list.txt  # select a name
-</code></pre></div></p>
+</code></pre></div>
                 
               
               

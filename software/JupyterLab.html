@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.1.0">
     
     
       
@@ -1196,6 +1196,10 @@ After general output, JupyterLab prints a URL with a unique key and the network 
 </code></pre></div>
 
 <p>The last line needs to be copied in your local browser.</p>
+<div class="admonition note">
+<p class="admonition-title">Attention</p>
+<p>do not use <code>Ctrl + C</code> for copying the link, this will abort the server process and kill your job. </p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">QOS</p>
 <p>the <code>jupyter-compute</code> tool uses an special Slurm Quality of Service (QOS), which should reduce queuing times for interactive jobs. 
