@@ -1056,7 +1056,7 @@ Therefore, use the <code>eb</code> command to search and try and the <code>eb-in
 </ul>
 <h2 id="modules">Modules</h2>
 <p>Depending if you want to install the package in user or a group space you need to load the related module and the <code>EasyBuild</code> module, e.g.:</p>
-<div class="highlight"><pre><span></span><code>module load Workspace
+<div class="highlight"><pre><span></span><code>module load Workspace  <span class="c1">### if you want to install into your HOME use Workspace/home</span>
 module load EasyBuild
 </code></pre></div>
 
@@ -1067,43 +1067,51 @@ module load EasyBuild
 </div>
 <h2 id="package-specification">Package Specification</h2>
 <p>EasyBuild has a large repository of available packages in different versions. 
-You can use these specifications as is or download and modify the EasyConfigs (see below).</p>
-<p>Available packages can be searched using the following command using the dry-run option <code>-D</code>, here for the <strong>git</strong> package</p>
-<div class="highlight"><pre><span></span><code>eb -D --software<span class="o">=</span>git
+You can use these specifications as is or copy/download and modify the EasyConfigs (see below).</p>
+<p>Available packages can be searched using the following command, here for the <strong>gatk</strong> package</p>
+<div class="highlight"><pre><span></span><code>eb --search gatk
 <span class="o">[</span>...<span class="o">]</span>
-ERROR: No toolchain name specified, and more than one available: <span class="o">[</span><span class="s1">&#39;GCC&#39;</span>, <span class="s1">&#39;GCCcore&#39;</span>, <span class="s1">&#39;foss&#39;</span><span class="o">]</span>.
+eb --search <span class="nv">gatk</span>
+<span class="o">==</span> found valid index <span class="k">for</span> /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs, so using it...
+ * /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-1.0.5083.eb
+...
+ * /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-4.0.1.2-Java-1.8.eb
+...
+ * /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-4.0.12.0-foss-2018b-Python-3.6.6.eb
+...
+ * /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-4.0.4.0-intel-2018a-Python-3.6.4.eb
+ * /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-4.0.5.1-foss-2018a-Python-3.6.4.eb
+...
+ * /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-4.0.8.1-foss-2018b-Python-2.7.15.eb
+...
+ * /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-4.1.8.1-GCCcore-9.3.0-Java-1.8.eb
 </code></pre></div>
 
-<p>As shown above there are versions for different <em>toolchains</em> available. You can select one and and try again, e.g. with <code>--toolchain-name=GCC</code>: </p>
-<div class="highlight"><pre><span></span><code>eb -D --software-name<span class="o">=</span>git --toolchain-name<span class="o">=</span>GCC
-<span class="o">[</span>...<span class="o">]</span>
+<p>As shown above there are different versions of GATK and for different <em>toolchains</em> available (<code>foss</code>, <code>intel</code>, <code>GCCcore</code>). 
+<strong>Select one</strong> </p>
+<p>You can list all dependencies using:</p>
+<div class="highlight"><pre><span></span><code>eb -Dr /storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs/g/GATK/GATK-4.1.8.1-GCCcore-9.3.0-Java-1.8.eb
+...
 Dry run: printing build status of easyconfigs and dependencies
-<span class="nv">CFGS</span><span class="o">=</span>/storage/software/generic.el7/software/EasyBuild/4.2.1/easybuild/easyconfigs
- * <span class="o">[</span> <span class="o">]</span> <span class="nv">$CFGS</span>/g/GCC/GCC-4.9.2.eb <span class="o">(</span>module: GCC/4.9.2<span class="o">)</span>
- * <span class="o">[</span> <span class="o">]</span> <span class="nv">$CFGS</span>/c/cURL/cURL-7.40.0-GCC-4.9.2.eb <span class="o">(</span>module: cURL/7.40.0-GCC-4.9.2<span class="o">)</span>
- * <span class="o">[</span> <span class="o">]</span> <span class="nv">$CFGS</span>/e/expat/expat-2.1.0-GCC-4.9.2.eb <span class="o">(</span>module: expat/2.1.0-GCC-4.9.2<span class="o">)</span>
- * <span class="o">[</span> <span class="o">]</span> <span class="nv">$CFGS</span>/g/gettext/gettext-0.19.4-GCC-4.9.2.eb <span class="o">(</span>module: gettext/0.19.4-GCC-4.9.2<span class="o">)</span>
- * <span class="o">[</span>x<span class="o">]</span> <span class="nv">$CFGS</span>/p/Perl/Perl-5.20.1-GCC-4.9.2-bare.eb <span class="o">(</span>module: Perl/5.20.1-GCC-4.9.2-bare<span class="o">)</span>
- * <span class="o">[</span> <span class="o">]</span> <span class="nv">$CFGS</span>/g/git/git-2.4.1-GCC-4.9.2.eb <span class="o">(</span>module: git/2.4.1-GCC-4.9.2<span class="o">)</span>
- <span class="o">[</span>...<span class="o">]</span>
+<span class="nv">CFGS</span><span class="o">=</span>/storage/software/generic.el7/software/EasyBuild/4.3.3/easybuild/easyconfigs
+ * <span class="o">[</span> <span class="o">]</span> <span class="nv">$CFGS</span>/j/Java/Java-1.8.0_281.eb <span class="o">(</span>module: Java/1.8.0_281<span class="o">)</span>
+... 
+ * <span class="o">[</span>x<span class="o">]</span> <span class="nv">$CFGS</span>/p/Python/Python-2.7.18-GCCcore-9.3.0.eb <span class="o">(</span>module: Python/2.7.18-GCCcore-9.3.0<span class="o">)</span>
+ * <span class="o">[</span> <span class="o">]</span> <span class="nv">$CFGS</span>/g/GATK/GATK-4.1.8.1-GCCcore-9.3.0-Java-1.8.eb <span class="o">(</span>module: GATK/4.1.8.1-GCCcore-9.3.0-Java-1.8<span class="o">)</span>
 </code></pre></div>
 
-<p>As shown a list of dependencies is required, which may already be installed or need to be installed. 
-Therefore, you can later use the option <code>--robot</code>, which will automatically also install all required dependencies.
-Additional options, e.g. for selecting a specific software version can be found using <code>eb --help</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The spelling and notation need to be exactly as used in the EasyBuild repository, e.g. searching for <code>GIT</code> will not find the package, but <code>git</code> does and otherwise, <code>fftw</code> will fail, while <code>FFTW</code> succeed. </p>
-</div>
+<p>Dependencies marked with <code>x</code> are already installed, the other dependencies will be installed if using the robot option.</p>
+<p>Additional options, e.g. for selecting a specific software version can be found using <code>eb --help</code>.</p>
 <h3 id="using-easyconfig-files">Using EasyConfig files</h3>
-<p>If you did not found your desired version or you want to modify it, e.g. for using a more recent software version than available in the EasyBuild repository, you can download and change EasyConfigs, e.g. from <a href="https://github.com/easybuilders/easybuild-easyconfigs">EasyConfig repository</a>. These are text files specifying the software version, toolchain version, dependencies, compile arguments and more.
+<p>You can use the directy selected easyconfig or if necessary copy and adapt it.
+easyconfig files are text files specifying the software version, toolchain version, dependencies, compile arguments and more.
 If you need more information see <a href="https://easybuild.readthedocs.io/en/latest/">EasyBuild documentation</a>, and if necessary ask our support team for assistance.</p>
 <h2 id="selecting-a-software-stack">Selecting a software stack</h2>
 <p>Depending on the package and its target usage one or more software stacks should be selected. Therefore, the installation command starts with one for the following command:</p>
 <ul>
 <li>all architectural software stacks: <code>eb-install-all</code></li>
 <li>a specific architectural software stack (e.g. only targeting Broadwell nodes): <code>eb-install-all --archs='broadwell'</code> OR</li>
-<li>generic software stack: <code>eb-install-generic</code></li>
+<li>generic software stack: <code>eb-install-generic</code>, CPU architecture independent, like <code>git</code></li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>After selecting the package installation recipe and the target software stack, the installation process can be submitted. 
