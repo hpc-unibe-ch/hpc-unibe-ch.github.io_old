@@ -866,13 +866,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#description_1" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#workspace-scratch" class="md-nav__link">
     Workspace Scratch
   </a>
@@ -981,13 +974,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#description_1" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#workspace-scratch" class="md-nav__link">
     Workspace Scratch
   </a>
@@ -1024,7 +1010,6 @@
                 
                 <p>Scratch - temporary file space</p>
 <h2 id="description">Description</h2>
-<h2 id="description_1">Description</h2>
 <p>Scratch file space are meant for temporary data storage. Interim computational data should be located there. File and size quota is less restrictive. Every user can use up to <strong>20TB</strong> and <strong>30M</strong> files. There is <strong>no snapshot</strong> and <strong>no backup</strong> feature available. Furthermore, an <strong>automatic deletion policy</strong> is planned, deleting files which are older than <strong>30 days</strong>. </p>
 <p>Scratch file space can be accessed using the Workspace module and the <code>$SCRATCH</code> environment variable. </p>
 <div class="highlight"><pre><span></span><code>module load Workspace
@@ -1033,14 +1018,14 @@
 
 <p>For personal Scratch see <a href="scratch.html#peronal-scratch">below</a></p>
 <h2 id="workspace-scratch">Workspace Scratch</h2>
-<p>Each Workspace has a <code>$SCRATCH</code> space with the same access permissions like the permanant Workspace directory (using primary and secondary groups). The Workpsace can be accessed using <code>$SCRATCH</code> variable (after laoding the Workspace module). It will point to <code>/storage/scratch/&lt;researchGroupID&gt;/&lt;WorkspaceID&gt;</code>. Please use <code>$SCRATCH</code> to access it. </p>
+<p>Each Workspace has a <code>$SCRATCH</code> space with the same access permissions like the permanent Workspace directory (using primary and secondary groups). The Workspace can be accessed using <code>$SCRATCH</code> variable (after loading the Workspace module). It will point to <code>/storage/scratch/&lt;researchGroupID&gt;/&lt;WorkspaceID&gt;</code>. Please use <code>$SCRATCH</code> to access it. </p>
 <h3 id="personal-scratch">personal Scratch</h3>
 <p>Users without a Workspace can also use &ldquo;personal&rdquo; Scratch. This space does need to be created initially:
 <div class="highlight"><pre><span></span><code>module load Workspace/home
 mkdir <span class="nv">$SCRATCH</span>
 <span class="nb">cd</span> <span class="nv">$SCRATCH</span>
 </code></pre></div></p>
-<p>Please note that this space is per derfault <strong>no</strong> private space. If you want to restrict access you can change permissions using:</p>
+<p>Please note that this space is per default <strong>no</strong> private space. If you want to restrict access you can change permissions using:</p>
 <div class="highlight"><pre><span></span><code>chmod 700 $SCRATCH
 </code></pre></div>
                 
