@@ -834,8 +834,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workspaces" class="md-nav__link">
-    Workspaces
+  <a href="#hpc-workspaces" class="md-nav__link">
+    HPC Workspaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-storage-shares" class="md-nav__link">
+    Research Storage shares
   </a>
   
 </li>
@@ -994,8 +1001,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workspaces" class="md-nav__link">
-    Workspaces
+  <a href="#hpc-workspaces" class="md-nav__link">
+    HPC Workspaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-storage-shares" class="md-nav__link">
+    Research Storage shares
   </a>
   
 </li>
@@ -1045,9 +1059,12 @@
 <p><code>$HOME</code> directories are located under <code>/home/$USER</code>, where <code>$USER</code> is the campus account. <code>$HOME</code> is limited to maximum <code>1TB</code> and is meant for private and configuration data. There is no data sharing workflow considerred for <code>$HOME</code>. If you want to share data with collaborators please ask your research group leader to request a HPC Workspace. 
 Reqular Snapshots provide possibility to recover accidentally modified or deleted data. 
 Some application, by default, use the <code>$HOME</code> file system even for larger amount of data, e.g. user packages in Python or R. Often this can be redirected, e.g. using <code>--prefix</code> option or in worse case using a symbolic link to a project directory. Get in touch with us if you need assistance.</p>
-<h2 id="workspaces">Workspaces</h2>
+<h2 id="hpc-workspaces">HPC Workspaces</h2>
 <p>In HPC Workspaces access is defined in two user defined access groups. A primary read/write group is meant to be the data owner, while a secondary has only read access. The sizes of these spaces are managed by the Workspace owners. Beside a free of charge quota, the space can be extended with costs. </p>
 <p>For more details see <a href="../hpc-workspaces/management.html">Workspace management</a></p>
+<h2 id="research-storage-shares">Research Storage shares</h2>
+<p>The predecessor of HPC Workspaces are Research Storage Shares. These file spaces are located under <code>/storage/research/...</code>. These are fully managed by HPC support team. All modifications need to be requested via support request on the Service Portal. 
+We aim to migrate these spaces and their data into HPC Workspaces. Therewith users can use all the tools and framework around HPC Workspaces and also the free of charge quota. </p>
 <h2 id="scratch">SCRATCH</h2>
 <p>SCRATCH is a temporary space with less restrictive limitations in size, but more restrictive limitation in time. 
 There is no snapshot or backup service implemented in that space.</p>

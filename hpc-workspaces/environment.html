@@ -465,6 +465,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#conda-environments" class="md-nav__link">
+    Conda environments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-packages" class="md-nav__link">
+    R packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#umask" class="md-nav__link">
     UMASK
   </a>
@@ -1044,6 +1058,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#conda-environments" class="md-nav__link">
+    Conda environments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-packages" class="md-nav__link">
+    R packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#umask" class="md-nav__link">
     UMASK
   </a>
@@ -1072,17 +1100,17 @@
 <div class="admonition attention">
 <p class="admonition-title">under Construction</p>
 <p>Workspaces are still in testing phase and not publicly available yet.
-This is prelimnary information.
+This is preliminary information.
 Detailed information will follow soon.</p>
 </div>
 <h2 id="description">Description</h2>
-<p>The Workspace module provide support for userfriendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. </p>
+<p>The Workspace module provide support for user-friendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. </p>
 <h2 id="workspace-module">Workspace module</h2>
-<p>The Workspace module adjust the environment to work in a spacific Workspace. 
+<p>The Workspace module adjust the environment to work in a specific Workspace. 
 <div class="highlight"><pre><span></span><code>module load workspace
 </code></pre></div>
 sets the following environment variables (<a href="#shortcuts">Shortcuts</a>) and <a href="#software-stacks">Software stacks</a></p>
-<p>There are the following possibilites:</p>
+<p>There are the following possibilities:</p>
 <ul>
 <li>you belong to <strong>no</strong> Workspace: load <code>module load Workspace/home</code> to use your software stack in your HOME directory</li>
 <li>you belong to <strong>one</strong> Workspace: this one gets loaded when <code>module load Workspace</code></li>
@@ -1116,12 +1144,12 @@ Please select and load ONE of the following:
 </tr>
 <tr>
 <td><code>$SCRATCH</code></td>
-<td>full path to the Workspace SCRATCH diretory. Thus you can access it using: <code>cd $SCRATCH</code></td>
+<td>full path to the Workspace SCRATCH directory. Thus you can access it using: <code>cd $SCRATCH</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="additional-settings">Additional Settings</h3>
-<p>the module provides the following settings for a more user-friendly usage of applications. You may not need to use them directly, but tools like SLURM, Singularity and Python will use them. </p>
+<p>the module provides the following settings for a more user-friendly usage of applications. You may not need to use them directly, but tools like SLURM, Singularity, Python, and R will use them. </p>
 <table>
 <thead>
 <tr>
@@ -1136,15 +1164,23 @@ Please select and load ONE of the following:
 </tr>
 <tr>
 <td><code>$SINGULARITY_BINDPATH</code></td>
-<td>using singularity, the Workspace directory will be bind into the container without manual specification. The WORKSPACE variable will also be ported into the container. Thus, you can specify locations with $WORKSPACE within the container.</td>
+<td>using singularity, the Workspace directory will be bind into the container without manual specification. The <code>WORKSPACE</code> variable as well as the <code>SCRATCH</code> variable will also be ported into the container. Thus, you can specify locations with <code>$WORKSPACE</code> or <code>$SCRATCH</code> within the container.</td>
 </tr>
 <tr>
 <td><code>$PYTHONPATH</code></td>
-<td>if <code>Python</code> or <code>Anaconda</code> is loaded beforehand, it is set to: <code>$WORKSPACE/PyPackages/lib/pythonXXX/site-packages</code> where <code>XXX</code> is the Python major and minor version. And also add the <code>bin</code> dorectory to <code>$PATH</code>.</td>
+<td>if <code>Python</code> or <code>Anaconda</code> is loaded beforehand, it is set to: <code>$WORKSPACE/PyPackages/lib/pythonXXX/site-packages</code> where <code>XXX</code> is the Python major and minor version. And also add the <code>bin</code> directory to <code>$PATH</code>.</td>
 </tr>
 <tr>
 <td><code>$PYTHONPACKAGEPATH</code></td>
 <td>if <code>Python</code> or <code>Anaconda</code> is loaded beforehand, it is set to: <code>$WORKSPACE/PyPackages</code>. This can be used for e.g. <code>pip install --prefix $PYTHONPACKAGEPATH</code></td>
+</tr>
+<tr>
+<td><code>$CONDA_ENVS_PATH</code></td>
+<td>therewith conda environments can be created and shared within the Workspace</td>
+</tr>
+<tr>
+<td><code>$R_LIBS</code></td>
+<td>therewith additional R packages can be installed and searched in the shared Workspace. The directory need to be created first. See <a href="../software/r.html#installing-packages">R page</a></td>
 </tr>
 </tbody>
 </table>
@@ -1155,8 +1191,12 @@ Especially with easybuild shortcuts are provided to install and use custom softw
 Manual package can also be installed in the similar manner. Adding a Modulefile provides the users to load packages as used to. Please see <a href="../software/installing-custom-software.html">Installing Custom Software</a>. </p>
 <p>As a result all users of the Workspace can use the software packages by loading the Workspace module and the software product module. </p>
 <h3 id="python-packages">Python packages</h3>
-<p>The Workspace module also provides support to install and use Python packages in a shared manner, by installing them into the Workspace. 
-Please see <a href="../software/python.html#additional-packages">Additional Packages</a></p>
+<p>The Workspace module provides support to install and use Python packages in a shared manner, by installing them into the Workspace. 
+Please see <a href="../software/python.html#additional-packages">Python Additional Packages</a></p>
+<h3 id="conda-environments">Conda environments</h3>
+<p>The Workspace module provides support for creating and using conda environments in the shared Workspace. See <a href="../software/Anaconda.html#conda-environments">Anaconda Conda environments</a>.</p>
+<h3 id="r-packages">R packages</h3>
+<p>The Workspace module provides support for installing and using additional R packages in the shared Workspace. Thus a package once installed by one user can be used by all Workspace members. See <a href="../software/r.html#installing-packages">R installing packages</a>.</p>
 <h3 id="umask">UMASK</h3>
 <p>The Workspace module sets the umask to 002. Thus files and directories get group-writeable, e.g.:
 <div class="highlight"><pre><span></span><code>-rw-rw-r-- <span class="m">1</span> user group <span class="m">0</span> Mar <span class="m">15</span> <span class="m">15</span>:15 /path/to/file

@@ -760,8 +760,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#customizing-the-workspace" class="md-nav__link">
-    Customizing the Workspace
+  <a href="#customizing-the-r-workspace" class="md-nav__link">
+    Customizing the R Workspace
   </a>
   
 </li>
@@ -770,6 +770,33 @@
   <a href="#installing-packages" class="md-nav__link">
     Installing Packages
   </a>
+  
+    <nav class="md-nav" aria-label="Installing Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-into-a-shared-workspace" class="md-nav__link">
+    A) Into a shared Workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-into-your-home" class="md-nav__link">
+    B) Into your HOME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-routine" class="md-nav__link">
+    Installation Routine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1031,8 +1058,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#customizing-the-workspace" class="md-nav__link">
-    Customizing the Workspace
+  <a href="#customizing-the-r-workspace" class="md-nav__link">
+    Customizing the R Workspace
   </a>
   
 </li>
@@ -1041,6 +1068,33 @@
   <a href="#installing-packages" class="md-nav__link">
     Installing Packages
   </a>
+  
+    <nav class="md-nav" aria-label="Installing Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-into-a-shared-workspace" class="md-nav__link">
+    A) Into a shared Workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-into-your-home" class="md-nav__link">
+    B) Into your HOME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-routine" class="md-nav__link">
+    Installation Routine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1098,19 +1152,11 @@
                 
                 <h1 id="r">R</h1>
 <h2 id="description">Description</h2>
-<p>UBELIX no longer features the R version from EPEL as this version gets automatically updated and therefore things are not reproducible. R isn now provided by an environment module and must be loaded explicitly:</p>
-<div class="highlight"><pre><span></span><code>module load R/3.4.4-foss-2018a-X11-20180131
-
--bash-4.1$ R --version
-R version <span class="m">3</span>.4.4 <span class="o">(</span><span class="m">2018</span>-03-15<span class="o">)</span> -- <span class="s2">&quot;Someone to Lean On&quot;</span>
-Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2018</span> The R Foundation <span class="k">for</span> Statistical Computing
-Platform: x86_64-pc-linux-gnu <span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
-
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under the terms of the
-GNU General Public License versions <span class="m">2</span> or <span class="m">3</span>.
-For more information about these matters see
-http://www.gnu.org/licenses/.
+<p>R is provided by an environment module and must be loaded explicitly:</p>
+<div class="highlight"><pre><span></span><code>module load R <span class="c1">##OR## module load R/3.4.4-foss-2018a-X11-20180131</span>
+R --version
+  R version <span class="m">4</span>.0.0 <span class="o">(</span><span class="m">2020</span>-04-24<span class="o">)</span> -- <span class="s2">&quot;Arbor Day&quot;</span>
+  ...
 </code></pre></div>
 
 <p>The <strong>Vital-IT project</strong> is also providing some versions. The following commands will list the available versions:</p>
@@ -1129,7 +1175,7 @@ module load R/3.4.2
 <p>Do not forget to put those two lines into your job script as well in order to use the same version from within the job later on a compute node!</p>
 </div>
 <h2 id="basic-topics">Basic Topics</h2>
-<h3 id="customizing-the-workspace">Customizing the Workspace</h3>
+<h3 id="customizing-the-r-workspace">Customizing the R Workspace</h3>
 <p>At startup, unless &ndash;no-init-file, or &ndash;vanilla was given, R searches for a user profile in the current directory (from where R was started), or in the user&rsquo;s home directory (in that order). A different path of the user profile file can be specified by the R_PROFILE_USER environment variable. The found user profile is then sourced into the workspace. You can use this file to customize your workspace, i.e., to set specific options, define functions, load libraries, and so on. Consider the following example:</p>
 <p><strong>.Rprofile</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set some options</span>
@@ -1149,8 +1195,8 @@ q &lt;- <span class="k">function</span> <span class="o">(</span><span class="nv"
 mySeed &lt;- <span class="k">function</span><span class="o">()</span> set.seed<span class="o">(</span><span class="m">5450</span><span class="o">)</span>
 
 
-<span class="c1"># User-defined function for calculating L1/L2-norm, returns euclidian distance (L2-norm) by default</span>
-myDistance &lt;- <span class="k">function</span><span class="o">(</span>x, y, <span class="nv">type</span><span class="o">=</span>c<span class="o">(</span><span class="s2">&quot;Euclidian&quot;</span>, <span class="s2">&quot;L2&quot;</span>, <span class="s2">&quot;Manhattan&quot;</span>, <span class="s2">&quot;L1&quot;</span><span class="o">))</span> <span class="o">{</span>
+<span class="c1"># User-defined function for calculating L1/L2-norm, returns euclidean distance (L2-norm) by default</span>
+myDistance &lt;- <span class="k">function</span><span class="o">(</span>x, y, <span class="nv">type</span><span class="o">=</span>c<span class="o">(</span><span class="s2">&quot;Euclidean&quot;</span>, <span class="s2">&quot;L2&quot;</span>, <span class="s2">&quot;Manhattan&quot;</span>, <span class="s2">&quot;L1&quot;</span><span class="o">))</span> <span class="o">{</span>
   <span class="nb">type</span> &lt;- match.arg<span class="o">(</span><span class="nb">type</span><span class="o">)</span>
   <span class="k">if</span> <span class="o">((</span><span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Manhattan&quot;</span><span class="o">)</span> <span class="p">|</span> <span class="o">(</span><span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;L1&quot;</span><span class="o">))</span> <span class="o">{</span>
     d &lt;- sum<span class="o">(</span> abs<span class="o">(</span>x - y<span class="o">)</span> <span class="o">)</span>
@@ -1161,8 +1207,37 @@ myDistance &lt;- <span class="k">function</span><span class="o">(</span>x, y, <s
 <span class="o">}</span>
 </code></pre></div></p>
 <h3 id="installing-packages">Installing Packages</h3>
-<p>Run R interactively. To install additional R packages call the install.packages() function with the name of the package as argument. Upon installing the first package, you will receive a warning that you do not have sufficient permissions to write to &ldquo;/usr/lib64/R/library&rdquo;. Type &ldquo;y&rdquo; to use a personal library instead:</p>
-<div class="highlight"><pre><span></span><code>&gt; install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
+<p>R is installed as global Module in various versions. There are already a longer list of pre-installed packages available. If you need additional packages you can install them by yourself. The default location would be the R installation directory, which is not writeable for users. Nevertheless, in the following is shown how to install into a shared HPC Workspace or into your private HOME. </p>
+<h4 id="a-into-a-shared-workspace">A) Into a shared Workspace</h4>
+<p>With the Workspace tools we provide short-cuts to install R packages in the shared Workspace location. Therefore, the environment variable <code>$R_LIBS</code> is set to <code>$WORKSPACE/RPackages</code>. Initially this directory need to be created, using:</p>
+<p><div class="highlight"><pre><span></span><code>module load Workspace
+mkdir <span class="nv">$R_LIBS</span>
+</code></pre></div>
+If you want to install into your $HOME</p>
+<p>Then R packages can be installed using the <code>install.packages()</code> routine in an interactive R shell, e.g. for <strong>doParallel</strong>:</p>
+<div class="highlight"><pre><span></span><code>module load R
+R
+...
+&gt; install.packages(&quot;doParallel&quot;)
+</code></pre></div>
+
+<p>Then please follow the procedure as shown <a href="#installation-routine">below</a>.</p>
+<p>Then the installed packaged will be available to you and all other Workspace members by simply loading the <code>Workspace</code> module. </p>
+<div class="admonition type danger">
+<p>Please remember to add the Workspace and the R module to your job scripts:
+<div class="highlight"><pre><span></span><code>module load Workspace
+module load R
+</code></pre></div></p>
+</div>
+<h4 id="b-into-your-home">B) Into your HOME</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>you can also use procedure A) and load <code>Workspace/home</code> to install into your HOME directory.</p>
+</div>
+<p>If you are not using a Workspace module and try to install a package, at the first time R tries to install the package into a global/generic location, which is not writeable by users. You can then select to install in a &ldquo;personal library&rdquo; into your HOME:</p>
+<div class="highlight"><pre><span></span><code>module load R
+R
+&gt; install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
 Installing package into ‘/usr/lib64/R/library’
 <span class="o">(</span>as ‘lib’ is unspecified<span class="o">)</span>
 Warnung in install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
@@ -1172,10 +1247,11 @@ Would you like to use a personal library instead?  <span class="o">(</span>y/n<s
 
 <p>Next, type &ldquo;y&rdquo; to create your personal library at the default location within your HOME directory:</p>
 <div class="highlight"><pre><span></span><code>Would you like to create a personal library
-~/R/x86_64-redhat-linux-gnu-library/3.4
+~/R/x86_64-redhat-linux-gnu-library/4.0
 </code></pre></div>
 
-<p>Next, select a CRAN mirror to download from. The mirrorlist will be not the same as below. The mirrolist is constantly changing, but will look like it.</p>
+<h4 id="installation-routine">Installation Routine</h4>
+<p>Next, select a CRAN mirror to download from. The mirror list will be not the same as below. The mirror list is constantly changing, but will look like it.</p>
 <p>Pick any country nearby, i.e. Switzerland. If https makes problems, pick &ldquo;(HTTP mirrors)&rdquo; and then select something nearby as shown below</p>
 <div class="highlight"><pre><span></span><code>--- Bitte einen CRAN Spiegel für diese Sitzung auswählen ---
 Error in download.file<span class="o">(</span>url, <span class="nv">destfile</span> <span class="o">=</span> f, <span class="nv">quiet</span> <span class="o">=</span> TRUE<span class="o">)</span> :
@@ -1315,7 +1391,7 @@ Time difference of <span class="m">30</span>.04088 secs
 
 <p>Well, the output is basically the same (the results are combined in the same order!). Let&rsquo;s again measure the runtime of the parallel execution on 4 cores:</p>
 <div class="admonition types caution">
-<p class="admonition-title">The binary operator %do% willl always execute a foreach-loop sequentially even if registerDoParallel was called before! To correctly run a foreach in parallel, two conditions must be met:</p>
+<p class="admonition-title">The binary operator %do% will always execute a foreach-loop sequentially even if registerDoParallel was called before! To correctly run a foreach in parallel, two conditions must be met:</p>
 <ul>
 <li>registerDoParallel() must be called with a certain number of cores</li>
 <li>The %dopar% operator must be used in the foreach-loop to have it run in parallel!</li>

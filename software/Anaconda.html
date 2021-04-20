@@ -734,6 +734,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#conda-environments" class="md-nav__link">
+    conda environments
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1059,6 +1066,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#conda-environments" class="md-nav__link">
+    conda environments
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1123,6 +1137,8 @@ Instead initialise the conda environment using:
 <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>conda shell.bash hook<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 This should also be used in your batch submission scripts when working with conda environments.</p>
+<h3 id="conda-environments">conda environments</h3>
+<p>By default conda environments are located into the <code>$HOME/.conda</code> directory. This can be changed using <code>$CONDA_ENVS_PATH</code>. This variable is set in the Workspace module. Which enables you to share conda environments. </p>
 <h2 id="move-migration-of-conda-environments">Move / Migration of conda environments</h2>
 <p>If conda environments need to be transfered on the system, e.g. from <code>$HOME</code> to <code>$WORKSPACE</code> you can use the <code>conda pack</code> (see official <a href="https://conda.github.io/conda-pack/">conda pack documentation</a>). </p>
 <p>If your environment is already moved file system locations, you can recreate a new environment with the specification of the old environment. Therefore, we specify the location of the old environment, load the Anaconda module, initialize conda, and get the specification of the old environment. Then <strong>importantly</strong> unset the CONDA_ENVS_PATH to install the new conda environment in the default location and create it. </p>
