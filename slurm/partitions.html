@@ -501,6 +501,19 @@
     Investor QoS
   </a>
   
+    <nav class="md-nav" aria-label="Investor QoS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    Technical Details:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1041,6 +1054,19 @@
     Investor QoS
   </a>
   
+    <nav class="md-nav" aria-label="Investor QoS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    Technical Details:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1204,7 +1230,27 @@
 
 <p>Please see for more details: <a href="gpus.html">GPUs</a></p>
 <h2 id="investor-qos">Investor QoS</h2>
-<p>Investors get elvated priviledges on additional additional resources. These priviledges are managed using <em>investor QoS</em> in <em>investor partitions</em>. The membership to these is managed on basis of HPC Workspaces, see <a href="../hpc-workspaces/management.html#investor-qos">Workspace Management</a>.</p>
+<p>Investors get elvated priviledges on certain resources. 
+The membership to these investor priviledges will/are managed on basis of HPC Workspaces, see <a href="../hpc-workspaces/management.html#investor-qos">Workspace Management</a>.</p>
+<p>To utilize the invested resources, members need to specify one of the following investor partitions:</p>
+<ul>
+<li><code>epyc2-invest</code>, </li>
+<li><code>bdw-invest</code>, </li>
+<li><code>gpu-invest</code></li>
+</ul>
+<p>As an example, the members of an GPU investor, submit jobs with:
+<div class="highlight"><pre><span></span><code>module load Workspace         <span class="c1"># use the Workspace account</span>
+sbatch --partition<span class="o">=</span>gpu_invest job.sh
+</code></pre></div></p>
+<div class="admonition note">
+<p>previous <code>empi</code> investors now use <code>bdw-invest</code> partition and GPU investors use <code>gpu-invest</code></p>
+</div>
+<h3 id="technical-details">Technical Details:</h3>
+<p>Within the investor partition, <em>investor QoS</em> are specified. These have the format <code>job_&lt;partitionBase&gt;_&lt;investorID&gt;</code>, e.g. &ldquo;job_bdw_aschauer&rdquo;. 
+These QoS will be default for the members in the investor partition. And therewith do not need to be specified. 
+You can check your investor QoS and the used partitions using:
+<div class="highlight"><pre><span></span><code>sacctmgr show assoc where <span class="nv">user</span><span class="o">=</span><span class="nv">$USER</span> <span class="nv">format</span><span class="o">=</span>user%20,account%20,partition%16,qos%40,defaultqos%20
+</code></pre></div></p>
                 
               
               
