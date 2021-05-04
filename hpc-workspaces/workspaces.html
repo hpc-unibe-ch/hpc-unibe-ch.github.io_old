@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="../general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="../HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -517,15 +517,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -896,7 +908,7 @@
   
     <li class="md-nav__item">
       <a href="../file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -940,8 +952,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -972,6 +999,21 @@
     <li class="md-nav__item">
       <a href="../halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -1071,12 +1113,6 @@
                 
                 
                 <h1 id="workspaces-introduction">Workspaces Introduction</h1>
-<div class="admonition attention">
-<p class="admonition-title">under Construction</p>
-<p>Workspaces are still in testing phase and not publicly available yet.
-This is preliminary information.
-Detailed information will follow soon.</p>
-</div>
 <h2 id="description">Description</h2>
 <p>This article introduces HPC workspaces with the main aspects.</p>
 <p>A guideline for Workspace managers including <strong>application</strong> and modification can be found at <a href="management.html">Workspace Management</a>. </p>
@@ -1132,7 +1168,7 @@ All <strong>group oriented data</strong> is meant to be located in a <strong>HPC
 <p>All data in the permanent space (<code>/storage/workspaces/</code>) is protected using daily snapshots and backups</p>
 <p>Scratch will not be protected. </p>
 <h2 id="quota">Quota</h2>
-<p>For default and actual <strong>quota</strong> information see <a href="../file-system/quota.html">File System Quota</a>.</p>
+<p>For default and actual <strong>quota</strong> information use <code>quota</code> tool. More details see <a href="../file-system/quota.html">File System Quota</a>.</p>
 <h2 id="slurm">SLURM:</h2>
 <p>Computational work is accounted to a Workspace account. Every workspace belongs to a research group. The freely available resources are shared between research groups. </p>
 <p>In contrast to the previous implementation, the priorities are based on research group usage and shared between all workspaces related to this research group. </p>

@@ -195,6 +195,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="general/news.html" class="md-nav__link">
+        News
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -235,29 +250,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#temporary-space-to-share-data" class="md-nav__link">
-    Temporary space to share data
+  <a href="#introducing-hpc-workspaces" class="md-nav__link">
+    Introducing HPC Workspaces
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#introducing-hpc-workspaces" class="md-nav__link">
-    Introducing HPC Workspaces
+  <a href="#temporary-space-to-share-data" class="md-nav__link">
+    Temporary space to share data
   </a>
-  
-    <nav class="md-nav" aria-label="Introducing HPC Workspaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#slurm-accounting" class="md-nav__link">
-    SLURM accounting
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -268,32 +270,10 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#backup-and-snapshots" class="md-nav__link">
-    Backup and Snapshots
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
-      </a>
     </li>
   
 
@@ -507,15 +487,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -886,7 +878,7 @@
   
     <li class="md-nav__item">
       <a href="file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -930,8 +922,23 @@
   
   
     <li class="md-nav__item">
-      <a href="code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -962,6 +969,21 @@
     <li class="md-nav__item">
       <a href="halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -999,6 +1021,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#introducing-hpc-workspaces" class="md-nav__link">
+    Introducing HPC Workspaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temporary-space-to-share-data" class="md-nav__link">
     Temporary space to share data
   </a>
@@ -1006,35 +1035,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#introducing-hpc-workspaces" class="md-nav__link">
-    Introducing HPC Workspaces
-  </a>
-  
-    <nav class="md-nav" aria-label="Introducing HPC Workspaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#slurm-accounting" class="md-nav__link">
-    SLURM accounting
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#quota-and-permission-changes" class="md-nav__link">
     Quota and permission changes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-and-snapshots" class="md-nav__link">
-    Backup and Snapshots
   </a>
   
 </li>
@@ -1080,42 +1082,22 @@
 As you may noticed, there will be no institute directory in the structure anymore. See subsection <a href="#temporary_file_sharing">Temporary File Sharing</a>.</p>
 <p>The migration will be performed institute by institute. Users are notified before and after actual migration. When migration is finished <code>$HOME</code> will point to <code>/storage/homefs/$USER</code>. </p>
 <p><strong>IMPORTANT:</strong> please also read section <a href="#quota_and_permission_changes">Quota and permission changes</a> below.</p>
+<h2 id="introducing-hpc-workspaces">Introducing HPC Workspaces</h2>
+<p>HPC Workspaces are group shared places. See <a href="hpc-workspaces/workspaces.html">HPC Workspace Documentation</a></p>
 <h2 id="temporary-space-to-share-data">Temporary space to share data</h2>
-<p>In future HOMEs are meant to be private spaces. Data sharing will be enabled using flexible group based HPC Workspaces (see below). In the meantime time institute based directories <code>/home/ubelix/&lt;instituteID&gt;/shared</code> can be used for sharing. To simplify the upcoming transition to workspaces you can already access the institute spaces using the similar workflow you will do later:
+<p>HOMEs are meant to be private spaces. Data sharing is enabled using flexible group based <a href="hpc-workspaces/workspaces.html">HPC Workspaces</a>. 
+The institute based directories <code>/home/ubelix/&lt;instituteID&gt;/shared</code> were provided using tools similar to Workspaces:
 <div class="highlight"><pre><span></span><code>module load CustomRepo/ws_inst
 cd $WORKSPACE
 </code></pre></div></p>
-<p>Later the module name will change, but the environment variable <code>WORKSPACE</code> will point to <strong>your</strong> Workspace directory. Keep in mind the subdirectory structure in the <strong>shared</strong> directories. </p>
+<p>With Workspace and migrated data your workflow can still use the environment variable <code>WORKSPACE</code>, which point to <strong>your</strong> Workspace directory. Keep in mind the subdirectory structure in the previous <strong>shared</strong> directories. </p>
 <div class="admonition attention">
 <p class="admonition-title">shared directory cleaning</p>
-<p>After the migration/ Workspace introduction the institute <code>shared</code> directories will be removed. You will have more than a month to migrate your data to a Workspace. </p>
+<p>In June, the institute <code>shared</code> directories will be removed. <strong>You</strong> will have more than a month to migrate your data to a Workspace. </p>
 </div>
-<h2 id="introducing-hpc-workspaces">Introducing HPC Workspaces</h2>
-<p>In a second step HPC Workspaces will be introduced, enabling collaborative work in group shared file spaces. Currently they are in Alpha testing stage. </p>
-<p>HPC Workspaces consists of:</p>
-<ul>
-<li>persistent <strong>WORKSPACE</strong> storage (with Snapshots and Backup), </li>
-<li>temporary <strong>SCRATCH</strong> storage (no recovery features, but less restrictive), </li>
-<li>a <strong>primary group</strong> with read/write access, </li>
-<li>a <strong>secondary group</strong> with read only access and </li>
-<li>group based <strong>SLURM accounting</strong>. </li>
-</ul>
-<p>There will be tools for easy access the directories using <code>$WORKSPACE</code> and <code>$SCRATCH</code> variable as well as reporting quota and fair share. </p>
-<p>Workspaces will be created by a research group manager using the Service Portal, where also quotas, members, and more can be managed. 
-Each research group will have 10TB persistent disc space free of charge. Which can be used in one or more Workspaces. Additional storage can be purchased. 
-More detailed information will follow soon. </p>
-<div class="admonition types note">
-<p class="admonition-title">Beta tester welcome</p>
-<p>Interested in becoming a Workspace Beta user? Get in touch with us using a <a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=1d137767db54141078ed3e48229619a7">Service Portal request</a> or drop an <a href="mailto:hpc@id.unibe.ch">email</a>.</p>
-</div>
-<h3 id="slurm-accounting">SLURM accounting</h3>
-<p>With the introduction of Workspaces we are changing our resource sharing scheme. The free of charge resources will then be shared between research groups not institutes any more. 
-More detailed information will follow soon. </p>
 <h2 id="quota-and-permission-changes">Quota and permission changes</h2>
-<p>At the end of the transition the HOME directories are closed to be a private space and the quota will be set to max. 1TB and 1M files. Furthermore, the temporary institute sharing directories will be removed. </p>
-<h2 id="backup-and-snapshots">Backup and Snapshots</h2>
-<p>All Workspaces will have Snapshots and Backup enabled. 
-<strong>HOME</strong>s will get these features <strong>after</strong> the migration/ Workspace introduction period, due to performance reasons. </p>
+<p>Finally, beginning of June HOME directories will be restricted to be a private space and the quota will be set to max. 1TB and 1M files. Furthermore, the temporary institute sharing directories will be removed. 
+Starting with this change the HOME Snapshot and Backup will be activated and the <code>umask</code> will be by default 002. </p>
                 
               
               
@@ -1134,14 +1116,28 @@ More detailed information will follow soon. </p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        <a href="general/news.html" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              News
+            </div>
+          </div>
+        </a>
       
-        <a href="overview_workspaces.html" class="md-footer__link md-footer__link--next" rel="next">
+      
+        <a href="quick-start.html" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              PLAN..Workspaces
+              Quick Start
             </div>
           </div>
           <div class="md-footer__button md-icon">

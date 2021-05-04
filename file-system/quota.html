@@ -14,7 +14,7 @@
     
     
       
-        <title>File System Quota - HPC Documentation</title>
+        <title>Quota - HPC Documentation</title>
       
     
     
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File System Quota
+              Quota
             
           </span>
         </div>
@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="../general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="../HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -428,15 +428,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -817,12 +829,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          File System Quota
+          Quota
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="quota.html" class="md-nav__link md-nav__link--active">
-        File System Quota
+        Quota
       </a>
       
         
@@ -846,15 +858,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#display-quota-information" class="md-nav__link">
-    Display quota information
+  <a href="#quotas" class="md-nav__link">
+    Quotas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#home-quota" class="md-nav__link">
-    HOME Quota
+  <a href="#display-quota-information" class="md-nav__link">
+    Display quota information
   </a>
   
 </li>
@@ -919,8 +931,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -951,6 +978,21 @@
     <li class="md-nav__item">
       <a href="../halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -988,15 +1030,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#display-quota-information" class="md-nav__link">
-    Display quota information
+  <a href="#quotas" class="md-nav__link">
+    Quotas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#home-quota" class="md-nav__link">
-    HOME Quota
+  <a href="#display-quota-information" class="md-nav__link">
+    Display quota information
   </a>
   
 </li>
@@ -1039,6 +1081,41 @@
 <p class="admonition-title"> Job abortion</p>
 <p>Jobs will fail if no more disk space can be allocated, or if no more files can be created because the respective quota hard limit is exceeded </p>
 </div>
+<h2 id="quotas">Quotas</h2>
+<table>
+<thead>
+<tr>
+<th>space</th>
+<th>quota</th>
+<th>file quota</th>
+<th>backup</th>
+<th>expiration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HOME</td>
+<td>1TB<sup id="fnref:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
+<td>1M<sup id="fnref2:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
+<td>yes<sup id="fnref3:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
+<td>-</td>
+</tr>
+<tr>
+<td>WORKSPACE</td>
+<td>free: up to 10TB per research group<sup id="fnref:QpRG"><a class="footnote-ref" href="#fn:QpRG">2</a></sup></td>
+<td>1M per TB</td>
+<td>yes</td>
+<td>1 year<sup id="fnref:WSdur"><a class="footnote-ref" href="#fn:WSdur">3</a></sup></td>
+</tr>
+<tr>
+<td>SCRATCH</td>
+<td>50TB</td>
+<td>50M</td>
+<td>no</td>
+<td>1 month</td>
+</tr>
+</tbody>
+</table>
 <h2 id="display-quota-information">Display quota information</h2>
 <p>A quota tool is delivered with the Workspace module:</p>
 <p><div class="highlight"><pre><span></span><code>$ quota
@@ -1070,41 +1147,6 @@ Workspace1          :          <span class="m">5</span>,        <span class="m">
 </ul>
 </div>
 <p>Note: the coloring of the relative values is green (&lt;70%), yellow (70% &lt; x &lt; 90%), red (&gt;90%).</p>
-<h2 id="home-quota">HOME Quota</h2>
-<table>
-<thead>
-<tr>
-<th>space</th>
-<th>quota</th>
-<th>file quota</th>
-<th>backup</th>
-<th>expiration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HOME</td>
-<td>1TB<sup id="fnref:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
-<td>1M<sup id="fnref2:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
-<td>yes<sup id="fnref3:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
-<td>-</td>
-</tr>
-<tr>
-<td>WORKSPACE</td>
-<td>10TB per research group<sup id="fnref:QpRG"><a class="footnote-ref" href="#fn:QpRG">2</a></sup></td>
-<td>by default 1M per TB</td>
-<td>yes</td>
-<td>1 year<sup id="fnref:WSdur"><a class="footnote-ref" href="#fn:WSdur">3</a></sup></td>
-</tr>
-<tr>
-<td>SCRATCH</td>
-<td>50TB</td>
-<td>50M</td>
-<td>no</td>
-<td>1 month</td>
-</tr>
-</tbody>
-</table>
 <h2 id="advanced-quota-method">advanced quota method</h2>
 <p>The following <code>mmlsquota</code> command present you actual values from the file system. 
 For <code>$HOME</code>:</p>
@@ -1140,7 +1182,7 @@ rs_gpfs    FILESET          <span class="m">57</span>      <span class="m">10240
 <p>ATTENTION: there is no Backup or snapshot on HOME directories until the Workspace introduction phase is finished. Previous extended quota keep active until then.&#160;<a class="footnote-backref" href="#fnref:mig" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:mig" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:mig" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:QpRG">
-<p>Each research group can use up to 10TB of free disk storage in multiple Workspaces.&#160;<a class="footnote-backref" href="#fnref:QpRG" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Each research group can use up to 10TB of free disk storage in multiple Workspaces free of charge. Quota increase can be purchased, see <a href="../hpc-workspaces/management.html#additional-storage">Workspace Management</a>.&#160;<a class="footnote-backref" href="#fnref:QpRG" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:WSdur">
 <p>Workspaces are meant to be active directories and no archive. Workspace are active by default for one year. The duration can every time be extended to &ldquo;current date plus one year&rdquo;.&#160;<a class="footnote-backref" href="#fnref:WSdur" title="Jump back to footnote 3 in the text">&#8617;</a></p>

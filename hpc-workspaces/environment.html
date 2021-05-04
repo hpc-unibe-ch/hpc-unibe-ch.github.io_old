@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="../general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="../HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -458,13 +458,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#python-packages" class="md-nav__link">
-    Python packages
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#conda-environments" class="md-nav__link">
     Conda environments
   </a>
@@ -530,15 +523,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -909,7 +914,7 @@
   
     <li class="md-nav__item">
       <a href="../file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -953,8 +958,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -985,6 +1005,21 @@
     <li class="md-nav__item">
       <a href="../halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -1051,13 +1086,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#python-packages" class="md-nav__link">
-    Python packages
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#conda-environments" class="md-nav__link">
     Conda environments
   </a>
@@ -1097,24 +1125,19 @@
                 
                 
                 <h1 id="hpc-workspace-data-and-software-tools">HPC Workspace Data and Software Tools</h1>
-<div class="admonition attention">
-<p class="admonition-title">under Construction</p>
-<p>Workspaces are still in testing phase and not publicly available yet.
-This is preliminary information.
-Detailed information will follow soon.</p>
-</div>
 <h2 id="description">Description</h2>
-<p>The Workspace module provide support for user-friendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. </p>
+<p>HPC Workspace module provides support for user-friendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. 
+The module can also be used to set up HOME for a custom software stack. </p>
 <h2 id="workspace-module">Workspace module</h2>
-<p>The Workspace module adjust the environment to work in a specific Workspace. 
-<div class="highlight"><pre><span></span><code>module load workspace
+<p>The Workspace module adjust the environment to work in a specific HPC Workspace. 
+<div class="highlight"><pre><span></span><code>module load Workspace
 </code></pre></div>
 sets the following environment variables (<a href="#shortcuts">Shortcuts</a>) and <a href="#software-stacks">Software stacks</a></p>
 <p>There are the following possibilities:</p>
 <ul>
 <li>you belong to <strong>no</strong> Workspace: load <code>module load Workspace/home</code> to use your software stack in your HOME directory</li>
-<li>you belong to <strong>one</strong> Workspace: this one gets loaded when <code>module load Workspace</code></li>
-<li>you belong to multiple Workspaces: you need to specify one. The module presents you the options, e.g.
+<li>you belong to <strong>one</strong> Workspace: this Workspace gets loaded when <code>module load Workspace</code></li>
+<li>you belong to multiple Workspaces: you need to specify the Workspace to load using the variable <code>$HPC_WORKSPACE</code>. The module presents the possible options, e.g.:
     <div class="highlight"><pre><span></span><code>$ module load Workspace
 Workspaces are available:
     HPC_SW_test, hpc_training, 
@@ -1186,13 +1209,19 @@ Please select and load ONE of the following:
 </table>
 <h3 id="software-stacks">Software stacks</h3>
 <p>Beside, a set of software packages we provide for our different CPU architecture, the Workspace module provides tools to install custom software stacks within your Workspace. 
-Especially with easybuild shortcuts are provided to install and use custom software stacks easily build for all architectures. </p>
-<p>For installing packages with EasyBuild, see <a href="../software/EasyBuild.html">Easybuild description</a>. 
+Especially with EasyBuild shortcuts are provided to install and use custom software stacks easily build for all architectures. </p>
+<p>For installing packages with EasyBuild, see <a href="../software/EasyBuild.html">EasyBuild description</a>. 
 Manual package can also be installed in the similar manner. Adding a Modulefile provides the users to load packages as used to. Please see <a href="../software/installing-custom-software.html">Installing Custom Software</a>. </p>
 <p>As a result all users of the Workspace can use the software packages by loading the Workspace module and the software product module. </p>
-<h3 id="python-packages">Python packages</h3>
-<p>The Workspace module provides support to install and use Python packages in a shared manner, by installing them into the Workspace. 
-Please see <a href="../software/python.html#additional-packages">Python Additional Packages</a></p>
+<div class="admonition note">
+<p class="admonition-title">First load Python/Anaconda3</p>
+<p>Python or Anaconda3 module need to be loaded before loading the Workspace module, since variables to be set depend on Python version.
+Workspace module can also be reloaded, e.g.:
+<div class="highlight"><pre><span></span><code>export HPC_WORKSPACE=HPC_SW_test; module load Workspace
+module load Python
+module load Workspace
+</code></pre></div></p>
+</div>
 <h3 id="conda-environments">Conda environments</h3>
 <p>The Workspace module provides support for creating and using conda environments in the shared Workspace. See <a href="../software/Anaconda.html#conda-environments">Anaconda Conda environments</a>.</p>
 <h3 id="r-packages">R packages</h3>

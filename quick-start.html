@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -536,15 +536,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -915,7 +927,7 @@
   
     <li class="md-nav__item">
       <a href="file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -959,8 +971,23 @@
   
   
     <li class="md-nav__item">
-      <a href="code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -991,6 +1018,21 @@
     <li class="md-nav__item">
       <a href="halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -1204,72 +1246,39 @@ interactively on a compute node for a certain amount of time without having to s
 they finish just to see it didn&rsquo;t work. See <a href="slurm/interactive-jobs.html">Interactive Jobs</a> for more information about this topic.</p>
 </div>
 <p>It&rsquo;s now time for your first job script. To do some work on the cluster, you require certain resources (e.g. CPUs and memory) and a description of the computations to be done. A job consists of instructions to the scheduler in the form of option flags, and statements that describe the actual tasks. Let&rsquo;s start with the instructions to the scheduler:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --mail-user=&lt;your_email_address&gt;</span>
-<span class="c1">#SBATCH --mail-type=none</span>
-<span class="c1">#SBATCH --partition=all</span>
-<span class="c1">#SBATCH --nodes=1</span>
-<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --ntasks=1</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=1GB</span>
 
 <span class="c1"># Put your code below this line</span>
+...
 </code></pre></div>
-</td></tr></table>
 
 <p>The first line makes sure that the file is executed using the bash shell. The remaining lines are option flags used by the <code>sbatch</code> command. The page <a href="slurm/submission.html">Jobs Submission</a> outlines the most important options of <code>sbatch</code>.</p>
 <p>Now, let&rsquo;s write a simple &ldquo;hello, world&rdquo;-task:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1"># Put your code below this line</span>
-mkdir -p <span class="nv">$HOME</span>/my_first_job
-<span class="nb">cd</span> <span class="nv">$HOME</span>/my_first_job
-<span class="nb">echo</span> <span class="s2">&quot;Hello, Ubelix from node </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span> &gt; hello.txt
-sleep <span class="m">120</span>
+<div class="highlight"><pre><span></span><code>...
+<span class="c1"># Put your code below this line</span>
+module load Workspace/home
+mkdir -p <span class="nv">$SCRATCH</span>/my_first_job
+<span class="nb">cd</span> <span class="nv">$SCRATCH</span>/my_first_job
+<span class="nb">echo</span> <span class="s2">&quot;Hello, UBELIX from node </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span> &gt; hello.txt
 </code></pre></div>
-</td></tr></table>
 
-<p>In the first line we create a new directory &lsquo;my_first_job&rsquo; within our home directory. The variable <strong><code>$HOME</code></strong> expands to <code>/home/ubelix/&lt;your_group&gt;/&lt;your_username&gt;</code>. In the second line we change directory to the newly created directory. In the third line we print the line &ldquo;Hello, Ubelix from node <hostname_of_the_executing_node>&rdquo; and redirect the output to a file named <code>hello.txt</code>. The expression <strong><code>$(hostname)</code></strong> means, run the command hostname and put its output here. In the forth line we wait (do nothing) for 120 seconds. This gives us some time to monitor our job later on. Save the content to a file named <code>first.sh</code>.</p>
+<p>After loading the Workspace module, we create a new directory &lsquo;my_first_job&rsquo; within our &ldquo;personal&rdquo; SCRATCH directory. The variable <strong><code>$SCRATCH</code></strong> expands to <code>/storage/scratch/users/&lt;your_username&gt;</code>. Then, we change directory to the newly created directory. In the third line we print the line <code>Hello, Ubelix from node &lt;hostname_of_the_executing_node&gt;</code> and redirect the output to a file named <code>hello.txt</code>. The expression <code>$(hostname)</code> means, run the command hostname and put its output here. Save the content to a file named <code>first.sh</code>.</p>
 <p>The complete job script looks like this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --mail-user=&lt;your_email_address&gt;</span>
-<span class="c1">#SBATCH --mail-type=end,fail</span>
-<span class="c1">#SBATCH --job-name=&quot;job01&quot;</span>
-<span class="c1">#SBATCH --partition=all</span>
-<span class="c1">#SBATCH --nodes=1</span>
-<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --ntasks=1</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=1GB</span>
 
 <span class="c1"># Put your code below this line</span>
-mkdir -p <span class="nv">$HOME</span>/my_first_job
-<span class="nb">cd</span> <span class="nv">$HOME</span>/my_first_job
-<span class="nb">echo</span> <span class="s2">&quot;Hello, Ubelix from node </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span> &gt; hello.txt
-sleep <span class="m">120</span>
+module load Workspace/home
+mkdir -p <span class="nv">$SCRATCH</span>/my_first_job
+<span class="nb">cd</span> <span class="nv">$SCRATCH</span>/my_first_job
+<span class="nb">echo</span> <span class="s2">&quot;Hello, UBELIX from node </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span> &gt; hello.txt
 </code></pre></div>
-</td></tr></table>
 
-<div class="admonition warning">
-<p class="admonition-title">Use Correct Email Addresss!</p>
-<p>When using a mail-type other than &lsquo;none&rsquo;, make sure that you use a valid email address with the &ndash;mail-user option! </p>
-</div>
 <h2 id="schedule-your-job">Schedule Your Job</h2>
 <p>We can now submit our first job to the scheduler. The scheduler will then provide the requested resources to the job. If all requested resources are already available, then your job can start immediately. Otherwise your job will wait until enough resources are available. We submit our job to the scheduler using the <code>sbatch</code> command:</p>
 <p><div class="highlight"><pre><span></span><code>sbatch first.sh
@@ -1283,17 +1292,17 @@ There are various options for different types of jobs provided in the scheduler.
 <p><div class="highlight"><pre><span></span><code>squeue --job<span class="o">=</span><span class="m">32490640</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>      JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-   32490640       all    job01 testuser  R       0:22      1 fnode23
+   32490640     epyc2    job01 testuser  R       0:22      1 bnode23
 </code></pre></div></p>
 <p>Here you can see that the job &lsquo;job01&rsquo; with job-ID 32490640 is in state RUNNING (R).
-The job is running in the &lsquo;all&rsquo; partition (default partition) on fnode23 for 22 seconds.
+The job is running in the &lsquo;epyc2&rsquo; partition (default partition) on bnode23 for 22 seconds.
 It is also possible that the job can not start immediately after submitting it to SLURM
 because the requested resources are not yet available. In this case, the output could
 look like this:</p>
 <p><div class="highlight"><pre><span></span><code>squeue --job<span class="o">=</span><span class="m">32490640</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>       JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-    32490640       all    job01 testuser PD       0:00      1 (Priority)
+    32490640     epyc2    job01 testuser PD       0:00      1 (Priority)
 </code></pre></div></p>
 <p>Here you can see that the job is in state PENDING (PD) and a reason why the job
 is pending. In this example, the job has to wait for at least one other job with higher priority. See here for a list of other reasons why a job might be pending.</p>
@@ -1301,14 +1310,14 @@ is pending. In this example, the job has to wait for at least one other job with
 <p><div class="highlight"><pre><span></span><code>squeue --user<span class="o">=</span>testuser
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>      JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-   34651451      all slurm.sh  testuser PD       0:00      2 (Priority)
-   34651453      all slurm.sh  testuser PD       0:00      2 (Priority)
-   29143227      empi    Rjob  testuser PD       0:00      4 (JobHeldUser)
-   37856328      empi  mpi.sh  testuser  R       4:38      2 anode[041-042]
-   32634559       all fast.sh  testuser  R    2:52:37      1 hnode12
-   32634558       all fast.sh  testuser  R    3:00:54      1 hnode14
-   32634554       all fast.sh  testuser  R    4:11:26      1 jnode08
-   32633556       all fast.sh  testuser  R    4:36:10      1 jnode08
+   34651451     epyc2 slurm.sh  testuser PD       0:00      2 (Priority)
+   34651453     epyc2 slurm.sh  testuser PD       0:00      2 (Priority)
+   29143227     epyc2     Rjob  testuser PD       0:00      4 (JobHeldUser)
+   37856328       bdw   mpi.sh  testuser  R       4:38      2 anode[012-014]
+   32634559       bdw  fast.sh  testuser  R    2:52:37      1 anode12
+   32634558       bdw  fast.sh  testuser  R    3:00:54      1 anode14
+   32634554       bdw  fast.sh  testuser  R    4:11:26      1 anode08
+   32633556       bdw  fast.sh  testuser  R    4:36:10      1 anode08
 </code></pre></div></p>
 <p>Further information on on job monitoring you find on page <a href="slurm/monitoring-jobs.html">Monitoring Jobs</a>. Furthermore, in the <em>Job handling</em> section you find additional information about <a href="slurm/investigating-job-failure.html">Investigating a Job Failure</a> and <a href="slurm/checkpointing.html">Check-pointing</a>. </p>
 <h2 id="training-courses">Training Courses</h2>
@@ -1331,7 +1340,7 @@ is pending. In this example, the job has to wait for at least one other job with
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="overview_workspaces.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="HOME_migration.html" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1340,7 +1349,7 @@ is pending. In this example, the job has to wait for at least one other job with
               <span class="md-footer__direction">
                 Previous
               </span>
-              PLAN..Workspaces
+              IMPORTANT..Home Migration
             </div>
           </div>
         </a>

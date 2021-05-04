@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="../general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="../HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -430,15 +430,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -901,7 +913,7 @@
   
     <li class="md-nav__item">
       <a href="../file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -945,8 +957,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -977,6 +1004,21 @@
     <li class="md-nav__item">
       <a href="../halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -1125,14 +1167,9 @@
 <h3 id="use-case-1-1000-computations-same-resource-requirements-different-inputoutput-arguments">Use case 1: 1000 computations, same resource requirements, different input/output arguments</h3>
 <p>Instead of submitting 1000 individual jobs, submit a single array jobs with 1000 tasks:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="c1">#SBATCH --mail-type=NONE</span>
-<span class="c1">#SBATCH --partition=all</span>
 <span class="c1">#SBATCH --time=00:30:00     # Each task takes max 30 minutes</span>
 <span class="c1">#SBATCH --mem-per-cpu=2G    # Each task uses max 2G of memory</span>
 <span class="c1">#SBATCH --array=1-1000      # Submit 1000 tasks with task ID 1,2,...,1000.</span>
-<span class="c1">#SBATCH --output=/dev/null</span>
-<span class="c1">#SBATCH --error=/dev/null</span>
 
 <span class="c1"># The name of the input files must reflect the task ID!</span>
 ./foo input_data_<span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span>.txt &gt; output_<span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span>.txt
@@ -1145,34 +1182,29 @@
 <h3 id="use-case-2-read-arguments-from-file">Use case 2: Read arguments from file</h3>
 <p>Submit an array job with 1000 tasks. Each task executes the program foo with different arguments:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="c1">#SBATCH --mail-type=NONE</span>
-<span class="c1">#SBATCH --partition=all</span>
 <span class="c1">#SBATCH --time=00:30:00    # Each task takes max 30 minutes</span>
 <span class="c1">#SBATCH --mem-per-cpu=2G   # Each task uses max 2G of memory</span>
-<span class="c1">#SBATCH --array=1-1000%20  # Submit 1000 tasks with task ID 1,2,...,1000. Run max 20 tasks concurrently</span>
-<span class="c1">#SBATCH --output=/dev/null</span>
-<span class="c1">#SBATCH --error=/dev/null</span>
+<span class="c1">### Submit 1000 tasks with task ID 1,2,...,1000. Run max 20 tasks concurrently</span>
+<span class="c1">#SBATCH --array=1-1000%20  </span>
 
-
-<span class="nv">param_store</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/args.txt     <span class="c1"># args.txt contains 1000 lines with 2 arguments per line.</span>
-                                                  <span class="c1"># Line &lt;i&gt; contains arguments for run &lt;i&gt;</span>
-<span class="nv">data_dir</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/input_data        <span class="c1"># Input files are named input_run_0001.txt,...input_run_1000.txt</span>
+<span class="nv">data_dir</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/input_data        
 <span class="nv">result_dir</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/results
 
+<span class="nv">param_store</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/args.txt     
+<span class="c1">### args.txt contains 1000 lines with 2 arguments per line.</span>
+<span class="c1">###    Line &lt;i&gt; contains arguments for run &lt;i&gt;</span>
+<span class="c1"># Get first argument</span>
+<span class="nv">param_a</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$param_store</span> <span class="p">|</span> awk -v <span class="nv">var</span><span class="o">=</span><span class="nv">$SLURM_ARRAY_TASK_ID</span> <span class="s1">&#39;NR==var {print $1}&#39;</span><span class="k">)</span>
+<span class="c1"># Get second argument</span>
+<span class="nv">param_b</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$param_store</span> <span class="p">|</span> awk -v <span class="nv">var</span><span class="o">=</span><span class="nv">$SLURM_ARRAY_TASK_ID</span> <span class="s1">&#39;NR==var {print $2}&#39;</span><span class="k">)</span>
 
-<span class="nv">param_a</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$param_store</span> <span class="p">|</span> awk -v <span class="nv">var</span><span class="o">=</span><span class="nv">$SLURM_ARRAY_TASK_ID</span> <span class="s1">&#39;NR==var {print $1}&#39;</span><span class="k">)</span>    <span class="c1"># Get first argument</span>
-<span class="nv">param_b</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$param_store</span> <span class="p">|</span> awk -v <span class="nv">var</span><span class="o">=</span><span class="nv">$SLURM_ARRAY_TASK_ID</span> <span class="s1">&#39;NR==var {print $2}&#39;</span><span class="k">)</span>    <span class="c1"># Get second argument</span>
+<span class="c1">### Input files are named input_run_0001.txt,...input_run_1000.txt</span>
+<span class="c1">###    Zero pad the task ID to match the numbering of the input files</span>
+<span class="nv">n</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%04d&quot;</span> <span class="nv">$SLURM_ARRAY_TASK_ID</span><span class="k">)</span>
 
 
-<span class="nv">n</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%04d&quot;</span> <span class="nv">$SLURM_ARRAY_TASK_ID</span><span class="k">)</span>    <span class="c1"># Zero pad the task ID to match the numbering of the input files</span>
-
-
-./foo -c <span class="nv">$param_a</span> -p <span class="nv">$param_b</span> -i <span class="si">${</span><span class="nv">data_dir</span><span class="si">}</span>/input_run_<span class="si">${</span><span class="nv">n</span><span class="si">}</span>.txt -o <span class="si">${</span><span class="nv">result_dir</span><span class="si">}</span>/result_run_<span class="si">${</span><span class="nv">n</span><span class="si">}</span>.txt
-<span class="nb">exit</span>
+srun ./foo -c <span class="nv">$param_a</span> -p <span class="nv">$param_b</span> -i <span class="si">${</span><span class="nv">data_dir</span><span class="si">}</span>/input_run_<span class="si">${</span><span class="nv">n</span><span class="si">}</span>.txt -o <span class="si">${</span><span class="nv">result_dir</span><span class="si">}</span>/result_run_<span class="si">${</span><span class="nv">n</span><span class="si">}</span>.txt
 </code></pre></div>
-
-<p><em><em>Related  pages:</em></em></p>
                 
               
               

@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="../general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="../HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -330,8 +330,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#batch-queueing-system" class="md-nav__link">
-    Batch-Queueing System
+  <a href="#slurm-batch-queueing-system" class="md-nav__link">
+    SLURM Batch-Queueing System
   </a>
   
 </li>
@@ -509,15 +509,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -888,7 +900,7 @@
   
     <li class="md-nav__item">
       <a href="../file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -932,8 +944,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -964,6 +991,21 @@
     <li class="md-nav__item">
       <a href="../halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -1016,8 +1058,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#batch-queueing-system" class="md-nav__link">
-    Batch-Queueing System
+  <a href="#slurm-batch-queueing-system" class="md-nav__link">
+    SLURM Batch-Queueing System
   </a>
   
 </li>
@@ -1057,17 +1099,17 @@
                 <h1 id="ubelix-overview">UBELIX - Overview</h1>
 <h2 id="description">Description</h2>
 <p>This page provides a high-level system overview of a HPC cluster such as UBELIX. It describes the different hardware components that constitute the cluster and gives a quantitative list of the different generations of compute nodes in UBELIX.</p>
-<p><strong>UBELIX</strong> (University of Bern Linux Cluster) is a HPC cluster that currently consists of about 330 compute nodes featuring almost 10&lsquo;000 CPU cores and ~333&lsquo;000 GPU cores and a software-defined storage infrastructure providing ~3 PB of disk storage net. UBELIX is a heterogeneous cluster, meaning UBELIX consists of different generations of compute nodes with different instruction sets. Compute nodes, front-end servers and the storage are interconnected through a high speed Infiniband network. The front-end servers also provide a link to the outside world. UBELIX is used by various institutes and research groups within chemistry, biology, physics, astronomy, computer science, geography, medical radiology and others for scientific research and by students working on their thesis.</p>
+<p><strong>UBELIX</strong> (University of Bern Linux Cluster) is a HPC cluster that currently consists of about 340 compute nodes featuring almost 11&lsquo;500 CPU cores and 136 GPUs and a software-defined storage infrastructure providing ~3 PB of disk storage net. UBELIX is a heterogeneous cluster, meaning UBELIX consists of different generations of compute nodes with different instruction sets. Compute nodes, front-end servers and the storage are interconnected through a high speed Infiniband network. The front-end servers also provide a link to the outside world. UBELIX is used by various institutes and research groups within chemistry, biology, physics, astronomy, computer science, geography, medical radiology and others for scientific research and by students working on their thesis.</p>
 <h2 id="high-level-system-overview">High-level system overview</h2>
 <p><img alt="System Overview Diagram" src="../images/system_overview.jpg" title="System Overview Diagram" />
 The HPCs can only be reached within the UniBE network. User landing point are the login nodes, where jobs can be prepared and submitted. Computational tasks are scheduled and managed on the compute nodes using SLURM. All compute nodes as well as the login nodes have access to the parallel file system.</p>
 <h3 id="login-node-aka-submit-node">Login node aka. Submit node</h3>
 <p>A user connects to the cluster by logging into the <strong>submit</strong> host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile smaller programs. Resource-demanding/high-performance tasks must be submitted to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks should be submitted as a job on a compute node instead of running it on the submit host. </p>
-<h3 id="batch-queueing-system">Batch-Queueing System</h3>
+<h3 id="slurm-batch-queueing-system">SLURM Batch-Queueing System</h3>
 <p>On UBELIX we use the open-source batch-queueing system <a href="https://slurm.schedmd.com/documentation.html">Slurm</a>, managing all jobs on the compute nodes. The job submission is described in detail in the Job handling section, starting with <a href="../slurm/submission.html">Submitting jobs</a>. </p>
 <p>The procedure look like:</p>
 <ul>
-<li><strong>resource definition</strong>: as a user, <strong>you</strong> define the resources requirements of your job including <strong>numbers of CPU cores</strong>, <strong>time</strong> limit, <strong>memory</strong>, etc. Not specified parameters are chosen with <strong>default values</strong>. These resources can be defined in the batch script or as command line arguments</li>
+<li><strong>resource definition</strong>: resources required for your job need to be defined, including <em>numbers of CPU cores</em>, <em>time</em> limit, <em>memory</em>, partitions, QOS, etc.. These resources can be defined in the batch script or as command line arguments. Not explicitly specified parameters are chosen with <em>default values</em>.</li>
 <li><strong>submitting</strong>: job can be submitted using <code>sbatch</code> (using a batch script), <code>srun</code> (directly running the executable), or <code>salloc</code> (interactive submission). The submission is checked from SLURM if it is within the specification and limits. </li>
 <li><strong>scheduling</strong>: Slurm is finding the optimal spots for the registered jobs on the resources and time. This also includes priority handling and optimizing for best coverage. </li>
 <li><strong>launch</strong>: Slurm prepares the environment on the selected compute resources. This also includes setting up the MPI environment, if requested interactive sessions, etc., and launching your batch script. </li>
@@ -1075,171 +1117,25 @@ The HPCs can only be reached within the UniBE network. User landing point are th
 <li><strong>cancelling/completing</strong>: When tasks finished, wall time limit or memory limit is reached the job ant its environment gets removed from the resources. All output is written into file(s) (except of interactive sessions)</li>
 </ul>
 <h3 id="cluster-partitions-queues-and-their-compute-nodes">Cluster Partitions (Queues) and their Compute Nodes</h3>
-<p>Partitions group nodes into logical sets. Nodes in a partition share the same limits. You can choose a partition depending on your jobs requirements (CPUs, memory, runtime). UBELIX provides several different partitions as shown in the following table including the corresponding hardware details of the compute nodes each partition is comprised of:</p>
-<table>
-<thead>
-<tr>
-<th>Partition name</th>
-<th>max runtime (wall clock time) in h</th>
-<th>max memory per node</th>
-<th>max cores/node</th>
-<th>GPU</th>
-<th>Node Group</th>
-<th>CPU Generation</th>
-<th>#Nodes</th>
-<th>#Cores</th>
-<th>RAM</th>
-<th>Local Scratch</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>all</td>
-<td>96h</td>
-<td>243GB</td>
-<td>20 cores</td>
-<td>-</td>
-<td>hnodes[23-42]<br />jnodes<br />knodes<br />anodes[145-216]</td>
-<td>sandybridge<br />sandybridge<br />ivybridge<br />broadwell</td>
-<td>20<br />21<br />36<br />72</td>
-<td>16<br />16<br />16<br />20</td>
-<td>70GB<br />243GB<br />117GB<br />117GB</td>
-<td>250GB<br />500GB<br />850GB<br />850GB</td>
-</tr>
-<tr>
-<td>amd</td>
-<td>96h</td>
-<td>1TB</td>
-<td>192 cores</td>
-<td>-</td>
-<td>bnode[001-026]</td>
-<td>AMD EPYC 2</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>empi</td>
-<td>24h</td>
-<td>117GB</td>
-<td>20 cores</td>
-<td>-</td>
-<td>anodes[003-144]</td>
-<td>broadwell</td>
-<td>142</td>
-<td>20</td>
-<td>117GB</td>
-<td>850GB</td>
-</tr>
-<tr>
-<td>long<sup id="fnref:long"><a class="footnote-ref" href="#fn:long">1</a></sup></td>
-<td>360h</td>
-<td>86GB</td>
-<td>24 cores</td>
-<td>-</td>
-<td>hnode[43-49]</td>
-<td>ivybridge</td>
-<td>7</td>
-<td>24</td>
-<td>86GB</td>
-<td>500Gb</td>
-</tr>
-<tr>
-<td>debug</td>
-<td>10m</td>
-<td>117GB</td>
-<td>20 cores</td>
-<td>-</td>
-<td>anodes[001-002]</td>
-<td>broadwell</td>
-<td>2</td>
-<td>20</td>
-<td>117GB</td>
-<td>850</td>
-</tr>
-<tr>
-<td>gpu<sup id="fnref:gpu"><a class="footnote-ref" href="#fn:gpu">2</a></sup></td>
-<td>24h</td>
-<td>243GB</td>
-<td>24</td>
-<td>GTX 1080Ti<br />Tesla P100<br />RTX 2080Ti</td>
-<td>gnode[01-06]<br />gnode[07-08]<br />gnode[09-10]</td>
-<td>broadwell</td>
-<td>6<br />2<br />2</td>
-<td>24</td>
-<td>243 GB</td>
-<td>850GB</td>
-</tr>
-<tr>
-<td>gpu-debug</td>
-<td>10m</td>
-<td>243GB</td>
-<td>24</td>
-<td>GTX 1080Ti</td>
-<td>gnode[11-12]</td>
-<td>broadwell</td>
-<td>12</td>
-<td>24</td>
-<td>243 GB</td>
-<td>850GB</td>
-</tr>
-</tbody>
-</table>
-<p>To access a specific nodes you may need to specify the partition or with <code>--constrain</code> option a specific architecture within a partition. </p>
-<div class="admonition note">
-<p><strong>The all partition is the default partition if you do not specify one explicitly.</strong></p>
-</div>
+<p>UBELIX is a heterogeneous machine, consisting of different architectures. There are CPU compute nodes with: </p>
+<ul>
+<li>Intel Ivybridge</li>
+<li>Intel Broadwell</li>
+<li>AMD Epyc2 </li>
+</ul>
+<p>and GPU nodes with:</p>
+<ul>
+<li>Nvidia Geforce GTX 1080 Ti </li>
+<li>Nvidia Geforce RTX 2080 Ti</li>
+<li>Nvidia Geforce RTX 3090 </li>
+<li>Nvidia Tesla P100</li>
+</ul>
+<p>Without explicit changes, jobs are scheduled in the AMD Epyc2 partition, running up to 3 days. </p>
+<p>Partitions group nodes into logical sets, which share the same limits. Furthermore, specific limits and privileges are managed using Quality Of Service (QOS), like high priorities or node limitations for long running jobs.</p>
+<p>Different partitions and QOS are listed in the <a href="../slurm/partitions.html">SLURM Partition/QOS article</a></p>
 <h3 id="storage-infrastructure">Storage Infrastructure</h3>
-<p>A modular, software-defined storage system (IBM Spectrum Scale) provides a shared, parallel file system that is mounted on all frontend servers and compute nodes. Ubelix also provides a limited amount of storage space on the Campus Storage. The different storage locations are summarized in the table below. For more information about the storage infrastructure see here.</p>
-<table>
-<thead>
-<tr>
-<th>Path</th>
-<th>Connection</th>
-<th>Availability</th>
-<th>Backup</th>
-<th>default Quota</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/storage/homefs/$USER</code></td>
-<td>Network</td>
-<td>global</td>
-<td>yes<sup id="fnref:afterMig"><a class="footnote-ref" href="#fn:afterMig">3</a></sup></td>
-<td>1TB</td>
-</tr>
-<tr>
-<td><code>/storage/workspaces/</code></td>
-<td>Network</td>
-<td>global</td>
-<td>yes</td>
-<td>10TB per research group, plus additional purchased storage</td>
-</tr>
-<tr>
-<td><code>/scratch/network/</code></td>
-<td>Network</td>
-<td>global</td>
-<td>no</td>
-<td>50TB per space</td>
-</tr>
-</tbody>
-</table>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:long">
-<p>Due to the limited resources and the potentially long job runtime, access to the long partition must be requested explicitly once.&#160;<a class="footnote-backref" href="#fnref:long" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:gpu">
-<p>The gpu partition is closed by definition. If you need GPU resources, you have request access to this partition. Write an email to <a href="mailto::hpc@id.unibe.ch">hpc@id.unibe.ch</a> to do so.&#160;<a class="footnote-backref" href="#fnref:gpu" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:afterMig">
-<p>Home Backup and snapshots will only be activated after the migration a Workspace introduction phase is finished&#160;<a class="footnote-backref" href="#fnref:afterMig" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>A modular, software-defined storage system (IBM Spectrum Scale) provides a shared, parallel file system that is mounted on all frontend servers and compute nodes. 
+For more information see <a href="../file-system/filesystem-overview.html">storage infrastructure</a> and <a href="../file-system/quota.html">File System Quota</a>.</p>
                 
               
               

@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="../general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="../HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -439,8 +439,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#members" class="md-nav__link">
-    Members
+  <a href="#member-groups" class="md-nav__link">
+    Member groups
   </a>
   
 </li>
@@ -505,6 +505,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#investor-qos" class="md-nav__link">
+    Investor QoS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-bulk-users" class="md-nav__link">
+    Import Bulk Users
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -557,15 +571,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -936,7 +962,7 @@
   
     <li class="md-nav__item">
       <a href="../file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -980,8 +1006,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -1012,6 +1053,21 @@
     <li class="md-nav__item">
       <a href="../halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -1071,8 +1127,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#members" class="md-nav__link">
-    Members
+  <a href="#member-groups" class="md-nav__link">
+    Member groups
   </a>
   
 </li>
@@ -1137,6 +1193,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#investor-qos" class="md-nav__link">
+    Investor QoS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-bulk-users" class="md-nav__link">
+    Import Bulk Users
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1151,12 +1221,6 @@
                 
                 
                 <h1 id="workspace-management">Workspace management</h1>
-<div class="admonition attention">
-<p class="admonition-title">under Construction</p>
-<p>Workspaces are still in testing phase and not publicly available yet. 
-This is preliminary information.
-Detailed information will follow soon.</p>
-</div>
 <h2 id="description">Description</h2>
 <p>This article targets Workspace managers. It covers applications, Workspace properties, up to modifications and suggested usage of Workspaces.</p>
 <h2 id="workspace-intention">Workspace Intention</h2>
@@ -1171,14 +1235,17 @@ Detailed information will follow soon.</p>
 <h3 id="ownership">Ownership</h3>
 <p>HPC Workspaces manage compute and storage resources. Especially the freely available resources are meant to be shared between participating research groups. Therefore, the Workspaces belong to a beforehand registered research group.</p>
 <p>A HPC Workspace can be only requested by a <strong>research group leader</strong>, who responsible and accountable, since costly extensions can be added to the Workspace. 
-Additionally, a <strong>deputy</strong> can be nominated, who also can manage the Workspace (see <a href="#modification">Workspace Modification</a>). 
-<strong>Note:</strong> Deputies have the same privileges than the owner and can also purchase costly resources without additional notification. Owners and deputies are called Workspace managers. </p>
+Additionally, a <strong>deputy</strong> can be nominated, who also can manage the Workspace (see <a href="#modification">Workspace Modification</a>). Owners and deputies are called <strong>Workspace managers</strong>. </p>
+<div class="admonition type note">
+<p class="admonition-title">Deputies</p>
+<p>Deputies have the same privileges than the owner, up to purchasing costly resources without additional notification. </p>
+</div>
 <p>If the workspace is meant to be for a <strong>collaboration of researchers</strong> from different research groups, you need to agree to one research group which is responsibilities and gets accounted for the resources. This research group leader need to request the workspace. </p>
-<h3 id="members">Members</h3>
+<h3 id="member-groups">Member groups</h3>
 <p>Each Workspace has two member groups:</p>
 <ul>
-<li>primary users with read and write access and</li>
-<li>secondary users with read only access</li>
+<li>primary users with <strong>read and write</strong> access and</li>
+<li>secondary users with <strong>read only</strong> access</li>
 </ul>
 <p>Only members of the primary group can create and modify data, belonging to the Workspace, as well as submitting jobs to the Workspace account. The member lists are defined at Workspace application time and can be modified later. </p>
 <p>Members can be anyone with an UniBE Campus Account.</p>
@@ -1188,7 +1255,8 @@ Additionally, a <strong>deputy</strong> can be nominated, who also can manage th
 <p>Additional storage can be purchased for 50CHF per TB per year. 
 On the application or modification form an quota upper limit can be set. Accounted will be the actual usage. Therefore, the actual usage is monitored and twice a day. The average value of all data points is used for accounting. </p>
 <h3 id="availability">Availability</h3>
-<p>Storage is a limited and expensive resource. Abandoned, unused workspaces should be prevented by design. Therefore, a workspace has a default live time of one year. A notification will be send before the Workspace expiry. The Workspace expiry date can be changed at any time to any date within the next 365 days by any Workspace manager. </p>
+<p>Storage is a limited and expensive resource. Abandoned, unused workspaces should be prevented by design. Therefore, an HPC Workspace has a default live time of one year. A notification will be send before the Workspace expiry. The Workspace expiry date can be changed at any time to any date within the next 365 days by any Workspace manager. 
+<a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=da846d3c1b9f9810f32fdc6a9b4bcbbd&amp;sysparm_category=6c6ba9631b88ac5023a5dd318b4bcb76">ServicePortal -&gt; Shop -&gt; HPC -&gt; Edit HPC Workspace</a> -&gt; Workspace Duratio</p>
 <h2 id="application">Application</h2>
 <h3 id="prerequisite">Prerequisite</h3>
 <p>The research group need to be registered first on the Service Portal once: <a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=3dd760551b0f145023a5dd318b4bcbe5&amp;sysparm_category=6c6ba9631b88ac5023a5dd318b4bcb76">Service Portal -&gt; Register Research Group</a></p>
@@ -1208,7 +1276,7 @@ On the application or modification form an quota upper limit can be set. Account
 <li>Cost Center (necessary when requesting Additional Storage)</li>
 <li>primary group members</li>
 <li>secondary group members (optional)
-member lists can be selected one by one or as a comma separated list of Campus accounts (see &ldquo;Import Bulk User&rdquo; in form)</li>
+member lists can be selected one by one or as a comma separated list of Campus accounts (see <a href="#import-bulk-user">Import Bulk User</a>)</li>
 </ul>
 <div class="admonition type note">
 <p class="admonition-title">Notification</p>
@@ -1216,8 +1284,8 @@ member lists can be selected one by one or as a comma separated list of Campus a
 </div>
 <div class="admonition type note">
 <p class="admonition-title">processing time</p>
-</div>
 <p>The Workspace creation for now relies on a temporary automatic process which is running only once a day at 20:00. In future the process will be much faster. </p>
+</div>
 <h2 id="workspace-modifications">Workspace modifications</h2>
 <p>After creation, owners and deputies can modify Workspace properties using the Service Portal Form:</p>
 <p><a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=da846d3c1b9f9810f32fdc6a9b4bcbbd&amp;sysparm_category=6c6ba9631b88ac5023a5dd318b4bcb76">Service Portal -&gt; Edit HPC Workspace</a></p>
@@ -1232,6 +1300,11 @@ member lists can be selected one by one or as a comma separated list of Campus a
 Most modification will be processed within few minutes, but adding non-free-of-charge features like additional storage, need human approval, which may delay the process. 
 The Workspace itself (file storage and Slurm, etc.) will not be interrupted by a change. </p>
 </div>
+<h2 id="investor-qos">Investor QoS</h2>
+<p>Investors get elevated priviledges for specific queues. These are managed in so called Slurm QoS (Quality of Service). Where in the past the investors specified a list of users, who can use the QoS, now with Workspaces we are able to manage the QoS on Workspace level. Therefore, you need to open a request to add an existing QoS to a (list of) Workspace(s). The membership managment is done with the Workspace. </p>
+<h2 id="import-bulk-users">Import Bulk Users</h2>
+<p>The &ldquo;Import Bulk Users&rdquo; field provides the possibility to list a larger set of members for primary or secondary group without selecting them one by one. There the members need to be specified as a comma seperated list of Campus Accounts (not full names). 
+Keep in mind: you need to specify the <strong>full</strong> list of members in these field. After leaving the field the upper primary/secondary member list will be replaced with this list.</p>
                 
               
               

@@ -197,8 +197,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../HOME_migration.html" class="md-nav__link">
-        IMPORTANT..Home Migration
+      <a href="../general/news.html" class="md-nav__link">
+        News
       </a>
     </li>
   
@@ -212,8 +212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview_workspaces.html" class="md-nav__link">
-        PLAN..Workspaces
+      <a href="../HOME_migration.html" class="md-nav__link">
+        IMPORTANT..Home Migration
       </a>
     </li>
   
@@ -428,15 +428,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
-        Job handling
+        SLURM / Job handling
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Job handling" data-md-level="1">
+      <nav class="md-nav" aria-label="SLURM / Job handling" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Job handling
+          SLURM / Job handling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
           
             
   
@@ -856,7 +868,7 @@
   
     <li class="md-nav__item">
       <a href="../file-system/quota.html" class="md-nav__link">
-        File System Quota
+        Quota
       </a>
     </li>
   
@@ -900,8 +912,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
-        Code of Conduct
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
       </a>
     </li>
   
@@ -932,6 +959,21 @@
     <li class="md-nav__item">
       <a href="../halloffame.html" class="md-nav__link">
         Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
       </a>
     </li>
   
@@ -995,7 +1037,8 @@ On the one hand there are <code>Python</code> modules for Python 2 and 3. Which 
 On the other hand there is Anaconda installed, which brings an even longer list of packages with it. </p>
 <p>For Anaconda see <a href="Anaconda.html">Anaconda page</a></p>
 <h2 id="additional-packages">Additional Packages</h2>
-<p>If you need additional packages we suggest to install them using <code>pip</code> and the Workspace module, e.g. for installing a package <code>matplotlib</code>:</p>
+<p>If you need additional packages we suggest to install them using <code>pip</code>. 
+You can install into your private HOME using the <code>pip install --user</code> option or share the packages with your colleges using the Workspace module, e.g. for installing a package <code>matplotlib</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">## load Python first, this can also be `module load Anaconda3`</span>
 module load Python
 <span class="c1">## maybe you need to specify the Workspace name first OR use `Workspace/home`</span>
@@ -1010,7 +1053,15 @@ pip install --prefix <span class="nv">$PYTHONPACKAGEPATH</span> matplotlib
 module load Workspace  <span class="c1">## maybe you need to specify the Workspace name first</span>
 python -c <span class="s2">&quot;import matplotlib&quot;</span>
 </code></pre></div>
-since <code>$PYTHONPATH</code> and <code>$PATH</code> are set to the above specified loaction. </p>
+since <code>$PYTHONPATH</code> and <code>$PATH</code> are set to the above specified location. </p>
+<div class="admonition type caution">
+<p class="admonition-title">Type</p>
+<p>if you get the error:
+<code>ERROR: You must give at least one requirement to install (see "pip help install")</code>
+you need to reload the Workspace module to properly set the variables. 
+The Workspace module need to have Anaconda3/Python loaded first to read the proper Python Version. 
+<code>module load Python ## OR module load Anaconda3</code></p>
+</div>
                 
               
               
