@@ -497,6 +497,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#default-and-investor-partition" class="md-nav__link">
+    Default and Investor Partition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#investor-qos" class="md-nav__link">
     Investor QoS
   </a>
@@ -784,6 +791,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../software/bzip2.html" class="md-nav__link">
+        Parallel BZIP2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../software/python.html" class="md-nav__link">
         Python
       </a>
@@ -1050,6 +1069,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#default-and-investor-partition" class="md-nav__link">
+    Default and Investor Partition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#investor-qos" class="md-nav__link">
     Investor QoS
   </a>
@@ -1205,7 +1231,7 @@
 <td><strong>job_gpu</strong></td>
 <td>24 h</td>
 <td>6x GTX 1080 Ti <br> 2x RTX 2080 Ti <br> 1x RTX 3090 <br> 1x Tesla P100</td>
-<td>10</td>
+<td>10 <sup id="fnref2:jobLim"><a class="footnote-ref" href="#fn:jobLim">1</a></sup></td>
 </tr>
 <tr>
 <td></td>
@@ -1219,7 +1245,7 @@
 <td>job_gpu_preempt</td>
 <td>24 h</td>
 <td>12x GTX 1080 Ti <br> 4x RTX 2080 Ti <br> 4x RTX 3090 <br> 4x Tesla P100</td>
-<td>24</td>
+<td>24 <sup id="fnref:jobLim"><a class="footnote-ref" href="#fn:jobLim">1</a></sup></td>
 </tr>
 </tbody>
 </table>
@@ -1229,6 +1255,9 @@
 </code></pre></div>
 
 <p>Please see for more details: <a href="gpus.html">GPUs</a></p>
+<h2 id="default-and-investor-partition">Default and Investor Partition</h2>
+<p>All resources are tried to privide in a most accessible way, preventing idle time. Thus the resouces meant for investors can be used by non-investing users too. 
+Therefore, from the whole resources a certain amount of CPUs/GPUs are &ldquo;reserved&rdquo; in the investor partition. But if not used, jobs with <code>job_gpu_preempt</code> or <code>job_{bdw|epyc2}_short</code> can run on these resources. These are floating resources and do not bind to specific hardware, only certain amount per hardware type.</p>
 <h2 id="investor-qos">Investor QoS</h2>
 <p>Investors get elvated priviledges on certain resources. 
 The membership to these investor priviledges will/are managed on basis of HPC Workspaces, see <a href="../hpc-workspaces/management.html#investor-qos">Workspace Management</a>.</p>
@@ -1251,6 +1280,14 @@ These QoS will be default for the members in the investor partition. And therewi
 You can check your investor QoS and the used partitions using:
 <div class="highlight"><pre><span></span><code>sacctmgr show assoc where <span class="nv">user</span><span class="o">=</span><span class="nv">$USER</span> <span class="nv">format</span><span class="o">=</span>user%20,account%20,partition%16,qos%40,defaultqos%20
 </code></pre></div></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:jobLim">
+<p>The gpu job limits are determined by the maximum of single GPU jobs on all architecture. But keep in mind, that jobs should be submitted to the best suited architecture.&#160;<a class="footnote-backref" href="#fnref:jobLim" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:jobLim" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
