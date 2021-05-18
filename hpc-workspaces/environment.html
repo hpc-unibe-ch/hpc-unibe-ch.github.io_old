@@ -444,6 +444,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#slurm-account" class="md-nav__link">
+    SLURM Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-settings" class="md-nav__link">
     Additional Settings
   </a>
@@ -1084,6 +1091,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#slurm-account" class="md-nav__link">
+    SLURM Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-settings" class="md-nav__link">
     Additional Settings
   </a>
@@ -1183,6 +1197,8 @@ Please select and load ONE of the following:
 </tr>
 </tbody>
 </table>
+<h3 id="slurm-account">SLURM Account</h3>
+<p>by loading the <code>Workspace</code> module by default the Workspace account is selected. Thus all jobs submitted without a specified <code>--account</code> will be submitted to this Workspace account.</p>
 <h3 id="additional-settings">Additional Settings</h3>
 <p>the module provides the following settings for a more user-friendly usage of applications. You may not need to use them directly, but tools like SLURM, Singularity, Python, and R will use them. </p>
 <table>
@@ -1194,7 +1210,7 @@ Please select and load ONE of the following:
 </thead>
 <tbody>
 <tr>
-<td><code>$SBATCH_ACCOUNT</code></td>
+<td><code>$SBATCH_ACCOUNT</code> <br> <code>$SLURM_ACCOUNT</code> <br> <code>$SALLOC_ACCOUNT</code></td>
 <td>sets the SLURM account to the Workspace account. Thus all submitted jobs with that module are accounted to the Workspace account automatically. No need to set it in the sbatch script</td>
 </tr>
 <tr>
