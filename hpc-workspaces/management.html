@@ -519,6 +519,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#permission-background" class="md-nav__link">
+    Permission Background
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1219,6 +1226,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#permission-background" class="md-nav__link">
+    Permission Background
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1342,6 +1356,25 @@ The Workspace itself (file storage and Slurm, etc.) will not be interrupted by a
 <h2 id="import-bulk-users">Import Bulk Users</h2>
 <p>The &ldquo;Import Bulk Users&rdquo; field provides the possibility to list a larger set of members for primary or secondary group without selecting them one by one. There the members need to be specified as a comma seperated list of Campus Accounts (not full names). 
 Keep in mind: you need to specify the <strong>full</strong> list of members in these field. After leaving the field the upper primary/secondary member list will be replaced with this list.</p>
+<h2 id="permission-background">Permission Background</h2>
+<div class="admonition type note">
+<p>This sections provides more advanced information about the implementation of the permission handling for both permission groups. Nevertheless, we strongly suggest to keep default permissions. <code>-rw-rw-r--</code> for files and <code>drwxrwxr-x</code> for directories. </p>
+</div>
+<p>In Linux permissions are manged using: <code>user</code> (owner), <code>group</code> and <code>other</code>. <code>user</code> will always be the username creating the file/directory. In a Workspace the <code>group</code> will always be the Workspace primary group. This should (and this is default) get read/write permissions. The Workspace secondary group gets access to the Workspace main directory using ACLs. Then, within the Workspace these members acts as <code>other</code> and need to get read permissions. </p>
+<p>Thus a file:</p>
+<div class="highlight"><pre><span></span><code>-rw-rw-r--  <span class="m">2</span> user ws_group  <span class="m">4096</span> Jan <span class="m">01</span> <span class="m">09</span>:11 filename
+</code></pre></div>
+
+<p>can be modified by all members of the <code>ws_group</code> and read by everyone else (with access to that location, which is grated for secondary Workspace group members). And a file</p>
+<div class="highlight"><pre><span></span><code>-rw-rw----  <span class="m">2</span> user ws_group  <span class="m">4096</span> Jan <span class="m">01</span> <span class="m">09</span>:11 filename2
+</code></pre></div>
+
+<p>can be modified by all members of the <code>ws_group</code>, but NOT read by anyone else (even not secondary Workspace group members).</p>
+<p>Please, make sure that all your files and directories keep this permissions. In case of moving data from other locations, these could vary and can be corrected using:</p>
+<div class="highlight"><pre><span></span><code>find /storage/workspace/&lt;researchGroupID&gt;/&lt;workspaceID&gt;/ <span class="se">\</span>
+<span class="se">\(</span> -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\;</span> <span class="se">\)</span> , <span class="se">\</span>
+<span class="se">\(</span> -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\;</span> <span class="se">\)</span>
+</code></pre></div>
                 
               
               
