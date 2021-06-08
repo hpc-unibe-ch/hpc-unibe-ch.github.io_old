@@ -1408,7 +1408,10 @@ If necessary, additional storage can be purchased per Workspace, where only the 
 <h3 id="what-if-our-10tb-free-of-charge-research-group-quota-is-full">What if our 10TB free of charge research group quota is full?</h3>
 <p>Your Research group manager or a registered deputy can apply for an additional quota. Actual used quota will be charged. </p>
 <h3 id="why-can-i-not-submit-jobs-anymore">Why can I not submit jobs anymore?</h3>
-<p>The HPC resources including compute power should be distriuted between registered research groups. Therefore, users which belong to one or more Workspace need to submit to one of these Workspaces. This can be done by loading the Workspace module <code>module load Workspace</code>, see <a href="../hpc_workspaces/environment.md">Workspace environment</a>. </p>
+<p>The HPC resources including compute power should be distriuted between registered research groups. Furthermore, users without a Workspace use a private Slurm account. When getting member of a HPC Workspace, the private Slurm account gets deactivated and the Workspace account need to be selected.  This can be done by loading the Workspace module, see <a href="../hpc_workspaces/environment.md">Workspace environment</a>:</p>
+<div class="highlight"><pre><span></span><code>module load Workspace
+</code></pre></div>
+
 <p>Otherwise Slurm will present the following error message:
 <div class="highlight"><pre><span></span><code>sbatch: error: AssocGrpSubmitJobsLimit
 sbatch: error: Batch job submission failed: Job violates accounting/QOS policy <span class="o">(</span>job submit limit, user<span class="err">&#39;</span>s size and/or <span class="nb">time</span> limits<span class="o">)</span>
