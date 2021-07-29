@@ -1329,6 +1329,12 @@ moduleclass = &#39;bio&#39;
 </ul>
 </li>
 <li>
+<p>update the checksum (if package version is changed)
+The downloaded source packages are typically checked with SHA256 checksums. When we change to a different source code versio, the checksum changes too. And need to be updated.
+<div class="highlight"><pre><span></span><code>$ eb --force --inject-checksums sha256 RELION-3.1.2-foss-2020b.eb
+</code></pre></div></p>
+</li>
+<li>
 <p>build the new package as described in <a href="#installation">Installation</a> above, e.g.
 <div class="highlight"><pre><span></span><code>$ eb-install-all --robot RELION-3.1.2-foss-2020b.eb
 </code></pre></div></p>
