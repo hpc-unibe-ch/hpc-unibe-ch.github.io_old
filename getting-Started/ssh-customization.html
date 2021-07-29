@@ -1195,7 +1195,7 @@
 <p>This page is listing useful tricks and features with SSH connections.</p>
 <h2 id="create-a-ssh-alias">Create a SSH alias</h2>
 <p><strong>Mac/Linux/Unix</strong></p>
-<p>To simplify the login procedure you can define an alias for the user-/hostname combination. Add a host declaration to ~/.ssh/config on your local desktop/laptop (substitute your own alias and username):</p>
+<p>To simplify the login procedure you can define an alias for the user-/hostname combination. Add a host declaration to ~/.ssh/config <strong>on your local desktop/laptop</strong> (substitute your own alias and username):</p>
 <p><strong>~/.ssh/config</strong>
 <div class="highlight"><pre><span></span><code>Host &lt;alias&gt;
     Hostname submit.unibe.ch
@@ -1223,20 +1223,23 @@ If a SSH connection goes idle for a specific amount of time (default 10 minutes)
 <p><strong>Mac/Linux/Unix</strong><br />
 SSH keys serve as a means of identifying a user to a SSH server. When using SSH keys your password will never be send over the network.
 Here SSH keys are created on your local desktop/laptop which are later used to authenticate during a SSH login into UBELIX. 
-Therefore, the following steps are reqiured:
-- Creation of key pair consiting of a private and a public key
-- Adding a public key to your UBELIX account
-- Adding the key to the SSH config</p>
+Therefore, the following steps are required:</p>
+<ul>
+<li>Creation of key pair consisting of a private and a public key</li>
+<li>Adding a public key to your UBELIX account</li>
+<li>Adding the key to the SSH config</li>
+</ul>
 <h3 id="creation-of-key-pair">Creation of key pair</h3>
 <div class="admonition types caution">
 <p>Remember to always keep your private keys private! Share only public keys, never share your private key.</p>
 </div>
-<div class="admonition types info"></div>
+<div class="admonition types info">
 <p>If you already have a valid private/public key pair that you also want to use for UBELIX, you can omit the rest of this section and continue with &ldquo;Adding a public key to your UBELIX account&rdquo;. </p>
+</div>
 <p>First, generate a private/public key pair. You can substitute your own comment (-C).  To accept the default name/location simply press Enter, otherwise specify a different name/location:</p>
 <div class="highlight"><pre><span></span><code>$ ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;ubelix&quot;</span>
 Generating public/private rsa key pair.
-Enter file in which to save the key <span class="o">(</span>/Users/faerber/.ssh/id_rsa<span class="o">)</span>:
+Enter file in which to save the key <span class="o">(</span>/Users/&lt;user&gt;/.ssh/id_rsa<span class="o">)</span>:
 </code></pre></div>
 
 <p>Enter and confirm a secure passphrase:</p>

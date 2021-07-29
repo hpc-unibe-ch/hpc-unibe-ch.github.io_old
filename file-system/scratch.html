@@ -902,22 +902,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#network-scratch" class="md-nav__link">
+    Network Scratch
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Scratch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#workspace-scratch" class="md-nav__link">
     Workspace Scratch
   </a>
   
-    <nav class="md-nav" aria-label="Workspace Scratch">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#personal-scratch" class="md-nav__link">
-    personal Scratch
+    Personal Scratch
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-scratch" class="md-nav__link">
+    Local Scratch
+  </a>
   
 </li>
       
@@ -1040,22 +1054,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#network-scratch" class="md-nav__link">
+    Network Scratch
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Scratch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#workspace-scratch" class="md-nav__link">
     Workspace Scratch
   </a>
   
-    <nav class="md-nav" aria-label="Workspace Scratch">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#personal-scratch" class="md-nav__link">
-    personal Scratch
+    Personal Scratch
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-scratch" class="md-nav__link">
+    Local Scratch
+  </a>
   
 </li>
       
@@ -1076,16 +1104,21 @@
                 
                 <p>Scratch - temporary file space</p>
 <h2 id="description">Description</h2>
-<p>Scratch file space are meant for temporary data storage. Interim computational data should be located there. File and size quota is less restrictive. Every user can use up to <strong>20TB</strong> and <strong>30M</strong> files. There is <strong>no snapshot</strong> and <strong>no backup</strong> feature available. Furthermore, an <strong>automatic deletion policy</strong> is planned, deleting files which are older than <strong>30 days</strong>. </p>
+<p>Scratch file space are meant for temporary data storage. Interim computational data should be located there. 
+We distinguish local and network scratch spaces. </p>
+<h2 id="network-scratch">Network Scratch</h2>
+<p>Network scratch spaces are located on the parallel file system and accessible to all nodes. In contrast to <code>HOME</code> or <code>WORKSPACEs</code>, scratch is meant for temporary data, especially with larger quota requirements. 
+Jobs creating a lot of temporary data, which may need or may not need to be post-processed should run in this space. As an example, a application creating a huge amount of temporary output, which need to be analysed, but only partly need to be stored for a longer term.
+Quota and file quota is less restrictive on scratch compared to <code>HOME</code> or permanent <code>WORKSPACE</code> directories. Every user can use up to <strong>50TB</strong> and <strong>50M</strong> files. There is <strong>no snapshot</strong> and <strong>no backup</strong> feature available. Furthermore, an <strong>automatic deletion policy</strong> is planned, deleting files which are older than <strong>30 days</strong>. </p>
 <p>Scratch file space can be accessed using the Workspace module and the <code>$SCRATCH</code> environment variable. </p>
 <div class="highlight"><pre><span></span><code>module load Workspace
 <span class="nb">cd</span> <span class="nv">$SCRATCH</span>
 </code></pre></div>
 
 <p>For personal Scratch see <a href="scratch.html#peronal-scratch">below</a></p>
-<h2 id="workspace-scratch">Workspace Scratch</h2>
+<h3 id="workspace-scratch">Workspace Scratch</h3>
 <p>Each Workspace has a <code>$SCRATCH</code> space with the same access permissions like the permanent Workspace directory (using primary and secondary groups). The Workspace can be accessed using <code>$SCRATCH</code> variable (after loading the Workspace module). It will point to <code>/storage/scratch/&lt;researchGroupID&gt;/&lt;WorkspaceID&gt;</code>. Please use <code>$SCRATCH</code> to access it. </p>
-<h3 id="personal-scratch">personal Scratch</h3>
+<h3 id="personal-scratch">Personal Scratch</h3>
 <p>Users without a Workspace can also use &ldquo;personal&rdquo; Scratch. This space does need to be created initially:
 <div class="highlight"><pre><span></span><code>module load Workspace/home
 mkdir <span class="nv">$SCRATCH</span>
@@ -1094,6 +1127,82 @@ mkdir <span class="nv">$SCRATCH</span>
 <p>Please note that this space is per default <strong>no</strong> private space. If you want to restrict access you can change permissions using:</p>
 <div class="highlight"><pre><span></span><code>chmod 700 $SCRATCH
 </code></pre></div>
+
+<h2 id="local-scratch">Local Scratch</h2>
+<p>In some cases files need to be read or written multiple times by an application during a computational job. 
+Instead of reading and writing the data multiple times on the network storage, it may be more efficient to initially copy the data to the compute node, run the computation and finally copy the resulting data back at the end. Thus, the application can access the data from the local storage, during the job run time.</p>
+<p>In the following example script, all files from the submitting directory are copied to the head compute node. At the end of the job all files from the compute node local directory is copied back. The compute node local <code>$TMPDIR</code> is used, which points to <code>/scratch/local/&lt;jobid&gt;</code>, a job specific directory in the nodes internal disc.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name tmpdir</span>
+<span class="c1">#SBATCH --nodes 1</span>
+<span class="c1">#SBATCH --ntasks 1</span>
+<span class="c1">#SBATCH --cpus-per-task 1</span>
+<span class="c1">###SBATCH --output slurm.out # when specifying output file name, add rm slurm.out in cleanup function</span>
+
+<span class="c1"># I. Define directory names [DO NOT CHANGE]</span>
+<span class="c1"># =========================================</span>
+<span class="c1"># get name of the temporary directory working directory, physically on the compute-node</span>
+<span class="nv">workdir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TMPDIR</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="c1"># get submit directory</span>
+<span class="c1"># (every file/folder below this directory is copied to the compute node)</span>
+<span class="nv">submitdir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># 1. Transfer to node [DO NOT CHANGE]</span>
+<span class="c1"># ===================================</span>
+<span class="c1"># create/empty the temporary directory on the compute node</span>
+<span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+  rm -rf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>/*
+<span class="k">fi</span>
+
+<span class="c1"># change current directory to the location of the sbatch command</span>
+<span class="c1"># (&quot;submitdir&quot; is somewhere in the home directory on the head node)</span>
+<span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">submitdir</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="c1"># copy all files/folders in &quot;submitdir&quot; to &quot;workdir&quot;</span>
+<span class="c1"># (&quot;workdir&quot; == temporary directory on the compute node)</span>
+cp -prf * <span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
+<span class="c1"># change directory to the temporary directory on the compute-node</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
+
+<span class="c1"># 3. Function to transfer back to the head node [DO NOT CHANGE]</span>
+<span class="c1"># =============================================================</span>
+<span class="c1"># define clean-up function</span>
+<span class="k">function</span> clean_up <span class="o">{</span>
+  <span class="c1"># - remove log-file on the compute-node, to prevent overwiting actual output with empty file</span>
+  rm slurm-<span class="si">${</span><span class="nv">SLURM_JOB_ID</span><span class="si">}</span>.out
+  <span class="c1"># - TODO delete temporary files from the compute-node, before copying. Prevent copying unnecessary files.</span>
+  <span class="c1"># rm -r ...</span>
+  <span class="c1"># - change directory to the location of the sbatch command (on the head node)</span>
+  <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">submitdir</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="c1"># - copy everything from the temporary directory on the compute-node</span>
+  cp -prf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>/* .
+  <span class="c1"># - erase the temporary directory from the compute-node</span>
+  rm -rf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>/*
+  rm -rf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="c1"># - exit the script</span>
+  <span class="nb">exit</span>
+<span class="o">}</span>
+
+<span class="c1"># call &quot;clean_up&quot; function when this script exits, it is run even if SLURM cancels the job</span>
+<span class="nb">trap</span> <span class="s1">&#39;clean_up&#39;</span> EXIT
+
+ <span class="m">2</span>. Execute <span class="o">[</span>MODIFY COMPLETELY TO YOUR NEEDS<span class="o">]</span>
+<span class="c1"># ============================================</span>
+<span class="c1"># TODO add your computation here</span>
+<span class="c1"># simple example, hello world</span>
+srun <span class="nb">echo</span> <span class="s2">&quot;hello world from </span><span class="nv">$HOSTNAME</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>Further aspects to consider:</p>
+<ul>
+<li>copy only necessary files<ul>
+<li>have only necessary files in the submit directory</li>
+<li>remove all unnecessary files before copying the data back, e.g. remove large input files</li>
+</ul>
+</li>
+<li>In case of a parallel job, you need to verify that all process run on one single node (<code>--nodes=1</code>) OR copy the data to all related nodes (e.g. <code>srun -n1 cp ...</code>).</li>
+</ul>
                 
               
               

@@ -709,6 +709,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#meta-module-and-toolchains" class="md-nav__link">
+    Meta module and Toolchains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapting-easyconfigs" class="md-nav__link">
+    Adapting Easyconfigs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1107,6 +1121,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#meta-module-and-toolchains" class="md-nav__link">
+    Meta module and Toolchains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapting-easyconfigs" class="md-nav__link">
+    Adapting Easyconfigs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1141,7 +1169,7 @@ module load EasyBuild
 <p>Therewith, our EasyBuild tools and EasyBuild itself are available. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Specify the WorkspaceID when loading the Workspace module. See module instructions</p>
+<p>Specify the WorkspaceID if necessary when loading the Workspace module. See module instructions</p>
 </div>
 <h2 id="package-specification">Package Specification</h2>
 <p>EasyBuild has a large repository of available packages in different versions. 
@@ -1220,6 +1248,92 @@ The job output is presented in the <code>eb_out.*</code> files, one for each arc
 <p>Please check the end of the out file for the <strong>COMPLETED: Installation ended successfully</strong> statement.</p>
 </div>
 <p>When finished you (and your collaborators) should be able to use use the software, by just loading the user/workspace related module and the module for the installed package. </p>
+<h2 id="meta-module-and-toolchains">Meta module and Toolchains</h2>
+<p>On the one hand a module may load/depend on other modules, which are automatically loaded with that module. As an example the toolchain module <code>foss</code> loads: the <code>GCC</code> compiler, the MPI libary OpenMPI, math libaries OpenBLAS, FFTW and ScaLAPACK. These libraries often have further dependencies. </p>
+<p>When building new packages, version consitencies need to be respected. Targeting a build with <code>foss/2020b</code> libraries should be utilized, build with the same version of foss or it underlying packages/libaries, e.g. <code>GCC/10.2.0</code>.</p>
+<h2 id="adapting-easyconfigs">Adapting Easyconfigs</h2>
+<p>in the following description and example we update an existing old easyconfig for newer versions. In our case we want to update the version of Relion, the toolchain, and dependent libraries it is build with. </p>
+<ul>
+<li>
+<p>setup EasyBuild environment
+<div class="highlight"><pre><span></span><code>module load EasyBuild
+module load Workspace   ### OR Workspace/home
+</code></pre></div></p>
+</li>
+<li>
+<p>find a suitable easyconfig
+<div class="highlight"><pre><span></span><code>$ eb --search Relion 
+</code></pre></div>
+alternatively you may find easyconfigs online, e.g. <a href="https://github.com/easybuilders/easybuild-easyconfigs">https://github.com/easybuilders/easybuild-easyconfigs</a></p>
+</li>
+<li>
+<p>copy the easyconfig into a working directory (here <code>.</code>)
+<div class="highlight"><pre><span></span><code>$ cp $EBROOTEASYBUILD/easybuild/easyconfigs/r/RELION/RELION-3.0.4-foss-2017b.eb .
+</code></pre></div></p>
+</li>
+<li>
+<p>rename to the targeted versions (here newer relion, newer toolchain)
+<div class="highlight"><pre><span></span><code>$ mv RELION-3.0.4-foss-2017b.eb RELION-3.1.2-foss-2020b.eb
+</code></pre></div></p>
+</li>
+<li>
+<p>find the new versions of toolchain and libraries</p>
+<ul>
+<li>all installed version of a package can be listed using <code>module avail package</code>, e.g. <code>module avail foss</code></li>
+<li>available easyconfigs of non-installed packages can be listed using <code>eb --search package</code>. If there is a targeted version available, you can just define that dependency version in the above easyconfig and EasyBuild will find and use it. </li>
+</ul>
+</li>
+<li>
+<p>update the versions settings in the file</p>
+<ul>
+<li>package version, the toolchain version, and all related libraries</li>
+<li>Keep in mind that toolchain versions need to match (see <a href="#meta-module-and-toolchains">toolchains</a> above)
+<div class="highlight"><pre><span></span><code>easyblock = &#39;CMakeMake&#39;
+
+name = &#39;RELION&#39;
+version = &#39;3.1.2&#39;                            #### The Relion version was &#39;3.0.4&#39; before
+
+homepage = &#39;http://www2.mrc-lmb.cam.ac.uk/relion/index.php/Main_Page&#39;
+description = &quot;&quot;&quot;RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone computer
+ program that employs an empirical Bayesian approach to refinement of (multiple) 3D reconstructions or 2D class
+ averages in electron cryo-microscopy (cryo-EM).&quot;&quot;&quot;
+
+toolchain = {&#39;name&#39;: &#39;foss&#39;, &#39;version&#39;: &#39;2020b&#39;}   ### the foss toolchain version was 2020b before
+toolchainopts = {&#39;openmp&#39;: True}
+
+source_urls = [&#39;https://github.com/3dem/relion/archive&#39;]
+sources = [&#39;%(version)s.tar.gz&#39;]
+checksums = [&#39;2580d66088923a644bc7d3b02efd154b775a3ec3d010426f382bb3be5db9c98b&#39;]
+
+builddependencies = [(&#39;CMake&#39;, &#39;3.18.4&#39;)]    ### was 3.9.5
+
+dependencies = [
+    (&#39;X11&#39;, &#39;20201008&#39;),                     ### was 20171023
+    (&#39;FLTK&#39;, &#39;1.3.5&#39;),                       ### was 1.3.4
+    (&#39;LibTIFF&#39;, &#39;4.1.0&#39;),                    ### 4.0.9
+    (&#39;tbb&#39;, &#39;2020.3&#39;),                       ### 2018_U5
+]
+
+configopts = &quot;-DCMAKE_SHARED_LINKER_FLAGS=&#39;-lpthread&#39;  -DMPI_INCLUDE_PATH=$EBROOTOPENMPI/include &quot;
+configopts += &quot;-DMPI_C_COMPILER=$EBROOTOPENMPI/bin/mpicc -DMPI_CXX_COMPILER=$EBROOTOPENMPI/bin/mpicxx &quot;
+configopts += &quot;-DCUDA=OFF -DCudaTexture=OFF &quot;
+configopts += &quot;-DALTCPU=ON -DFORCE_OWN_TBB=OFF &quot;
+
+sanity_check_paths = {
+    &#39;files&#39;: [&#39;bin/relion&#39;],
+    &#39;dirs&#39;: []
+}
+
+moduleclass = &#39;bio&#39;
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>build the new package as described in <a href="#installation">Installation</a> above, e.g.
+<div class="highlight"><pre><span></span><code>$ eb-install-all --robot RELION-3.1.2-foss-2020b.eb
+</code></pre></div></p>
+</li>
+</ul>
                 
               
               
