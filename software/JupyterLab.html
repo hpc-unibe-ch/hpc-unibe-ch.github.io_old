@@ -1241,6 +1241,7 @@ The port needs to be specified while establishing the connection to UBELIX and w
 </code></pre></div>
 otherwise create and register a new key on a login node.
 <div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -b <span class="m">4096</span>
+<span class="c1"># without passphrase</span>
 cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 chmod <span class="m">640</span> .ssh/authorized_keys
 </code></pre></div></p>
