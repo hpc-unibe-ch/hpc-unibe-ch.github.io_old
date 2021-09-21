@@ -503,6 +503,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../slurm/dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../slurm/gpus.html" class="md-nav__link">
         GPUs
       </a>
@@ -696,6 +708,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#meta-module-and-toolchains" class="md-nav__link">
+    Meta module and Toolchains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#selecting-a-software-stack" class="md-nav__link">
     Selecting a software stack
   </a>
@@ -705,13 +724,6 @@
         <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meta-module-and-toolchains" class="md-nav__link">
-    Meta module and Toolchains
   </a>
   
 </li>
@@ -1108,6 +1120,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#meta-module-and-toolchains" class="md-nav__link">
+    Meta module and Toolchains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#selecting-a-software-stack" class="md-nav__link">
     Selecting a software stack
   </a>
@@ -1117,13 +1136,6 @@
         <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meta-module-and-toolchains" class="md-nav__link">
-    Meta module and Toolchains
   </a>
   
 </li>
@@ -1212,6 +1224,15 @@ Dry run: printing build status of easyconfigs and dependencies
 <p>You can use the directy selected easyconfig or if necessary copy and adapt it.
 easyconfig files are text files specifying the software version, toolchain version, dependencies, compile arguments and more.
 If you need more information see <a href="https://easybuild.readthedocs.io/en/latest/">EasyBuild documentation</a>, and if necessary ask our support team for assistance.</p>
+<h2 id="meta-module-and-toolchains">Meta module and Toolchains</h2>
+<p>Modules specify related dependencies, which gets loaded with that module. These dependencies may have further dependencies.</p>
+<p>The chain of dependencies is called toolchain. For example:</p>
+<ul>
+<li><code>GCC</code> consits of <code>GCCcore</code> and <code>binutils</code></li>
+<li><code>gompi</code> consits of <code>GCC</code> and <code>OpenMPI</code></li>
+<li><code>foss</code> consits of <code>gompi</code>, <code>OpenBLAS</code>, <code>FFTW</code> and <code>ScaLAPACK</code></li>
+</ul>
+<p>Within a toolchain the versions of the utilized libraries should be consistent. Thus, building a new package with <code>foss/2020b</code> and <code>PyTorch</code> should rely on a PyTorch version build with the same versions of the underlying libraries. Thus e.g. <code>PyTorch-1.9.0-foss-2020b.eb</code> is also build with <code>foss/2020b</code> as well as the <code>Python/3.8.6</code>. The latter one is build with <code>GCCcore/10.2.0</code> which is part of <code>foss/2020b</code>. </p>
 <h2 id="selecting-a-software-stack">Selecting a software stack</h2>
 <p>Depending on the package and its target usage one or more software stacks should be selected. Therefore, the installation command starts with one for the following command:</p>
 <ul>
@@ -1248,9 +1269,6 @@ The job output is presented in the <code>eb_out.*</code> files, one for each arc
 <p>Please check the end of the out file for the <strong>COMPLETED: Installation ended successfully</strong> statement.</p>
 </div>
 <p>When finished you (and your collaborators) should be able to use use the software, by just loading the user/workspace related module and the module for the installed package. </p>
-<h2 id="meta-module-and-toolchains">Meta module and Toolchains</h2>
-<p>On the one hand a module may load/depend on other modules, which are automatically loaded with that module. As an example the toolchain module <code>foss</code> loads: the <code>GCC</code> compiler, the MPI libary OpenMPI, math libaries OpenBLAS, FFTW and ScaLAPACK. These libraries often have further dependencies. </p>
-<p>When building new packages, version consitencies need to be respected. Targeting a build with <code>foss/2020b</code> libraries should be utilized, build with the same version of foss or it underlying packages/libaries, e.g. <code>GCC/10.2.0</code>.</p>
 <h2 id="adapting-easyconfigs">Adapting Easyconfigs</h2>
 <p>in the following description and example we update an existing old easyconfig for newer versions. In our case we want to update the version of Relion, the toolchain, and dependent libraries it is build with. </p>
 <ul>

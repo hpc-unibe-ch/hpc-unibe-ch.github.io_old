@@ -535,18 +535,12 @@
     Submitting an Array
   </a>
   
-    <nav class="md-nav" aria-label="Submitting an Array">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#limit-the-number-of-concurrently-running-tasks" class="md-nav__link">
-    Limit the Number of Concurrently Running Tasks
-  </a>
-  
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#output-files" class="md-nav__link">
+    Output files
+  </a>
   
 </li>
       
@@ -588,6 +582,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
     </li>
   
 
@@ -1084,18 +1090,12 @@
     Submitting an Array
   </a>
   
-    <nav class="md-nav" aria-label="Submitting an Array">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#limit-the-number-of-concurrently-running-tasks" class="md-nav__link">
-    Limit the Number of Concurrently Running Tasks
-  </a>
-  
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#output-files" class="md-nav__link">
+    Output files
+  </a>
   
 </li>
       
@@ -1151,18 +1151,27 @@
 <p>You want to submit multiple jobs that are identical or differ only in some arguments. Instead of submitting N jobs independently, you can submit one array job unifying N tasks.</p>
 <h2 id="submitting-an-array">Submitting an Array</h2>
 <p>To submit an array job, specify the number of tasks as a range of task ids using the &ndash;array option:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --array=n[,k[,...]][-m[:s]]</span>
-</code></pre></div>
-
-<p>The task id range specified in the option argument may be a single number, a simple range of the form n-m, a range with a step size s, a comma separated list of values, or a combination thereof. The task ids will be exported to the job tasks via the environment variable SLURM_ARRAY_TASK_ID. Other variables available in the context of the job describing the task range are: SLURM_ARRAY_TASK_MAX, SLURM_ARRAY_TASK_MIN, SLURM_ARRAY_TASK_STEP.</p>
-<div class="admonition types danger">
-<p>Specifying &ndash;array=10 will not submit an array job with 10 tasks, but an array job with a single task with task id 10. To run an array job with multiple tasks you must specify a range or a comma separated list of task ids.</p>
-</div>
-<h3 id="limit-the-number-of-concurrently-running-tasks">Limit the Number of Concurrently Running Tasks</h3>
-<p>You may want to limit the number of concurrently running tasks if the tasks are very resource demanding and too many of them running concurrently would lower the overall performance of the cluster. To limit the number of tasks that are allowed to run concurrently, use a &ldquo;%&rdquo; separator:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --array=n[,k[,...]][-m[:s]]%&lt;max_tasks&gt;</span>
 </code></pre></div>
 
+<p>The task id range specified in the option argument may be: </p>
+<ul>
+<li>comma separated list of values: <code>#SBATCH --array=1,3,5</code> </li>
+<li>simple range of the form n-m: <code>#SBATCH --array=201-300</code> (201, 202, 203, &hellip;, 300)</li>
+<li>range with a step size s: <code>#SBATCH --array=100-200:2</code> (100, 102, 104, &hellip; 200)</li>
+<li>combination thereof: <code>#SBATCH --array=1,3,100-200</code> (1, 3, 100, 101, 102, &hellip;, 200)</li>
+</ul>
+<p>Furthermore, the <strong>amount of concurent</strong> running jobs can <strong>limited</strong> using the <code>%</code> seperator, e.g. for max 100 concurrent jobs of 1-400: <code>#SBATCH --array=1-400%100</code>. Therewith you can prevent fully filling your available resources. 
+The task IDs will be exported to the job tasks via the environment variable <code>SLURM_ARRAY_TASK_ID</code>. Additionally, <code>SLURM_ARRAY_TASK_MAX</code>, <code>SLURM_ARRAY_TASK_MIN</code>, <code>SLURM_ARRAY_TASK_STEP</code> are available in job, describing the task range of the job.</p>
+<div class="admonition types danger">
+<p>Specifying <code>--array=10</code> will not submit an array job with 10 tasks, but an array job with a single task with task id 10. To run an array job with multiple tasks you must specify a range or a comma separated list of task ids.</p>
+</div>
+<h2 id="output-files">Output files</h2>
+<p>If nothing is specified the output files are named as <code>slurm-&lt;jobid&gt;_&lt;taskid&gt;.out</code>. When renaming the output/error files variables for the job ID (<code>%A</code>) and for the task ID (<code>%a</code>) can be used. For example:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --output=array_example_%A_%a.out</span>
+<span class="c1">#SBATCH --error=array_example_%A_%a.err</span>
+</code></pre></div>
+Thus a file <code>array_example_6543212_12.out</code> will be written for the 12th task of job 6543212.</p>
 <h2 id="canceling-individual-tasks">Canceling Individual Tasks</h2>
 <p>You can cancel individual tasks of an array job by indicating tasks ids to the scancel command:</p>
 <div class="highlight"><pre><span></span><code>$ squeue
@@ -1262,13 +1271,13 @@ srun ./foo -c <span class="nv">$param_a</span> -p <span class="nv">$param_b</spa
         </a>
       
       
-        <a href="gpus.html" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="dependencies.html" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              GPUs
+              Job dependencies
             </div>
           </div>
           <div class="md-footer__button md-icon">

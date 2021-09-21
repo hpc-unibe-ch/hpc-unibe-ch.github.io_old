@@ -503,6 +503,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../slurm/dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../slurm/gpus.html" class="md-nav__link">
         GPUs
       </a>
@@ -679,6 +691,13 @@
         <li class="md-nav__item">
   <a href="#easybuild" class="md-nav__link">
     EasyBuild
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-and-r" class="md-nav__link">
+    Python and R
   </a>
   
 </li>
@@ -1107,6 +1126,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#python-and-r" class="md-nav__link">
+    Python and R
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#manually-compiling" class="md-nav__link">
     Manually compiling
   </a>
@@ -1185,15 +1211,19 @@ These EasyConfigs are publicly available on <a href="https://github.com/easybuil
 <li>Which software stack we want to build into, a specific CPU architecture, OR all CPU architectures, OR should it be a generic one (see <a href="#software-stacks">Software stacks</a>)</li>
 </ul>
 <h3 id="software-stacks">Software stacks</h3>
-<p>We provide for all <strong>CPU architecture</strong> a software stack, where applications are build on and for this specific architecture. 
-Therewith, application can use different optimizations, like instruction sets (e.g. using AVX2 on Broadwell) on the different architectures.
-Furthermore, we provide a <strong>generic</strong> software stack, where architecture independent applications are installed, e.g. Python packages. 
-Our generic software stack is build on Sandybridge nodes, which have the smallest instruction set, and thus we aim preventing conflicts. </p>
-<p>For EasyBuild we provide tools which can automatically install in all architectural or the generic software stack, see below.</p>
-<p>Additionally, we provide modules which provide access and assist building such software stacks in your user/group space.</p>
+<p><img alt="Software stacks" src="../images/UBELIX_SoftwareStack.png" title="UBELIX Software Stacks" /></p>
+<p>On UBELIX a software stack for each <strong>CPU architecture</strong> is provided. Applications are build on and for this specific architecture. 
+Therewith, application can use different optimizations on different architectures, e.g. using AVX2 instruction set on Broadwell).
+Furthermore, a <strong>generic</strong> software stack is provided, where architecture independent applications are installed, e.g. Python scripts. 
+Our generic software stack is build on Ivybridge nodes, which have the lowest instruction set. Therewith runtime conflicts are prevented. </p>
+<p>For EasyBuild additional tools are provided, which install automatically in all architectural or the generic software stack, see below.</p>
+<p>Additionally, with the <code>Workspace</code> and <code>Workspace/home</code> module such software stacks can be created in your user/group space.</p>
 <h2 id="easybuild">EasyBuild</h2>
 <p>For detailed instructions read the <a href="EasyBuild.html">EasyBuild article</a>.</p>
 <p>If you are installing your own application you may want to consider to create an EasyConfig for it. Have a look in the <a href="https://easybuild.readthedocs.io/en/latest/">EasyBuild documentation</a>, examples on the <a href="https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs">EasyBuild github</a>. And if necessary ask our support team for assistance. </p>
+<h2 id="python-and-r">Python and R</h2>
+<p>For many python and R packages EasyConfig exist. These can be used to install the package like all other EasyBuild packages. See <a href="EasyBuild.html">EasyBuild article</a>. 
+Alternatively, you can use the Python/R package manager and advice them to install into your HOME/Workspace directory. Please see the <a href="python.html">Python</a> or <a href="r.html">R</a> pages.</p>
 <h2 id="manually-compiling">Manually compiling</h2>
 <p>There are very different ways of manually installing software packages, starting from just using a compiler, having a makefile, up to complex build systems. 
 A few considerations need to kept in mind while building for our systems:</p>

@@ -563,6 +563,18 @@
   
   
     <li class="md-nav__item">
+      <a href="dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="gpus.html" class="md-nav__link">
         GPUs
       </a>
@@ -1089,11 +1101,12 @@
 <div class="highlight"><pre><span></span><code>scancel <span class="o">[</span>options<span class="o">]</span> &lt;jobid&gt; ...
 </code></pre></div>
 
-<p>Common options</p>
-<div class="highlight"><pre><span></span><code>--account       Restrict the scancel operation to <span class="nb">jobs</span> under this charge account
---jobname       Restrict the scancel operation to <span class="nb">jobs</span> with this job name
---partition     Restrict the scancel operation to <span class="nb">jobs</span> in this partition
---state         Restrict the scancel operation to <span class="nb">jobs</span> in this state
+<p><code>scancel</code> can be restricted to a subset of jobs, using the following options with the related value, e.g:</p>
+<div class="highlight"><pre><span></span><code>-u, --user <span class="nv">$USER</span>    <span class="nb">jobs</span> of current user
+-A, --account       <span class="nb">jobs</span> under this charge account
+-n, --jobname       <span class="nb">jobs</span> with this job name
+-p, --partition     <span class="nb">jobs</span> in this partition
+-t, --state         <span class="nb">jobs</span> in this state
 </code></pre></div>
 
 <h3 id="examples">Examples</h3>
@@ -1103,6 +1116,10 @@
 
 <p>Delete all running jobs:</p>
 <div class="highlight"><pre><span></span><code>scancel --state<span class="o">=</span>R
+</code></pre></div>
+
+<p>Delete all of your jobs:</p>
+<div class="highlight"><pre><span></span><code>scancel --user <span class="nv">$USER</span>
 </code></pre></div>
                 
               
