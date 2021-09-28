@@ -330,6 +330,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/parallelization.html" class="md-nav__link">
+        Parallelization
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -581,6 +593,13 @@
         <li class="md-nav__item">
   <a href="#exceeding-resource-limits" class="md-nav__link">
     Exceeding Resource Limits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-information" class="md-nav__link">
+    Error Information
   </a>
   
 </li>
@@ -1059,6 +1078,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#error-information" class="md-nav__link">
+    Error Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#software-errors" class="md-nav__link">
     Software Errors
   </a>
@@ -1080,13 +1106,24 @@
                 
                 <h1 id="investigating-a-job-failure">Investigating a Job Failure</h1>
 <h2 id="description">Description</h2>
-<p>This page provides some useful information on investigating a job failure.</p>
+<p>Not always jobs execute successfully. There are a list of reasons jobs or applications stop or crash. 
+The most common causes are:</p>
+<ul>
+<li>exceeding resource limits and </li>
+<li>software-specific errors </li>
+</ul>
+<p>Here, discussed are ways to gather information, aspects of avoiding misleading information and aspects of common issues. </p>
 <div class="admonition types caution">
-<p>It is important to collect error/output messages either by writing such information to the default location or by specifying specific locations using the &ndash;error/–output option. Do not redirect the error/output stream to /dev/null unless you know what you are doing. Error and output messages are the starting point for investigating a job failure.</p>
+<p>It is important to collect error/output messages either by writing such information to the default location or by specifying specific locations using the <code>--error</code>/<code>--output</code> option. Do not redirect the error/output stream to /dev/null unless you know what you are doing. Error and output messages are the starting point for investigating a job failure.</p>
 </div>
-<p>A job may fail due to a hardware failure on a node involved in the computation, a failure of a Slurm daemon, exceeding a resource limit, or a software specific error. The most common causes are exceeding resource limits and software-specific errors which we will discuss here.</p>
 <h2 id="exceeding-resource-limits">Exceeding Resource Limits</h2>
-<p>Each partition limits the maximal allowed runtime of a job and provides default values for the estimated job runtime and memory usage per core. A job should request appropriate values for those resources using the &ndash;time and &ndash;mem-per-core options. A job is killed if one of these limits is exceeded. In both cases, the error file provides appropriate information:</p>
+<p>Each partition defines maximum and default limits for runtime and memory usage. 
+Within the job specification the current limits can be defined within the ranges. 
+For better scheduling, the job requirements should be estimated and the limits should be adapted to the needs. The lower the limits the better SLURM can find a spot. 
+Furthermore, the less resource overhead is specified the less resources are wasted, e.g. for memory. </p>
+<p>If a job exceeds the runtime or memory limit, it will get killed by SLURM. </p>
+<h2 id="error-information">Error Information</h2>
+<p>In both cases, the error file provides appropriate information:</p>
 <p>Time limit:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>...<span class="o">)</span>
 slurmstepd: error: *** JOB <span class="m">41239</span> ON fnode01 CANCELLED AT <span class="m">2016</span>-11-30T11:22:57 DUE TO TIME LIMIT ***

@@ -411,6 +411,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parallelization.html" class="md-nav__link">
+        Parallelization
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1134,13 +1146,13 @@
                 
                 <h1 id="ubelix-overview">UBELIX - Overview</h1>
 <h2 id="description">Description</h2>
-<p>This page provides a high-level system overview of a HPC cluster such as UBELIX. It describes the different hardware components that constitute the cluster and gives a quantitative list of the different generations of compute nodes in UBELIX.</p>
-<p><strong>UBELIX</strong> (University of Bern Linux Cluster) is a HPC cluster that currently consists of about 340 compute nodes featuring almost 11&lsquo;500 CPU cores and 136 GPUs and a software-defined storage infrastructure providing ~3 PB of disk storage net. UBELIX is a heterogeneous cluster, meaning UBELIX consists of different generations of compute nodes with different instruction sets. Compute nodes, front-end servers and the storage are interconnected through a high speed Infiniband network. The front-end servers also provide a link to the outside world. UBELIX is used by various institutes and research groups within chemistry, biology, physics, astronomy, computer science, geography, medical radiology and others for scientific research and by students working on their thesis.</p>
+<p>This page provides a high-level system overview of an HPC cluster such as UBELIX. It describes the different hardware components that constitute the cluster and gives a quantitative list of the different generations of compute nodes in UBELIX.</p>
+<p><strong>UBELIX</strong> (University of Bern Linux Cluster) is an HPC cluster that currently consists of about 340 compute nodes featuring almost 11&lsquo;500 CPU cores and 136 GPUs and a software-defined storage infrastructure providing <code>~3</code> PB of disk storage net. UBELIX is a heterogeneous cluster, meaning UBELIX consists of different generations of compute nodes with different instruction sets. Compute nodes, front-end servers and the storage are interconnected through a high speed Infiniband network. The front-end servers also provide a link to the outside world. UBELIX is used by various institutes and research groups within chemistry, biology, physics, astronomy, computer science, geography, medical radiology and others for scientific research and by students working on their thesis.</p>
 <h2 id="high-level-system-overview">High-level system overview</h2>
 <p><img alt="System Overview Diagram" src="../images/system_overview.png" title="System Overview Diagram" />
 The HPCs can only be reached within the UniBE network. User landing point are the login nodes, where jobs can be prepared and submitted. Computational tasks are scheduled and managed on the compute nodes using SLURM. All compute nodes as well as the login nodes have access to the parallel file system.</p>
 <h3 id="login-node-aka-submit-node">Login node aka. Submit node</h3>
-<p>A user connects to the cluster by logging into the <strong>submit</strong> host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile smaller programs. Resource-demanding/high-performance tasks must be submitted to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks should be submitted as a job on a compute node instead of running it on the submit host. </p>
+<p>A user connects to the cluster by logging into the <strong>submit</strong> host via SSH. You can use this host for medium-performance tasks, e.g. to edit files or to compile smaller programs. <strong>Resource-demanding/high-performance tasks must be submitted</strong> to the batch queuing system as jobs, and will finally run on one or multiple compute nodes. Even long running compile tasks should be submitted as a job on a compute node instead of running it on the submit host. </p>
 <h3 id="slurm-batch-queueing-system">SLURM Batch-Queueing System</h3>
 <p>On UBELIX we use the open-source batch-queueing system <a href="https://slurm.schedmd.com/documentation.html">Slurm</a>, managing all jobs on the compute nodes. The job submission is described in detail in the Job handling section, starting with <a href="../slurm/submission.html">Submitting jobs</a>. </p>
 <p>The procedure look like:</p>
