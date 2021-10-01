@@ -733,6 +733,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#bioinformatics-software" class="md-nav__link">
+    Bioinformatics Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modules-background" class="md-nav__link">
     Modules background
   </a>
@@ -1217,6 +1224,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#bioinformatics-software" class="md-nav__link">
+    Bioinformatics Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modules-background" class="md-nav__link">
     Modules background
   </a>
@@ -1261,7 +1275,7 @@
 <p>On UBELIX the default shell is Bash. With the operation system, a list of basic tools (mainly command line tools) are provided, including editors, file analyzing and manipulation tools, packing and transfer tools etc. This commands are accessible all the time. </p>
 <p>Other software packages (libraries and applications) are available via the <strong>LMOD</strong> (lua modules) modules. By the help of this tool a lot of different packages even in different versions can be provided, without unwanted influences. </p>
 <p>Furthermore, software stacks are provided one for each CPU architecture. These are loaded automatically on the related architecture, transparent to the user.</p>
-<p>Additionally to our software stack, <strong>VITAL-IT</strong> provides a software stack targeting mainly bioinformatics users, see <a href="pre-installed-software.md#BioinformaticsSoftware">Bioinformatics Software</a>.</p>
+<p>Additionally to our software stack, <strong>VITAL-IT</strong> provides a software stack targeting mainly bioinformatics users, see <a href="#BioinformaticsSoftware">Bioinformatics Software</a>.</p>
 <h2 id="basic-concept">Basic concept</h2>
 <p>Many Linux settings are in environment variables. These include search paths for applications (<code>$PATH</code>) and libraries (<code>$LD_LIBRARY_PATH</code>). Adding or removing a directory to these lists, provides access or remove access to additional software. </p>
 <p>The <strong>LMOD</strong> modules are an user friendly way to search and manage software packages without dealing with complicated directory names.</p>
@@ -1406,6 +1420,15 @@ A clean environment can be obtained with purge (see below).</p>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>$ module show OpenMPI
+</code></pre></div>
+
+<h2 id="bioinformatics-software">Bioinformatics Software</h2>
+<p>In co-operation with the <a href="http://www.vital-it.ch/">Vital-IT Group</a> of the <a href="http://www.isb-sib.ch/">SIB Swiss Institute of Bioinformatics</a>, a large set of <a href="https://www.vital-it.ch/services/software">bioinformatics software tools and databases</a> is available to the life science community.</p>
+<p>To list all modulefiles provided by Vital-IT, you have to first load the <code>vital-it</code> module:</p>
+<div class="admonition types note">
+<p>Loading the vital-it modulefile automatically configures the environment to use specific versions of selected software, e.g. python v2.7.5, and gcc v4.9.1</p>
+</div>
+<div class="highlight"><pre><span></span><code> $ module load vital-it <span class="o">&amp;&amp;</span> module avail
 </code></pre></div>
 
 <h2 id="modules-background">Modules background</h2>
