@@ -1148,9 +1148,10 @@
                 
                 <h1 id="array-jobs-with-slurm">Array Jobs with Slurm</h1>
 <h2 id="description">Description</h2>
-<p>You want to submit multiple jobs that are identical or differ only in some arguments. Instead of submitting N jobs independently, you can submit one array job unifying N tasks.</p>
+<p>Array jobs are jobs where the job setup, including job size, memory, time etc. is constant, but the application input varies. One use case are parameter studies. </p>
+<p>Instead of submitting N jobs independently, you can submit one array job unifying N tasks. These provide advantages in the job handling as well as for the SLURM scheduler.</p>
 <h2 id="submitting-an-array">Submitting an Array</h2>
-<p>To submit an array job, specify the number of tasks as a range of task ids using the &ndash;array option:</p>
+<p>To submit an array job, specify the number of tasks as a range of task IDs using the &ndash;array option:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --array=n[,k[,...]][-m[:s]]%&lt;max_tasks&gt;</span>
 </code></pre></div>
 
@@ -1167,7 +1168,7 @@ The task IDs will be exported to the job tasks via the environment variable <cod
 <p>Specifying <code>--array=10</code> will not submit an array job with 10 tasks, but an array job with a single task with task id 10. To run an array job with multiple tasks you must specify a range or a comma separated list of task ids.</p>
 </div>
 <h2 id="output-files">Output files</h2>
-<p>If nothing is specified the output files are named as <code>slurm-&lt;jobid&gt;_&lt;taskid&gt;.out</code>. When renaming the output/error files variables for the job ID (<code>%A</code>) and for the task ID (<code>%a</code>) can be used. For example:</p>
+<p>Per default the output files are named as <code>slurm-&lt;jobid&gt;_&lt;taskid&gt;.out</code>. When renaming the output/error files variables for the job ID (<code>%A</code>) and for the task ID (<code>%a</code>) can be used. For example:</p>
 <p><div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --output=array_example_%A_%a.out</span>
 <span class="c1">#SBATCH --error=array_example_%A_%a.err</span>
 </code></pre></div>
@@ -1183,7 +1184,7 @@ Thus a file <code>array_example_6543212_12.out</code> will be written for the 12
           79265_47      <span class="nb">test</span> Simple H  foo      R       <span class="m">0</span>:10      <span class="m">1</span> fnode03
 </code></pre></div>
 
-<p>Use the &ndash;array option to the squeue command to display one tasks per line:</p>
+<p>Use the <code>--array</code> option to the squeue command to display one tasks per line:</p>
 <div class="highlight"><pre><span></span><code>$ squeue --array
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
           79265_65      <span class="nb">test</span> Simple H  foo      PD      <span class="m">0</span>:00      <span class="m">1</span> <span class="o">(</span>QOSMaxCpuPerUserLimit<span class="o">)</span>
@@ -1205,7 +1206,7 @@ Thus a file <code>array_example_6543212_12.out</code> will be written for the 12
 <span class="c1">#SBATCH --array=1-1000      # Submit 1000 tasks with task ID 1,2,...,1000.</span>
 
 <span class="c1"># The name of the input files must reflect the task ID!</span>
-./foo input_data_<span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span>.txt &gt; output_<span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span>.txt
+srun ./foo input_data_<span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span>.txt &gt; output_<span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span>.txt
 </code></pre></div>
 
 <div class="admonition types note">
@@ -1220,10 +1221,10 @@ Thus a file <code>array_example_6543212_12.out</code> will be written for the 12
 <span class="c1">### Submit 1000 tasks with task ID 1,2,...,1000. Run max 20 tasks concurrently</span>
 <span class="c1">#SBATCH --array=1-1000%20  </span>
 
-<span class="nv">data_dir</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/input_data        
-<span class="nv">result_dir</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/results
+<span class="nv">data_dir</span><span class="o">=</span><span class="nv">$WORKSPACE</span>/projects/example/input_data        
+<span class="nv">result_dir</span><span class="o">=</span><span class="nv">$WORKSPACE</span>/projects/example/results
 
-<span class="nv">param_store</span><span class="o">=</span><span class="nv">$HOME</span>/projects/example/args.txt     
+<span class="nv">param_store</span><span class="o">=</span><span class="nv">$WORKSPACE</span>/projects/example/args.txt     
 <span class="c1">### args.txt contains 1000 lines with 2 arguments per line.</span>
 <span class="c1">###    Line &lt;i&gt; contains arguments for run &lt;i&gt;</span>
 <span class="c1"># Get first argument</span>

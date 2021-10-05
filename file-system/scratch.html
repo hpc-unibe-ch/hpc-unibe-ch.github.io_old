@@ -1121,7 +1121,7 @@ We distinguish local and network scratch spaces. </p>
 <h2 id="network-scratch">Network Scratch</h2>
 <p>Network scratch spaces are located on the parallel file system and accessible to all nodes. In contrast to <code>HOME</code> or <code>WORKSPACEs</code>, scratch is meant for temporary data, especially with larger quota requirements. 
 Jobs creating a lot of temporary data, which may need or may not need to be post-processed should run in this space. As an example, a application creating a huge amount of temporary output, which need to be analysed, but only partly need to be stored for a longer term.
-Quota and file quota is less restrictive on scratch compared to <code>HOME</code> or permanent <code>WORKSPACE</code> directories. Every user can use up to <strong>50TB</strong> and <strong>50M</strong> files. There is <strong>no snapshot</strong> and <strong>no backup</strong> feature available. Furthermore, an <strong>automatic deletion policy</strong> is planned, deleting files which are older than <strong>30 days</strong>. </p>
+Quota and file quota is less restrictive on scratch compared to <code>HOME</code> or permanent <code>WORKSPACE</code> directories. Every user can use up to <strong>30TB</strong> and <strong>10M</strong> files. There is <strong>no snapshot</strong> and <strong>no backup</strong> feature available. Furthermore, an <strong>automatic deletion policy</strong> is planned, deleting files which are older than <strong>30 days</strong>. </p>
 <p>Scratch file space can be accessed using the Workspace module and the <code>$SCRATCH</code> environment variable. </p>
 <div class="highlight"><pre><span></span><code>module load Workspace
 <span class="nb">cd</span> <span class="nv">$SCRATCH</span>
