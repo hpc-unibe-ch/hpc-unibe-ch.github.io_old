@@ -1109,10 +1109,6 @@
                 <h1 id="file-system-quota">File System Quota</h1>
 <h2 id="description">Description</h2>
 <p>This page contains information about quota limits on the parallel file system. Quotas are enabled to control the file system usage.</p>
-<div class="admonition types info">
-<p class="admonition-title">migration change</p>
-<p>Previously HOME directories had limits of 3 TB per user, file quota limits of 2 million files. In some cases this was extended. The previous HOME quota will kept active until the Workspace introduction phase is finished. </p>
-</div>
 <div class="admonition types warning">
 <p class="admonition-title"> Job abortion</p>
 <p>Jobs will fail if no more disk space can be allocated, or if no more files can be created because the respective quota hard limit is exceeded </p>
@@ -1192,10 +1188,6 @@ Filesystem Fileset    <span class="nb">type</span>             KB      quota    
 rs_gpfs    svc_homefs USR       <span class="m">444181792</span> <span class="m">1073741824</span> <span class="m">1073741824</span>    <span class="m">6072144</span>     none <span class="p">|</span>   <span class="m">815985</span> <span class="m">1000000</span>  <span class="m">1000000</span>     <span class="m">2462</span>     none
 </code></pre></div>
 
-<div class="admonition types attention">
-<p class="admonition-title">migration change</p>
-<p>If your HOME is not yet migrated, you can check your quota on the old file system using: <code>$mmlsquota  gpfs</code>. The quota limits for the institute directories can be gathered using: <code>mmlsquota -g id --block-size T</code>, for the institute <code>id</code>.</p>
-</div>
 <p>The <code>--block-size</code> option specify the unit {K , M, G, T} in which the numbers of blocks are displayed:</p>
 <div class="highlight"><pre><span></span><code>mmlsquota --block-size<span class="o">=</span>G -j workspace1 rs_gpfs
                          Block Limits                                    <span class="p">|</span>     File Limits

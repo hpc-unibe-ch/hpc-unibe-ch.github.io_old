@@ -971,33 +971,6 @@
     File system
   </a>
   
-    <nav class="md-nav" aria-label="File system">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#is-my-home-already-migrated" class="md-nav__link">
-    Is my HOME already migrated?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-does-the-homes-migration-work-what-can-i-do-during-the-migration" class="md-nav__link">
-    How does the HOMEs migration work? What can I do during the migration?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-read-home-quota-will-be-1tb-what-now" class="md-nav__link">
-    I read: HOME quota will be 1TB, what now?
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1203,33 +1176,6 @@
     File system
   </a>
   
-    <nav class="md-nav" aria-label="File system">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#is-my-home-already-migrated" class="md-nav__link">
-    Is my HOME already migrated?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-does-the-homes-migration-work-what-can-i-do-during-the-migration" class="md-nav__link">
-    How does the HOMEs migration work? What can I do during the migration?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-read-home-quota-will-be-1tb-what-now" class="md-nav__link">
-    I read: HOME quota will be 1TB, what now?
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1378,22 +1324,6 @@
 <h2 id="description">Description</h2>
 <p>This page provides a collection of frequently asked questions.</p>
 <h2 id="file-system">File system</h2>
-<h3 id="is-my-home-already-migrated">Is my HOME already migrated?</h3>
-<p>You can check using the command <code>pwd</code>. 
-The location in the new file system is: <code>/storage/homefs/$USER</code>, where <code>$USER</code> is your user name. </p>
-<h3 id="how-does-the-homes-migration-work-what-can-i-do-during-the-migration">How does the HOMEs migration work? What can I do during the migration?</h3>
-<p>When the migration of your institute starts (T=0), you receive an email. You can still use your home directory then. Ideally, you already cleaned
-your home directory before that, if not, last chance to cleanup. <strong>Anaconda installations need special treatment</strong> see <a href="https://www.anaconda.com/blog/moving-conda-environments">this blog entry</a>
-for a starting point.<br />
-On the 5th day after the initial mail (T=0+5d), the real migration takes place. You get another email upon starting your individual migration and
-We lock you out of the cluster. The final synchronization takes place. This phase lasts between several minutes up to a few hours depending on the
-amount of date you have in your home directory. All running jobs and processes that are running at that time, will be canceled or killed.
-Therefore please try to only start jobs that may finish before that time.<br />
-When we finished your home directory, you receive another email and you can log in again and check your home directroy and start to use UBELIX again.<br />
-Finally a last mail we reach you when the migration for your whole institute has been finished.</p>
-<h2 id="i-read-home-quota-will-be-1tb-what-now">I read: HOME quota will be 1TB, what now?</h2>
-<p>Previously, HOME quota was mostly 3TB. Now we will shift to group shared spaces, where each research group has 10TB in Workspaces free of charge and personal HOME 1TB. </p>
-<p>The HOME quota in the new location will be increased <strong>temporarily</strong> until the Workspaces are established in production (end of May). After the introduction of Workspaces there will be a transition period of one month, where you/your research group manager can create a Workspace and you can migrate the data. Afterwards, the quota will be fixed to 1TB in HOMEs. </p>
 <h2 id="what-if-my-home-is-full">What if my HOME is full?</h2>
 <p>If you reached your quota, you will get strange warning about not being able to write temporary files etc. You can check your quota using the 
 1. Decluttering: Check for unnecessary data. This could be:</p>
