@@ -1131,24 +1131,24 @@
 <tbody>
 <tr>
 <td>HOME</td>
-<td>1TB<sup id="fnref:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
-<td>1M<sup id="fnref2:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
-<td>yes<sup id="fnref3:mig"><a class="footnote-ref" href="#fn:mig">1</a></sup></td>
+<td>1TB</td>
+<td>1M</td>
+<td>yes</td>
 <td>-</td>
 </tr>
 <tr>
 <td>WORKSPACE</td>
-<td>free: up to 10TB per research group<sup id="fnref:QpRG"><a class="footnote-ref" href="#fn:QpRG">2</a></sup></td>
+<td>free: up to 10TB per research group<sup id="fnref:QpRG"><a class="footnote-ref" href="#fn:QpRG">1</a></sup></td>
 <td>1M per TB</td>
 <td>yes</td>
-<td>1 year<sup id="fnref:WSdur"><a class="footnote-ref" href="#fn:WSdur">3</a></sup></td>
+<td>1 year<sup id="fnref:WSdur"><a class="footnote-ref" href="#fn:WSdur">2</a></sup></td>
 </tr>
 <tr>
 <td>SCRATCH</td>
-<td>50TB</td>
-<td>50M</td>
+<td>30TB<sup id="fnref:user"><a class="footnote-ref" href="#fn:user">3</a></sup></td>
+<td>10M<sup id="fnref2:user"><a class="footnote-ref" href="#fn:user">3</a></sup></td>
 <td>no</td>
-<td>1 month</td>
+<td>1 month<sup id="fnref:pol"><a class="footnote-ref" href="#fn:pol">4</a></sup></td>
 </tr>
 </tbody>
 </table>
@@ -1214,14 +1214,17 @@ rs_gpfs    FILESET          <span class="m">57</span>      <span class="m">10240
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:mig">
-<p>ATTENTION: there is no Backup or snapshot on HOME directories until the Workspace introduction phase is finished. Previous extended quota keep active until then.&#160;<a class="footnote-backref" href="#fnref:mig" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:mig" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:mig" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="fn:QpRG">
-<p>Each research group can use up to 10TB of free disk storage in multiple Workspaces free of charge. Quota increase can be purchased, see <a href="../hpc-workspaces/management.html#additional-storage">Workspace Management</a>.&#160;<a class="footnote-backref" href="#fnref:QpRG" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Each research group can use up to 10TB of free disk storage in multiple Workspaces free of charge. Quota increase can be purchased, see <a href="../hpc-workspaces/management.html#additional-storage">Workspace Management</a>.&#160;<a class="footnote-backref" href="#fnref:QpRG" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:WSdur">
-<p>Workspaces are meant to be active directories and no archive. Workspace are active by default for one year. The duration can every time be extended to &ldquo;current date plus one year&rdquo;.&#160;<a class="footnote-backref" href="#fnref:WSdur" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Workspaces are meant to be active directories and no archive. Workspace are active by default for one year. The duration can every time be extended to &ldquo;current date plus one year&rdquo;.&#160;<a class="footnote-backref" href="#fnref:WSdur" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:user">
+<p>Scratch quota is currently implemented per user&#160;<a class="footnote-backref" href="#fnref:user" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:user" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:pol">
+<p>There is a automatic removal policy planned, but not implemented yet&#160;<a class="footnote-backref" href="#fnref:pol" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
