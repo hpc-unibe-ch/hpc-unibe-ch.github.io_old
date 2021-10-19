@@ -595,9 +595,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#application-adaptation" class="md-nav__link">
+    Application adaptation
+  </a>
+  
+    <nav class="md-nav" aria-label="Application adaptation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#cuda" class="md-nav__link">
     CUDA
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1108,9 +1121,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#application-adaptation" class="md-nav__link">
+    Application adaptation
+  </a>
+  
+    <nav class="md-nav" aria-label="Application adaptation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#cuda" class="md-nav__link">
     CUDA
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1139,8 +1165,9 @@
 <p>This page contains all information you need to submit GPU-jobs successfully on Ubelix.</p>
 <h2 id="important-information-on-gpu-usage">Important Information on GPU Usage</h2>
 <div class="admonition types note">
-<p>Code that runs on the CPU will not magically make use of GPUs by simply submitting a job to the &lsquo;gpu&rsquo; partition! You have to explicitly adapt your code to run on the GPU. Also, code that runs on a GPU will not necessarily run faster than it runs on the CPU. For example, GPUs are not suited to handle tasks that are not highly parallelizable. In other words, you must understand the characteristics of your job, and make sure that you only submit jobs to the &lsquo;gpu&rsquo; partition that can actually benefit from GPUs.</p>
+<p>Code that runs on the CPU will <strong>not</strong> magically make use of GPUs by simply submitting a job to the &lsquo;gpu&rsquo; partition! You have to explicitly adapt your code to run on the GPU, e.g. an CUDA or OpenACC implementation. Also, code that runs on a GPU will not necessarily run faster than it runs on the CPU. For example, GPUs require a huge amount of highly parallelizable tasks. In other words, you must understand the characteristics of your job, and make sure that you only submit jobs to the &lsquo;gpu&rsquo; partition that can actually benefit from GPUs.</p>
 </div>
+<p>When submitting to the GPU partition the GPU type specification is <strong>required</strong>. </p>
 <h2 id="gpu-type">GPU Type</h2>
 <p>Ubelix currently features four types of GPUs. You have to choose an architecture and use the following <code>--gres</code> option to select it.</p>
 <table>
@@ -1186,8 +1213,10 @@
 <div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --no-requeue</span>
 </code></pre></div>
 
-<h2 id="cuda">CUDA</h2>
-<p>CUDA versions are now managed through modules. Run <em>module avail</em> to see which versions are available:</p>
+<h2 id="application-adaptation">Application adaptation</h2>
+<p>Applications do only ran on GPUs if they are build specifically for GPUs. There are multiple ways to implement algorithms for GPU usage. The most common ones are low level languages like CUDA or pragma oriented implementations like OpenACC. </p>
+<h3 id="cuda">CUDA</h3>
+<p>To build and run CUDA applications, its compiler and libraries are provided managed via modules. Run <em>module avail</em> to see which versions are available, for example:</p>
 <div class="highlight"><pre><span></span><code>module avail CUDA
 ---- /software.el7/modulefiles/all ----
    CUDA/8.0.61                           cuDNN/7.1.4-CUDA-9.2.88
@@ -1201,12 +1230,12 @@
    cuDNN/7.0.5-CUDA-9.1.85
 </code></pre></div>
 
-<p>Run <em>module load <module></em> to load a specific version of CUDA:</p>
+<p>Run <code>module load &lt;module&gt;</code> to load a specific version of CUDA:</p>
 <div class="highlight"><pre><span></span><code>module load cuDNN/7.1.4-CUDA-9.2.88
 </code></pre></div>
 
 <div class="admonition types note">
-<p>If you need cuDNN you must load the cuDNN module. The appropriate CUDA version is then loaded as a dependency.</p>
+<p>If you need cuDNN you must load the cuDNN module. The appropriate CUDA version is then loaded automatically as a dependency.</p>
 </div>
 <h2 id="further-information">Further Information</h2>
 <p>CUDA: <a href="https://developer.nvidia.com/cuda-zone">https://developer.nvidia.com/cuda-zone</a><br />

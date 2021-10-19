@@ -1286,7 +1286,7 @@ After loading the module you will always see all the <strong>generic</strong> so
 <p>A modulefile describes location and environment setting for the targeted application, e.g. setting the <code>PATH</code>, <code>LD_LIBRARY_PATH</code> and other variables. 
 The present Lmod system searches these Modulefiles in subdirectories of all directories registered in <code>MODULEPATH</code>. The above described architectural software stacks as well as the generic one are registered in the <strong>Workspace</strong> and <strong>CustomRepo</strong> module by default. </p>
 <p>There are, two types of modules, the default Linux modules, written in TCL (described below) and Lua modules (created by our EasyBuild). Lua modules are more powerful, but for simplicity we present TCL modules here. </p>
-<p>Assuming we want to provide an application <code>ProdXY</code>. We could create a TCL module file $WORKSPACE/Software/generic.el7/modulefiles/ProdXY as the following:</p>
+<p>Assuming we want to provide an application <code>ProdXY</code>. We could create a TCL module file <code>$WORKSPACE/Software/generic.el7/modulefiles/ProdXY</code> as the following:</p>
 <div class="highlight"><pre><span></span><code>#%module
 
 conflict ProdABC               # conflicts with another application ProdABC
