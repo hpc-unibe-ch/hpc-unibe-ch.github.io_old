@@ -735,6 +735,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tips-and-tricks" class="md-nav__link">
+    Tips and tricks
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips and tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-information" class="md-nav__link">
+    More information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hidden-modules" class="md-nav__link">
+    Hidden Modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directly-on-the-compute-node" class="md-nav__link">
+    Directly on the compute node
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1147,6 +1181,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tips-and-tricks" class="md-nav__link">
+    Tips and tricks
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips and tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-information" class="md-nav__link">
+    More information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hidden-modules" class="md-nav__link">
+    Hidden Modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directly-on-the-compute-node" class="md-nav__link">
+    Directly on the compute node
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1306,43 +1374,43 @@ alternatively you may find easyconfigs online, e.g. <a href="https://github.com/
 <ul>
 <li>package version, the toolchain version, and all related libraries</li>
 <li>Keep in mind that toolchain versions need to match (see <a href="#meta-module-and-toolchains">toolchains</a> above)
-<div class="highlight"><pre><span></span><code>easyblock = &#39;CMakeMake&#39;
+<div class="highlight"><pre><span></span><code><span class="n">easyblock</span> <span class="o">=</span> <span class="s1">&#39;CMakeMake&#39;</span>
 
-name = &#39;RELION&#39;
-version = &#39;3.1.2&#39;                            #### The Relion version was &#39;3.0.4&#39; before
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;RELION&#39;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;3.1.2&#39;</span>                            <span class="o">####</span> <span class="n">The</span> <span class="n">Relion</span> <span class="n">version</span> <span class="n">was</span> <span class="s1">&#39;3.0.4&#39;</span> <span class="n">before</span>
 
-homepage = &#39;http://www2.mrc-lmb.cam.ac.uk/relion/index.php/Main_Page&#39;
-description = &quot;&quot;&quot;RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone computer
- program that employs an empirical Bayesian approach to refinement of (multiple) 3D reconstructions or 2D class
- averages in electron cryo-microscopy (cryo-EM).&quot;&quot;&quot;
+<span class="n">homepage</span> <span class="o">=</span> <span class="s1">&#39;http://www2.mrc-lmb.cam.ac.uk/relion/index.php/Main_Page&#39;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone computer</span>
+<span class="s2"> program that employs an empirical Bayesian approach to refinement of (multiple) 3D reconstructions or 2D class</span>
+<span class="s2"> averages in electron cryo-microscopy (cryo-EM).&quot;&quot;&quot;</span>
 
-toolchain = {&#39;name&#39;: &#39;foss&#39;, &#39;version&#39;: &#39;2020b&#39;}   ### the foss toolchain version was 2020b before
-toolchainopts = {&#39;openmp&#39;: True}
+<span class="n">toolchain</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;foss&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;2020b&#39;</span><span class="p">}</span>   <span class="o">###</span> <span class="n">the</span> <span class="n">foss</span> <span class="n">toolchain</span> <span class="n">version</span> <span class="n">was</span> <span class="mi">2020</span><span class="n">b</span> <span class="n">before</span>
+<span class="n">toolchainopts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;openmp&#39;</span><span class="p">:</span> <span class="n">True</span><span class="p">}</span>
 
-source_urls = [&#39;https://github.com/3dem/relion/archive&#39;]
-sources = [&#39;%(version)s.tar.gz&#39;]
-checksums = [&#39;2580d66088923a644bc7d3b02efd154b775a3ec3d010426f382bb3be5db9c98b&#39;]
+<span class="n">source_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://github.com/3dem/relion/archive&#39;</span><span class="p">]</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;%(version)s.tar.gz&#39;</span><span class="p">]</span>
+<span class="n">checksums</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2580d66088923a644bc7d3b02efd154b775a3ec3d010426f382bb3be5db9c98b&#39;</span><span class="p">]</span>
 
-builddependencies = [(&#39;CMake&#39;, &#39;3.18.4&#39;)]    ### was 3.9.5
+<span class="n">builddependencies</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;CMake&#39;</span><span class="p">,</span> <span class="s1">&#39;3.18.4&#39;</span><span class="p">)]</span>    <span class="o">###</span> <span class="n">was</span> <span class="mf">3.9.5</span>
 
-dependencies = [
-    (&#39;X11&#39;, &#39;20201008&#39;),                     ### was 20171023
-    (&#39;FLTK&#39;, &#39;1.3.5&#39;),                       ### was 1.3.4
-    (&#39;LibTIFF&#39;, &#39;4.1.0&#39;),                    ### 4.0.9
-    (&#39;tbb&#39;, &#39;2020.3&#39;),                       ### 2018_U5
-]
+<span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;X11&#39;</span><span class="p">,</span> <span class="s1">&#39;20201008&#39;</span><span class="p">),</span>                     <span class="o">###</span> <span class="n">was</span> <span class="mi">20171023</span>
+    <span class="p">(</span><span class="s1">&#39;FLTK&#39;</span><span class="p">,</span> <span class="s1">&#39;1.3.5&#39;</span><span class="p">),</span>                       <span class="o">###</span> <span class="n">was</span> <span class="mf">1.3.4</span>
+    <span class="p">(</span><span class="s1">&#39;LibTIFF&#39;</span><span class="p">,</span> <span class="s1">&#39;4.1.0&#39;</span><span class="p">),</span>                    <span class="o">###</span> <span class="mf">4.0.9</span>
+    <span class="p">(</span><span class="s1">&#39;tbb&#39;</span><span class="p">,</span> <span class="s1">&#39;2020.3&#39;</span><span class="p">),</span>                       <span class="o">###</span> <span class="mi">2018</span><span class="n">_U5</span>
+<span class="p">]</span>
 
-configopts = &quot;-DCMAKE_SHARED_LINKER_FLAGS=&#39;-lpthread&#39;  -DMPI_INCLUDE_PATH=$EBROOTOPENMPI/include &quot;
-configopts += &quot;-DMPI_C_COMPILER=$EBROOTOPENMPI/bin/mpicc -DMPI_CXX_COMPILER=$EBROOTOPENMPI/bin/mpicxx &quot;
-configopts += &quot;-DCUDA=OFF -DCudaTexture=OFF &quot;
-configopts += &quot;-DALTCPU=ON -DFORCE_OWN_TBB=OFF &quot;
+<span class="n">configopts</span> <span class="o">=</span> <span class="s2">&quot;-DCMAKE_SHARED_LINKER_FLAGS=&#39;-lpthread&#39;  -DMPI_INCLUDE_PATH=$EBROOTOPENMPI/include &quot;</span>
+<span class="n">configopts</span> <span class="o">+=</span> <span class="s2">&quot;-DMPI_C_COMPILER=$EBROOTOPENMPI/bin/mpicc -DMPI_CXX_COMPILER=$EBROOTOPENMPI/bin/mpicxx &quot;</span>
+<span class="n">configopts</span> <span class="o">+=</span> <span class="s2">&quot;-DCUDA=OFF -DCudaTexture=OFF &quot;</span>
+<span class="n">configopts</span> <span class="o">+=</span> <span class="s2">&quot;-DALTCPU=ON -DFORCE_OWN_TBB=OFF &quot;</span>
 
-sanity_check_paths = {
-    &#39;files&#39;: [&#39;bin/relion&#39;],
-    &#39;dirs&#39;: []
-}
+<span class="n">sanity_check_paths</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;files&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;bin/relion&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;dirs&#39;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
 
-moduleclass = &#39;bio&#39;
+<span class="n">moduleclass</span> <span class="o">=</span> <span class="s1">&#39;bio&#39;</span>
 </code></pre></div></li>
 </ul>
 </li>
@@ -1358,6 +1426,23 @@ The downloaded source packages are typically checked with SHA256 checksums. When
 </code></pre></div></p>
 </li>
 </ul>
+<h2 id="tips-and-tricks">Tips and tricks</h2>
+<p>Even if EasyBuild tries to simplify the installation process, not always EasyConfigs are Build without issues. There can be several types of issues. Starting form issues in finding exiting packages up to compilation issues. </p>
+<h3 id="more-information">More information</h3>
+<p>In the EasyBuild output in <code>the eb_out.*</code> files are the issues summarized. Often more details are required. There are more detailed log files created in the temporary directory. 
+On the compute nodes they are deleted at the end of the job, but on the login node (ivy) they are kept. The location is mentioned near the end of the output and typically is after <code>Results of the build can be found in the log file</code>.</p>
+<h3 id="hidden-modules">Hidden Modules</h3>
+<p>Sometimes packages are not defined consistently. On UBELIX many packages are provided as hidden modules. This keeps the list nice and tidy. Nevertheless, if a package (or worse one of its dependency) is looking for an existing packages, but it is not mentioned to be hidden, it will not find and need to rebuild again. </p>
+<p>Hidden packages can be searched using <code>module --show-hidden avail &lt;PackageXYZ&gt;</code>. If existing as hidden and the target package or dependency does not define it as hidden, EasyBuild can be advised to treat it as hidden using the <code>--hide-deps</code> option. E.g. for binutils, gettext and Mesa, the command would look like:</p>
+<div class="highlight"><pre><span></span><code>$ eb-install-all --hide-deps<span class="o">=</span>binutils,gettext,Mesa &lt;PackageXYZ&gt;
+</code></pre></div>
+
+<h3 id="directly-on-the-compute-node">Directly on the compute node</h3>
+<p>A possible influence of the job environment can be eliminated by directly running EasyBuild on the compute node. Therefor we establish an interactive session on the compute node and launch Easybuild there. For example building Relion in the <code>$HOME</code> on an epyc2 node using a local copy of the EasyConfig file:</p>
+<div class="highlight"><pre><span></span><code>$ srun --pty --partition epyc2 bash
+$ module load Workspace/home EasyBuild
+$ eb --tmpdir<span class="o">=</span><span class="nv">$TMPDIR</span> --robot --hide-deps<span class="o">=</span>binutils,gettext,Mesa RELION-3.1.3-fosscuda-2020b.eb
+</code></pre></div>
                 
               
               
