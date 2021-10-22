@@ -1295,7 +1295,7 @@ they finish just to see it didn&rsquo;t work. See <a href="slurm/interactive-job
 <p>Now, let&rsquo;s write a simple &ldquo;hello, world&rdquo;-task:</p>
 <div class="highlight"><pre><span></span><code>...
 <span class="c1"># Put your code below this line</span>
-module load Workspace/home
+module load Workspace_Home
 mkdir -p <span class="nv">$SCRATCH</span>/my_first_job
 <span class="nb">cd</span> <span class="nv">$SCRATCH</span>/my_first_job
 <span class="nb">echo</span> <span class="s2">&quot;Hello, UBELIX from node </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span> &gt; hello.txt
@@ -1309,7 +1309,7 @@ mkdir -p <span class="nv">$SCRATCH</span>/my_first_job
 <span class="c1">#SBATCH --mem-per-cpu=1GB</span>
 
 <span class="c1"># Put your code below this line</span>
-module load Workspace/home
+module load Workspace_Home
 mkdir -p <span class="nv">$SCRATCH</span>/my_first_job
 <span class="nb">cd</span> <span class="nv">$SCRATCH</span>/my_first_job
 <span class="nb">echo</span> <span class="s2">&quot;Hello, UBELIX from node </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span> &gt; hello.txt

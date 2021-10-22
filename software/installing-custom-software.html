@@ -1216,7 +1216,7 @@ Therewith, application can use different optimizations on different architecture
 Furthermore, a <strong>generic</strong> software stack is provided, where architecture independent applications are installed, e.g. Python scripts. 
 Our generic software stack is build on Ivybridge nodes, which have the lowest instruction set. Therewith runtime conflicts are prevented. </p>
 <p>For EasyBuild additional tools are provided, which install automatically in all architectural or the generic software stack, see below.</p>
-<p>Additionally, with the <code>Workspace</code> and <code>Workspace/home</code> module such software stacks can be created in your user/group space.</p>
+<p>Additionally, with the <code>Workspace</code> and <code>Workspace_Home</code> module such software stacks can be created in your user/group space.</p>
 <h2 id="easybuild">EasyBuild</h2>
 <p>For detailed instructions read the <a href="EasyBuild.html">EasyBuild article</a>.</p>
 <p>If you are installing your own application you may want to consider to create an EasyConfig for it. Have a look in the <a href="https://easybuild.readthedocs.io/en/latest/">EasyBuild documentation</a>, examples on the <a href="https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs">EasyBuild github</a>. And if necessary ask our support team for assistance. </p>
@@ -1286,6 +1286,7 @@ After loading the module you will always see all the <strong>generic</strong> so
 <p>A modulefile describes location and environment setting for the targeted application, e.g. setting the <code>PATH</code>, <code>LD_LIBRARY_PATH</code> and other variables. 
 The present Lmod system searches these Modulefiles in subdirectories of all directories registered in <code>MODULEPATH</code>. The above described architectural software stacks as well as the generic one are registered in the <strong>Workspace</strong> and <strong>CustomRepo</strong> module by default. </p>
 <p>There are, two types of modules, the default Linux modules, written in TCL (described below) and Lua modules (created by our EasyBuild). Lua modules are more powerful, but for simplicity we present TCL modules here. </p>
+<p>Using the <code>Workspace</code> or <code>Workspace_Home</code> module, there are multiple locations for modules. On the one hand modules can be placed in <code>$WORKSPACE/modulefiles</code> or <code>$WORKSPACE/Software/generic.el7/modulefiles/</code>. Alternatively, there are architecture dependent software stacks located under <code>$WORKSPACE/Software/&lt;architecture&gt;/modulefiles/all/</code>, where <code>&lt;architecture&gt;</code> are directories for the different architectures.</p>
 <p>Assuming we want to provide an application <code>ProdXY</code>. We could create a TCL module file <code>$WORKSPACE/Software/generic.el7/modulefiles/ProdXY</code> as the following:</p>
 <div class="highlight"><pre><span></span><code>#%module
 

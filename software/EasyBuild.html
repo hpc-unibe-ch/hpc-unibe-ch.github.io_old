@@ -1242,7 +1242,7 @@ Therefore, use the <code>eb</code> command to search and try and the <code>eb-in
 </ul>
 <h2 id="modules">Modules</h2>
 <p>Depending if you want to install the package in user or a group space you need to load the related module and the <code>EasyBuild</code> module, e.g.:</p>
-<div class="highlight"><pre><span></span><code>module load Workspace  <span class="c1">### if you want to install into your HOME use Workspace/home</span>
+<div class="highlight"><pre><span></span><code>module load Workspace  <span class="c1">### if you want to install into your HOME use Workspace_Home</span>
 module load EasyBuild
 </code></pre></div>
 
@@ -1343,7 +1343,7 @@ The job output is presented in the <code>eb_out.*</code> files, one for each arc
 <li>
 <p>setup EasyBuild environment
 <div class="highlight"><pre><span></span><code>module load EasyBuild
-module load Workspace   ### OR Workspace/home
+module load Workspace   ### OR Workspace_Home
 </code></pre></div></p>
 </li>
 <li>
@@ -1440,7 +1440,7 @@ On the compute nodes they are deleted at the end of the job, but on the login no
 <h3 id="directly-on-the-compute-node">Directly on the compute node</h3>
 <p>A possible influence of the job environment can be eliminated by directly running EasyBuild on the compute node. Therefor we establish an interactive session on the compute node and launch Easybuild there. For example building Relion in the <code>$HOME</code> on an epyc2 node using a local copy of the EasyConfig file:</p>
 <div class="highlight"><pre><span></span><code>$ srun --pty --partition epyc2 bash
-$ module load Workspace/home EasyBuild
+$ module load Workspace_Home EasyBuild
 $ eb --tmpdir<span class="o">=</span><span class="nv">$TMPDIR</span> --robot --hide-deps<span class="o">=</span>binutils,gettext,Mesa RELION-3.1.3-fosscuda-2020b.eb
 </code></pre></div>
                 

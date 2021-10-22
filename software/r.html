@@ -1291,7 +1291,7 @@ myDistance &lt;- <span class="k">function</span><span class="o">(</span>x, y, <s
 <p><div class="highlight"><pre><span></span><code>module load Workspace
 mkdir <span class="nv">$R_LIBS</span>
 </code></pre></div>
-If you want to install into your $HOME</p>
+If you get the error <code>mkdir: cannot create directory ...</code> verify that you just loaded one Workspace while installing the package.</p>
 <p>Then R packages can be installed using the <code>install.packages()</code> routine in an interactive R shell, e.g. for <strong>doParallel</strong>:</p>
 <div class="highlight"><pre><span></span><code>module load R
 R
@@ -1299,7 +1299,7 @@ R
 &gt; install.packages(&quot;doParallel&quot;)
 </code></pre></div>
 
-<p>Then please follow the procedure as shown <a href="#installation-routine">below</a>.</p>
+<p>Please follow the procedure as shown below at <a href="#installation-routine">installation routine</a>.</p>
 <p>Then the installed packaged will be available to you and all other Workspace members by simply loading the <code>Workspace</code> module. </p>
 <div class="admonition type danger">
 <p>Please remember to add the Workspace and the R module to your job scripts:
@@ -1310,7 +1310,7 @@ module load R
 <h4 id="b-into-your-home">B) Into your HOME</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>you can also use procedure A) and load <code>Workspace/home</code> to install into your HOME directory.</p>
+<p>you can also use procedure A) and load <code>Workspace_Home</code> to install into your HOME directory.</p>
 </div>
 <p>If you are not using a Workspace module and try to install a package, at the first time R tries to install the package into a global/generic location, which is not writeable by users. You can then select to install in a &ldquo;personal library&rdquo; into your HOME:</p>
 <div class="highlight"><pre><span></span><code>module load R

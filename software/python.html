@@ -1077,15 +1077,16 @@ On the other hand there is Anaconda installed, which brings an even longer list 
 You can install into your private HOME using the <code>pip install --user</code> option or share the packages with your colleges using the Workspace module, e.g. for installing a package <code>matplotlib</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">## load Python first, this can also be `module load Anaconda3`</span>
 module load Python
-<span class="c1">## maybe you need to specify the Workspace name first OR use `Workspace/home`</span>
+<span class="c1">## maybe you need to specify the Workspace name first OR use `Workspace_Home`</span>
 module load Workspace  
 <span class="c1">## pip install in the Workspace or HOME location</span>
 <span class="c1">##   the variable PYTHONPACKAGEPATH is set in the Workspace module</span>
 pip install --prefix <span class="nv">$PYTHONPACKAGEPATH</span> matplotlib
 </code></pre></div>
 
-<p>! types attention &ldquo;&rdquo;
-    Python module need to be loaded before loading Workspace, because some settings require the Python version information.</p>
+<div class="admonition types attention">
+<p>Python module need to be loaded before loading Workspace, because some settings require the Python version information.</p>
+</div>
 <p>Therewith the Python packages are automatically available when 
 <div class="highlight"><pre><span></span><code>module load Python     <span class="c1">## OR module load Anaconda3</span>
 module load Workspace  <span class="c1">## maybe you need to specify the Workspace name first</span>

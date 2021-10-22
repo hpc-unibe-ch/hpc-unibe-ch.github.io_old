@@ -1172,7 +1172,7 @@ Quota and file quota is less restrictive on scratch compared to <code>HOME</code
 <p>Each Workspace has a <code>$SCRATCH</code> space with the same access permissions like the permanent Workspace directory (using primary and secondary groups). The Workspace can be accessed using <code>$SCRATCH</code> variable (after loading the Workspace module). It will point to <code>/storage/scratch/&lt;researchGroupID&gt;/&lt;WorkspaceID&gt;</code>. Please use <code>$SCRATCH</code> to access it. </p>
 <h3 id="personal-scratch">Personal Scratch</h3>
 <p>Users without a Workspace can also use &ldquo;personal&rdquo; Scratch. This space does need to be created initially:
-<div class="highlight"><pre><span></span><code>module load Workspace/home
+<div class="highlight"><pre><span></span><code>module load Workspace_Home
 mkdir <span class="nv">$SCRATCH</span>
 <span class="nb">cd</span> <span class="nv">$SCRATCH</span>
 </code></pre></div></p>

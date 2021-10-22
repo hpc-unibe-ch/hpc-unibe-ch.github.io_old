@@ -497,6 +497,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#additional-software-stacks" class="md-nav__link">
+    Additional Software Stacks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1156,6 +1163,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#additional-software-stacks" class="md-nav__link">
+    Additional Software Stacks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1176,8 +1190,9 @@
                 
                 <h1 id="hpc-workspace-data-and-software-tools">HPC Workspace Data and Software Tools</h1>
 <h2 id="description">Description</h2>
-<p>HPC Workspace module provides support for user-friendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. 
+<p>HPC Workspace modules provides support for user-friendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. 
 The module can also be used to set up HOME for a custom software stack. </p>
+<p>Furthermore, there are modules provided to load a working Workspace and additionally a software stacks from another Workspace, see <a href="#additional-software-stacks">Additional software stacks</a></p>
 <h2 id="workspace-module">Workspace module</h2>
 <p>The Workspace module adjust the environment to work in a specific HPC Workspace. 
 <div class="highlight"><pre><span></span><code>module load Workspace
@@ -1185,18 +1200,18 @@ The module can also be used to set up HOME for a custom software stack. </p>
 sets the following environment variables (<a href="#shortcuts">Shortcuts</a>) and <a href="#software-stacks">Software stacks</a></p>
 <p>There are the following possibilities:</p>
 <ul>
-<li>you belong to <strong>no</strong> Workspace: load <code>module load Workspace/home</code> to use your software stack in your HOME directory</li>
+<li>you belong to <strong>no</strong> Workspace: load <code>module load Workspace_Home</code> to use your software stack in your HOME directory</li>
 <li>you belong to <strong>one</strong> Workspace: this Workspace gets loaded when <code>module load Workspace</code></li>
-<li>you belong to multiple Workspaces: you need to specify the Workspace to load using the variable <code>$HPC_WORKSPACE</code>. The module presents the possible options, e.g.:
+<li>you belong to multiple Workspaces: you need to specify the Workspace to load using the variable <code>$HPC_WORKSPACE</code>. If not specified, the module presents the possible options, e.g.:
     <div class="highlight"><pre><span></span><code>$ module load Workspace
 Workspaces are available:
     HPC_SW_test, hpc_training, 
 Please select and load ONE of the following:
-    export HPC_WORKSPACE=HPC_SW_test; module load Workspace
-    export HPC_WORKSPACE=hpc_training; module load Workspace
+    HPC_WORKSPACE=HPC_SW_test module load Workspace
+    HPC_WORKSPACE=hpc_training module load Workspace
 </code></pre></div><ul>
 <li>Thus you load a specific Workspace using:
-<div class="highlight"><pre><span></span><code>export HPC_WORKSPACE=&lt;WorkspaceName&gt;; module load Workspace
+<div class="highlight"><pre><span></span><code>HPC_WORKSPACE=&lt;WorkspaceName&gt; module load Workspace
 </code></pre></div></li>
 </ul>
 </li>
@@ -1282,6 +1297,12 @@ module load Workspace
 <p>The Workspace module sets the umask to 002. Thus files and directories get group-writeable, e.g.:
 <div class="highlight"><pre><span></span><code>-rw-rw-r-- <span class="m">1</span> user group <span class="m">0</span> Mar <span class="m">15</span> <span class="m">15</span>:15 /path/to/file
 </code></pre></div></p>
+<h3 id="additional-software-stacks">Additional Software Stacks</h3>
+<p>The module <code>Workspace_SW_only</code> provide the access to the software stack of a Workspace <code>B</code> while working in Workspace <code>A</code>.</p>
+<p>As an example you could load:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">HPC_WORKSPACE</span><span class="o">=</span>A module load Workspace
+<span class="nv">HPC_WORKSPACE</span><span class="o">=</span>B module load Workspace_SW_only
+</code></pre></div>
                 
               
               
