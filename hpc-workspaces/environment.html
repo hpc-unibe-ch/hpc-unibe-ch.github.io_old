@@ -504,6 +504,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reloading" class="md-nav__link">
+    Reloading
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1170,6 +1177,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reloading" class="md-nav__link">
+    Reloading
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1200,7 +1214,7 @@ The module can also be used to set up HOME for a custom software stack. </p>
 sets the following environment variables (<a href="#shortcuts">Shortcuts</a>) and <a href="#software-stacks">Software stacks</a></p>
 <p>There are the following possibilities:</p>
 <ul>
-<li>you belong to <strong>no</strong> Workspace: load <code>module load Workspace_Home</code> to use your software stack in your HOME directory</li>
+<li>you belong to <strong>no</strong> Workspace: load <code>module load Workspace_Home</code> to use your software stack in your HOME directory and set <code>$WORKSPACE</code> and <code>$SCRATCH</code> variables to your private directories.</li>
 <li>you belong to <strong>one</strong> Workspace: this Workspace gets loaded when <code>module load Workspace</code></li>
 <li>you belong to multiple Workspaces: you need to specify the Workspace to load using the variable <code>$HPC_WORKSPACE</code>. If not specified, the module presents the possible options, e.g.:
     <div class="highlight"><pre><span></span><code>$ module load Workspace
@@ -1212,7 +1226,8 @@ Please select and load ONE of the following:
 </code></pre></div><ul>
 <li>Thus you load a specific Workspace using:
 <div class="highlight"><pre><span></span><code>HPC_WORKSPACE=&lt;WorkspaceName&gt; module load Workspace
-</code></pre></div></li>
+</code></pre></div>
+There are also ways to load an additional Workspace for an additional software stack, see <a href="#additional-software-stacks">Additional Software Stacks</a> below.</li>
 </ul>
 </li>
 </ul>
@@ -1284,7 +1299,7 @@ Manual package can also be installed in the similar manner. Adding a Modulefile 
 <p class="admonition-title">First load Python/Anaconda3</p>
 <p>Python or Anaconda3 module need to be loaded before loading the Workspace module, since variables to be set depend on Python version.
 Workspace module can also be reloaded, e.g.:
-<div class="highlight"><pre><span></span><code>export HPC_WORKSPACE=HPC_SW_test; module load Workspace
+<div class="highlight"><pre><span></span><code>HPC_WORKSPACE=HPC_SW_test module load Workspace
 module load Python
 module load Workspace
 </code></pre></div></p>
@@ -1298,10 +1313,37 @@ module load Workspace
 <div class="highlight"><pre><span></span><code>-rw-rw-r-- <span class="m">1</span> user group <span class="m">0</span> Mar <span class="m">15</span> <span class="m">15</span>:15 /path/to/file
 </code></pre></div></p>
 <h3 id="additional-software-stacks">Additional Software Stacks</h3>
-<p>The module <code>Workspace_SW_only</code> provide the access to the software stack of a Workspace <code>B</code> while working in Workspace <code>A</code>.</p>
+<p>The module <code>Workspace_SW_only</code> provide the access to a software stack of an HPC Workspace <code>B</code> while working in an HPC Workspace <code>A</code>. </p>
+<p>This could be that a common software stack is provided for multiple (data) Workspaces or that you are trying software packages in your <code>HOME</code></p>
 <p>As an example you could load:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">HPC_WORKSPACE</span><span class="o">=</span>A module load Workspace
 <span class="nv">HPC_WORKSPACE</span><span class="o">=</span>B module load Workspace_SW_only
+</code></pre></div>
+
+<p>When you want to load packages from your <code>HOME</code> while working in <code>A</code>, you can </p>
+<div class="highlight"><pre><span></span><code><span class="nv">HPC_WORKSPACE</span><span class="o">=</span><span class="nv">$HOME</span> module load Workspace_SW_only
+<span class="nv">HPC_WORKSPACE</span><span class="o">=</span>A module load Workspace
+</code></pre></div>
+
+<div class="admonition type note">
+<p>Note that the variable <code>HPC_WORKSPACE</code> is cleared after each loading of a <code>Workspace*</code>module. The currently loaded Workspace names are stored in <code>$HPC_WORKSPACE_LOADED</code> for the Workspace module and <code>$HPC_WORKSPACE_SW_ONLY</code> for the Workspace_SW_only module. </p>
+</div>
+<h3 id="reloading">Reloading</h3>
+<p>When you creating a new module there are cases where you need to reload a Workspace module, e.g. for a Python packages. This can be obtained using e.g. the following lua modulefile syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Workspace&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+        <span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE&quot;</span><span class="p">,</span><span class="nb">os.getenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE_LOADED&quot;</span><span class="p">))</span>
+        <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;Workspace&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="kr">if</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Workspace_SW_only&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+        <span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE&quot;</span><span class="p">,</span><span class="nb">os.getenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE_SW_ONLY&quot;</span><span class="p">))</span>
+        <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;Workspace_SW_only&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="kr">if</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Workspace_HOME&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+        <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;Workspace_HOME&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
 </code></pre></div>
                 
               

@@ -1293,8 +1293,8 @@ After general output, JupyterLab prints a URL with a unique key and the network 
 </div>
 <div class="admonition note">
 <p class="admonition-title">QOS</p>
-<p>the <code>jupyter-compute</code> tool uses an special Slurm Quality of Service (QOS), which should reduce queuing times for interactive jobs. 
-Since interactive jobs are considered to be finished within less than a working day, the walltime limit cannot exceed 8h. 
+<p>the <code>jupyter-compute</code> tool uses an special Slurm Quality of Service (QoS), which should reduce queuing times for interactive jobs. 
+Since interactive jobs are considered to be finished within less than a working day, the walltime limit cannot exceed 8h (default run time is 6h, afterwards you are expected to have a break ;) ). 
 You can disable that qos using the option <code>--no-qos</code>, but please release the resources as soon as you are not actively working with the resources anymore.</p>
 </div>
 <h3 id="jupyterlab-in-your-local-browser">JupyterLab in your local browser</h3>
@@ -1312,17 +1312,14 @@ print(socket.gethostname())
 </blockquote>
 <h3 id="jupyterlab-with-multiple-cpu-cores">JupyterLab with multiple CPU cores</h3>
 <p>More resources can be requested, e.g. by using:</p>
-<p><div class="highlight"><pre><span></span><code>jupyter-compute 15051 --ntasks 1 -t 60 --cpus-per-task 5 --mem 512MB
+<p><div class="highlight"><pre><span></span><code>jupyter-compute 15051 --ntasks 1 --time=01:00:00 --cpus-per-task 5 --mem 512MB
 </code></pre></div>
 Where 5 cores are requested for threading and a total memory of 3GB. 
 Please do not use multiprocessing.cpu_count() since this is returning the total amount of cores on the node. 
 Furthermore, if you use libraries, which implement threading: align the numbers of threads (often called jobs) to the selected number of cores (otherwise the performance will be affected).</p>
 <p>OR requesting GPU resources on a node with a NVIDIA graphics card:
-<div class="highlight"><pre><span></span><code>jupyter-compute 15051 --ntasks 1 -t 60 --partition=gpu --gres=gpu:gtx1080ti:1
+<div class="highlight"><pre><span></span><code>jupyter-compute 15051 --ntasks 1 --time=01:00:00 --partition=gpu --gres=gpu:gtx1080ti:1
 </code></pre></div></p>
-<blockquote>
-<p><strong>Note:</strong> This tool can only be used in the <em>all</em> and <em>gpu</em> partition. </p>
-</blockquote>
 <h2 id="kernels">Kernels</h2>
 <p>The following JupyterLab kernel are installed:</p>
 <ul>
