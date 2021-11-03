@@ -1114,6 +1114,48 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Optimization
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/scaling.html" class="md-nav__link">
+        Scaling
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../general/investment.html" class="md-nav__link">
         Investment
@@ -1629,8 +1671,8 @@ srun ./mpi_app.exe
 
 <span class="c1"># Your code below this line</span>
 <span class="c1"># run 2 threaded applications side-by-side</span>
-srun --tasks<span class="o">=</span><span class="m">1</span> --cpus-per-task<span class="o">=</span><span class="m">2</span> ./app1 inp1.dat <span class="p">&amp;</span>
-srun --tasks<span class="o">=</span><span class="m">1</span> --cpus-per-task<span class="o">=</span><span class="m">2</span> ./app2 inp2.dat <span class="p">&amp;</span>
+srun --tasks<span class="o">=</span><span class="m">1</span> --cpus-per-task<span class="o">=</span><span class="m">4</span> ./app1 inp1.dat <span class="p">&amp;</span>
+srun --tasks<span class="o">=</span><span class="m">1</span> --cpus-per-task<span class="o">=</span><span class="m">4</span> ./app2 inp2.dat <span class="p">&amp;</span>
 <span class="nb">wait</span>
 <span class="c1"># wait: Wait for both background commands to finish. This is important when running bash commands in the background (using &amp;)! Otherwise, the job ends immediately. </span>
 </code></pre></div>

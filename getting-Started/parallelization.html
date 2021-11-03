@@ -1053,6 +1053,48 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Optimization
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/scaling.html" class="md-nav__link">
+        Scaling
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../general/investment.html" class="md-nav__link">
         Investment
@@ -1317,7 +1359,14 @@ If enabled during compile time, the different iterations in the above example ca
 <p>The amount of utilized cores is specified during runtime by SLURM (using <code>--cpus-per-task</code> option) and noted to the application using <code>$OMP_NUM_THREADS</code> (or in worse case hard-coded by the programmer). There can be multiple parallel regions the application. </p>
 <h3 id="compiling-and-running">Compiling and Running</h3>
 <p>OpenMP pragmas are comments in the code. The compiler only react on it, when using a specific compile option, e.g. <code>gcc -fopenmp ...</code>. Thus, the same code could be build with or without threading support. </p>
-<p>When launching the application the threads are spawned on <strong><em>n</em></strong> CPU cores, when resources are requested with <code>--cpus-per-task</code><strong><em><code>n</code></em></strong>. </p>
+<p>When launching the application the threads are spawned on <strong><em>n</em></strong> CPU cores, when resources are requested with <code>--cpus-per-task=</code><strong><em><code>n</code></em></strong>. </p>
+<p>For all threads (of one task) one instance is launched. SLURM reserves the specified number of CPU cores for this instance. These CPU cores share memory and  When instructed in the application, threads are spawned and merged later. There can be also multiple parallel section during one run. </p>
+<p>In ideal case, <strong>one thread</strong> runs on <strong>one CPU core</strong><sup id="fnref:hyperthreading"><a class="footnote-ref" href="#fn:hyperthreading">1</a></sup>. 
+The actual amount of created threads depend on the implementation in the application. 
+Some applications by default create as many threads as CPU cores are on the node. Since typical jobs are using only a subset of CPU cores, this leads to an over-subscription, drastic loss in performance and probably influences the whole node performance including other users jobs. 
+Therewith the amount of threads should be limited to the requested resources. Therefore, the commonly used environment variable <strong><code>$OMP_NUM_THREADS</code></strong><sup id="fnref:OMP_NUM"><a class="footnote-ref" href="#fn:OMP_NUM">2</a></sup> exists. Alternatively, <code>$SLURM_CPUS_PER_TASK</code> can be used. 
+Developers may use them directly in the source code, or users specify the amount of threads with command line options, configuration/input files, or similar. 
+<strong>Please verify that you specify the target amount of threads properly in your application</strong></p>
 <h3 id="threading-in-libraries">Threading in libraries</h3>
 <p>In certain libraries algorithms already are implemented using threading, for example in BLAS and ScaLAPACK. If the usage of such libraries dominate the overall runtime it can be efficient to inquire multiple threads/cores even if the original application does not use threading. </p>
 <h3 id="efficiency">Efficiency</h3>
@@ -1354,6 +1403,17 @@ When submitting the job, <strong><em>N</em></strong> MPI tasks are requested usi
 But even linear scaling is limited. At a certain point always the overhead dominates and the advantage of more resources does not lead to performance improvements anymore. </p>
 <p>The sweet spot between more resources and shorter runtime need to be tested with an representable use case, utilizing the target algorithm, in best few minutes short (e.g. limited iterations), and a representable data set. Then by increasing the problem sizes and the job size the scaling could be estimated. </p>
 <p>The different parallelization methods can be combined, if supported. For example an application can use OpenMP threads and MPI tasks at the same time. </p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:hyperthreading">
+<p>UBELIX has hyperthreading disabled. On other systems with different hardware settings hyperthreading may be enabled. Then 2 or more threads per core (depending on the hardware) are supported by the hardware. Even then hyperthreading is only be efficient for specific algorithms.&#160;<a class="footnote-backref" href="#fnref:hyperthreading" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:OMP_NUM">
+<p><code>$OMP_NUM_THREADS</code> is set automatically by SLURM to the selected cpus per task (<code>$SLURM_CPUS_PER_TASK</code>).&#160;<a class="footnote-backref" href="#fnref:OMP_NUM" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
