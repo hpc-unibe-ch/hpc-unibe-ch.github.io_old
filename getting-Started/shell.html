@@ -14,7 +14,7 @@
     
     
       
-        <title>Scratch - HPC Documentation</title>
+        <title>Shell customization - HPC Documentation</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#description" class="md-skip">
+        <a href="#shell-settings" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scratch
+              Shell customization
             
           </span>
         </div>
@@ -240,12 +240,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Getting Started
@@ -275,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-Started/ubelix-overview.html" class="md-nav__link">
+      <a href="ubelix-overview.html" class="md-nav__link">
         UniBE HPC system "UBELIX"
       </a>
     </li>
@@ -287,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-Started/account.html" class="md-nav__link">
+      <a href="account.html" class="md-nav__link">
         Accounts and Activation
       </a>
     </li>
@@ -299,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-Started/login-ssh.html" class="md-nav__link">
+      <a href="login-ssh.html" class="md-nav__link">
         Accessing the HPCs
       </a>
     </li>
@@ -311,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-Started/workspaces.html" class="md-nav__link">
+      <a href="workspaces.html" class="md-nav__link">
         Workspaces
       </a>
     </li>
@@ -323,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-Started/ssh-customization.html" class="md-nav__link">
+      <a href="ssh-customization.html" class="md-nav__link">
         SSH customization
       </a>
     </li>
@@ -333,11 +335,56 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../getting-Started/shell.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Shell customization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="shell.html" class="md-nav__link md-nav__link--active">
         Shell customization
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-prompt" class="md-nav__link">
+    Shell Prompt
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -347,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-Started/parallelization.html" class="md-nav__link">
+      <a href="parallelization.html" class="md-nav__link">
         Parallelization
       </a>
     </li>
@@ -831,14 +878,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       <label class="md-nav__link" for="__nav_8">
         Storage
@@ -856,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="filesystem-overview.html" class="md-nav__link">
+      <a href="../file-system/filesystem-overview.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -868,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="quota.html" class="md-nav__link">
+      <a href="../file-system/quota.html" class="md-nav__link">
         Quota
       </a>
     </li>
@@ -880,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="file-transfer.html" class="md-nav__link">
+      <a href="../file-system/file-transfer.html" class="md-nav__link">
         Moving files to and from the HPCs
       </a>
     </li>
@@ -890,99 +935,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Scratch
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="scratch.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../file-system/scratch.html" class="md-nav__link">
         Scratch
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#network-scratch" class="md-nav__link">
-    Network Scratch
-  </a>
-  
-    <nav class="md-nav" aria-label="Network Scratch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#workspace-scratch" class="md-nav__link">
-    Workspace Scratch
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#personal-scratch" class="md-nav__link">
-    Personal Scratch
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-scratch" class="md-nav__link">
-    Local Scratch
-  </a>
-  
-    <nav class="md-nav" aria-label="Local Scratch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-temporary-files" class="md-nav__link">
-    Example: temporary files
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-including-data-movement" class="md-nav__link">
-    Example: including data movement
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1125,6 +1082,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1140,56 +1099,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#network-scratch" class="md-nav__link">
-    Network Scratch
+  <a href="#shell-prompt" class="md-nav__link">
+    Shell Prompt
   </a>
-  
-    <nav class="md-nav" aria-label="Network Scratch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#workspace-scratch" class="md-nav__link">
-    Workspace Scratch
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#personal-scratch" class="md-nav__link">
-    Personal Scratch
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-scratch" class="md-nav__link">
-    Local Scratch
-  </a>
-  
-    <nav class="md-nav" aria-label="Local Scratch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-temporary-files" class="md-nav__link">
-    Example: temporary files
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-including-data-movement" class="md-nav__link">
-    Example: including data movement
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1206,132 +1118,73 @@
               
                 
                 
-                  <h1>Scratch</h1>
-                
-                <p>Scratch - temporary file space</p>
+                <h1 id="shell-settings">Shell settings</h1>
 <h2 id="description">Description</h2>
-<p>Scratch file space are meant for temporary data storage. Interim computational data should be located there. 
-We distinguish local and network scratch spaces. </p>
-<h2 id="network-scratch">Network Scratch</h2>
-<p>Network scratch spaces are located on the parallel file system and accessible to all nodes. In contrast to <code>HOME</code> or <code>WORKSPACEs</code>, scratch is meant for temporary data, especially with larger quota requirements. 
-Jobs creating a lot of temporary data, which may need or may not need to be post-processed should run in this space. As an example, a application creating a huge amount of temporary output, which need to be analysed, but only partly need to be stored for a longer term.
-Quota and file quota is less restrictive on scratch compared to <code>HOME</code> or permanent <code>WORKSPACE</code> directories. Every user can use up to <strong>30TB</strong> and <strong>10M</strong> files. There is <strong>no snapshot</strong> and <strong>no backup</strong> feature available. Furthermore, an <strong>automatic deletion policy</strong> is planned, deleting files which are older than <strong>30 days</strong>. </p>
-<p>Scratch file space can be accessed using the Workspace module and the <code>$SCRATCH</code> environment variable. </p>
-<div class="highlight"><pre><span></span><code>module load Workspace
-<span class="nb">cd</span> <span class="nv">$SCRATCH</span>
+<p>This article mentions provide suggestions to setup your Shell environment in a more effective way. </p>
+<h2 id="shell-prompt">Shell Prompt</h2>
+<p>The default Linux prompt is not really highlighted and not informative. </p>
+<div class="highlight"><pre><span></span><code>-bash-4.2$ my_command --options
 </code></pre></div>
 
-<p>For personal Scratch see <a href="scratch.html#peronal-scratch">below</a></p>
-<h3 id="workspace-scratch">Workspace Scratch</h3>
-<p>Each Workspace has a <code>$SCRATCH</code> space with the same access permissions like the permanent Workspace directory (using primary and secondary groups). The Workspace can be accessed using <code>$SCRATCH</code> variable (after loading the Workspace module). It will point to <code>/storage/scratch/&lt;researchGroupID&gt;/&lt;WorkspaceID&gt;</code>. Please use <code>$SCRATCH</code> to access it. </p>
-<h3 id="personal-scratch">Personal Scratch</h3>
-<p>Users without a Workspace can also use &ldquo;personal&rdquo; Scratch. This space does need to be created initially:
-<div class="highlight"><pre><span></span><code>module load Workspace_Home
-mkdir <span class="nv">$SCRATCH</span>
-<span class="nb">cd</span> <span class="nv">$SCRATCH</span>
-</code></pre></div></p>
-<p>Please note that this space is per default <strong>no</strong> private space. If you want to restrict access you can change permissions using:</p>
-<div class="highlight"><pre><span></span><code>chmod 700 $SCRATCH
-</code></pre></div>
-
-<h2 id="local-scratch">Local Scratch</h2>
-<p>Cases:</p>
-<ul>
-<li>temporary files are produced, which are not relevant after the computation</li>
-<li>files need to be read or written multiple times within a job</li>
-</ul>
-<p>Local storage (<code>$TMPDIR</code>) should be used instead of network storage. </p>
-<p><code>$TMPDIR</code> is a node local storage which only exists during the job life time and cleaned automatically afterwards. The actual directory is <code>/scratch/local/&lt;jobID&gt;</code>, but it is highly recommended to use <code>$TMPDIR</code>. 
-If necessary data can be copied there initially at the beginning of the job, processes (multiple times) and necessary results copied back at the end. </p>
+<p>A colored and more descriptive prompt helps you separating different commands and their outputs and may guide you better thru the different directories and nodes. E.g.:</p>
 <div class="admonition note">
-<p class="admonition-title"><code>$TMPDIR</code> instead of <code>/tmp</code></p>
-<p><code>$TMPDIR</code> is much larger than <code>/tmp</code> and cleaned automatically. Especially in case of job errors data in <code>/tmp</code> will persist and clog the nodes memory. </p>
+<p><span style="color:green">submit01 </span><span style="color:blue"> ~/projectA </span><span style="color:red">$ </span><span style="color:gray">my_command &ndash;options</span></p>
 </div>
-<h3 id="example-temporary-files">Example: temporary files</h3>
-<p>In the following example the <code>example.exe</code> will need a place to store temporary/intermediate files, not necessary after the computation. The location is provided using the <code>--builddir</code> option. And the local scratch (<code>$TMPDDIR</code>) is specified. </p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --job-name tmpdir</span>
-<span class="c1">#SBATCH --nodes 1</span>
-<span class="c1">#SBATCH --ntasks 1</span>
-<span class="c1">#SBATCH --cpus-per-task 1</span>
-
-srun example.exe --builddir<span class="o">=</span><span class="nv">$TMPDIR</span> input.dat
-</code></pre></div>
-
-<p>If you want to have the advantage of low latency file system (local) but you need to keep files, you still can use <code>$TMPDIR</code> and copy files to the network storage (e.g. <code>$WORKSPACE</code> or <code>$HOME</code>) at the end of your job. This is only efficient if a) more files are manipulated local (in <code>$TMPDIR</code>) than copied to the network storage or b) files are manipulated multiple times, before copying to the network storage.</p>
-<h3 id="example-including-data-movement">Example: including data movement</h3>
-<p>In the following example script, all files from the submitting directory are copied to the head compute node. At the end of the job all files from the compute node local directory is copied back. The compute node local <code>$TMPDIR</code> is used, which points to <code>/scratch/local/&lt;jobid&gt;</code>, a job specific directory in the nodes internal disc.</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --job-name tmpdir</span>
-<span class="c1">#SBATCH --nodes 1</span>
-<span class="c1">#SBATCH --ntasks 1</span>
-<span class="c1">#SBATCH --cpus-per-task 1</span>
-<span class="c1">###SBATCH --output slurm.out # when specifying output file name, add rm slurm.out in cleanup function</span>
-
-<span class="c1"># I. Define directory names [DO NOT CHANGE]</span>
-<span class="c1"># =========================================</span>
-<span class="c1"># get name of the temporary directory working directory, physically on the compute-node</span>
-<span class="nv">workdir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TMPDIR</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="c1"># get submit directory</span>
-<span class="c1"># (every file/folder below this directory is copied to the compute node)</span>
-<span class="nv">submitdir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="c1"># 1. Transfer to node [DO NOT CHANGE]</span>
-<span class="c1"># ===================================</span>
-<span class="c1"># create/empty the temporary directory on the compute node</span>
-<span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-  mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">else</span>
-  rm -rf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>/*
-<span class="k">fi</span>
-
-<span class="c1"># change current directory to the location of the sbatch command</span>
-<span class="c1"># (&quot;submitdir&quot; is somewhere in the home directory on the head node)</span>
-<span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">submitdir</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="c1"># copy all files/folders in &quot;submitdir&quot; to &quot;workdir&quot;</span>
-<span class="c1"># (&quot;workdir&quot; == temporary directory on the compute node)</span>
-cp -prf * <span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
-<span class="c1"># change directory to the temporary directory on the compute-node</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
-
-<span class="c1"># 3. Function to transfer back to the head node [DO NOT CHANGE]</span>
-<span class="c1"># =============================================================</span>
-<span class="c1"># define clean-up function</span>
-<span class="k">function</span> clean_up <span class="o">{</span>
-  <span class="c1"># - remove log-file on the compute-node, to prevent overwiting actual output with empty file</span>
-  rm slurm-<span class="si">${</span><span class="nv">SLURM_JOB_ID</span><span class="si">}</span>.out
-  <span class="c1"># - TODO delete temporary files from the compute-node, before copying. Prevent copying unnecessary files.</span>
-  <span class="c1"># rm -r ...</span>
-  <span class="c1"># - change directory to the location of the sbatch command (on the head node)</span>
-  <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">submitdir</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="c1"># - copy everything from the temporary directory on the compute-node</span>
-  cp -prf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>/* .
-  <span class="c1"># - erase the temporary directory from the compute-node</span>
-  rm -rf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>/*
-  rm -rf <span class="s2">&quot;</span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="c1"># - exit the script</span>
-  <span class="nb">exit</span>
+<p>The prompt is defined in the environment variable <code>$PS1</code> and preferably been set in  <code>$HOME/.bash_profile</code>. The following lines are a first hint and can be customized:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># for providing the name of the git branch in the prompt</span>
+parse_git_branch<span class="o">()</span> <span class="o">{</span>
+     git branch <span class="m">2</span>&gt; /dev/null <span class="p">|</span> sed -e <span class="s1">&#39;/^[^*]/d&#39;</span> -e <span class="s1">&#39;s/* \(.*\)/ (\1)/&#39;</span>
 <span class="o">}</span>
 
-<span class="c1"># call &quot;clean_up&quot; function when this script exits, it is run even if SLURM cancels the job</span>
-<span class="nb">trap</span> <span class="s1">&#39;clean_up&#39;</span> EXIT
+<span class="c1"># creating a colorful prompt</span>
+<span class="nv">Reset</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput sgr0<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Black</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">DarkGrey</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">0</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">LightGrey</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">7</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">White</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">7</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Red</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">LightRed</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Green</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">LightGreen</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">2</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Brown</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">3</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Yellow</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">3</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Blue</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">4</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">LightBlue</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">4</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Purple</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">5</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Pink</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">5</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">Cyan</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput setaf <span class="m">6</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">LightCyan</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>tput bold <span class="p">;</span> tput setaf <span class="m">6</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\[</span><span class="nv">$Green</span><span class="s2">\]\h\[</span><span class="nv">$Reset</span><span class="s2">\] \[</span><span class="nv">$Blue</span><span class="s2">\]\w </span><span class="k">$(</span>parse_git_branch<span class="k">)</span><span class="s2">\[</span><span class="nv">$Reset</span><span class="s2">\]\[</span><span class="nv">$Red</span><span class="s2">\]\$\[</span><span class="nv">$reset</span><span class="s2">\] &quot;</span>
 
-<span class="c1"># 2. Execute [MODIFY COMPLETELY TO YOUR NEEDS]</span>
-<span class="c1"># ============================================</span>
-<span class="c1"># TODO add your computation here</span>
-<span class="c1"># simple example, hello world</span>
-srun <span class="nb">echo</span> <span class="s2">&quot;hello world from </span><span class="nv">$HOSTNAME</span><span class="s2">&quot;</span>
+<span class="c1"># correct issues with tab completion of variables (\ added in front of them, preventing tab completion)</span>
+<span class="nb">shopt</span> -s direxpand
 </code></pre></div>
 
-<p>Further aspects to consider:</p>
-<ul>
-<li>copy only necessary files<ul>
-<li>have only necessary files in the submit directory</li>
-<li>remove all unnecessary files before copying the data back, e.g. remove large input files</li>
-</ul>
-</li>
-<li>In case of a parallel job, you need to verify that all process run on one single node (<code>--nodes=1</code>) OR copy the data to all related nodes (e.g. <code>srun -n1 cp ...</code>).</li>
-</ul>
+<p>Beside the colors the shown information can be customized. These could be fixed text or from the following variables:</p>
+<div class="highlight"><pre><span></span><code><span class="se">\d</span>   The date, in <span class="s2">&quot;Weekday Month Date&quot;</span> format <span class="o">(</span>e.g., <span class="s2">&quot;Tue May 26&quot;</span><span class="o">)</span>. 
+<span class="se">\h</span>   The hostname, up to the first . <span class="o">(</span>e.g. deckard<span class="o">)</span> 
+<span class="se">\H</span>   The hostname. <span class="o">(</span>e.g. deckard.SS64.com<span class="o">)</span>
+<span class="se">\j</span>   The number of tasks currently managed by the shell. 
+<span class="se">\l</span>   The basename of the shell<span class="err">&#39;</span>s terminal device name. 
+<span class="se">\s</span>   The name of the shell, the basename of <span class="nv">$0</span> <span class="o">(</span>the portion following the final slash<span class="o">)</span>. 
+<span class="se">\t</span>   The time, in <span class="m">24</span>-hour HH:MM:SS format. 
+<span class="se">\T</span>   The time, in <span class="m">12</span>-hour HH:MM:SS format. 
+<span class="se">\@</span>   The time, in <span class="m">12</span>-hour am/pm format. 
+<span class="se">\u</span>   The username of the current user. 
+<span class="se">\v</span>   The version of Bash <span class="o">(</span>e.g., <span class="m">2</span>.00<span class="o">)</span> 
+<span class="se">\V</span>   The release of Bash, version + patchlevel <span class="o">(</span>e.g., <span class="m">2</span>.00.0<span class="o">)</span> 
+<span class="se">\w</span>   The current working directory. 
+<span class="se">\W</span>   The basename of <span class="nv">$PWD</span>. 
+<span class="se">\!</span>   The <span class="nb">history</span> number of this command. 
+<span class="se">\#</span>   The <span class="nb">command</span> number of this command. 
+<span class="se">\$</span>   If you are not root, inserts a <span class="s2">&quot;</span>$<span class="s2">&quot;</span><span class="p">;</span> <span class="k">if</span> you are root, you get a <span class="s2">&quot;#&quot;</span>  <span class="o">(</span>root <span class="nv">uid</span> <span class="o">=</span> <span class="m">0</span><span class="o">)</span> 
+<span class="se">\n</span>nn   The character whose ASCII code is the octal value nnn. 
+<span class="se">\n</span>   A newline. 
+<span class="se">\r</span>   A carriage <span class="k">return</span>. 
+<span class="se">\e</span>   An escape character <span class="o">(</span>typically a color code<span class="o">)</span>. 
+<span class="se">\a</span>   A bell character.
+<span class="se">\\</span>   A backslash. 
+</code></pre></div>
                 
               
               
@@ -1350,7 +1203,7 @@ srun <span class="nb">echo</span> <span class="s2">&quot;hello world from </span
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="file-transfer.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="ssh-customization.html" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1359,19 +1212,19 @@ srun <span class="nb">echo</span> <span class="s2">&quot;hello world from </span
               <span class="md-footer__direction">
                 Previous
               </span>
-              Moving files to and from the HPCs
+              SSH customization
             </div>
           </div>
         </a>
       
       
-        <a href="../optimization/scaling.html" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="parallelization.html" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Scaling
+              Parallelization
             </div>
           </div>
           <div class="md-footer__button md-icon">
