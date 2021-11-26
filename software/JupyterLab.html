@@ -1305,12 +1305,13 @@ The port needs to be specified while establishing the connection to UBELIX and w
 <p>Please verify that you created and registered a SSH key within UBLEIX. If you can perform the following command without entering your password your are ready to go:
 <div class="highlight"><pre><span></span><code>ssh localhost
 </code></pre></div>
-otherwise create and register a new key on a login node.
+otherwise create and register a new key on a <strong>login node</strong>.
 <div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -b <span class="m">4096</span>
 <span class="c1"># without passphrase</span>
 cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 chmod <span class="m">640</span> .ssh/authorized_keys
-</code></pre></div></p>
+</code></pre></div>
+This creates a ssh key pair on the login node, which than can be used for any ssh sessions within UBELIX. </p>
 <h3 id="setup-ssh-with-port-forwarding">Setup SSH with port forwarding</h3>
 <p>First, the port forwarding needs to be enabled between your local machine and UBELIX. Therewith a local port will be connected to the remote port on UBELIX. This ports are numbers between 2000 and 65000, which needs to be unique on the both sides. The default port for JupyterLab is 8888, but only one user can use this at a time. For simplicity, we kept both numbers the same (here 15051). This can be specified on the command line in the terminal.</p>
 <p>The <code>ssh</code> command from your <strong>local machine</strong> to the ubelix login node  needs to be called with following arguments:</p>

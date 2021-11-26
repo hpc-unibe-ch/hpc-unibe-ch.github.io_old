@@ -763,6 +763,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lock-directories" class="md-nav__link">
+    Lock directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hidden-modules" class="md-nav__link">
     Hidden Modules
   </a>
@@ -1251,6 +1258,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lock-directories" class="md-nav__link">
+    Lock directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hidden-modules" class="md-nav__link">
     Hidden Modules
   </a>
@@ -1489,6 +1503,11 @@ The downloaded source packages are typically checked with SHA256 checksums. When
 <h3 id="more-information">More information</h3>
 <p>In the EasyBuild output <code>eb_out.*</code> files are issues summarized. Often more details are required. There are more detailed log files created in the temporary directory. 
 On the compute nodes they are deleted at the end of the job, but on the login node (ivy) they are kept. The location is mentioned near the end of the output and typically is after <code>Results of the build can be found in the log file</code>.</p>
+<h3 id="lock-directories">Lock directories</h3>
+<p>EasyBuild has a procedure to prevent building the same package (same version, same software stack) using lock files. If <code>eb-install-*</code> crashes <strong>due to time limit</strong>, the lock files are not removed properly. Therewith the next time you start <code>eb-install-*</code> for that package a message like will be presented at the end of the output:</p>
+<p><div class="highlight"><pre><span></span><code>ERROR: Build of /path/to/easyconfig.eb failed <span class="o">(</span>err: <span class="s1">&#39;build failed (first 300 chars): Lock /path/to/.locks/packageVersion.lock already exists, aborting!&#39;</span><span class="o">)</span>
+</code></pre></div>
+In that moment the lock file should be already removed and the process can finally be started successfully again. </p>
 <h3 id="hidden-modules">Hidden Modules</h3>
 <p>Sometimes packages are not defined consistently. On UBELIX many packages are provided as hidden modules. This keeps the list nice and tidy. Nevertheless, if a package (or worse one of its dependency) is looking for an existing packages, but it is not mentioned to be hidden, it will not find and need to rebuild again. </p>
 <p>Hidden packages can be searched using <code>module --show-hidden avail &lt;PackageXYZ&gt;</code>. If existing as hidden and the target package or dependency does not define it as hidden, EasyBuild can be advised to treat it as hidden using the <code>--hide-deps</code> option. E.g. for binutils, gettext and Mesa, the command would look like:</p>
