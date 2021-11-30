@@ -752,6 +752,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#custom-software-environments" class="md-nav__link">
+    Custom Software environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modules-background" class="md-nav__link">
     Modules background
   </a>
@@ -1285,6 +1292,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#custom-software-environments" class="md-nav__link">
+    Custom Software environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modules-background" class="md-nav__link">
     Modules background
   </a>
@@ -1485,6 +1499,25 @@ A clean environment can be obtained with purge (see below).</p>
 <div class="highlight"><pre><span></span><code> $ module load vital-it <span class="o">&amp;&amp;</span> module avail
 </code></pre></div>
 
+<h2 id="custom-software-environments">Custom Software environments</h2>
+<p>Working on different projects or with different types of task may require to load different sets of modules. These sets can be managed with the LMOD &ldquo;user collection&rdquo; feature. </p>
+<p>As an example, a set of module for development consiting of SciPy-bundle and netCDF should be stored under the name <strong><em>devel</em></strong>. Further module lists can be managed in the same way (here lists for <strong><em>test</em></strong> and <strong><em>prod</em></strong> already exist). </p>
+<p><div class="highlight"><pre><span></span><code>$ module load SciPy-bundle netCDF
+$ module save devel
+Saved current collection of modules to: <span class="s2">&quot;devel&quot;</span>
+$ module savelist
+Named collection list :
+  <span class="m">1</span><span class="o">)</span> devel  <span class="m">2</span><span class="o">)</span> <span class="nb">test</span>  <span class="m">3</span><span class="o">)</span> prod
+</code></pre></div>
+Therewith the set of modules can be loaded using:</p>
+<div class="highlight"><pre><span></span><code>$ module restore devel
+</code></pre></div>
+
+<p>This will unload all other previously loaded modules beforehand. </p>
+<div class="admonition types note">
+<p>This method is preferred against defining/loading a set of modules in Bash configuration like .bashrc.</p>
+</div>
+<p>More information can be found in the <a href="https://lmod.readthedocs.io/en/latest/010_user.html#user-collections">LMOD documentation</a></p>
 <h2 id="modules-background">Modules background</h2>
 <h3 id="architectural-software-stacks">Architectural software stacks</h3>
 <p>On our HPCs we use LMOD (Lua modules) to provide access to different software packages and different versions. Beside different packages and versions, we provide software stacks build for the different CPU architectures. This enables us to have the packages build e.g. with AVX2 for Broadwell CPUs, but also a version with only SSE4 for Ivybridge CPUs. These software stacks are completely transparent to the user and will be used automatically when loading a module on the related architecture. </p>
