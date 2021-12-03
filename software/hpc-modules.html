@@ -745,15 +745,48 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bioinformatics-software" class="md-nav__link">
-    Bioinformatics Software
+  <a href="#environment-definitions" class="md-nav__link">
+    Environment definitions
   </a>
+  
+    <nav class="md-nav" aria-label="Environment definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-modules" class="md-nav__link">
+    Custom Modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-lua-module-for-development-environment" class="md-nav__link">
+    Example: Lua module for development environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-user-collections" class="md-nav__link">
+    Module User Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#module-user-collections" class="md-nav__link">
-    Module User Collections
+  <a href="#bioinformatics-software" class="md-nav__link">
+    Bioinformatics Software
   </a>
   
 </li>
@@ -776,6 +809,13 @@
           <li class="md-nav__item">
   <a href="#scientific-software-management" class="md-nav__link">
     Scientific Software Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-modules_1" class="md-nav__link">
+    Custom modules
   </a>
   
 </li>
@@ -1285,15 +1325,48 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bioinformatics-software" class="md-nav__link">
-    Bioinformatics Software
+  <a href="#environment-definitions" class="md-nav__link">
+    Environment definitions
   </a>
+  
+    <nav class="md-nav" aria-label="Environment definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-modules" class="md-nav__link">
+    Custom Modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-lua-module-for-development-environment" class="md-nav__link">
+    Example: Lua module for development environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-user-collections" class="md-nav__link">
+    Module User Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#module-user-collections" class="md-nav__link">
-    Module User Collections
+  <a href="#bioinformatics-software" class="md-nav__link">
+    Bioinformatics Software
   </a>
   
 </li>
@@ -1316,6 +1389,13 @@
           <li class="md-nav__item">
   <a href="#scientific-software-management" class="md-nav__link">
     Scientific Software Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-modules_1" class="md-nav__link">
+    Custom modules
   </a>
   
 </li>
@@ -1490,17 +1570,36 @@ A clean environment can be obtained with purge (see below).</p>
 <div class="highlight"><pre><span></span><code>$ module show OpenMPI
 </code></pre></div>
 
-<h2 id="bioinformatics-software">Bioinformatics Software</h2>
-<p>In co-operation with the <a href="http://www.vital-it.ch/">Vital-IT Group</a> of the <a href="http://www.isb-sib.ch/">SIB Swiss Institute of Bioinformatics</a>, a large set of <a href="https://www.vital-it.ch/services/software">bioinformatics software tools and databases</a> is available to the life science community.</p>
-<p>To list all modulefiles provided by Vital-IT, you have to first load the <code>vital-it</code> module:</p>
-<div class="admonition types note">
-<p>Loading the vital-it modulefile automatically configures the environment to use specific versions of selected software, e.g. python v2.7.5, and gcc v4.9.1</p>
+<h2 id="environment-definitions">Environment definitions</h2>
+<p>Working on different projects or with different types of task may require to load different sets of modules. </p>
+<p>There are two ways of providing a user environment setups, e.g. for development, production, post processing etc., a custom module (also for Workspaces) or a module user collections (per user). </p>
+<div class="admonition type warning">
+<p>Adding module load into <code>.bashrc</code> may lead to issues. If you diverge from this &ldquo;default&rdquo; environment and additionally load conflicting modules, e.g. form another toolchain. </p>
 </div>
-<div class="highlight"><pre><span></span><code> $ module load vital-it <span class="o">&amp;&amp;</span> module avail
+<h3 id="custom-modules">Custom Modules</h3>
+<p>A so called &ldquo;Meta Module&rdquo; can be used to specify a set of modules. Additionally, environment variables can be defined. These custom modules can be placed in the custom software stack, e.g. in a Workspace. Thus default working environments could be defined for the users that workspace. You may want to decide if you want to specify the environment with all versions of the modules (advisable), or always the latest versions (no version specified). </p>
+<p>The modules can be placed into <code>$WORKSPACE/modulefiles/$NAME/$VERSION.lua</code>.</p>
+<h4 id="example-lua-module-for-development-environment">Example: Lua module for development environment</h4>
+<p>Here an environment is defined using foss and netCDF of version 2021a. Additionally an environment variable <code>WS_ENV</code> is set to <code>devel</code>. 
+Therefore, a file <code>$WORKSPACE/modulefiles/WS_devel/2021a.lua</code> is created with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="n">whatis</span><span class="p">(</span><span class="s">[==[Description: Workspace XXX development environment]==]</span><span class="p">)</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;foss/2021a&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;foss/2021a&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;netCDF/4.8.0-gompi-2021a&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;netCDF/4.8.0-gompi-2021a&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;WS_ENV&quot;</span><span class="p">,</span> <span class="s2">&quot;devel&quot;</span><span class="p">)</span>
+<span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;CFLAGS&quot;</span><span class="p">,</span> <span class="s2">&quot;-DNDEBUG&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<h2 id="module-user-collections">Module User Collections</h2>
-<p>Working on different projects or with different types of task may require to load different sets of modules. These sets can be managed with the LMOD &ldquo;user collection&rdquo; feature. </p>
+<p>The all workspace members can load this environment using:</p>
+<div class="highlight"><pre><span></span><code>module purge   <span class="c1">### better start with a clean environment</span>
+module load Workspace WS_devel
+</code></pre></div>
+
+<h3 id="module-user-collections">Module User Collections</h3>
+<p>Sets of modules can be stored and reloaded in LMOD using the &ldquo;user collection&rdquo; feature. </p>
 <p>As an example, a set of module for development consiting of SciPy-bundle and netCDF should be stored under the name <strong><em>devel</em></strong>. Further module lists can be managed in the same way (here lists for <strong><em>test</em></strong> and <strong><em>prod</em></strong> already exist). </p>
 <p><div class="highlight"><pre><span></span><code>$ module load SciPy-bundle netCDF
 $ module save devel
@@ -1513,17 +1612,29 @@ Therewith the set of modules can be loaded using:</p>
 <div class="highlight"><pre><span></span><code>$ module restore devel
 </code></pre></div>
 
-<p>This will unload all other previously loaded modules beforehand. </p>
+<p>This will unload <strong>all</strong> other previously loaded modules beforehand and then load the set specified in the collection. </p>
 <div class="admonition types note">
 <p>This method is preferred against defining/loading a set of modules in Bash configuration like .bashrc.</p>
 </div>
 <p>More information can be found in the <a href="https://lmod.readthedocs.io/en/latest/010_user.html#user-collections">LMOD documentation</a></p>
+<h2 id="bioinformatics-software">Bioinformatics Software</h2>
+<p>In co-operation with the <a href="http://www.vital-it.ch/">Vital-IT Group</a> of the <a href="http://www.isb-sib.ch/">SIB Swiss Institute of Bioinformatics</a>, a large set of <a href="https://www.vital-it.ch/services/software">bioinformatics software tools and databases</a> is available to the life science community.</p>
+<p>To list all modulefiles provided by Vital-IT, you have to first load the <code>vital-it</code> module:</p>
+<div class="admonition types note">
+<p>Loading the vital-it modulefile automatically configures the environment to use specific versions of selected software, e.g. python v2.7.5, and gcc v4.9.1</p>
+</div>
+<div class="highlight"><pre><span></span><code> $ module load vital-it <span class="o">&amp;&amp;</span> module avail
+</code></pre></div>
+
 <h2 id="modules-background">Modules background</h2>
 <h3 id="architectural-software-stacks">Architectural software stacks</h3>
 <p>On our HPCs we use LMOD (Lua modules) to provide access to different software packages and different versions. Beside different packages and versions, we provide software stacks build for the different CPU architectures. This enables us to have the packages build e.g. with AVX2 for Broadwell CPUs, but also a version with only SSE4 for Ivybridge CPUs. These software stacks are completely transparent to the user and will be used automatically when loading a module on the related architecture. </p>
 <p>If you want to build your own software build for specific Hardware, we provide tools which help you, see <a href="installing-custom-software.html">Installing Custom Software</a></p>
 <h3 id="scientific-software-management">Scientific Software Management</h3>
 <p>Our scientific software stack, available via module files are mainly build with EasyBuild. This tool helps us to install and maintain software packages and recycle existing installation procedures. There are plenty of install instructions available <a href="https://github.com/easybuilders/easybuild-easyconfigs">EasyBuild/Easyconfigs</a>, which can be installed also in the user space with low effort, see <a href="installing-custom-software.html">Installing Custom Software</a></p>
+<h3 id="custom-modules_1">Custom modules</h3>
+<p>Modules are able to define the users environment. This includes accessibility to software packages, including settings for libraries and setting environment variables. </p>
+<p>On UBELIX we use LMOD. Therewith, lua as well as TCL modules can be used. </p>
                 
               
               

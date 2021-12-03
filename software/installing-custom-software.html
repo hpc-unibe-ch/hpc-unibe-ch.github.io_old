@@ -1304,27 +1304,29 @@ With the <code>--prefix</code> option you can specify a base installation direct
 If, for example, some additional libraries are missing on the system or not found in the expected location, the command will exit immediately. </p>
 <p>Detailed documentation can be found on the <a href="http://www.gnu.org/software/make/manual/make.html">GNU make documentation page</a></p>
 <h2 id="software-stacks-with-modules">Software Stacks with Modules</h2>
-<p>The <a href="../hpc-workspaces/environment.html">Workspace module</a> and the <em>CustomRepo</em> module provide a pre-defined setup where software stacks for the <strong>different CPU architectures</strong> as well as a <strong>generic</strong> one is accessible by default. 
+<p>The <a href="../hpc-workspaces/environment.html">Workspace module</a> module provide a pre-defined setup where software stacks for the <strong>different CPU architectures</strong> as well as a <strong>generic</strong> one is accessible by default. 
 After loading the module you will always see all the <strong>generic</strong> software stack and the software stack for the CPU architecture you are located on.</p>
 <p>If you install your packages into this structure, your modules (for the correct architecture) can be accessed without additional effort. </p>
 <p>In general you find a structure like:</p>
-<div class="highlight"><pre><span></span><code>/path/to/workspace/Software
-+-- ivybridge.el7
-|   +-- ...
-+-- broadwell.el7
-|   +-- modulefiles
-|       +-- all         # place modulefiles here with structure Name/version
-|           +-- ProdXY
-|               +-- 0.1 # a modulefile example
-|   +-- easybuild       # the EasyBuild software directory, could be used OR
-|   +-- software        # you could install under this directory
-+-- generic.el7
-|   +-- modulefiles
-|       +-- all         # place modulefiles here with structure Name/version
-|           +-- ProdXY
-|               +-- 0.1 # a modulefile example
-|   +-- easybuild       # the EasyBuild software directory, could be used OR
-+-- sources
+<div class="highlight"><pre><span></span><code>/path/to/workspace/
++-- modulefiles          # e.g. for self defined Meta Modules
++-- Software
+   +-- epyc2.el7
+      +-- ...
+   +-- broadwell.el7
+      +-- modulefiles
+         +-- all         # place modulefiles here with structure Name/version
+            +-- ProdXY
+               +-- 0.1.lua # a modulefile example
+      +-- easybuild       # the EasyBuild software directory, could be used OR
+      +-- software        # you could install under this directory
+   +-- generic.el7
+      +-- modulefiles
+         +-- all         # place modulefiles here with structure Name/version
+            +-- ProdABC
+               +-- 15.1 # another modulefile example, also TCL modules are accepted
+      +-- easybuild       # the EasyBuild software directory, could be used OR
+   +-- sources
 </code></pre></div>
 
 <p>The example shows detailed structure for Broadwell and generic software stack. But the same structure can be found also for the other stacks.</p>
@@ -1338,36 +1340,38 @@ After loading the module you will always see all the <strong>generic</strong> so
 </code></pre></div></p>
 <h3 id="modulefiles">Modulefiles</h3>
 <p>A modulefile describes location and environment setting for the targeted application, e.g. setting the <code>PATH</code>, <code>LD_LIBRARY_PATH</code> and other variables. 
-The present Lmod system searches these Modulefiles in subdirectories of all directories registered in <code>MODULEPATH</code>. The above described architectural software stacks as well as the generic one are registered in the <strong>Workspace</strong> and <strong>CustomRepo</strong> module by default. </p>
+The present Lmod system searches these Modulefiles in subdirectories of all directories registered in <code>MODULEPATH</code>. The above described architectural software stacks as well as the generic one are registered in the <strong>Workspace</strong> module by default. </p>
 <p>There are, two types of modules, the default Linux modules, written in TCL (described below) and Lua modules (created by our EasyBuild). Lua modules are more powerful, but for simplicity we present TCL modules here. </p>
-<p>Using the <code>Workspace</code> or <code>Workspace_Home</code> module, there are multiple locations for modules. On the one hand modules can be placed in <code>$WORKSPACE/modulefiles</code> or <code>$WORKSPACE/Software/generic.el7/modulefiles/</code>. Alternatively, there are architecture dependent software stacks located under <code>$WORKSPACE/Software/&lt;architecture&gt;/modulefiles/all/</code>, where <code>&lt;architecture&gt;</code> are directories for the different architectures.</p>
-<p>Assuming we want to provide an application <code>ProdXY</code>. We could create a TCL module file <code>$WORKSPACE/Software/generic.el7/modulefiles/ProdXY</code> as the following:</p>
-<div class="highlight"><pre><span></span><code>#%module
+<p>Using the <code>Workspace</code> or <code>Workspace_Home</code> module, there are multiple locations for modules:</p>
+<ul>
+<li><code>$WORKSPACE/Software/&lt;architecture&gt;/modulefiles/all/</code> architecture dependent software stacks, where <code>&lt;architecture&gt;</code> are directories for the different architectures.</li>
+<li><code>$WORKSPACE/Software/generic.el7/modulefiles/</code> architecture independent modules, e.g. generic tools like p7zip, git or Python scripts, can be located at OR</li>
+<li><code>$WORKSPACE/modulefiles</code> for generic modules like Meta modules (environment definitions) can be placed</li>
+</ul>
+<p>Assuming an application <code>ProdXY</code>, build with <code>foss/2021a</code> and netCDF, a lua module file maybe created at <code>$WORKSPACE/Software/generic.el7/modulefiles/ProdABC</code> as the following:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- comments start with &quot;--&quot;</span>
+<span class="c1">-- at least a short description, best with URL</span>
+<span class="n">whatis</span><span class="p">(</span><span class="s">[==[Description: ProdABC, a tool for something]==]</span><span class="p">)</span>
+<span class="c1">-- conflicting modules, e.g. other versions of this package</span>
+<span class="n">conflict</span><span class="p">(</span><span class="s2">&quot;ProdABC&quot;</span><span class="p">)</span>
+<span class="c1">-- location of actual installation, for later reference</span>
+<span class="kd">local</span> <span class="n">root</span> <span class="o">=</span> <span class="s2">&quot;/path/to/software/ProdABC/installation&quot;</span>
 
-conflict ProdABC               # conflicts with another application ProdABC
-module load Python/3.8.2-GCCcore-9.3.0 # load other additional modules
-
-# provide a description
-whatis &quot;The ProdXY for doing clever things.&quot;
-proc ModulesHelp { } {
- puts stderr &quot;This module loads the ProdXY tool.&quot;
- puts stderr &quot;\t the executable prodXY is provided.&quot;
-}
-
-# set the path to the software product (can be used later in the module)
-set PKG_PREFIX /path/to/software/package/ProdXY
-# add the location of binaries to PATH, such they are immediately accessible
-prepend-path PATH $PKG_PREFIX/bin
-# add to library path for dynamically linked applications
-prepend-path LD_LIBRARY_PATH $PKG_PREFIX/lib
-# add a location for Python packages
-prepend-path PYTHONPATH $PKG_PREFIX/lib/python3.8/site-packages/
-# for example, you can set environment variables for compiling
-setenv CFLAGS &quot;-DNDEBUG&quot;
+<span class="c1">-- dependencies required to be loaded during runtime</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;foss/2021a&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;foss/2021a&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;netCDF/4.8.0-gompi-2021a&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;netCDF/4.8.0-gompi-2021a&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="c1">-- setting environment variables, e.g. PATH,...</span>
+<span class="n">prepend_path</span><span class="p">(</span><span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="n">pathJoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">))</span>
+<span class="n">prepend_path</span><span class="p">(</span><span class="s2">&quot;LD_LIBRARY_PATH&quot;</span><span class="p">,</span> <span class="n">pathJoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;lib&quot;</span><span class="p">))</span>
+<span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;PRODABC_DATA_DIR&quot;</span><span class="p">,</span> <span class="n">pathJoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;share&quot;</span><span class="p">))</span>
 </code></pre></div>
 
 <p>In the first lines, we can set conflicts with other modules (here named ProdABC). Then we load some dependency modules and provide some description. The additional lines depend on your requirements for the application. With <code>set</code> you can define internal variables (within this modulefile). 
-The command <code>setenv</code> defines a environment variable, set in your environment after loading the module. And <code>prepend-path</code> and <code>append-path</code> extend an environment variable at the front or end.</p>
+The command <code>setenv</code> defines a environment variable, set in your environment after loading the module. The commands <code>prepend-path</code> and <code>append-path</code> extend an environment variable at the front or end.</p>
 <p>There are common environment variables like:</p>
 <ul>
 <li><code>PATH</code> for providing executables,</li>

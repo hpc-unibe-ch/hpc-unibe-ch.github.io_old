@@ -1267,14 +1267,6 @@ This is your home directory and serves as the repository for your personal files
 You can reference your home directory by <code>~</code> or <code>$HOME</code>. </p>
 <p>Your home directory is located on a shared file system. Therefore, all files and directories are always available on all cluster nodes and must hence not be copied between those nodes. HOME directories have a daily snapshot and backup procedures.
 Disk space is managed by <a href="file-system/quota.html">quotas</a>. By default, each user has 1TB of disk space available. Keep your home directory clean by regularly deleting old data or by moving data to a private storage.</p>
-<div class="admonition type info">
-<p class="admonition-title">migration change</p>
-<ul>
-<li><strong>No backup</strong> service for data in your home directory will be provided until the migration and Workspace introduction phase is finished. It is your own responsibility to backup important data to a private location. </li>
-<li>Home directories created before 2021, may still be located at <code>/home/ubelix/&lt;your_institute&gt;/&lt;your_campus_account&gt;/</code>. </li>
-<li>Previous extended HOME quota will be kept until the Workspace introduction phase is finished. </li>
-</ul>
-</div>
 <p>You can always print the current working directory using the <code>pwd</code> (present working directory) command:
 <div class="highlight"><pre><span></span><code><span class="nb">pwd</span>
 /storage/homefs/&lt;username&gt;
@@ -1323,6 +1315,9 @@ Currently Loaded Modules:
 </div>
 <p>With the module environment you can also easily install, maintain and provide software packages in your workspaces and share with your collaborators. </p>
 <p>The <a href="software/hpc-modules.html">Software</a> section is dedicated to this topic. More information can be found there.</p>
+<div class="admonition type notes">
+<p>Managing different working environments can be done with &ldquo;Meta Modules&rdquo; or user collections, see <a href="software/hpc-modules.html#environment-definitions">Environment Definitions</a></p>
+</div>
 <h2 id="hello-world">Hello World</h2>
 <p>Doing useful computations consists of running commands that work on data and generate a result. These computations are resource-intensive. That is what
 the compute nodes are there for. These over 300 servers do the heavy lifting as soon as resources are free for you. Currently you are on a submit server
