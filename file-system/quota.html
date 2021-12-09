@@ -1219,17 +1219,20 @@ UniBE Workspace Quota <span class="nv">report</span>
                     : free quota,  used <span class="o">(</span>GB<span class="o">)(</span>   %<span class="o">)</span>, quota <span class="o">(</span>GB<span class="o">)</span> <span class="p">|</span>  files used<span class="o">(</span>   %<span class="o">)</span>,      quota <span class="p">|</span> start date<span class="o">(</span><span class="m">1</span><span class="o">)</span>, average quota<span class="o">(</span><span class="m">2</span><span class="o">)</span>
 <span class="o">================================================================================================================================</span>
 HOME                :        all,        <span class="m">421</span><span class="o">(</span> <span class="m">41</span>%<span class="o">)</span>,       <span class="m">1024</span> <span class="p">|</span>      <span class="m">796058</span><span class="o">(</span> <span class="m">79</span>%<span class="o">)</span>,    <span class="m">1000000</span> <span class="p">|</span>              ,
+SCR_usr             :        all,        <span class="m">269</span><span class="o">(</span>  <span class="m">0</span>%<span class="o">)</span>,      <span class="m">30720</span> <span class="p">|</span>          <span class="m">22</span><span class="o">(</span>  <span class="m">0</span>%<span class="o">)</span>,   <span class="m">10000000</span> <span class="p">|</span>              ,
 Workspace1          :          <span class="m">5</span>,        <span class="m">101</span><span class="o">(</span>  <span class="m">1</span>%<span class="o">)</span>,      <span class="m">10240</span> <span class="p">|</span>           <span class="m">4</span><span class="o">(</span>  <span class="m">0</span>%<span class="o">)</span>,   <span class="m">10000000</span> <span class="p">|</span>    <span class="m">2021</span>-02-25,           <span class="m">7</span>.5833
 
+<span class="o">(</span><span class="m">0</span><span class="o">)</span> space names starting with <span class="s2">&quot;SCR_&quot;</span> refer to the personal <span class="o">(</span>usr<span class="o">)</span> or Workspace SCRATCH quota.
 <span class="o">(</span><span class="m">1</span><span class="o">)</span> accounting period start date, The date from which the average usage is computed.
 <span class="o">(</span><span class="m">2</span><span class="o">)</span> file space average quota <span class="o">(</span>not files<span class="o">)</span>, calculated by the average of messured values in the actual accounting period.
 </code></pre></div></p>
-<p>In the last example the workspace <code>Workspace1</code> has <code>5TB</code> of free quota, and a total of <code>10TB</code> of quota (<code>5TB</code> additional storage requested). The <code>start date</code> defines the start of the accounting period and the average quota is computed as average over all datapoints starting from <code>start date</code>. </p>
+<p>In the last example the workspace <code>Workspace1</code> has <code>5TB</code> of free quota, and a total of <code>10TB</code> of quota (<code>5TB</code> additional storage requested). The <code>start date</code> defines the start of the accounting period and the average quota is computed as average over all datapoints starting from <code>start date</code>. 
+Furthermore, the SCRATCH quota is presented starting with <code>SCR_</code>, where <code>SCR_usr</code> is your personal SCRATCH quota and <code>SCR_</code> plus Workspace name the group quota of the Workspace group in the scratch fileset. Workspace SCRATCH quota is only presented if a quota is set and the <code>quota -l</code> option selected.</p>
 <div class="admonition types note">
 <p class="admonition-title">data gathering</p>
 <ul>
 <li>Workspaces: Workspace quota information is gathered twice a day. Thus the presented data may not completely represent the current state.</li>
-<li>HOME: values presented are actual values directly from the file system</li>
+<li>HOME and SCRATCH: values presented are actual values directly gathered from the file system</li>
 </ul>
 </div>
 <p>Note: the coloring of the relative values is green (&lt;70%), yellow (70% &lt; x &lt; 90%), red (&gt;90%).</p>
