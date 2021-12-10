@@ -1289,13 +1289,16 @@
 </code></pre></div>
 
 <h2 id="signaling-checkpoint-creation-without-canceling-the-job">Signaling checkpoint creation without canceling the job</h2>
-<p>You can use a UNIX signal to trigger the creation of a checkpoint of a running job. For example, consider a job that traps SIGUSR1 and saves intermediate results as soon as the signal occurs. You can then create a checkpoint by signaling SIGUSR1 to the job using <em>scancel</em>:</p>
-<div class="highlight"><pre><span></span><code>scancel --signal<span class="o">=</span>USR1 &lt;jobid&gt;
+<p>Slurm distinguishes between the job script, its child processes and job steps. Job steps are launched using <code>srun</code>. </p>
+<p>All applications which should reveive more signals than the default SIGERM at the end of the job, does need to be <strong>started</strong> using <code>srun</code>. Then signals (here <code>SIGUSR1</code>) can be send using:</p>
+<div class="highlight"><pre><span></span><code>scancel --signal<span class="o">=</span>USR1 &lt;jobID&gt;
 </code></pre></div>
 
-<div class="admonition types note">
-<p>Use <em>&ndash;batch</em> option to signal the batch step (shell script), but not any other associated job step <em>(srun)</em> or child processes of the shell script. Use <em>&ndash;full</em> option to signal all steps associated with the job including the shell script and its child processes.</p>
-</div>
+<p>If you need/want to handle signals with the batch script, add <code>--batch</code> (signals only to the batch script) or <code>--full</code> (signal to all steps and the batch script), e.g.</p>
+<div class="highlight"><pre><span></span><code>scancel --full --signal<span class="o">=</span>USR1 &lt;jobid&gt;
+</code></pre></div>
+
+<p>Therewith, you can use a UNIX signal to trigger the creation of a checkpoint of a running job. For example, consider a job that traps SIGUSR1 and saves intermediate results as soon as the signal occurs. You can then create a checkpoint by signaling SIGUSR1 to the job.</p>
 <div class="admonition types note">
 <p>Using <em>scancel</em> with the <em>&ndash;signal</em> option won&rsquo;t terminate the job or job step.</p>
 </div>
