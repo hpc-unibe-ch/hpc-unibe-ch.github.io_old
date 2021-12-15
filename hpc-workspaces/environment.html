@@ -1383,16 +1383,20 @@ module load Workspace
 <p>Note that the variable <code>HPC_WORKSPACE</code> is cleared after each loading of a <code>Workspace*</code>module. The currently loaded Workspace names are stored in <code>$HPC_WORKSPACE_LOADED</code> for the Workspace module and <code>$HPC_WORKSPACE_SW_ONLY</code> for the Workspace_SW_only module. </p>
 </div>
 <h3 id="reloading">Reloading</h3>
-<p>When you creating a new module there are cases where you need to reload a Workspace module, e.g. for a Python packages. This can be obtained using e.g. the following lua modulefile syntax:</p>
+<p>The Workspace modules are configured to &ldquo;remember&rdquo; the selected Workspace you once loaded in the current session, even after unload the Workspace module. Therefore, environment variables are set in the current session, <code>$HPC_WORKSPACE</code> for the <code>Workspace</code> module, and <code>$HPC_WORKSPACE_SW_ONLY</code> for the <code>Workspace_SW_only</code> module. </p>
+<p>If you belong to multiple Workspaces and you want to list the available Workspaces you need to <code>unset HPC_WORKSPACE</code> before loading the <code>Workspace</code> module. If you already know the name, you can switch into another Workspace (here Workspace <code>foo</code>) by:</p>
+<div class="highlight"><pre><span></span><code>module unload Workspace
+<span class="nv">HPC_WORKSPACE</span><span class="o">=</span>foo module load Workspace
+</code></pre></div>
+
+<p>When you are creating a new module, there are cases where you need to reload a Workspace module, e.g. for a Python packages. This can be obtained using e.g. the following lua modulefile syntax:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">if</span> <span class="n">mode</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;load&#39;</span> <span class="kr">then</span>
   <span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
     <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
     <span class="kr">if</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Workspace&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
-        <span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE&quot;</span><span class="p">,</span><span class="nb">os.getenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE_LOADED&quot;</span><span class="p">))</span>
         <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;Workspace&quot;</span><span class="p">)</span>
     <span class="kr">end</span>
     <span class="kr">if</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Workspace_SW_only&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
-        <span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE&quot;</span><span class="p">,</span><span class="nb">os.getenv</span><span class="p">(</span><span class="s2">&quot;HPC_WORKSPACE_SW_ONLY&quot;</span><span class="p">))</span>
         <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;Workspace_SW_only&quot;</span><span class="p">)</span>
     <span class="kr">end</span>
     <span class="kr">if</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;Workspace_HOME&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
@@ -1401,6 +1405,8 @@ module load Workspace
   <span class="kr">end</span>
 <span class="kr">end</span>
 </code></pre></div>
+
+<p>Assuming we want to create a module for an additional Python package. In this example we not only verify that <code>Python</code> is loaded, but also that the Workspace Python settings (incl. <code>PYTHONPATH</code> and <code>PYTHONPACKAGEPATH</code>) are set properly by reloading the Workspace module. </p>
                 
               
               
