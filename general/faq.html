@@ -1158,6 +1158,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#i-modified-my-bashrc-but-its-not-doing-what-i-expect-how-can-i-debug-that-bash-script" class="md-nav__link">
+    I modified my bashrc, but its not doing what I expect, how can I debug that bash script?
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1404,6 +1411,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#i-modified-my-bashrc-but-its-not-doing-what-i-expect-how-can-i-debug-that-bash-script" class="md-nav__link">
+    I modified my bashrc, but its not doing what I expect, how can I debug that bash script?
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1546,12 +1560,19 @@ It is also possible your cache file is out-of-date<span class="p">;</span> it ma
 
 Also make sure that all modulefiles written in TCL start with the string <span class="c1">#%Module</span>
 </code></pre></div>
-The mentioned module <code>zlib/.1.2.11-GCCcore-10.2.0</code> is available. While loading foss/2021a 
-<code>zlib/.1.2.11-GCCcore-10.3.0</code> gets loaded, but LMOD then will not swar its version, but report the mentioned error. </p>
-<p>As noted before, the best practice would be anyways stay within the same toolchain and toolchain version. </p>
+The mentioned module <code>zlib/.1.2.11-GCCcore-10.2.0</code> is available in general. 
+When loading <code>foss/2021a</code>, the <code>zlib/.1.2.11-GCCcore-10.3.0</code> should get loaded, but LMOD will not swap its version, but report the mentioned error. </p>
+<p>Please take this as an indication that you accidentality mix different toolchains, and rethink your procedure, and stay within the same toolchain and toolchain version. </p>
 <h2 id="environment-issues">Environment issues</h2>
 <h3 id="i-am-using-zsh-but-some-commands-and-tools-fail-what-can-i-do">I am using zsh, but some commands and tools fail, what can I do?</h3>
-<p>There are known caveates with LMOD (or module system) and Bash scripts in zsh environments. Bash scripts do not source any system or user files. To initialize the (module) environment properly, you need to set <code>export BASH_ENV=/etc/bashrc</code> in your zsh profile (<code>.zshrc</code>).</p>
+<p>There are known caveats with LMOD (or module system) and Bash scripts in zsh environments. Bash scripts do not source any system or user files. To initialize the (module) environment properly, you need to set <code>export BASH_ENV=/etc/bashrc</code> in your zsh profile (<code>.zshrc</code>).</p>
+<h3 id="i-modified-my-bashrc-but-its-not-doing-what-i-expect-how-can-i-debug-that-bash-script">I modified my bashrc, but its not doing what I expect, how can I debug that bash script?</h3>
+<p>The bashrc can be debugged as all other bash scripts, using </p>
+<ul>
+<li><code>set -x</code> at the beginning of the script. This will print <strong>all</strong> commands executed on screen, including all subcommand also included in called scripts and tools</li>
+<li>print statements, e.g. <code>echo "DEBUG: variable PATH=$PATH"</code></li>
+</ul>
+<p>These should provide a good indication where the script diverge from your expectation. </p>
 <h2 id="job-issues">Job issues</h2>
 <h3 id="why-is-my-job-still-pending">Why is my job still pending?</h3>
 <div class="admonition types note">
