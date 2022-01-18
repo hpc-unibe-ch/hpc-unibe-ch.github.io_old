@@ -627,6 +627,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gpu-usage-monitoring" class="md-nav__link">
+    GPU usage monitoring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-information" class="md-nav__link">
     Further Information
   </a>
@@ -1195,6 +1202,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gpu-usage-monitoring" class="md-nav__link">
+    GPU usage monitoring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-information" class="md-nav__link">
     Further Information
   </a>
@@ -1291,6 +1305,31 @@
 <div class="admonition types note">
 <p>If you need cuDNN you must load the cuDNN module. The appropriate CUDA version is then loaded automatically as a dependency.</p>
 </div>
+<h2 id="gpu-usage-monitoring">GPU usage monitoring</h2>
+<p>To verify the <strong>usage</strong> of one or multiple GPUs the <code>nvidia-smi</code> tool can be utilized. The tool need to be launched on the related nodes. After the job started running, a new job step gets created using <code>srun</code>. <code>nvidia-smi</code> will be launced to display the resource utilization. </p>
+<p><div class="highlight"><pre><span></span><code>$ sbatch job.sh
+Submitted batch job <span class="m">123456</span>
+$ squeue --me
+<span class="c1"># job running</span>
+$ srun --jobid <span class="m">123456</span> nvidia-smi
+Fri Nov <span class="m">11</span> <span class="m">11</span>:11:11 <span class="m">2021</span>
++-----------------------------------------------------------------------------+
+<span class="p">|</span> NVIDIA-SMI <span class="m">495</span>.29.05    Driver Version: <span class="m">495</span>.29.05    CUDA Version: <span class="m">11</span>.5     <span class="p">|</span>
+<span class="p">|</span>-------------------------------+----------------------+----------------------+
+<span class="p">|</span> GPU  Name        Persistence-M<span class="p">|</span> Bus-Id        Disp.A <span class="p">|</span> Volatile Uncorr. ECC <span class="p">|</span>
+<span class="p">|</span> Fan  Temp  Perf  Pwr:Usage/Cap<span class="p">|</span>         Memory-Usage <span class="p">|</span> GPU-Util  Compute M. <span class="p">|</span>
+<span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>               MIG M. <span class="p">|</span>
+<span class="p">|</span><span class="o">===============================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
+<span class="p">|</span>   <span class="m">0</span>  NVIDIA GeForce ...  On   <span class="p">|</span> <span class="m">00000000</span>:04:00.0 Off <span class="p">|</span>                  N/A <span class="p">|</span>
+<span class="p">|</span> <span class="m">23</span>%   25C    P8     8W / 250W <span class="p">|</span>      1MiB / 11178MiB <span class="p">|</span>      <span class="m">0</span>%      Default <span class="p">|</span>
+<span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>                  N/A <span class="p">|</span>
++-------------------------------+----------------------+----------------------+
+<span class="p">|</span>   <span class="m">1</span>  NVIDIA GeForce ...  On   <span class="p">|</span> <span class="m">00000000</span>:08:00.0 Off <span class="p">|</span>                  N/A <span class="p">|</span>
+<span class="p">|</span> <span class="m">23</span>%   24C    P8     8W / 250W <span class="p">|</span>      1MiB / 11178MiB <span class="p">|</span>      <span class="m">0</span>%      Default <span class="p">|</span>
+<span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>                  N/A <span class="p">|</span>
++-------------------------------+----------------------+----------------------+
+</code></pre></div>
+Therewith the GPU core and memory usage can be displayed. </p>
 <h2 id="further-information">Further Information</h2>
 <p>CUDA: <a href="https://developer.nvidia.com/cuda-zone">https://developer.nvidia.com/cuda-zone</a><br />
 CUDA C/C++ Basics: <a href="http://www.nvidia.com/docs/IO/116711/sc11-cuda-c-basics.pdf">http://www.nvidia.com/docs/IO/116711/sc11-cuda-c-basics.pdf</a><br />
