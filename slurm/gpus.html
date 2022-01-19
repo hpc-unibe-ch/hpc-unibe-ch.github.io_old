@@ -1306,12 +1306,12 @@
 <p>If you need cuDNN you must load the cuDNN module. The appropriate CUDA version is then loaded automatically as a dependency.</p>
 </div>
 <h2 id="gpu-usage-monitoring">GPU usage monitoring</h2>
-<p>To verify the <strong>usage</strong> of one or multiple GPUs the <code>nvidia-smi</code> tool can be utilized. The tool need to be launched on the related nodes. After the job started running, a new job step gets created using <code>srun</code>. <code>nvidia-smi</code> will be launced to display the resource utilization. </p>
+<p>To verify the <strong>usage</strong> of one or multiple GPUs the <code>nvidia-smi</code> tool can be utilized. The tool need to be launched on the related nodes. After the job started running, a new job step can be created using <code>srun</code> and call <code>nvidia-smi</code> to display the resource utilization. Here we attach the process to an job with the jobID <code>123456</code>. You need to replace the jobId with your gathered jobID, presented in the sbatch output. </p>
 <p><div class="highlight"><pre><span></span><code>$ sbatch job.sh
 Submitted batch job <span class="m">123456</span>
 $ squeue --me
-<span class="c1"># job running</span>
-$ srun --jobid <span class="m">123456</span> nvidia-smi
+<span class="c1"># verify that job gets started</span>
+$ srun --ntasks-per-node<span class="o">=</span><span class="m">1</span> --jobid <span class="m">123456</span> nvidia-smi
 Fri Nov <span class="m">11</span> <span class="m">11</span>:11:11 <span class="m">2021</span>
 +-----------------------------------------------------------------------------+
 <span class="p">|</span> NVIDIA-SMI <span class="m">495</span>.29.05    Driver Version: <span class="m">495</span>.29.05    CUDA Version: <span class="m">11</span>.5     <span class="p">|</span>
@@ -1329,7 +1329,8 @@ Fri Nov <span class="m">11</span> <span class="m">11</span>:11:11 <span class="m
 <span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>                  N/A <span class="p">|</span>
 +-------------------------------+----------------------+----------------------+
 </code></pre></div>
-Therewith the GPU core and memory usage can be displayed. </p>
+Therewith the GPU core utilization and memory usage can be displayed for all GPU cards belonging to that job. </p>
+<p>Note that this is a one off presentation of the usage and the called <code>nvidia-smi</code> command runs within your allocation. The required resources for this job step should be minimal and should not noticably influence your job performance. </p>
 <h2 id="further-information">Further Information</h2>
 <p>CUDA: <a href="https://developer.nvidia.com/cuda-zone">https://developer.nvidia.com/cuda-zone</a><br />
 CUDA C/C++ Basics: <a href="http://www.nvidia.com/docs/IO/116711/sc11-cuda-c-basics.pdf">http://www.nvidia.com/docs/IO/116711/sc11-cuda-c-basics.pdf</a><br />
